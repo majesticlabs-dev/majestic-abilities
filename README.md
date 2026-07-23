@@ -16,6 +16,9 @@ npx skills add .
 # Install every available skill
 npx skills add . --skill '*'
 
+# Install every Core skill directly from the category
+npx skills add ./skills/core --skill '*'
+
 # Install every SEO skill directly from the category
 npx skills add ./skills/seo --skill '*'
 ```
@@ -26,7 +29,16 @@ After this repository is published, replace `.` with its GitHub `owner/repo` ide
 
 | Category | Skills | Path | Status |
 | --- | ---: | --- | --- |
+| Core | 1 | [`skills/core/`](skills/core/) | Migrated and validated |
 | SEO | 22 | [`skills/seo/`](skills/seo/) | Migrated and validated |
+
+Core is a category for foundational repository capabilities, not a dependency required by other categories.
+
+## Core Skills
+
+| Skill | Description |
+| --- | --- |
+| [`agents-md-hierarchy`](skills/core/agents-md-hierarchy/) | Audit and refine nested repository guidance where local commands, rules, or boundaries differ. |
 
 ## SEO Skills
 
