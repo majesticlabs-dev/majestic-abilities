@@ -19,6 +19,12 @@ npx skills add . --skill '*'
 # Install every Core skill directly from the category
 npx skills add ./skills/core --skill '*'
 
+# Install every DevOps skill directly from the category
+npx skills add ./skills/devops --skill '*'
+
+# Install every Rails skill directly from the category
+npx skills add ./skills/rails --skill '*'
+
 # Install every SEO skill directly from the category
 npx skills add ./skills/seo --skill '*'
 ```
@@ -27,10 +33,12 @@ After this repository is published, replace `.` with its GitHub `owner/repo` ide
 
 ## Catalog
 
-| Category | Skills | Path | Status |
-| --- | ---: | --- | --- |
-| Core | 1 | [`skills/core/`](skills/core/) | Migrated and validated |
-| SEO | 22 | [`skills/seo/`](skills/seo/) | Migrated and validated |
+| Category | Skills | Path |
+| --- | ---: | --- |
+| Core | 1 | [`skills/core/`](skills/core/) |
+| DevOps | 1 | [`skills/devops/`](skills/devops/) |
+| Rails | 36 | [`skills/rails/`](skills/rails/) |
+| SEO | 22 | [`skills/seo/`](skills/seo/) |
 
 Core is a category for foundational repository capabilities, not a dependency required by other categories.
 
@@ -39,6 +47,53 @@ Core is a category for foundational repository capabilities, not a dependency re
 | Skill | Description |
 | --- | --- |
 | [`agents-md-hierarchy`](skills/core/agents-md-hierarchy/) | Audit and refine nested repository guidance where local commands, rules, or boundaries differ. |
+
+## DevOps Skills
+
+| Skill | Description |
+| --- | --- |
+| [`kamal-deploy`](skills/devops/kamal-deploy/) | Deploy and operate Rails applications with Kamal 2. |
+
+## Rails Skills
+
+| Skill | Description |
+| --- | --- |
+| [`aasm-coder`](skills/rails/aasm-coder/) | Implement state machines with AASM for workflow management. |
+| [`action-mailer-coder`](skills/rails/action-mailer-coder/) | Create or refactor Action Mailer emails. |
+| [`action-policy-coder`](skills/rails/action-policy-coder/) | Implement authorization with Action Policy. |
+| [`active-interaction-coder`](skills/rails/active-interaction-coder/) | Implement typed business operations with ActiveInteraction. |
+| [`active-job-coder`](skills/rails/active-job-coder/) | Create or refactor Active Job background jobs. |
+| [`anycable-coder`](skills/rails/anycable-coder/) | Implement reliable real-time features with AnyCable. |
+| [`anyway-config-coder`](skills/rails/anyway-config-coder/) | Implement type-safe configuration with `anyway_config`. |
+| [`business-logic-coder`](skills/rails/business-logic-coder/) | Route Rails business logic to the simplest fitting home. |
+| [`constraints-reviewer`](skills/rails/constraints-reviewer/) | Review data constraints and referential integrity. |
+| [`dhh-rails-style`](skills/rails/dhh-rails-style/) | Write and review Rails code using DHH and 37signals conventions. |
+| [`dialog-patterns`](skills/rails/dialog-patterns/) | Build native HTML dialogs with Turbo and Stimulus. |
+| [`event-sourcing-coder`](skills/rails/event-sourcing-coder/) | Record domain events for side effects, audit trails, and activity feeds. |
+| [`gem-builder`](skills/rails/gem-builder/) | Build production-quality Ruby gems. |
+| [`graphql-architect`](skills/rails/graphql-architect/) | Design GraphQL APIs with `graphql-ruby`. |
+| [`hotwire-coder`](skills/rails/hotwire-coder/) | Implement Turbo Drive, Frames, and Streams. |
+| [`inertia-coder`](skills/rails/inertia-coder/) | Build Rails applications with Inertia.js and React, Vue, or Svelte. |
+| [`layered-rails`](skills/rails/layered-rails/) | Design Rails applications with explicit architectural layers. |
+| [`rails-lint`](skills/rails/rails-lint/) | Run and fix RuboCop, ERB Lint, and Brakeman findings in Rails projects. |
+| [`litestream-coder`](skills/rails/litestream-coder/) | Configure Litestream backups for Rails SQLite databases. |
+| [`mcp-oauth-setup`](skills/rails/mcp-oauth-setup/) | Implement MCP server authentication and OAuth registration. |
+| [`minitest-coder`](skills/rails/minitest-coder/) | Write Minitest tests for Ruby and Rails. |
+| [`performance-reviewer`](skills/rails/performance-reviewer/) | Review Rails code for query, memory, locking, and throughput problems. |
+| [`pragmatic-rails-reviewer`](skills/rails/pragmatic-rails-reviewer/) | Review Rails changes for regressions, maintainability, and conventions. |
+| [`privacy-reviewer`](skills/rails/privacy-reviewer/) | Review PII handling, encryption, and privacy compliance. |
+| [`rails-activity-timeline`](skills/rails/rails-activity-timeline/) | Add polymorphic activity timelines with Turbo Stream updates. |
+| [`rails-authentication-coder`](skills/rails/rails-authentication-coder/) | Implement Rails 8 native authentication. |
+| [`rails-debugger`](skills/rails/rails-debugger/) | Diagnose Rails errors, failing tests, and unexpected behavior. |
+| [`rails-refactorer`](skills/rails/rails-refactorer/) | Refactor Rails code while preserving behavior. |
+| [`ruby-coder`](skills/rails/ruby-coder/) | Write modern, idiomatic Ruby. |
+| [`simplicity-reviewer`](skills/rails/simplicity-reviewer/) | Review code for unnecessary complexity and YAGNI violations. |
+| [`solid-cache-coder`](skills/rails/solid-cache-coder/) | Configure and use Solid Cache. |
+| [`solid-queue-coder`](skills/rails/solid-queue-coder/) | Configure and use Solid Queue. |
+| [`stimulus-coder`](skills/rails/stimulus-coder/) | Create or refactor Stimulus controllers. |
+| [`store-model-coder`](skills/rails/store-model-coder/) | Model typed JSON attributes with `store_model`. |
+| [`tailwind-coder`](skills/rails/tailwind-coder/) | Style Rails views with Tailwind CSS. |
+| [`viewcomponent-coder`](skills/rails/viewcomponent-coder/) | Build component-based Rails interfaces with ViewComponent. |
 
 ## SEO Skills
 
