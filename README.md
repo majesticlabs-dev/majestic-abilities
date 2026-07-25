@@ -22,6 +22,9 @@ npx skills add ./skills/core --skill '*'
 # Install every DevOps skill directly from the category
 npx skills add ./skills/devops --skill '*'
 
+# Install every Cloudflare skill directly from the category
+npx skills add ./skills/cloudflare --skill '*'
+
 # Install every Rails skill directly from the category
 npx skills add ./skills/rails --skill '*'
 
@@ -35,8 +38,9 @@ After this repository is published, replace `.` with its GitHub `owner/repo` ide
 
 | Category | Skills | Path |
 | --- | ---: | --- |
+| Cloudflare | 2 | [`skills/cloudflare/`](skills/cloudflare/) |
 | Core | 1 | [`skills/core/`](skills/core/) |
-| DevOps | 1 | [`skills/devops/`](skills/devops/) |
+| DevOps | 10 | [`skills/devops/`](skills/devops/) |
 | Rails | 36 | [`skills/rails/`](skills/rails/) |
 | SEO | 22 | [`skills/seo/`](skills/seo/) |
 
@@ -48,11 +52,27 @@ Core is a category for foundational repository capabilities, not a dependency re
 | --- | --- |
 | [`agents-md-hierarchy`](skills/core/agents-md-hierarchy/) | Audit and refine nested repository guidance where local commands, rules, or boundaries differ. |
 
+## Cloudflare Skills
+
+| Skill | Description |
+| --- | --- |
+| [`cloudflare-infrastructure`](skills/cloudflare/cloudflare-infrastructure/) | Provision and review Cloudflare infrastructure with OpenTofu. |
+| [`cloudflare-workers-deployment`](skills/cloudflare/cloudflare-workers-deployment/) | Configure, validate, and deploy Cloudflare Workers with Wrangler. |
+
 ## DevOps Skills
 
 | Skill | Description |
 | --- | --- |
+| [`ansible-server-configuration`](skills/devops/ansible-server-configuration/) | Configure and maintain servers with focused Ansible playbooks. |
+| [`backblaze-b2-storage`](skills/devops/backblaze-b2-storage/) | Configure and operate Backblaze B2 storage. |
+| [`cloud-init-provisioning`](skills/devops/cloud-init-provisioning/) | Provision virtual machines with small, testable cloud-init configurations. |
+| [`digitalocean-infrastructure`](skills/devops/digitalocean-infrastructure/) | Provision and review DigitalOcean infrastructure with OpenTofu. |
+| [`hetzner-infrastructure`](skills/devops/hetzner-infrastructure/) | Provision and review Hetzner Cloud infrastructure with OpenTofu. |
+| [`infrastructure-review`](skills/devops/infrastructure-review/) | Review infrastructure changes for correctness, maintainability, simplicity, and deployment risk. |
+| [`infrastructure-security-review`](skills/devops/infrastructure-security-review/) | Review infrastructure as code for exploitable security failures. |
 | [`kamal-deploy`](skills/devops/kamal-deploy/) | Deploy and operate Rails applications with Kamal 2. |
+| [`onepassword-secrets`](skills/devops/onepassword-secrets/) | Load and inject secrets with the 1Password CLI. |
+| [`opentofu-iac`](skills/devops/opentofu-iac/) | Build and maintain infrastructure as code with OpenTofu and HCL. |
 
 ## Rails Skills
 

@@ -1,4 +1,4 @@
-# Kamal 2 Coder Detailed Reference
+# Kamal 2 Detailed Reference
 
 ## Secrets: .kamal/secrets
 

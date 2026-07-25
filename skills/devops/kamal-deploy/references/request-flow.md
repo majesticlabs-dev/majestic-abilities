@@ -38,7 +38,7 @@ Client → Cloudflare (CDN/WAF) → kamal-proxy (SSL/routing) → Puma → Rails
 
 | Setting | Value | Why |
 |---------|-------|-----|
-| SSL/TLS mode | **Full** | Cloudflare → server uses Let's Encrypt cert. Not "Flexible" (no encryption to origin). Not "Strict" (Let's Encrypt CA may not be in Cloudflare's trust store) |
+| SSL/TLS mode | **Full (strict)** | Cloudflare validates the public Let's Encrypt certificate presented by kamal-proxy. Use plain "Full" only as a temporary fallback when the origin certificate cannot be validated. Never use "Flexible" because it removes encryption to the origin. |
 | DNS record | Proxied (orange cloud) | Routes through Cloudflare CDN |
 | Always Use HTTPS | On | Redirects HTTP → HTTPS at edge |
 
