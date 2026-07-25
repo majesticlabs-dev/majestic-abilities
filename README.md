@@ -25,6 +25,12 @@ npx skills add ./skills/devops --skill '*'
 # Install every Cloudflare skill directly from the category
 npx skills add ./skills/cloudflare --skill '*'
 
+# Install every Engineer skill directly from the category
+npx skills add ./skills/engineer --skill '*'
+
+# Install every Frontend skill directly from the category
+npx skills add ./skills/frontend --skill '*'
+
 # Install every Rails skill directly from the category
 npx skills add ./skills/rails --skill '*'
 
@@ -38,9 +44,11 @@ After this repository is published, replace `.` with its GitHub `owner/repo` ide
 
 | Category | Skills | Path |
 | --- | ---: | --- |
-| Cloudflare | 2 | [`skills/cloudflare/`](skills/cloudflare/) |
-| Core | 1 | [`skills/core/`](skills/core/) |
+| Cloudflare | 3 | [`skills/cloudflare/`](skills/cloudflare/) |
+| Core | 2 | [`skills/core/`](skills/core/) |
 | DevOps | 10 | [`skills/devops/`](skills/devops/) |
+| Engineer | 4 | [`skills/engineer/`](skills/engineer/) |
+| Frontend | 5 | [`skills/frontend/`](skills/frontend/) |
 | Rails | 36 | [`skills/rails/`](skills/rails/) |
 | SEO | 22 | [`skills/seo/`](skills/seo/) |
 
@@ -50,6 +58,7 @@ Core is a category for foundational repository capabilities, not a dependency re
 
 | Skill | Description |
 | --- | --- |
+| [`agent-ready-repository`](skills/core/agent-ready-repository/) | Make repositories easier and safer for coding agents to navigate and modify. |
 | [`agents-md-hierarchy`](skills/core/agents-md-hierarchy/) | Audit and refine nested repository guidance where local commands, rules, or boundaries differ. |
 
 ## Cloudflare Skills
@@ -57,6 +66,7 @@ Core is a category for foundational repository capabilities, not a dependency re
 | Skill | Description |
 | --- | --- |
 | [`cloudflare-infrastructure`](skills/cloudflare/cloudflare-infrastructure/) | Provision and review Cloudflare infrastructure with OpenTofu. |
+| [`cloudflare-worker-development`](skills/cloudflare/cloudflare-worker-development/) | Build and review TypeScript applications for the Cloudflare Workers runtime. |
 | [`cloudflare-workers-deployment`](skills/cloudflare/cloudflare-workers-deployment/) | Configure, validate, and deploy Cloudflare Workers with Wrangler. |
 
 ## DevOps Skills
@@ -73,6 +83,25 @@ Core is a category for foundational repository capabilities, not a dependency re
 | [`kamal-deploy`](skills/devops/kamal-deploy/) | Deploy and operate Rails applications with Kamal 2. |
 | [`onepassword-secrets`](skills/devops/onepassword-secrets/) | Load and inject secrets with the 1Password CLI. |
 | [`opentofu-iac`](skills/devops/opentofu-iac/) | Build and maintain infrastructure as code with OpenTofu and HCL. |
+
+## Engineer Skills
+
+| Skill | Description |
+| --- | --- |
+| [`complexity-reviewer`](skills/engineer/complexity-reviewer/) | Review algorithmic complexity and performance hotspots conservatively. |
+| [`plan-review`](skills/engineer/plan-review/) | Challenge implementation plans before coding starts. |
+| [`structured-logging`](skills/engineer/structured-logging/) | Design structured application logging for observability and incidents. |
+| [`test-reviewer`](skills/engineer/test-reviewer/) | Review automated tests for behavioral coverage and reliability. |
+
+## Frontend Skills
+
+| Skill | Description |
+| --- | --- |
+| [`frontend-design`](skills/frontend/frontend-design/) | Choose a coherent visual direction and implement production-grade interfaces. |
+| [`frontend-performance`](skills/frontend/frontend-performance/) | Prevent and diagnose Core Web Vitals regressions. |
+| [`pr-screenshot-docs`](skills/frontend/pr-screenshot-docs/) | Capture and document visual changes for pull-request review. |
+| [`ui-code-auditor`](skills/frontend/ui-code-auditor/) | Audit frontend source for accessibility, quality, and performance problems. |
+| [`visual-validator`](skills/frontend/visual-validator/) | Validate rendered UI changes against their intended goals. |
 
 ## Rails Skills
 
