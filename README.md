@@ -36,6 +36,9 @@ npx skills add ./skills/rails --skill '*'
 
 # Install every SEO skill directly from the category
 npx skills add ./skills/seo --skill '*'
+
+# Install every Founder skill directly from the category
+npx skills add ./skills/founder --skill '*'
 ```
 
 After this repository is published, replace `.` with its GitHub `owner/repo` identifier. A category can be selected with an `owner/repo/skills/<category>` source path.
@@ -48,6 +51,7 @@ After this repository is published, replace `.` with its GitHub `owner/repo` ide
 | Core | 2 | [`skills/core/`](skills/core/) |
 | DevOps | 10 | [`skills/devops/`](skills/devops/) |
 | Engineer | 4 | [`skills/engineer/`](skills/engineer/) |
+| Founder | 4 | [`skills/founder/`](skills/founder/) |
 | Frontend | 5 | [`skills/frontend/`](skills/frontend/) |
 | Rails | 36 | [`skills/rails/`](skills/rails/) |
 | SEO | 22 | [`skills/seo/`](skills/seo/) |
@@ -92,6 +96,15 @@ Core is a category for foundational repository capabilities, not a dependency re
 | [`plan-review`](skills/engineer/plan-review/) | Challenge implementation plans before coding starts. |
 | [`structured-logging`](skills/engineer/structured-logging/) | Design structured application logging for observability and incidents. |
 | [`test-reviewer`](skills/engineer/test-reviewer/) | Review automated tests for behavioral coverage and reliability. |
+
+## Founder Skills
+
+| Skill | Description |
+| --- | --- |
+| [`bootstrapped-finance`](skills/founder/bootstrapped-finance/) | Analyze cash runway, burn, unit economics, working capital, hiring ROI, and spending tradeoffs for bootstrapped companies. |
+| [`founder-operating-system`](skills/founder/founder-operating-system/) | Turn competing priorities and calendar load into a stage-fit operating plan with tradeoffs and revisit criteria. |
+| [`fundraising-ask-review`](skills/founder/fundraising-ask-review/) | Review an existing fundraising ask for round coherence, evidence-backed claims, and investor relevance. |
+| [`launch-readiness`](skills/founder/launch-readiness/) | Return a blunt go, narrow, or delay recommendation for a founder-led launch. |
 
 ## Frontend Skills
 
