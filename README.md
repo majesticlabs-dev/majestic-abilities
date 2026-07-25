@@ -39,6 +39,9 @@ npx skills add ./skills/seo --skill '*'
 
 # Install every Founder skill directly from the category
 npx skills add ./skills/founder --skill '*'
+
+# Install every Writing skill directly from the category
+npx skills add ./skills/writing --skill '*'
 ```
 
 After this repository is published, replace `.` with its GitHub `owner/repo` identifier. A category can be selected with an `owner/repo/skills/<category>` source path.
@@ -55,6 +58,7 @@ After this repository is published, replace `.` with its GitHub `owner/repo` ide
 | Frontend | 5 | [`skills/frontend/`](skills/frontend/) |
 | Rails | 36 | [`skills/rails/`](skills/rails/) |
 | SEO | 22 | [`skills/seo/`](skills/seo/) |
+| Writing | 4 | [`skills/writing/`](skills/writing/) |
 
 Core is a category for foundational repository capabilities, not a dependency required by other categories.
 
@@ -183,6 +187,15 @@ Core is a category for foundational repository capabilities, not a dependency re
 | [`snippet-hunter`](skills/seo/snippet-hunter/) | Format content for featured snippets and other search-result features. |
 | [`structure-architect`](skills/seo/structure-architect/) | Improve headings, content structure, schema markup, and internal linking. |
 | [`topical-authority`](skills/seo/topical-authority/) | Plan content clusters, identify coverage gaps, and build measurable topical authority. |
+
+## Writing Skills
+
+| Skill | Description |
+| --- | --- |
+| [`brand-voice`](skills/writing/brand-voice/) | Define an aspirational organizational voice from brand strategy, audience, and desired perception. |
+| [`style-forensics`](skills/writing/style-forensics/) | Measure and explain prose style with quantitative metrics and cited examples. |
+| [`style-writer`](skills/writing/style-writer/) | Draft and revise prose against an existing voice profile while preserving facts and readability. |
+| [`voice-dna-kit`](skills/writing/voice-dna-kit/) | Capture an existing personal or organizational writing voice as reusable guidance. |
 
 ## Layout
 
