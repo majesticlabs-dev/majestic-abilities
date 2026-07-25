@@ -31,8 +31,14 @@ npx skills add ./skills/engineer --skill '*'
 # Install every Frontend skill directly from the category
 npx skills add ./skills/frontend --skill '*'
 
+# Install every Misc skill directly from the category
+npx skills add ./skills/misc --skill '*'
+
 # Install every Rails skill directly from the category
 npx skills add ./skills/rails --skill '*'
+
+# Install every Reasoning skill directly from the category
+npx skills add ./skills/reasoning --skill '*'
 
 # Install every SEO skill directly from the category
 npx skills add ./skills/seo --skill '*'
@@ -53,14 +59,16 @@ After this repository is published, replace `.` with its GitHub `owner/repo` ide
 | Cloudflare | 3 | [`skills/cloudflare/`](skills/cloudflare/) |
 | Core | 2 | [`skills/core/`](skills/core/) |
 | DevOps | 10 | [`skills/devops/`](skills/devops/) |
-| Engineer | 4 | [`skills/engineer/`](skills/engineer/) |
+| Engineer | 5 | [`skills/engineer/`](skills/engineer/) |
 | Founder | 4 | [`skills/founder/`](skills/founder/) |
 | Frontend | 5 | [`skills/frontend/`](skills/frontend/) |
+| Misc | 2 | [`skills/misc/`](skills/misc/) |
 | Rails | 36 | [`skills/rails/`](skills/rails/) |
+| Reasoning | 3 | [`skills/reasoning/`](skills/reasoning/) |
 | SEO | 22 | [`skills/seo/`](skills/seo/) |
-| Writing | 4 | [`skills/writing/`](skills/writing/) |
+| Writing | 5 | [`skills/writing/`](skills/writing/) |
 
-Core is a category for foundational repository capabilities, not a dependency required by other categories.
+Core is a category for foundational repository capabilities, not a dependency required by other categories. Misc is a temporary holding category for useful portable skills whose long-term domain is still undecided, not a destination for low-value leftovers.
 
 ## Core Skills
 
@@ -97,7 +105,8 @@ Core is a category for foundational repository capabilities, not a dependency re
 | Skill | Description |
 | --- | --- |
 | [`complexity-reviewer`](skills/engineer/complexity-reviewer/) | Review algorithmic complexity and performance hotspots conservatively. |
-| [`plan-review`](skills/engineer/plan-review/) | Challenge implementation plans before coding starts. |
+| [`multi-agent-architecture`](skills/engineer/multi-agent-architecture/) | Design persistent multi-agent systems with explicit roles, handoffs, state, permissions, and failure handling. |
+| [`plan-review`](skills/engineer/plan-review/) | Review planning documents for readiness, implementation risk, unnecessary scope, and verification gaps. |
 | [`structured-logging`](skills/engineer/structured-logging/) | Design structured application logging for observability and incidents. |
 | [`test-reviewer`](skills/engineer/test-reviewer/) | Review automated tests for behavioral coverage and reliability. |
 
@@ -119,6 +128,13 @@ Core is a category for foundational repository capabilities, not a dependency re
 | [`pr-screenshot-docs`](skills/frontend/pr-screenshot-docs/) | Capture and document visual changes for pull-request review. |
 | [`ui-code-auditor`](skills/frontend/ui-code-auditor/) | Audit frontend source for accessibility, quality, and performance problems. |
 | [`visual-validator`](skills/frontend/visual-validator/) | Validate rendered UI changes against their intended goals. |
+
+## Misc Skills
+
+| Skill | Description |
+| --- | --- |
+| [`skill-grader`](skills/misc/skill-grader/) | Grade skill executions against expectations using transcript and output evidence. |
+| [`skill-structure`](skills/misc/skill-structure/) | Decide whether guidance should become an Agent Skill and design a compliant structure when justified. |
 
 ## Rails Skills
 
@@ -161,6 +177,14 @@ Core is a category for foundational repository capabilities, not a dependency re
 | [`tailwind-coder`](skills/rails/tailwind-coder/) | Style Rails views with Tailwind CSS. |
 | [`viewcomponent-coder`](skills/rails/viewcomponent-coder/) | Build component-based Rails interfaces with ViewComponent. |
 
+## Reasoning Skills
+
+| Skill | Description |
+| --- | --- |
+| [`devils-advocate`](skills/reasoning/devils-advocate/) | Pressure-test a preferred approach before commitment. |
+| [`premortem`](skills/reasoning/premortem/) | Convert plausible future failure stories into safeguards for a concrete plan. |
+| [`reasoning-verifier`](skills/reasoning/reasoning-verifier/) | Trace requirements, evidence, and assumptions into a completed conclusion. |
+
 ## SEO Skills
 
 | Skill | Description |
@@ -193,6 +217,7 @@ Core is a category for foundational repository capabilities, not a dependency re
 | Skill | Description |
 | --- | --- |
 | [`brand-voice`](skills/writing/brand-voice/) | Define an aspirational organizational voice from brand strategy, audience, and desired perception. |
+| [`minto-pyramid`](skills/writing/minto-pyramid/) | Restructure complex writing around one governing answer, supporting arguments, and matched evidence. |
 | [`style-forensics`](skills/writing/style-forensics/) | Measure and explain prose style with quantitative metrics and cited examples. |
 | [`style-writer`](skills/writing/style-writer/) | Draft and revise prose against an existing voice profile while preserving facts and readability. |
 | [`voice-dna-kit`](skills/writing/voice-dna-kit/) | Capture an existing personal or organizational writing voice as reusable guidance. |
