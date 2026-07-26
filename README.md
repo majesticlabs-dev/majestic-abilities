@@ -2,25 +2,141 @@
 
 Portable agent skills organized by capability category and compatible with the Agent Skills format.
 
-## Install
+## Install With `npx skills`
 
-From this directory:
+The [Vercel Skills CLI](https://github.com/vercel-labs/skills) discovers every `SKILL.md` in this repository. You can install one skill, a whole category, or the complete catalog.
+
+### Choose A Source
+
+Use the local checkout while developing this repository:
 
 ```sh
-# List all available skills
+# Run from the repository root
 npx skills add . --list
-
-# Select skills interactively
-npx skills add .
-
-# Install every available skill
-npx skills add . --skill '*'
-
-# Example: Install every Engineer skill directly from the category
-npx skills add ./skills/engineer --skill '*'
 ```
 
-After this repository is published, replace `.` with its GitHub `owner/repo` identifier. A category can be selected with an `owner/repo/skills/<category>` source path.
+After publication, use the GitHub repository identifier instead:
+
+```sh
+npx skills add OWNER/REPOSITORY --list
+```
+
+Replace `OWNER/REPOSITORY` in the examples below with the published repository identifier.
+
+### Install Into A Project
+
+Project scope is the default. Run the command from the project that should receive the skills.
+
+```sh
+# Install one skill for Claude Code
+npx skills add OWNER/REPOSITORY --skill code-review --agent claude-code --yes
+
+# Install one skill for Codex
+npx skills add OWNER/REPOSITORY --skill code-review --agent codex --yes
+
+# Install one skill for Pi
+npx skills add OWNER/REPOSITORY --skill code-review --agent pi --yes
+
+# Install the selected skill for all three agents
+npx skills add OWNER/REPOSITORY \
+  --skill code-review \
+  --agent claude-code codex pi \
+  --yes
+```
+
+The CLI uses these project locations:
+
+| Agent | CLI identifier | Project directory |
+| --- | --- | --- |
+| Claude Code | `claude-code` | `.claude/skills/` |
+| Codex | `codex` | `.agents/skills/` |
+| Pi | `pi` | `.pi/skills/` |
+
+Omit `--agent` to choose from detected agents interactively.
+
+### Install For The Current User
+
+Add `--global` (or `-g`) to make skills available across projects:
+
+```sh
+# Install one skill globally for Claude Code
+npx skills add OWNER/REPOSITORY \
+  --skill code-review \
+  --agent claude-code \
+  --global \
+  --yes
+
+# Install one skill globally for Codex and Pi
+npx skills add OWNER/REPOSITORY \
+  --skill code-review \
+  --agent codex pi \
+  --global \
+  --yes
+```
+
+Global installations normally resolve to:
+
+| Agent | User directory |
+| --- | --- |
+| Claude Code | `~/.claude/skills/` |
+| Codex | `$CODEX_HOME/skills/`, normally `~/.codex/skills/` |
+| Pi | `~/.pi/agent/skills/` |
+
+### Install A Category
+
+Point the CLI at a category directory and select every discovered skill:
+
+```sh
+# From a local checkout
+npx skills add ./skills/engineer \
+  --skill '*' \
+  --agent claude-code codex pi \
+  --yes
+
+# From GitHub
+npx skills add https://github.com/OWNER/REPOSITORY/tree/master/skills/engineer \
+  --skill '*' \
+  --agent claude-code codex pi \
+  --yes
+```
+
+Add `--global` to either command for a user-level category installation.
+
+### Install The Complete Catalog
+
+```sh
+# Project installation
+npx skills add OWNER/REPOSITORY \
+  --skill '*' \
+  --agent claude-code codex pi \
+  --yes
+
+# User installation
+npx skills add OWNER/REPOSITORY \
+  --skill '*' \
+  --agent claude-code codex pi \
+  --global \
+  --yes
+```
+
+### Manage Installed Skills
+
+```sh
+# List project skills for one agent
+npx skills list --agent claude-code
+
+# List global skills
+npx skills list --global
+
+# Update project or global installations
+npx skills update --project --yes
+npx skills update --global --yes
+
+# Remove one skill from one agent
+npx skills remove code-review --agent claude-code --yes
+```
+
+The CLI recommends symlinks so multiple agents share one canonical installation. Add `--copy` when symlinks are unavailable or the project requires materialized skill files.
 
 ## Catalog
 
@@ -30,12 +146,12 @@ After this repository is published, replace `.` with its GitHub `owner/repo` ide
 | Core | 2 | [`skills/core/`](skills/core/) |
 | Data | 8 | [`skills/data/`](skills/data/) |
 | DevOps | 10 | [`skills/devops/`](skills/devops/) |
-| Engineer | 5 | [`skills/engineer/`](skills/engineer/) |
+| Engineer | 7 | [`skills/engineer/`](skills/engineer/) |
 | Founder | 7 | [`skills/founder/`](skills/founder/) |
 | Frontend | 5 | [`skills/frontend/`](skills/frontend/) |
 | Marketing | 13 | [`skills/marketing/`](skills/marketing/) |
 | Misc | 2 | [`skills/misc/`](skills/misc/) |
-| Product | 7 | [`skills/product/`](skills/product/) |
+| Product | 8 | [`skills/product/`](skills/product/) |
 | Rails | 36 | [`skills/rails/`](skills/rails/) |
 | Reasoning | 3 | [`skills/reasoning/`](skills/reasoning/) |
 | Sales | 6 | [`skills/sales/`](skills/sales/) |
@@ -91,7 +207,9 @@ Core is a category for foundational repository capabilities, not a dependency re
 
 | Skill | Description |
 | --- | --- |
+| [`code-review`](skills/engineer/code-review/) | Review change sets for defects, regressions, unnecessary complexity, missing tests, and release readiness. |
 | [`complexity-reviewer`](skills/engineer/complexity-reviewer/) | Review algorithmic complexity and performance hotspots conservatively. |
+| [`implementation-planning`](skills/engineer/implementation-planning/) | Create an executable technical plan grounded in the existing repository. |
 | [`multi-agent-architecture`](skills/engineer/multi-agent-architecture/) | Design persistent multi-agent systems with explicit roles, handoffs, state, permissions, and failure handling. |
 | [`plan-review`](skills/engineer/plan-review/) | Review planning documents for readiness, implementation risk, unnecessary scope, and verification gaps. |
 | [`structured-logging`](skills/engineer/structured-logging/) | Design structured application logging for observability and incidents. |
@@ -154,6 +272,7 @@ Core is a category for foundational repository capabilities, not a dependency re
 | [`pricing-strategy`](skills/product/pricing-strategy/) | Design pricing and packaging from value, evidence, costs, and expansion logic. |
 | [`product-discovery`](skills/product/product-discovery/) | Plan interviews, map assumptions, and frame Jobs-to-be-Done before defining a solution. |
 | [`product-planning`](skills/product/product-planning/) | Prioritize opportunities and build an outcome-based Now, Next, Later roadmap. |
+| [`product-requirements`](skills/product/product-requirements/) | Write an evidence-grounded PRD with testable requirements, scope, and success measures. |
 | [`product-validation`](skills/product/product-validation/) | Pressure-test demand and define the smallest test for the riskiest product assumption. |
 
 ## Rails Skills
