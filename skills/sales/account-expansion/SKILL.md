@@ -7,7 +7,7 @@ description: Grow and retain existing customer revenue through health evidence, 
 
 ## Boundary
 
-Own account-specific commercial motions. Lifecycle instrumentation, health-model design, onboarding systems, and proactive retention playbooks belong to `lifecycle-retention`. Do not push expansion before unresolved adoption or service problems, design viral referral programs, or invent customer value.
+Own account-specific commercial motions. System-level lifecycle instrumentation, health-model design, onboarding systems, and proactive retention playbooks are out of scope. Do not push expansion before unresolved adoption or service problems, design viral referral programs, or invent customer value.
 
 ## Required Inputs
 
