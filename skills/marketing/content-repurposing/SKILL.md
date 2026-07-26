@@ -1,13 +1,13 @@
 ---
 name: content-repurposing
-description: Transform one verified long-form asset into channel-appropriate derivative content without losing context or inventing claims. Use when adapting an article, video, webinar, report, or interview into a distribution set.
+description: Transform one verified long-form asset into channel-appropriate derivative content without losing context or inventing claims. Use when adapting an article, video, webinar, report, or interview into a distribution set. Not for drafting channel-native content from a pillar or idea with no source asset, and not for customer-proof assets that require quotation approval or publication permission.
 ---
 
 # Content Repurposing
 
 ## Boundary
 
-Adapt one source asset. Do not claim every excerpt fits every channel, create unsupported stories, or reduce repurposing to copy-paste truncation.
+Adapt one source asset. A named source asset is required: drafting channel-native content from a pillar, idea, or cadence plan is out of scope, as are customer-proof derivatives whose quotations or outcomes need approval and publication permission. Do not claim every excerpt fits every channel, create unsupported stories, or reduce repurposing to copy-paste truncation.
 
 ## Required Inputs
 
