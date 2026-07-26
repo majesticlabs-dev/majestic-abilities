@@ -14,6 +14,7 @@ Use this skill to define a desired organizational voice.
 - To capture how a person or organization already writes from real samples, use `voice-dna-kit`.
 - To measure a sample's style deeply, use `style-forensics`.
 - To draft content from an existing voice profile, use `style-writer`.
+- To decide the strategic market identity, differentiation, and claims the voice expresses, use `marketing/brand-positioning`.
 
 Existing brand content may reveal current habits, but do not treat those habits as the desired voice automatically.
 

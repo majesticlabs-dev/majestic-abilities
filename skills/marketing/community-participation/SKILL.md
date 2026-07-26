@@ -1,9 +1,9 @@
 ---
-name: community-marketing
+name: community-participation
 description: Research and execute value-first participation in online communities without violating local rules or exploiting members. Use when building an ethical Reddit, Discord, forum, or group presence and deciding where, when, and whether to share relevant work.
 ---
 
-# Community Marketing
+# Community Participation
 
 ## Boundary
 
@@ -39,3 +39,7 @@ Own participation strategy, not covert promotion or spam. Never assume a univers
 - Contributions stand alone without promotion.
 - Affiliation is transparent.
 - The plan prioritizes community health over traffic.
+
+## Reference
+
+Complete [rule-verification.md](references/rule-verification.md) per community before acting, not once per program.

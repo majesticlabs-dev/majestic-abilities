@@ -1,9 +1,9 @@
 ---
-name: paid-search-strategy
+name: paid-search
 description: Plan or diagnose paid-search campaigns with intent segmentation, current match behavior, bidding, creative, landing-page alignment, tracking, and test controls. Use when launching or restructuring search advertising and when spend must be tied to measurable acquisition outcomes.
 ---
 
-# Paid Search Strategy
+# Paid Search
 
 ## Boundary
 

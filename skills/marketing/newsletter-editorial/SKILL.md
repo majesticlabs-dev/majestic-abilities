@@ -1,13 +1,13 @@
 ---
-name: newsletter
-description: Define a recurring newsletter's editorial format and draft an evidence-grounded edition with a clear promise, repeatable structure, and feedback loop. Use when creating or revising a curator, educator, analysis, or hybrid newsletter's editorial product.
+name: newsletter-editorial
+description: Define a recurring newsletter's editorial format and draft an evidence-grounded edition with a clear promise, repeatable structure, and feedback loop. Use when creating or revising a curator, educator, analysis, or hybrid newsletter's editorial product; use writing/direct-response-copy for one-off conversion email and writing/headline-generator for a standalone subject-line sprint.
 ---
 
-# Newsletter
+# Newsletter Editorial
 
 ## Boundary
 
-Own the recurring editorial format and edition draft. One-off conversion emails, list acquisition, subscriber eligibility, unsubscribe and suppression operations, deliverability, sending configuration, and platform administration are separate. Do not fabricate links, quotations, reader feedback, or subject-line performance.
+Own the recurring editorial format and edition draft. One-off conversion emails belong to `writing/direct-response-copy`. List acquisition, subscriber eligibility, unsubscribe and suppression operations, deliverability, sending configuration, and platform administration are separate. Do not fabricate links, quotations, reader feedback, or subject-line performance.
 
 ## Required Inputs
 

@@ -33,9 +33,9 @@ After this repository is published, replace `.` with its GitHub `owner/repo` ide
 | Engineer | 5 | [`skills/engineer/`](skills/engineer/) |
 | Founder | 7 | [`skills/founder/`](skills/founder/) |
 | Frontend | 5 | [`skills/frontend/`](skills/frontend/) |
-| Marketing | 14 | [`skills/marketing/`](skills/marketing/) |
+| Marketing | 13 | [`skills/marketing/`](skills/marketing/) |
 | Misc | 2 | [`skills/misc/`](skills/misc/) |
-| Product | 6 | [`skills/product/`](skills/product/) |
+| Product | 7 | [`skills/product/`](skills/product/) |
 | Rails | 36 | [`skills/rails/`](skills/rails/) |
 | Reasoning | 3 | [`skills/reasoning/`](skills/reasoning/) |
 | Sales | 6 | [`skills/sales/`](skills/sales/) |
@@ -125,16 +125,15 @@ Core is a category for foundational repository capabilities, not a dependency re
 | --- | --- |
 | [`brand-naming`](skills/marketing/brand-naming/) | Generate and evaluate brand, company, product, and feature names with verification checks. |
 | [`brand-positioning`](skills/marketing/brand-positioning/) | Define evidence-backed positioning, differentiation, value propositions, messaging angles, and taglines. |
-| [`community-marketing`](skills/marketing/community-marketing/) | Plan transparent, value-first participation in online communities within current local rules. |
-| [`content-planning`](skills/marketing/content-planning/) | Generate, evaluate, prioritize, and schedule content ideas around audience needs and business goals. |
+| [`community-participation`](skills/marketing/community-participation/) | Plan transparent, value-first participation in online communities within current local rules. |
 | [`content-repurposing`](skills/marketing/content-repurposing/) | Adapt one verified long-form asset into channel-appropriate derivative content. |
 | [`customer-case-study`](skills/marketing/customer-case-study/) | Turn verified customer outcomes and approved quotations into an evidence-safe case study and proof assets. |
+| [`editorial-planning`](skills/marketing/editorial-planning/) | Generate, evaluate, prioritize, and schedule audience-led content ideas and a production calendar. |
 | [`growth-experimentation`](skills/marketing/growth-experimentation/) | Run marketing experiments with explicit hypotheses, guardrails, and evidence-based decisions. |
-| [`lifecycle-retention`](skills/marketing/lifecycle-retention/) | Design lifecycle stages, health signals, onboarding, early warnings, and retention interventions. |
 | [`market-research`](skills/marketing/market-research/) | Research markets, audiences, competitors, and customer language into a decision-ready report. |
-| [`newsletter`](skills/marketing/newsletter/) | Plan and draft a recurring newsletter with a clear editorial promise and source discipline. |
+| [`newsletter-editorial`](skills/marketing/newsletter-editorial/) | Plan and draft a recurring newsletter with a clear editorial promise and source discipline. |
 | [`offer-design`](skills/marketing/offer-design/) | Design truthful commercial and lead-generation offers before final copy. |
-| [`paid-search-strategy`](skills/marketing/paid-search-strategy/) | Plan paid-search campaigns using current platform behavior, measurement, and spend controls. |
+| [`paid-search`](skills/marketing/paid-search/) | Plan paid-search campaigns using current platform behavior, measurement, and spend controls. |
 | [`social-content`](skills/marketing/social-content/) | Plan and draft professional social posts and X threads without relying on algorithm folklore. |
 | [`youtube-packaging`](skills/marketing/youtube-packaging/) | Analyze normalized YouTube outliers and develop ownable title and thumbnail hypotheses. |
 
@@ -150,6 +149,7 @@ Core is a category for foundational repository capabilities, not a dependency re
 | Skill | Description |
 | --- | --- |
 | [`feature-brief`](skills/product/feature-brief/) | Write a compact feature brief or decision document before a full specification. |
+| [`lifecycle-retention`](skills/product/lifecycle-retention/) | Design lifecycle stages, health signals, onboarding, early warnings, and retention interventions. |
 | [`north-star-metric`](skills/product/north-star-metric/) | Choose and operate one stage-fit product health metric with drivers and guardrails. |
 | [`pricing-strategy`](skills/product/pricing-strategy/) | Design pricing and packaging from value, evidence, costs, and expansion logic. |
 | [`product-discovery`](skills/product/product-discovery/) | Plan interviews, map assumptions, and frame Jobs-to-be-Done before defining a solution. |
@@ -229,7 +229,7 @@ Core is a category for foundational repository capabilities, not a dependency re
 | [`eeat-analyzer`](skills/seo/eeat-analyzer/) | Audit and improve Experience, Expertise, Authority, and Trust signals. |
 | [`entity-triplets`](skills/seo/entity-triplets/) | Build consistent entity relationships that search engines and LLMs can recognize. |
 | [`geo-content-optimizer`](skills/seo/geo-content-optimizer/) | Structure content for extraction and citation by ChatGPT, Perplexity, Gemini, and similar systems. |
-| [`keyword-research`](skills/seo/keyword-research/) | Discover and prioritize content topics without expensive SEO tools. |
+| [`keyword-research`](skills/seo/keyword-research/) | Discover and prioritize search-led content topics against real queries without expensive SEO tools. |
 | [`keyword-strategist`](skills/seo/keyword-strategist/) | Analyze keyword usage and suggest semantic variations and related terms. |
 | [`llms-txt-builder`](skills/seo/llms-txt-builder/) | Generate an `llms.txt` file that helps AI systems navigate a site. |
 | [`meta-optimizer`](skills/seo/meta-optimizer/) | Create optimized meta titles, descriptions, and URL suggestions. |
