@@ -14,7 +14,7 @@ Use the focused references instead of treating this file as the whole playbook.
 
 - `content-types.md` for guide, how-to, comparison, definition, listicle, data study, resource, opinion, and case-study structures.
 - `writing.md` for the writing rules.
-- `polish-pass.md` for argument, information gain, humanization, voice, and compression.
+- `polish-pass.md` for argument, information gain, naturalness, voice, and compression.
 
 ## Optimization and Review
 
@@ -25,18 +25,10 @@ Use the focused references instead of treating this file as the whole playbook.
 
 ## Deterministic Checks
 
-Use scripts where available:
+Resolve the skill directory from its `SKILL.md`. From that directory, run:
 
 ```bash
 python3 scripts/word_count.py <draft.md> --type guide
 python3 scripts/link_audit.py <draft.md>
 python3 scripts/tech_audit.py <draft.md> --keyword "primary keyword"
-```
-
-From the repository root, use:
-
-```bash
-python3 packs/seo/skills/seo-content/scripts/word_count.py <draft.md> --type guide
-python3 packs/seo/skills/seo-content/scripts/link_audit.py <draft.md>
-python3 packs/seo/skills/seo-content/scripts/tech_audit.py <draft.md> --keyword "primary keyword"
 ```

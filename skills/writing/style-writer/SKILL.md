@@ -87,6 +87,14 @@ Compare the draft with the profile where targets exist:
 - recurring openers and signature devices
 - banned phrases and structures
 
+Report only applicable constraints:
+
+| Constraint | Target | Actual | Disposition |
+| --- | --- | --- | --- |
+| [profile rule or tendency] | [range, ban, or tendency] | [measured or observed result] | Fix, retain with reason, or not applicable |
+
+Use `not applicable` when the draft is too short, the profile has no usable target, or the feature does not belong to the selected register. Use `retain with reason` when accuracy, readability, genre, or evidence justifies a deviation.
+
 Handle zero targets explicitly:
 
 - If the profile marks an item as prohibited, the allowed count is exactly zero.
@@ -114,9 +122,10 @@ Provide:
 
 1. The draft
 2. Register used
-3. Material profile constraints followed
-4. Remaining deviations and why they were retained
-5. Factual assumptions or unsupported claims requiring review
+3. Target-versus-actual audit table for applicable constraints
+4. Material profile constraints followed
+5. Remaining deviations and why they were retained
+6. Factual assumptions or unsupported claims requiring review
 
 Save the draft only when the user requested a file or confirms a proposed path.
 
@@ -129,5 +138,6 @@ The draft is ready when:
 - strict bans are absent
 - high-signal style patterns are recognizable but not forced
 - facts and attribution remain intact
+- the audit table distinguishes fixes, justified deviations, and non-applicable constraints
 - deviations are disclosed when readability or accuracy required them
 - the prose does not copy distinctive source wording unnecessarily

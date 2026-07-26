@@ -43,9 +43,13 @@ Treat findings from a small corpus as provisional.
 
 For each source, record:
 
-| Source | Author | Channel | Audience | Approximate date | Provenance | Why representative |
-| --- | --- | --- | --- | --- | --- | --- |
-| | | | | | | |
+| Source | Author | Channel | Audience | Approximate date | Provenance | Approval status | Why representative | Disposition |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | | Corpus, holdout, excluded, duplicate, or failed |
+
+When collection is involved, record the selection rule, discovered and retained counts, total words, exclusions, exact duplicates, and failures. Keep this provenance outside the prose used for measurement.
+
+Reserve one representative sample as a holdout when enough material remains to build a credible profile. Do not choose the holdout after seeing which sample makes the profile look best.
 
 ## Register Check
 

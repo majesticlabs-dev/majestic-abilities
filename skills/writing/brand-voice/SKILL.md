@@ -27,13 +27,26 @@ Collect the smallest useful set:
 4. Three to five traits the voice should express.
 5. Important channels and contexts.
 6. Examples the organization admires or rejects, when available.
-7. Legal, accessibility, terminology, or claims constraints.
+7. Drafts paired with versions approved or edited by the brand owner, when available.
+8. Legal, accessibility, terminology, or claims constraints.
 
 If positioning or audience is unresolved, flag that gap. Voice rules cannot repair unclear strategy.
 
 ## Workflow
 
-### 1. Define the voice's job
+### 1. Assess source quality
+
+Label each input by owner, channel, audience, date, approval status, and relevance to the desired positioning. Separate:
+
+- approved examples that represent the desired voice
+- current material that reveals habits but not necessarily intent
+- drafts and their owner-approved edits
+- admired external examples used only to identify qualities or boundaries
+- outliers, mixed-author work, and material from obsolete positioning
+
+Do not average conflicting sources into a fictional voice. State which evidence governs and which material was excluded or treated as provisional.
+
+### 2. Define the voice's job
 
 State:
 
@@ -44,7 +57,7 @@ State:
 
 Separate identity from tone. Identity stays stable. Tone changes with context.
 
-### 2. Turn traits into observable behavior
+### 3. Turn traits into observable behavior
 
 Choose three to five traits. Define each trait with:
 
@@ -56,7 +69,7 @@ Choose three to five traits. Define each trait with:
 
 Reject unsupported adjective lists such as "bold, authentic, innovative." A useful trait must change a writing decision.
 
-### 3. Define constants and tone dials
+### 4. Define constants and tone dials
 
 Document the characteristics that never change, then specify how tone shifts across contexts such as:
 
@@ -70,7 +83,7 @@ Document the characteristics that never change, then specify how tone shifts acr
 
 For each context, name the purpose, tone adjustment, evidence requirement, and prohibited behavior.
 
-### 4. Set expression rules
+### 5. Set expression rules
 
 Define concrete guidance for:
 
@@ -86,13 +99,13 @@ Define concrete guidance for:
 
 Prefer enforceable rules over mood words.
 
-### 5. Build calibration examples
+### 6. Build calibration examples
 
 Create paired off-voice and on-voice examples for at least three important contexts. Change only what the guide explains so reviewers can trace each revision to a rule.
 
 Do not copy admired brands. Use them only to identify qualities or boundaries.
 
-### 6. Test the guide
+### 7. Test the guide
 
 Draft three short messages with different stakes. Review whether:
 
@@ -103,6 +116,17 @@ Draft three short messages with different stakes. Review whether:
 - legal and factual constraints remain intact
 
 Patch the guide where reviewers rely on taste that the guide does not encode.
+
+### 8. Run owner-edit calibration
+
+When a brand owner supplies an approved edit, compare it with the proposed draft and record:
+
+- exact wording retained, removed, or replaced
+- the audience or risk the edit addresses
+- the candidate rule the edit suggests
+- whether other approved examples support the same rule
+
+One edit creates a candidate preference, not a universal rule. Promote it into the guide only when the owner confirms it or the pattern recurs across approved examples. Record contradictions instead of forcing consensus.
 
 ## Deliverable
 
@@ -117,8 +141,9 @@ The guide should contain:
 5. Language, rhythm, punctuation, and formatting rules
 6. Claims and evidence rules
 7. Off-voice and on-voice examples
-8. Review checklist
-9. Open assumptions and revisit triggers
+8. Owner-edit calibration log and confirmed rules
+9. Review checklist
+10. Open assumptions and revisit triggers
 
 ## Quality Gate
 
@@ -129,4 +154,5 @@ The guide is ready when:
 - examples demonstrate rather than restate rules
 - banned patterns are concrete
 - reviewers can explain why a draft passes or fails
+- Owner-edit calibration distinguishes one-off preferences from repeated or confirmed rules
 - strategic assumptions and unresolved gaps are explicit

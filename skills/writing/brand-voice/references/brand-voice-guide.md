@@ -125,6 +125,14 @@ These remain true in every context:
 
 Repeat for at least three important contexts.
 
+## Owner-Edit Calibration
+
+| Draft wording | Approved wording | Observed edit | Candidate rule | Supporting examples | Status |
+| --- | --- | --- | --- | --- | --- |
+| | | | | | One-off, repeated, confirmed, contradicted, or rejected |
+
+Promote a candidate rule only when the owner confirms it or approved examples show a recurring pattern. Keep contradictory evidence visible.
+
 ## Review Checklist
 
 - [ ] The message serves the audience's actual need.
@@ -134,6 +142,7 @@ Repeat for at least three important contexts.
 - [ ] Vocabulary, rhythm, punctuation, and formatting follow the guide.
 - [ ] No prohibited pattern appears.
 - [ ] Specific nouns and verbs replace generic claims.
+- [ ] Confirmed owner edits are reflected without turning one-off preferences into universal rules.
 
 ## Assumptions and Revisit Triggers
 

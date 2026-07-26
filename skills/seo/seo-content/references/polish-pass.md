@@ -6,7 +6,7 @@ Run this after drafting and before SEO optimization.
 
 - Does the piece make one clear claim?
 - Does every section support the search intent or buyer job?
-- Is there a real point of view, or just aggregation?
+- Is there a supplied or verified point of view, or just aggregation?
 - Are tradeoffs named clearly?
 
 ## Pass 2: Information Gain
@@ -21,11 +21,13 @@ Add at least one of:
 - operator lesson
 - workflow artifact
 
-If nothing new is added, the article is not ready.
+Add information only from supplied or verified material. Hypothetical examples must be labeled as hypothetical. Never invent first-person experience, expertise, examples, authorial opinions, data, or operator lessons.
 
-## Pass 3: Humanization
+If no supported information gain is available, flag the gap instead of manufacturing novelty. The article is not ready.
 
-Use the `humanizer` skill when available. At minimum, remove:
+## Pass 3: Naturalness
+
+Use `write-better` when available for a dedicated clarity and naturalness revision. It is optional. At minimum, remove:
 
 - generic intros
 - filler transitions

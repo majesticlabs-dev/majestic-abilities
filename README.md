@@ -66,7 +66,7 @@ After this repository is published, replace `.` with its GitHub `owner/repo` ide
 | Rails | 36 | [`skills/rails/`](skills/rails/) |
 | Reasoning | 3 | [`skills/reasoning/`](skills/reasoning/) |
 | SEO | 22 | [`skills/seo/`](skills/seo/) |
-| Writing | 5 | [`skills/writing/`](skills/writing/) |
+| Writing | 10 | [`skills/writing/`](skills/writing/) |
 
 Core is a category for foundational repository capabilities, not a dependency required by other categories. Misc is a temporary holding category for useful portable skills whose long-term domain is still undecided, not a destination for low-value leftovers.
 
@@ -217,10 +217,15 @@ Core is a category for foundational repository capabilities, not a dependency re
 | Skill | Description |
 | --- | --- |
 | [`brand-voice`](skills/writing/brand-voice/) | Define an aspirational organizational voice from brand strategy, audience, and desired perception. |
+| [`content-writer`](skills/writing/content-writer/) | Draft source-grounded general articles and guides through a brief, outline, and section workflow. |
+| [`copy-editor`](skills/writing/copy-editor/) | Diagnose and prioritize grammar, clarity, structure, attribution, voice, and style problems in existing prose. |
+| [`direct-response-copy`](skills/writing/direct-response-copy/) | Create evidence-safe conversion-oriented landing pages, sales emails, CTAs, ads, and product microcopy. |
+| [`headline-generator`](skills/writing/headline-generator/) | Generate and recommend fact-bound headline, title, and subject-line candidates from supplied evidence. |
 | [`minto-pyramid`](skills/writing/minto-pyramid/) | Restructure complex writing around one governing answer, supporting arguments, and matched evidence. |
 | [`style-forensics`](skills/writing/style-forensics/) | Measure and explain prose style with quantitative metrics and cited examples. |
 | [`style-writer`](skills/writing/style-writer/) | Draft and revise prose against an existing voice profile while preserving facts and readability. |
 | [`voice-dna-kit`](skills/writing/voice-dna-kit/) | Capture an existing personal or organizational writing voice as reusable guidance. |
+| [`write-better`](skills/writing/write-better/) | Rewrite existing prose for clarity, natural rhythm, and author fidelity while preserving facts and uncertainty. |
 
 ## Layout
 

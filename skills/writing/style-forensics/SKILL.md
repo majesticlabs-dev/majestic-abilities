@@ -86,6 +86,8 @@ Report:
 - total and unique words
 - lexical diversity, with corpus-size caveat
 - long-word ratio
+- optional common-function-word ratio when it helps compare similar corpora
+- optional high-frequency long words when they reveal recurring technical or abstract vocabulary
 - frequently repeated content words
 - recurring jargon, colloquialisms, metaphors, and anchoring terms
 - first-person singular, first-person plural, and second-person rates
@@ -120,7 +122,13 @@ Explain how samples tend to:
 - transition
 - close
 
-For multiple samples, distinguish stable traits from channel-specific or time-specific variation.
+For multiple samples, compare like with like before averaging metrics. Use a table such as:
+
+| Feature | Sample or register A | Sample or register B | Stable trait, contextual dial, or outlier | Confidence and evidence |
+| --- | --- | --- | --- | --- |
+| | | | | |
+
+Classify a feature as stable only when it recurs across representative samples. Treat a channel-bound pattern as a contextual dial, an isolated value as an outlier, and weak evidence as provisional.
 
 ### 8. Compile the report
 
@@ -134,7 +142,7 @@ Return:
 6. Vocabulary and tone signals
 7. Signature devices with examples
 8. Structural blueprint
-9. Stable traits versus contextual dials
+9. Cross-sample comparison with stable traits, contextual dials, and outliers when multiple samples exist
 10. Quick-reference metrics
 11. Confidence and unresolved questions
 
@@ -149,4 +157,5 @@ The report is ready when:
 - every qualitative claim cites examples
 - frequency claims distinguish counts from impressions
 - sample limitations and uncertainty are explicit
+- cross-sample claims distinguish stable traits, contextual dials, outliers, and provisional findings
 - the report describes prose without making identity claims

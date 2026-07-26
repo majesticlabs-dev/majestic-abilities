@@ -1,15 +1,15 @@
 ---
 name: seo-content
-description: "Create one search-optimized content asset from opportunity selection through draft, audit, and ledger update. Uses portable references, foundation templates, and deterministic checks."
+description: "Create one search-led SEO/AEO content asset from keyword or opportunity selection through draft, audit, and ledger update. Use when search intent, keyword strategy, answer-engine optimization, or SEO tracking is central; use content-writer for general articles without a search workflow."
 ---
 
 # SEO Content Workflow
 
 Create **one** publishable SEO/AEO content asset that answers real search intent, carries information gain, matches brand voice, and can be audited before publication.
 
-Use this when the user asks to write SEO content, choose the next article, create a guide/how-to/listicle/comparison, feed a blog, or turn keyword research into a finished content asset.
+Use this when the user asks to write SEO content, choose the next search-led article, turn keyword research into a finished asset, or create a guide, how-to, listicle, or comparison around explicit search intent.
 
-Do not use this for broad content strategy only. Use `content-strategy` or `keyword-research` when the user only wants a plan or keyword set.
+Do not use this for a general article without a keyword, search opportunity, or SEO/AEO workflow. Use `content-writer` instead. Use `keyword-research` when the user only wants a keyword set or opportunity analysis.
 
 ---
 
@@ -112,9 +112,10 @@ Rules:
 
 - Answer the query in the first 2-3 sentences.
 - Put the useful answer before the throat-clearing.
-- Use specific examples, numbers, names, tools, and constraints.
-- Explain the current workaround and why it persists when the topic involves buyer workflow.
-- Support factual claims with sources or clearly mark them as experience-based.
+- Use specific examples, numbers, names, tools, and constraints only when supplied or verified. Label hypothetical examples explicitly.
+- Explain the current workaround and why it persists when the topic involves buyer workflow, using supplied or verified evidence.
+- Support factual claims with sources. Mark experience-based claims only when the experience and attribution were supplied by the user or an approved source.
+- Never invent first-person experience, expertise, authorial opinions, examples, results, or specificity.
 - Include internal links from the link inventory and authoritative external sources.
 
 Reference: `references/writing.md`.
@@ -125,7 +126,7 @@ Reference: `references/writing.md`.
 
 Run the polish pass before optimization. Remove generic AI tells, tighten the argument, and preserve brand voice.
 
-Use the `humanizer` skill when available instead of duplicating its full banned-word list.
+Use `write-better` when available if the draft needs a dedicated clarity and naturalness revision. Treat it as an optional handoff, not a dependency.
 
 Reference: `references/polish-pass.md`.
 
@@ -152,10 +153,12 @@ Use the quality loop first, then scripts where available.
 
 Recommended checks:
 
+Resolve the skill directory from this `SKILL.md`. From that directory, run:
+
 ```bash
-python3 packs/seo/skills/seo-content/scripts/word_count.py <draft.md> --type guide
-python3 packs/seo/skills/seo-content/scripts/link_audit.py <draft.md>
-python3 packs/seo/skills/seo-content/scripts/tech_audit.py <draft.md> --keyword "primary keyword"
+python3 scripts/word_count.py <draft.md> --type guide
+python3 scripts/link_audit.py <draft.md>
+python3 scripts/tech_audit.py <draft.md> --keyword "primary keyword"
 ```
 
 References:

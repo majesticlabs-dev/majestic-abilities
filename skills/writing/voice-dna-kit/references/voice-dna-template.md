@@ -11,6 +11,9 @@ Preserve the demonstrated writing voice of [person or organization] across [cont
 - **Samples:** [count and types]
 - **Date range:** [range]
 - **Registers represented:** [list]
+- **Selection rule:** [what qualified a sample]
+- **Exact duplicates removed:** [count and record location]
+- **Holdout:** [reserved sample or reason none was available]
 - **Confidence:** [high, medium, or low with reason]
 - **Known limitations:** [missing contexts, AI contamination, mixed authorship]
 

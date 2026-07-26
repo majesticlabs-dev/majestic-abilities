@@ -25,7 +25,8 @@ Ask for:
 2. The contexts where the voice will be used.
 3. Known phrases, structures, punctuation, or tones to avoid.
 4. Any before-and-after edits that show what the owner changed.
-5. The requested output location.
+5. One representative sample that can be reserved as a holdout, when the corpus is large enough.
+6. The requested output location.
 
 Use [sample-selection-guide.md](references/sample-selection-guide.md) to assess the corpus. Prefer writing created or substantially edited by the voice owner. State when AI-assisted or mixed-author samples weaken confidence.
 
@@ -38,6 +39,7 @@ Create these files when the user requests a persisted kit:
 - `banned-phrases.md` with generic and source-specific bans
 - `voice-review-checklist.md` with final checks
 - `voice-verification.md` with the comparison test and remaining mismatches
+- `corpus-manifest.md` when provenance, collection, deduplication, exclusions, or holdout selection need a durable record
 
 Place them in the user-selected directory. Do not assume a runtime-specific folder.
 
@@ -45,13 +47,17 @@ Place them in the user-selected directory. Do not assume a runtime-specific fold
 
 ### 1. Select and label the corpus
 
-Record the author, channel, audience, approximate date, and provenance of each sample. Exclude quoted third-party text, boilerplate, transcripts the owner did not edit, and samples from a different voice or register.
+Record the author, channel, audience, approximate date, provenance, approval status, and selection reason for each sample. Define the selection rule before collecting more material. Record discovered, retained, excluded, duplicate, and failed items when collection is involved.
 
-If the corpus contains distinct registers, label them. Preserve one stable core and document the controlled differences.
+Exclude quoted third-party text, boilerplate, transcripts the owner did not edit, and samples from a different voice or register. Keep provenance separate from prose so URLs, titles, and wrappers do not distort measurements.
+
+If the corpus contains distinct registers, label them. Preserve one stable core and document the controlled differences. Reserve a representative holdout before extracting rules when enough material exists.
 
 ### 2. Extract clean prose
 
 Remove navigation, metadata, signatures, code, URLs, quoted material, and repeated boilerplate. Keep paragraph boundaries and deliberate formatting where they carry style.
+
+For exact duplicate detection, normalize a comparison copy without changing the analysis copy: normalize line endings, trim surrounding whitespace, and collapse repeated whitespace. Hash the normalized text and remove exact duplicates, including duplicated parent and child pages. Record what was removed. Do not use fuzzy deduplication to discard merely similar writing without review.
 
 ### 3. Measure before interpreting
 
@@ -103,9 +109,11 @@ Create checks for:
 
 ### 7. Verify the kit
 
-Run [voice-match-test.md](references/voice-match-test.md). Compare a baseline draft with a profile-guided draft against the source corpus.
+Run [voice-match-test.md](references/voice-match-test.md). Compare a baseline draft with a profile-guided draft against the reserved holdout, or against representative source samples when no defensible holdout is available.
 
-Patch the profile when a mismatch cannot be explained by an existing rule. Do not copy distinctive phrases from source samples merely to improve resemblance.
+Do not use the holdout to create or patch rules before the first comparison. Record where the guided draft moves closer, stays unchanged, or overfits. Distance or resemblance is a diagnostic, not proof of quality, truth, or authorship.
+
+Patch the profile when a mismatch cannot be explained by an existing rule, then rerun once. Do not copy distinctive phrases from source samples merely to improve resemblance.
 
 ## Quality Gate
 
@@ -115,6 +123,8 @@ The kit is ready when:
 - actual numbers or explicit unknowns support the style profile
 - stable voice and contextual tone are separate
 - bans are concrete and reviewable
+- exact duplicates and exclusions are recorded when a manifest is warranted
+- holdout validation is used when the corpus supports it, or its absence is disclosed
 - the guided test is closer to the samples without copying them
 - the short guide is concise enough to load routinely
 - corpus limitations are disclosed

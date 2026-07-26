@@ -20,7 +20,8 @@ Use this before delivery or publication.
 
 - Material claims are sourced or labeled.
 - Limitations are stated where needed.
-- Author or brand expertise is visible.
+- Author or brand expertise is visible only when supplied or verifiable.
+- Hypothetical examples are labeled, and no experience, opinion, expertise, or specificity is invented.
 
 ### Conversion
 
@@ -40,6 +41,7 @@ Use this before delivery or publication.
 Do not deliver as publication-ready if:
 
 - claims are unsourced and risky
+- experience, expertise, authorial opinion, examples, or specificity were invented
 - the topic duplicates the ledger
 - the piece has no clear reader job
 - the CTA is unrelated to the content
