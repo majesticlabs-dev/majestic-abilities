@@ -126,7 +126,7 @@ Reference: `references/writing.md`.
 
 Run the polish pass before optimization. Remove generic AI tells, tighten the argument, and preserve brand voice.
 
-Use `write-better` when available if the draft needs a dedicated clarity and naturalness revision. Treat it as an optional handoff, not a dependency.
+Use `prose-reviser` when available if the draft needs a dedicated clarity and naturalness revision. Treat it as an optional handoff, not a dependency.
 
 Reference: `references/polish-pass.md`.
 

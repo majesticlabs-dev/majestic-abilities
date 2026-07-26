@@ -1,9 +1,9 @@
 ---
-name: write-better
+name: prose-reviser
 description: Rewrite existing informational, workplace, technical, or general prose for clarity, natural rhythm, and author fidelity while preserving facts and uncertainty. Use when asked to improve, tighten, simplify, polish, humanize this text, make writing less robotic, or make it more natural, and neither formal voice-profile compliance nor conversion strategy is primary; use style-writer for profile-led work and direct-response-copy for commercial persuasion.
 ---
 
-# Write Better
+# Prose Reviser
 
 Return a clearer version of existing prose without changing what the author knows, claims, or means.
 

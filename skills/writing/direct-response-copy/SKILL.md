@@ -1,7 +1,6 @@
 ---
 name: direct-response-copy
-license: MIT (see LICENSE)
-description: Create evidence-safe, conversion-oriented landing pages, sales emails, CTAs, ads, offers, and product microcopy from a reader moment, proof set, offer, and desired action. Use when writing or rewriting a complete commercial asset whose job is to earn a specific response.
+description: Create evidence-safe, conversion-oriented landing pages, sales emails, CTAs, ads, offers, and product microcopy from a reader moment, proof set, offer, and desired action. Use when writing a complete commercial asset whose job is to earn a specific response, or rewriting one whose persuasion strategy is in scope; use content-writer for general articles, headline-generator for a headline candidate sprint, copy-editor for a diagnostic review, and prose-reviser for clarity-only revision.
 ---
 
 # Direct Response Copy
@@ -12,10 +11,12 @@ Create persuasive copy that makes a truthful offer understandable and gives the 
 
 Use this skill for a complete conversion-oriented asset.
 
-- For general informational articles and guides, use a general drafting workflow.
-- For a deliberate sprint of editorial headlines or subject-line candidates, use a headline workflow.
-- For a report diagnosing existing copy, use an editorial-review workflow.
-- For a clarity-only revision that does not reconsider persuasion strategy, use a rewriting workflow.
+- For general informational articles and guides, use `content-writer`.
+- For a deliberate sprint of editorial headlines or subject-line candidates, use `headline-generator`.
+- For a report diagnosing existing copy, use `copy-editor`.
+- For a clarity-only revision that does not reconsider persuasion strategy, use `prose-reviser`.
+
+The skill must remain useful by itself. Other skills are optional next steps, not dependencies.
 
 Persuasion does not permit deception, fabricated proof, hidden material terms, false urgency, or pressure that exploits a vulnerable audience.
 
@@ -40,6 +41,8 @@ Ask once, in a concise batch, for missing information that would materially chan
 - **File edit:** Change only requested prose; preserve metadata, links, code, data, and source notes.
 - **Embedded handoff:** Return only the copy needed by the surrounding workflow.
 
+Pick the mode from the request and the surrounding task rather than asking. Approval before drafting is required only when the user requests it or unresolved offer, proof, or legal choices would materially change the copy.
+
 ## Workflow
 
 ### 1. Define the reader moment and action
@@ -59,7 +62,9 @@ Use a table when the asset has several claims:
 
 | Proposed claim | Supplied evidence | Status | Allowed wording |
 | --- | --- | --- | --- |
-| | | Verified, qualified, unsupported, or prohibited | |
+| | | | |
+
+Status is one of `verified`, `qualified`, `unsupported`, or `prohibited`.
 
 Size every claim to its evidence. If proof is missing, ask for it, qualify the claim, replace it with a demonstrable fact, or omit it.
 
@@ -105,30 +110,29 @@ A story is usable only when its facts, attribution, and publication rights are s
 
 ### 6. Validate
 
-Read the copy as a skeptical buyer and verify:
+Read the copy as a skeptical buyer. Beyond the Quality Gate below, verify:
 
-1. The offer and next action are obvious.
-2. Each factual claim maps to supplied or verified evidence.
-3. Qualifications and material terms are visible.
-4. The copy distinguishes benefits from guarantees.
-5. The voice fits the reader moment and channel.
-6. The CTA accurately describes what happens next.
-7. No fabricated proof, testimonial, urgency, or personal story appears.
+1. The copy distinguishes benefits from guarantees.
+2. The voice fits the reader moment and channel.
+3. The CTA accurately describes what happens next.
+4. No fabricated proof, testimonial, urgency, or personal story appears.
+
+Whatever this pass changes must go back through the proof inventory before it ships.
 
 ## Output
 
-Return the complete requested asset, followed by:
+Lead with the complete requested asset. Follow it with:
 
-- the chosen reader moment and desired response
-- material proof used
-- unresolved proof or approval gaps
-- optional variants only when the request benefits from comparison
+```markdown
+**Reader moment:** [who sees this and what just happened]
+**Desired response:** [the exact action]
+**Proof used:** [each material claim and the evidence that permits it]
+**Open gaps:** [unresolved proof or approval blockers, or "none"]
+```
+
+Add variants only when the request benefits from comparison.
 
 For embedded handoff or copy-only requests, return only the finished copy.
-
-## Provenance
-
-The reader-moment intake, proof-first framing, story pressure test, and product-microcopy principles were adapted from `mikiarlo3/ai-copywriter`. The upstream project and MIT license were verified at main commit `201f89a07d7a8d792a11165270591b3684c886a1`. See [LICENSE](LICENSE).
 
 ## Quality Gate
 

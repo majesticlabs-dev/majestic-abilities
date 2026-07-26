@@ -27,7 +27,7 @@ If no supported information gain is available, flag the gap instead of manufactu
 
 ## Pass 3: Naturalness
 
-Use `write-better` when available for a dedicated clarity and naturalness revision. It is optional. At minimum, remove:
+Use `prose-reviser` when available for a dedicated clarity and naturalness revision. It is optional. At minimum, remove:
 
 - generic intros
 - filler transitions

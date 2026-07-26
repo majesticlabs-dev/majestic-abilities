@@ -16,38 +16,8 @@ npx skills add .
 # Install every available skill
 npx skills add . --skill '*'
 
-# Install every Core skill directly from the category
-npx skills add ./skills/core --skill '*'
-
-# Install every DevOps skill directly from the category
-npx skills add ./skills/devops --skill '*'
-
-# Install every Cloudflare skill directly from the category
-npx skills add ./skills/cloudflare --skill '*'
-
-# Install every Engineer skill directly from the category
+# Example: Install every Engineer skill directly from the category
 npx skills add ./skills/engineer --skill '*'
-
-# Install every Frontend skill directly from the category
-npx skills add ./skills/frontend --skill '*'
-
-# Install every Misc skill directly from the category
-npx skills add ./skills/misc --skill '*'
-
-# Install every Rails skill directly from the category
-npx skills add ./skills/rails --skill '*'
-
-# Install every Reasoning skill directly from the category
-npx skills add ./skills/reasoning --skill '*'
-
-# Install every SEO skill directly from the category
-npx skills add ./skills/seo --skill '*'
-
-# Install every Founder skill directly from the category
-npx skills add ./skills/founder --skill '*'
-
-# Install every Writing skill directly from the category
-npx skills add ./skills/writing --skill '*'
 ```
 
 After this repository is published, replace `.` with its GitHub `owner/repo` identifier. A category can be selected with an `owner/repo/skills/<category>` source path.
@@ -58,6 +28,7 @@ After this repository is published, replace `.` with its GitHub `owner/repo` ide
 | --- | ---: | --- |
 | Cloudflare | 3 | [`skills/cloudflare/`](skills/cloudflare/) |
 | Core | 2 | [`skills/core/`](skills/core/) |
+| Data | 8 | [`skills/data/`](skills/data/) |
 | DevOps | 10 | [`skills/devops/`](skills/devops/) |
 | Engineer | 5 | [`skills/engineer/`](skills/engineer/) |
 | Founder | 4 | [`skills/founder/`](skills/founder/) |
@@ -76,6 +47,19 @@ Core is a category for foundational repository capabilities, not a dependency re
 | --- | --- |
 | [`agent-ready-repository`](skills/core/agent-ready-repository/) | Make repositories easier and safer for coding agents to navigate and modify. |
 | [`agents-md-hierarchy`](skills/core/agents-md-hierarchy/) | Audit and refine nested repository guidance where local commands, rules, or boundaries differ. |
+
+## Data Skills
+
+| Skill | Description |
+| --- | --- |
+| [`anomaly-detection`](skills/data/anomaly-detection/) | Design and evaluate anomaly detection using context-appropriate baselines and methods. |
+| [`csv-wrangling`](skills/data/csv-wrangling/) | Recover messy delimited files without silently dropping or corrupting records. |
+| [`data-pipeline-design`](skills/data/data-pipeline-design/) | Design reliable batch or incremental pipelines with explicit recovery and reconciliation behavior. |
+| [`data-pipeline-testing`](skills/data/data-pipeline-testing/) | Test transformations, contracts, incrementality, replay, and failure recovery. |
+| [`data-quality`](skills/data/data-quality/) | Define and operate quality controls, service levels, scorecards, and incident response. |
+| [`data-source-assessment`](skills/data/data-source-assessment/) | Assess unfamiliar sources for schema, grain, change behavior, quality, and extraction constraints. |
+| [`data-validation`](skills/data/data-validation/) | Design executable contracts across records, DataFrames, warehouses, and pipeline boundaries. |
+| [`dbt-development`](skills/data/dbt-development/) | Build and review dbt projects, models, tests, materializations, and documentation. |
 
 ## Cloudflare Skills
 
@@ -222,10 +206,10 @@ Core is a category for foundational repository capabilities, not a dependency re
 | [`direct-response-copy`](skills/writing/direct-response-copy/) | Create evidence-safe conversion-oriented landing pages, sales emails, CTAs, ads, and product microcopy. |
 | [`headline-generator`](skills/writing/headline-generator/) | Generate and recommend fact-bound headline, title, and subject-line candidates from supplied evidence. |
 | [`minto-pyramid`](skills/writing/minto-pyramid/) | Restructure complex writing around one governing answer, supporting arguments, and matched evidence. |
+| [`prose-reviser`](skills/writing/prose-reviser/) | Rewrite existing prose for clarity, natural rhythm, and author fidelity while preserving facts and uncertainty. |
 | [`style-forensics`](skills/writing/style-forensics/) | Measure and explain prose style with quantitative metrics and cited examples. |
 | [`style-writer`](skills/writing/style-writer/) | Draft and revise prose against an existing voice profile while preserving facts and readability. |
 | [`voice-dna-kit`](skills/writing/voice-dna-kit/) | Capture an existing personal or organizational writing voice as reusable guidance. |
-| [`write-better`](skills/writing/write-better/) | Rewrite existing prose for clarity, natural rhythm, and author fidelity while preserving facts and uncertainty. |
 
 ## Layout
 
