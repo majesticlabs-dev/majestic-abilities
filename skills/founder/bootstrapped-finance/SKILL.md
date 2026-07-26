@@ -57,7 +57,7 @@ Escalate to a qualified accountant, tax advisor, or counsel for tax filings, deb
 - Do not hide uncertainty in a single forecast.
 - If the business needs fundraising to survive, say that plainly.
 - Prefer reversible cost cuts before irreversible commitments.
-- Hand off priority/calendar execution to founder operating guidance; hand off investor-narrative review to fundraising ask review. Own numerical funding gaps, runway, and cash tradeoffs here.
+- Hand off priority and calendar execution to `founder-priorities`, investor-narrative review to `fundraising-ask-review`, pricing and packaging choices to `pricing-strategy`, and focus-metric selection to `north-star-metric`. Own numerical funding gaps, runway, margin, and cash tradeoffs here.
 
 ## Output
 

@@ -5,7 +5,7 @@ description: "Review a founder-led launch and return a blunt go, narrow, or dela
 
 # Launch Readiness
 
-Use this skill for a blunt preflight decision on an existing launch plan. Do not create thirty-day schedules, acquisition campaigns, forecasts, copy decks, entity-selection advice, or legal templates.
+Use this skill for a blunt preflight decision on an existing launch plan. Do not create thirty-day schedules, acquisition campaigns, forecasts, copy decks, entity-selection advice, or legal templates. Use `product-validation` before this review when demand itself is still the unresolved question. Use `launch-legal-checklist` for a general-information inventory of legal unknowns; neither skill replaces qualified counsel.
 
 ## Required Inputs
 
@@ -59,4 +59,4 @@ Return:
 5. **Minimum fixes** — smallest changes that improve readiness or enable a narrower ship
 6. **Escalations** — counsel or specialist handoffs, if any
 
-If asked for a thirty-day campaign plan, legal checklist, or entity setup, refuse that expansion and stay on the readiness verdict.
+If asked for a thirty-day campaign plan or entity setup, refuse that expansion and stay on the readiness verdict. If asked for a general-information legal checklist, route optionally to `launch-legal-checklist`; keep legal clearance and drafting out of scope.

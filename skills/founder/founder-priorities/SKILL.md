@@ -1,9 +1,9 @@
 ---
-name: founder-operating-system
+name: founder-priorities
 description: "Turn a founder's competing priorities and calendar into a stage-fit operating plan with explicit tradeoffs, delegation choices, review cadence, and revisit criteria. Use when a founder is overloaded or reactive, has too many priorities, asks what to cut, delegate, or defer, needs a calendar audit, or needs a daily, weekly, and monthly execution cadence."
 ---
 
-# Founder Operating System
+# Founder Priorities
 
 Use this skill when the founder is overloaded, scattered, or stuck reacting to noise instead of running the company deliberately.
 
@@ -22,7 +22,7 @@ Collect before prescribing. Label estimates when evidence is incomplete.
 - Available outcome evidence for major activities
 - What the founder believes must happen this week and this month
 
-Hand off runway, unit economics, pricing, and hiring ROI analysis to bootstrapped-finance guidance. Hand off launch shipping decisions to launch-readiness guidance. Do not invent motives or fabricate opportunity costs.
+Hand off runway, unit economics, and hiring ROI analysis to `bootstrapped-finance`; longer-horizon company direction to `company-strategy`; pricing and packaging to `pricing-strategy`; demand validation to `product-validation`; growth-metric definition to `north-star-metric`; and launch shipping decisions to `launch-readiness`. Do not invent motives or fabricate opportunity costs.
 
 ## Workflow
 
@@ -34,7 +34,7 @@ Hand off runway, unit economics, pricing, and hiring ROI analysis to bootstrappe
 3. Decide what to cut, delegate, or defer. For people, contractual, or legal commitments, stop future irreversible steps and escalate rather than improvising restructuring.
 4. Reshape the calendar by purpose and intended outcome, not meeting format.
 5. Define a short operating cadence for review, follow-up, and escalation.
-6. Challenge the assumption most likely to break the plan. Treat avoidance as a hypothesis to test, not a motive to assert.
+6. Challenge the assumption most likely to break the plan. Treat avoidance as a hypothesis to test, not a motive to assert. When evidence is thin, inspect recent decisions and rejected alternatives, feedback dismissed or deferred, repeatedly avoided work, what an informed critic would challenge, and which feared outcome could be shaping the choice. Report only patterns supported by examples.
 7. Define the evidence that would invalidate the current priority set or require a change.
 
 ## Standards

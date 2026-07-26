@@ -31,11 +31,14 @@ After this repository is published, replace `.` with its GitHub `owner/repo` ide
 | Data | 8 | [`skills/data/`](skills/data/) |
 | DevOps | 10 | [`skills/devops/`](skills/devops/) |
 | Engineer | 5 | [`skills/engineer/`](skills/engineer/) |
-| Founder | 4 | [`skills/founder/`](skills/founder/) |
+| Founder | 7 | [`skills/founder/`](skills/founder/) |
 | Frontend | 5 | [`skills/frontend/`](skills/frontend/) |
+| Marketing | 14 | [`skills/marketing/`](skills/marketing/) |
 | Misc | 2 | [`skills/misc/`](skills/misc/) |
+| Product | 6 | [`skills/product/`](skills/product/) |
 | Rails | 36 | [`skills/rails/`](skills/rails/) |
 | Reasoning | 3 | [`skills/reasoning/`](skills/reasoning/) |
+| Sales | 6 | [`skills/sales/`](skills/sales/) |
 | SEO | 22 | [`skills/seo/`](skills/seo/) |
 | Writing | 10 | [`skills/writing/`](skills/writing/) |
 
@@ -99,8 +102,11 @@ Core is a category for foundational repository capabilities, not a dependency re
 | Skill | Description |
 | --- | --- |
 | [`bootstrapped-finance`](skills/founder/bootstrapped-finance/) | Analyze cash runway, burn, unit economics, working capital, hiring ROI, and spending tradeoffs for bootstrapped companies. |
-| [`founder-operating-system`](skills/founder/founder-operating-system/) | Turn competing priorities and calendar load into a stage-fit operating plan with tradeoffs and revisit criteria. |
+| [`company-strategy`](skills/founder/company-strategy/) | Build future-back company strategy with explicit horizons, dependencies, bets, and revisit triggers. |
+| [`founder-priorities`](skills/founder/founder-priorities/) | Turn competing priorities and calendar load into a stage-fit operating plan with tradeoffs and revisit criteria. |
 | [`fundraising-ask-review`](skills/founder/fundraising-ask-review/) | Review an existing fundraising ask for round coherence, evidence-backed claims, and investor relevance. |
+| [`go-to-market-motion`](skills/founder/go-to-market-motion/) | Choose and phase a route to market that fits buying behavior, economics, stage, and capacity. |
+| [`launch-legal-checklist`](skills/founder/launch-legal-checklist/) | Identify launch legal unknowns, escalation points, and next actions without implying legal clearance. |
 | [`launch-readiness`](skills/founder/launch-readiness/) | Return a blunt go, narrow, or delay recommendation for a founder-led launch. |
 
 ## Frontend Skills
@@ -113,12 +119,42 @@ Core is a category for foundational repository capabilities, not a dependency re
 | [`ui-code-auditor`](skills/frontend/ui-code-auditor/) | Audit frontend source for accessibility, quality, and performance problems. |
 | [`visual-validator`](skills/frontend/visual-validator/) | Validate rendered UI changes against their intended goals. |
 
+## Marketing Skills
+
+| Skill | Description |
+| --- | --- |
+| [`brand-naming`](skills/marketing/brand-naming/) | Generate and evaluate brand, company, product, and feature names with verification checks. |
+| [`brand-positioning`](skills/marketing/brand-positioning/) | Define evidence-backed positioning, differentiation, value propositions, messaging angles, and taglines. |
+| [`community-marketing`](skills/marketing/community-marketing/) | Plan transparent, value-first participation in online communities within current local rules. |
+| [`content-planning`](skills/marketing/content-planning/) | Generate, evaluate, prioritize, and schedule content ideas around audience needs and business goals. |
+| [`content-repurposing`](skills/marketing/content-repurposing/) | Adapt one verified long-form asset into channel-appropriate derivative content. |
+| [`customer-case-study`](skills/marketing/customer-case-study/) | Turn verified customer outcomes and approved quotations into an evidence-safe case study and proof assets. |
+| [`growth-experimentation`](skills/marketing/growth-experimentation/) | Run marketing experiments with explicit hypotheses, guardrails, and evidence-based decisions. |
+| [`lifecycle-retention`](skills/marketing/lifecycle-retention/) | Design lifecycle stages, health signals, onboarding, early warnings, and retention interventions. |
+| [`market-research`](skills/marketing/market-research/) | Research markets, audiences, competitors, and customer language into a decision-ready report. |
+| [`newsletter`](skills/marketing/newsletter/) | Plan and draft a recurring newsletter with a clear editorial promise and source discipline. |
+| [`offer-design`](skills/marketing/offer-design/) | Design truthful commercial and lead-generation offers before final copy. |
+| [`paid-search-strategy`](skills/marketing/paid-search-strategy/) | Plan paid-search campaigns using current platform behavior, measurement, and spend controls. |
+| [`social-content`](skills/marketing/social-content/) | Plan and draft professional social posts and X threads without relying on algorithm folklore. |
+| [`youtube-packaging`](skills/marketing/youtube-packaging/) | Analyze normalized YouTube outliers and develop ownable title and thumbnail hypotheses. |
+
 ## Misc Skills
 
 | Skill | Description |
 | --- | --- |
 | [`skill-grader`](skills/misc/skill-grader/) | Grade skill executions against expectations using transcript and output evidence. |
 | [`skill-structure`](skills/misc/skill-structure/) | Decide whether guidance should become an Agent Skill and design a compliant structure when justified. |
+
+## Product Skills
+
+| Skill | Description |
+| --- | --- |
+| [`feature-brief`](skills/product/feature-brief/) | Write a compact feature brief or decision document before a full specification. |
+| [`north-star-metric`](skills/product/north-star-metric/) | Choose and operate one stage-fit product health metric with drivers and guardrails. |
+| [`pricing-strategy`](skills/product/pricing-strategy/) | Design pricing and packaging from value, evidence, costs, and expansion logic. |
+| [`product-discovery`](skills/product/product-discovery/) | Plan interviews, map assumptions, and frame Jobs-to-be-Done before defining a solution. |
+| [`product-planning`](skills/product/product-planning/) | Prioritize opportunities and build an outcome-based Now, Next, Later roadmap. |
+| [`product-validation`](skills/product/product-validation/) | Pressure-test demand and define the smallest test for the riskiest product assumption. |
 
 ## Rails Skills
 
@@ -168,6 +204,17 @@ Core is a category for foundational repository capabilities, not a dependency re
 | [`devils-advocate`](skills/reasoning/devils-advocate/) | Pressure-test a preferred approach before commitment. |
 | [`premortem`](skills/reasoning/premortem/) | Convert plausible future failure stories into safeguards for a concrete plan. |
 | [`reasoning-verifier`](skills/reasoning/reasoning-verifier/) | Trace requirements, evidence, and assumptions into a completed conclusion. |
+
+## Sales Skills
+
+| Skill | Description |
+| --- | --- |
+| [`account-expansion`](skills/sales/account-expansion/) | Grow existing accounts through value reviews, expansion triggers, win-back, and referral asks. |
+| [`icp-definition`](skills/sales/icp-definition/) | Define and validate an Ideal Customer Profile with fit criteria, disqualifiers, and account scoring. |
+| [`outbound-prospecting`](skills/sales/outbound-prospecting/) | Design and diagnose evidence-safe outbound sequences across multiple channels. |
+| [`pipeline-analysis`](skills/sales/pipeline-analysis/) | Diagnose pipeline health, challenge forecasts, and assign corrective actions. |
+| [`sales-enablement`](skills/sales/sales-enablement/) | Build a B2B playbook for discovery, demos, objections, competition, and closing. |
+| [`sales-proposal`](skills/sales/sales-proposal/) | Write a complete evidence-based commercial proposal after qualified discovery. |
 
 ## SEO Skills
 
