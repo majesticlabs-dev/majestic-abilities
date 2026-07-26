@@ -14,17 +14,22 @@ Use this skill after an analysis or recommendation exists.
 - Use `devils-advocate` before choosing among competing options.
 - Use `premortem` to expose how a concrete plan could fail.
 - Do not replace domain verification, tests, or primary-source research with reasoning review.
+- Skip this workflow for low-stakes conclusions or ones that are cheap to reverse.
+
+Scale the depth of the matrix and the assumption audit to the cost of being wrong.
 
 ## Inputs
 
-Require:
+Gather:
 
 1. The original request, requirements, or decision criteria.
 2. The completed analysis and conclusion.
 3. Evidence or source material the analysis claims to use.
 4. Known constraints on scope, time, cost, or risk.
 
-When any input is missing, state what cannot be verified.
+Missing inputs narrow the verification rather than block it. State what cannot be verified.
+
+Source material is frequently unavailable. Without it, still check internal consistency, traceability, and premise classification, and record every citation that cannot be opened as **Unknown** in step 4.
 
 ## Workflow
 
@@ -49,15 +54,16 @@ Write the chain as:
 Evidence and premises -> intermediate claims -> conclusion
 ```
 
-Include implicit premises required for the conclusion to follow.
+Reconstruct the strongest version the text supports. When a step admits a valid reading, use it. Include implicit premises required for the conclusion to follow.
 
 ### 3. Build a traceability matrix
 
-For every original condition, record:
+For every original condition, record its treatment, supporting evidence, and status.
 
 | Original condition | Treatment in analysis | Supporting evidence | Status |
 | --- | --- | --- | --- |
-| | | | addressed, omitted, contradicted, or unverifiable |
+
+Status is `addressed`, `omitted`, `contradicted`, or `unverifiable`.
 
 A condition is not addressed merely because the analysis repeats its wording.
 
@@ -87,6 +93,8 @@ Check for:
 - certainty stronger than the evidence
 - recommendations that do not solve the diagnosed problem
 
+Report only gaps the text actually contains. An empty finding list is a valid result. Do not promote wording or presentation issues to logical gaps in order to fill a section.
+
 ### 6. Test conclusion sensitivity
 
 Ask whether correcting each major issue would:
@@ -98,13 +106,21 @@ Ask whether correcting each major issue would:
 
 Do not rewrite the analysis when the available evidence cannot support a corrected conclusion.
 
+## Severity
+
+Assign severity from the sensitivity outcome:
+
+- **Critical:** reverses the conclusion or makes the result unknown
+- **Major:** narrows or qualifies the conclusion, or removes its support
+- **Minor:** affects rigor or presentation while the conclusion holds
+
 ## Output
 
 ```markdown
 # Verification Report
 
 ## Verdict
-Sound | Sound with qualifications | Materially flawed | Unverifiable
+Sound | Sound with qualifications | Sound conclusion from unsound reasoning | Materially flawed | Unverifiable
 
 ## Original Conditions
 - ...
@@ -126,15 +142,21 @@ Sound | Sound with qualifications | Materially flawed | Unverifiable
 - ...
 
 ## Corrected Conclusion
-[Corrected result, or Unknown with required evidence]
+[Restated result, `Unchanged` when nothing material was found, or `Unknown` with the evidence required]
 ```
 
-Classify findings as critical, major, or minor based on whether they change the conclusion.
+A corrected conclusion restates the result within the evidence already present. It is not fresh analysis.
+
+When the conclusion survives but the chain supporting it does not, report the broken reasoning as a finding. It will not hold on the next case.
+
+Persist the report only when requested or when the user supplied an output path.
 
 ## Quality Gate
 
 - Every original condition appears in the traceability matrix.
+- The reconstruction uses the strongest reading the text supports.
 - Evidence and assumptions are not conflated.
 - Logical deductions are shown rather than asserted.
-- Severity reflects effect on the conclusion.
+- Status and severity use the defined vocabularies.
+- Findings are real rather than manufactured to fill a section.
 - Unknowns remain unknown.

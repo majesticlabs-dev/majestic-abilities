@@ -12,6 +12,7 @@ Assume a concrete plan has already failed, then work backward to identify how it
 Use this skill when the plan is specific enough to name its owner, affected people, intended outcome, and time horizon.
 
 - Use `devils-advocate` when choosing among competing approaches.
+- Use `reasoning-verifier` to trace a completed analysis back to its original conditions.
 - Use ordinary plan review for low-cost implementation gaps.
 - Skip premortems for vague ideas, factual questions, or decisions that can no longer change.
 
