@@ -1,13 +1,13 @@
 ---
 name: offer-design
-description: Design a truthful commercial or lead-generation offer with audience fit, value structure, risk reversal, options, proof, and a clear bridge to the next step. Use when packaging a product, service, bundle, guarantee, or lead magnet before writing final copy; use writing/direct-response-copy for the finished commercial asset and product/pricing-strategy for the value metric and price points themselves.
+description: Design a truthful commercial or lead-generation offer with audience fit, value structure, risk reversal, options, proof, and a clear bridge to the next step. Use when packaging a product, service, bundle, guarantee, or lead magnet before writing final copy. Not for drafting the finished commercial asset, nor for setting the value metric, tiers, and price points themselves.
 ---
 
 # Offer Design
 
 ## Boundary
 
-Own offer structure. Final sales copy belongs to `writing/direct-response-copy` and the value metric, tiers, and price points to `product/pricing-strategy`. Do not invent value, guarantees, scarcity, proof, ROI, or conversion lift.
+Own offer structure. Final sales copy and the underlying value metric, tiers, and price points are out of scope. Do not invent value, guarantees, scarcity, proof, ROI, or conversion lift.
 
 ## Required Inputs
 

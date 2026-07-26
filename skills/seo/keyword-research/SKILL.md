@@ -1,6 +1,6 @@
 ---
 name: keyword-research
-description: "Find content topics and prioritize them without expensive SEO tools. Use when search demand drives topic selection, deciding what to write about against real queries, or doing keyword research on a budget. Uses the 6 Circles Method for systematic topic discovery and prioritization. Not for audience-led editorial programs, calendars, or production capacity planning; use marketing/editorial-planning."
+description: "Find content topics and prioritize them without expensive SEO tools. Use when search demand drives topic selection, deciding what to write about against real queries, or doing keyword research on a budget. Uses the 6 Circles Method for systematic topic discovery and prioritization. Not for audience-led editorial programs, calendars, or production capacity planning."
 ---
 
 # Keyword Research Without Expensive Tools
@@ -9,7 +9,7 @@ Find content topics and prioritize them using free tools and systematic framewor
 
 ## Boundary
 
-Own keyword-led topic discovery and prioritization. Audience-led editorial programs, portfolio balance, production capacity, and calendars belong to `marketing/editorial-planning`. Cluster coverage and depth measurement belong to `topical-authority`.
+Own keyword-led topic discovery and prioritization. Audience-led editorial programs, portfolio balance, production capacity, calendars, and cluster depth measurement are out of scope.
 
 ## Required Input
 

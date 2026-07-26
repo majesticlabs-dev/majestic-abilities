@@ -15,7 +15,8 @@ Use this skill for a complete conversion-oriented asset.
 - For a deliberate sprint of editorial headlines or subject-line candidates, use `headline-generator`.
 - For a report diagnosing existing copy, use `copy-editor`.
 - For a clarity-only revision that does not reconsider persuasion strategy, use `prose-reviser`.
-- To structure the offer itself (promise, components, options, terms, risk reversal) before copy, use `marketing/offer-design`.
+
+Structuring the offer itself (promise, components, options, terms, risk reversal) is a separate upstream step. Express a supplied offer here; do not invent its structure.
 
 The skill must remain useful by itself. Other skills are optional next steps, not dependencies.
 

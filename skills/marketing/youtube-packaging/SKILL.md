@@ -43,4 +43,4 @@ Analyze packaging and topic signals, not copy competitors or guarantee views. Pu
 
 ## Reference
 
-Use [data-currentness.md](references/data-currentness.md) to check what public data supports before analysis. For a standalone sprint of title candidates without channel analysis, use `writing/headline-generator`.
+Use [data-currentness.md](references/data-currentness.md) to check what public data supports before analysis.

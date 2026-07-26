@@ -1,13 +1,13 @@
 ---
 name: market-research
-description: Research a market, audience, competitors, and customer language into a decision-ready evidence report. Use when entering a market, validating demand context, sizing an opportunity, or grounding positioning in real customer behavior and language; use sales/icp-definition for targeting criteria and account scoring, product/product-discovery for interview-led Jobs-to-be-Done, and product-validation for testing demand for a specific idea.
+description: Research a market, audience, competitors, and customer language into a decision-ready evidence report. Use when entering a market, validating demand context, sizing an opportunity, or grounding positioning in real customer behavior and language. Not for setting targeting criteria and account scoring, designing customer interviews, framing Jobs-to-be-Done, or testing demand for one specific idea.
 ---
 
 # Market Research
 
 ## Boundary
 
-Synthesize decision evidence, not fake market certainty. Targeting criteria and account scoring belong to `sales/icp-definition`; interview design and Jobs-to-be-Done framing belong to `product/product-discovery`. Do not invent TAM, quotes, customer behavior, or willingness to pay; collect from private or access-controlled spaces without permission; or expose unnecessary personal or sensitive data.
+Synthesize decision evidence, not fake market certainty. Targeting criteria, account scoring, interview design, and Jobs-to-be-Done framing are out of scope. Do not invent TAM, quotes, customer behavior, or willingness to pay; collect from private or access-controlled spaces without permission; or expose unnecessary personal or sensitive data.
 
 ## Required Inputs
 

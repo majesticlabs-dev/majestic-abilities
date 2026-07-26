@@ -1,13 +1,13 @@
 ---
 name: lifecycle-retention
-description: Design a customer lifecycle retention system with stage outcomes, onboarding, health signals, early warnings, intervention playbooks, and measurement. Use when churn is poorly understood, onboarding underperforms, or teams need proactive retention instrumentation rather than account-by-account sales actions; use sales/account-expansion for account-specific commercial motions and product/north-star-metric for choosing the single product health metric.
+description: Design a customer lifecycle retention system with stage outcomes, onboarding, health signals, early warnings, intervention playbooks, and measurement. Use when churn is poorly understood, onboarding underperforms, or teams need proactive retention instrumentation rather than account-by-account sales actions. Not for account-specific commercial motions or for choosing a single top-level product health metric.
 ---
 
 # Lifecycle Retention
 
 ## Boundary
 
-Own system-level lifecycle instrumentation and intervention design. Account-specific commercial motions belong to `sales/account-expansion`. Do not prescribe universal health weights or churn thresholds, hide cancellation, coerce continued use, or replace account-specific expansion work.
+Own system-level lifecycle instrumentation and intervention design. Account-specific commercial motions are out of scope. Do not prescribe universal health weights or churn thresholds, hide cancellation, coerce continued use, or replace account-specific expansion work.
 
 ## Required Inputs
 

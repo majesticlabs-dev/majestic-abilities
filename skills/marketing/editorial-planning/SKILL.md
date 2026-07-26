@@ -1,13 +1,13 @@
 ---
 name: editorial-planning
-description: Generate, evaluate, prioritize, and schedule evidence-backed content ideas around audience needs and business goals. Use when choosing what to publish next, building a content program, or replacing an unranked backlog with a defensible editorial plan; use seo/keyword-research when search intent drives topic selection, seo/topical-authority for cluster coverage, and content-repurposing for deriving assets from one existing source.
+description: Generate, evaluate, prioritize, and schedule evidence-backed content ideas around audience needs and business goals. Use when choosing what to publish next, building a content program, or replacing an unranked backlog with a defensible editorial plan. Not for search-led topic discovery driven by keyword or query data, cluster coverage planning, or deriving derivative assets from one existing source.
 ---
 
 # Editorial Planning
 
 ## Boundary
 
-Own audience-led topic selection and production scheduling, not final prose, search-led keyword strategy, or unsupported predictions of virality. Keyword-led topic discovery belongs to `seo/keyword-research` and cluster coverage to `seo/topical-authority`.
+Own audience-led topic selection and production scheduling. Final prose, search-led keyword strategy, cluster coverage planning, and unsupported predictions of virality are out of scope.
 
 ## Required Inputs
 
