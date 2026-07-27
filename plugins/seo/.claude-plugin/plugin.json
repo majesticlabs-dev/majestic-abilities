@@ -1,0 +1,15 @@
+{
+  "name": "majestic-seo",
+  "displayName": "Majestic SEO",
+  "version": "0.1.0",
+  "description": "Technical SEO, content strategy, structured data, and Answer Engine Optimization for search engines and LLMs.",
+  "author": {
+    "name": "David Paluy"
+  },
+  "license": "MIT",
+  "keywords": [
+    "seo",
+    "aeo",
+    "schema"
+  ]
+}

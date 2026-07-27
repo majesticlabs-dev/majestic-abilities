@@ -95,6 +95,13 @@ npx skills add OWNER/REPOSITORY --skill ai-search-visibility-foundation \
   schema-architect aeo-scorecard --agent claude-code --yes
 ```
 
+Or as Claude Code plugins:
+
+```sh
+/plugin marketplace add OWNER/REPOSITORY
+/plugin install majestic-seo@majestic-abilities
+```
+
 ## Hard Gates
 
 - Do not prescribe remediation without a dated domain and URL scope plus baseline evidence from current, attributable sources; undocumented ranking mechanics cannot justify a gate.

@@ -1,0 +1,15 @@
+{
+  "name": "majestic-product",
+  "displayName": "Majestic Product",
+  "version": "0.1.0",
+  "description": "Discovery, requirements, roadmaps, pricing, retention, and product health metrics.",
+  "author": {
+    "name": "David Paluy"
+  },
+  "license": "MIT",
+  "keywords": [
+    "product",
+    "prd",
+    "roadmap"
+  ]
+}

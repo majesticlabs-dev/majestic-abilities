@@ -1,0 +1,15 @@
+{
+  "name": "majestic-writing",
+  "displayName": "Majestic Writing",
+  "version": "0.1.0",
+  "description": "Draft, revise, and audit prose: voice capture, brand voice, copy editing, direct response, and Minto structure.",
+  "author": {
+    "name": "David Paluy"
+  },
+  "license": "MIT",
+  "keywords": [
+    "writing",
+    "editing",
+    "copy"
+  ]
+}

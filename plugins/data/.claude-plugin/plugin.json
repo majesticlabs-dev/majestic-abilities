@@ -1,0 +1,15 @@
+{
+  "name": "majestic-data",
+  "displayName": "Majestic Data",
+  "version": "0.1.0",
+  "description": "Design, test, and operate data pipelines, contracts, quality controls, dbt projects, and source assessments.",
+  "author": {
+    "name": "David Paluy"
+  },
+  "license": "MIT",
+  "keywords": [
+    "data",
+    "pipelines",
+    "dbt"
+  ]
+}

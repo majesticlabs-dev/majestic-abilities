@@ -1,9 +1,0 @@
-{
-  "name": "majestic-abilities",
-  "skills": [
-    "./cookbooks/ai-search-visibility-foundation",
-    "./cookbooks/founder-launch-decision",
-    "./cookbooks/product-engineering-handoff",
-    "./cookbooks/rails-feature"
-  ]
-}

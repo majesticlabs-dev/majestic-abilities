@@ -1,0 +1,14 @@
+{
+  "name": "majestic-core",
+  "displayName": "Majestic Core",
+  "version": "0.1.0",
+  "description": "Foundational repository capabilities: making repositories agent-ready and auditing nested repository guidance.",
+  "author": {
+    "name": "David Paluy"
+  },
+  "license": "MIT",
+  "keywords": [
+    "repository",
+    "agents"
+  ]
+}

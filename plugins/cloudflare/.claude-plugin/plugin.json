@@ -1,0 +1,15 @@
+{
+  "name": "majestic-cloudflare",
+  "displayName": "Majestic Cloudflare",
+  "version": "0.1.0",
+  "description": "Provision, build, and deploy on Cloudflare: OpenTofu infrastructure, Workers development, and Wrangler deployment.",
+  "author": {
+    "name": "David Paluy"
+  },
+  "license": "MIT",
+  "keywords": [
+    "cloudflare",
+    "workers",
+    "opentofu"
+  ]
+}

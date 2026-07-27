@@ -1,0 +1,15 @@
+{
+  "name": "majestic-founder",
+  "displayName": "Majestic Founder",
+  "version": "0.1.0",
+  "description": "Founder decisions: company strategy, priorities, bootstrapped finance, go-to-market, fundraising asks, and launch readiness.",
+  "author": {
+    "name": "David Paluy"
+  },
+  "license": "MIT",
+  "keywords": [
+    "founder",
+    "strategy",
+    "startup"
+  ]
+}

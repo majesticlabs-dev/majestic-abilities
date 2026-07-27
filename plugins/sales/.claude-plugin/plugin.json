@@ -1,0 +1,15 @@
+{
+  "name": "majestic-sales",
+  "displayName": "Majestic Sales",
+  "version": "0.1.0",
+  "description": "B2B selling: ICP definition, outbound prospecting, pipeline analysis, enablement, proposals, and account expansion.",
+  "author": {
+    "name": "David Paluy"
+  },
+  "license": "MIT",
+  "keywords": [
+    "sales",
+    "b2b",
+    "outbound"
+  ]
+}

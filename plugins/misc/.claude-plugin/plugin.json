@@ -1,0 +1,14 @@
+{
+  "name": "majestic-misc",
+  "displayName": "Majestic Misc",
+  "version": "0.1.0",
+  "description": "Portable skills whose long-term domain is undecided: grading skill executions and designing compliant skill structures.",
+  "author": {
+    "name": "David Paluy"
+  },
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "meta"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "majestic-marketing",
+  "displayName": "Majestic Marketing",
+  "version": "0.1.0",
+  "description": "Positioning, naming, content, campaigns, and growth experiments grounded in verified evidence.",
+  "author": {
+    "name": "David Paluy"
+  },
+  "license": "MIT",
+  "keywords": [
+    "marketing",
+    "content",
+    "growth"
+  ]
+}

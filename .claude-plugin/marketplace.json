@@ -1,0 +1,189 @@
+{
+  "name": "majestic-abilities",
+  "owner": {
+    "name": "David Paluy"
+  },
+  "description": "Portable agent skills organized by capability category, one installable plugin per category.",
+  "metadata": {
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "majestic-cloudflare",
+      "source": "./plugins/cloudflare",
+      "description": "Provision, build, and deploy on Cloudflare: OpenTofu infrastructure, Workers development, and Wrangler deployment.",
+      "version": "0.1.0",
+      "category": "cloudflare",
+      "keywords": [
+        "cloudflare",
+        "workers",
+        "opentofu"
+      ]
+    },
+    {
+      "name": "majestic-core",
+      "source": "./plugins/core",
+      "description": "Foundational repository capabilities: making repositories agent-ready and auditing nested repository guidance.",
+      "version": "0.1.0",
+      "category": "core",
+      "keywords": [
+        "repository",
+        "agents"
+      ]
+    },
+    {
+      "name": "majestic-data",
+      "source": "./plugins/data",
+      "description": "Design, test, and operate data pipelines, contracts, quality controls, dbt projects, and source assessments.",
+      "version": "0.1.0",
+      "category": "data",
+      "keywords": [
+        "data",
+        "pipelines",
+        "dbt"
+      ]
+    },
+    {
+      "name": "majestic-devops",
+      "source": "./plugins/devops",
+      "description": "Provision and operate infrastructure: OpenTofu, Ansible, cloud-init, Kamal deploys, secrets, and infrastructure review.",
+      "version": "0.1.0",
+      "category": "devops",
+      "keywords": [
+        "devops",
+        "infrastructure",
+        "deployment"
+      ]
+    },
+    {
+      "name": "majestic-engineer",
+      "source": "./plugins/engineer",
+      "description": "Plan, review, and harden software changes: implementation planning, code and test review, complexity, logging, and multi-agent architecture.",
+      "version": "0.1.0",
+      "category": "engineer",
+      "keywords": [
+        "engineering",
+        "code-review",
+        "planning"
+      ]
+    },
+    {
+      "name": "majestic-founder",
+      "source": "./plugins/founder",
+      "description": "Founder decisions: company strategy, priorities, bootstrapped finance, go-to-market, fundraising asks, and launch readiness.",
+      "version": "0.1.0",
+      "category": "founder",
+      "keywords": [
+        "founder",
+        "strategy",
+        "startup"
+      ]
+    },
+    {
+      "name": "majestic-frontend",
+      "source": "./plugins/frontend",
+      "description": "Design, audit, and validate user interfaces: visual direction, Core Web Vitals, accessibility, and screenshot documentation.",
+      "version": "0.1.0",
+      "category": "frontend",
+      "keywords": [
+        "frontend",
+        "ui",
+        "performance"
+      ]
+    },
+    {
+      "name": "majestic-marketing",
+      "source": "./plugins/marketing",
+      "description": "Positioning, naming, content, campaigns, and growth experiments grounded in verified evidence.",
+      "version": "0.1.0",
+      "category": "marketing",
+      "keywords": [
+        "marketing",
+        "content",
+        "growth"
+      ]
+    },
+    {
+      "name": "majestic-misc",
+      "source": "./plugins/misc",
+      "description": "Portable skills whose long-term domain is undecided: grading skill executions and designing compliant skill structures.",
+      "version": "0.1.0",
+      "category": "misc",
+      "keywords": [
+        "skills",
+        "meta"
+      ]
+    },
+    {
+      "name": "majestic-product",
+      "source": "./plugins/product",
+      "description": "Discovery, requirements, roadmaps, pricing, retention, and product health metrics.",
+      "version": "0.1.0",
+      "category": "product",
+      "keywords": [
+        "product",
+        "prd",
+        "roadmap"
+      ]
+    },
+    {
+      "name": "majestic-rails",
+      "source": "./plugins/rails",
+      "description": "Write, review, and debug Ruby on Rails applications in DHH and 37signals style, across Hotwire, Active Job, Solid, testing, and review.",
+      "version": "0.1.0",
+      "category": "rails",
+      "keywords": [
+        "rails",
+        "ruby",
+        "hotwire"
+      ]
+    },
+    {
+      "name": "majestic-reasoning",
+      "source": "./plugins/reasoning",
+      "description": "Pressure-test plans and conclusions: devil's advocate, premortem, and reasoning verification.",
+      "version": "0.1.0",
+      "category": "reasoning",
+      "keywords": [
+        "reasoning",
+        "critique"
+      ]
+    },
+    {
+      "name": "majestic-sales",
+      "source": "./plugins/sales",
+      "description": "B2B selling: ICP definition, outbound prospecting, pipeline analysis, enablement, proposals, and account expansion.",
+      "version": "0.1.0",
+      "category": "sales",
+      "keywords": [
+        "sales",
+        "b2b",
+        "outbound"
+      ]
+    },
+    {
+      "name": "majestic-seo",
+      "source": "./plugins/seo",
+      "description": "Technical SEO, content strategy, structured data, and Answer Engine Optimization for search engines and LLMs.",
+      "version": "0.1.0",
+      "category": "seo",
+      "keywords": [
+        "seo",
+        "aeo",
+        "schema"
+      ]
+    },
+    {
+      "name": "majestic-writing",
+      "source": "./plugins/writing",
+      "description": "Draft, revise, and audit prose: voice capture, brand voice, copy editing, direct response, and Minto structure.",
+      "version": "0.1.0",
+      "category": "writing",
+      "keywords": [
+        "writing",
+        "editing",
+        "copy"
+      ]
+    }
+  ]
+}

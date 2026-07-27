@@ -1,0 +1,15 @@
+{
+  "name": "majestic-engineer",
+  "displayName": "Majestic Engineer",
+  "version": "0.1.0",
+  "description": "Plan, review, and harden software changes: implementation planning, code and test review, complexity, logging, and multi-agent architecture.",
+  "author": {
+    "name": "David Paluy"
+  },
+  "license": "MIT",
+  "keywords": [
+    "engineering",
+    "code-review",
+    "planning"
+  ]
+}

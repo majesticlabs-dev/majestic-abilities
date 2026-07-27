@@ -1,0 +1,14 @@
+{
+  "name": "majestic-reasoning",
+  "displayName": "Majestic Reasoning",
+  "version": "0.1.0",
+  "description": "Pressure-test plans and conclusions: devil's advocate, premortem, and reasoning verification.",
+  "author": {
+    "name": "David Paluy"
+  },
+  "license": "MIT",
+  "keywords": [
+    "reasoning",
+    "critique"
+  ]
+}
