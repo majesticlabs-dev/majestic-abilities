@@ -160,6 +160,8 @@ The CLI recommends symlinks so multiple agents share one canonical installation.
 
 Core is a category for foundational repository capabilities, not a dependency required by other categories. Misc is a temporary holding category for useful portable skills whose long-term domain is still undecided, not a destination for low-value leftovers.
 
+Multi-step workflows that compose these skills live in [`cookbooks/`](cookbooks/), described below.
+
 ## Core Skills
 
 | Skill | Description |
@@ -377,6 +379,16 @@ Core is a category for foundational repository capabilities, not a dependency re
 | [`style-writer`](skills/writing/style-writer/) | Draft and revise prose against an existing voice profile while preserving facts and readability. |
 | [`voice-dna-kit`](skills/writing/voice-dna-kit/) | Capture an existing personal or organizational writing voice as reusable guidance. |
 
+## Cookbooks
+
+Cookbooks are recipes: user-invoked workflow skills that sequence catalog skills by name (plan, implement, quality gates). They live in [`cookbooks/`](cookbooks/) rather than `skills/` because they follow a different contract: catalog skills are decoupled and never reference each other, while cookbooks reference the skills they orchestrate and declare them in a `## Requires` section.
+
+| Cookbook | Description |
+| --- | --- |
+| [`rails-feature`](cookbooks/rails-feature/) | Build a Rails feature end-to-end: plan, implement in DHH style with TDD, then pass lint, test, and review quality gates. |
+
+Cookbooks install like any other skill, but always install their required skills alongside them (the CLI does not resolve dependencies). Each cookbook lists its complete install command. `scripts/check-cookbooks.sh` verifies that every referenced skill exists; run it before committing cookbook changes. See [`cookbooks/README.md`](cookbooks/README.md) for the full contract and authoring guide.
+
 ## Layout
 
 ```text
@@ -387,6 +399,11 @@ skills/
       references/  # optional
       scripts/     # optional
       assets/      # optional
+cookbooks/
+  <cookbook-name>/
+    SKILL.md
+scripts/
+  check-cookbooks.sh
 ```
 
-Each skill is self-contained. Category directories provide catalog organization and category-scoped installation, while installed skills are flattened into each agent's native skill directory.
+Each skill is self-contained. Category directories provide catalog organization and category-scoped installation, while installed skills are flattened into each agent's native skill directory. Cookbooks are the composition layer: they may reference catalog skills by name, and `scripts/check-cookbooks.sh` keeps those references honest.
