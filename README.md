@@ -385,6 +385,9 @@ Cookbooks are recipes: user-invoked workflow skills that sequence catalog skills
 
 | Cookbook | Description |
 | --- | --- |
+| [`ai-search-visibility-foundation`](cookbooks/ai-search-visibility-foundation/) | Establish a site's SEO, entity, AI navigation, crawler, structured-data, and AEO measurement foundations. |
+| [`founder-launch-decision`](cookbooks/founder-launch-decision/) | Turn a founder-led launch proposal into a defensible audience, motion, legal-unknown inventory, and launch verdict. |
+| [`product-engineering-handoff`](cookbooks/product-engineering-handoff/) | Turn an approved product direction into a PRD, repository-grounded implementation plan, and reviewed engineering handoff. |
 | [`rails-feature`](cookbooks/rails-feature/) | Build a Rails feature end-to-end: plan, implement in DHH style with TDD, then pass lint, test, and review quality gates. |
 
 Cookbooks install like any other skill, but always install their required skills alongside them (the CLI does not resolve dependencies). Each cookbook lists its complete install command. `scripts/check-cookbooks.sh` verifies that every referenced skill exists; run it before committing cookbook changes. See [`cookbooks/README.md`](cookbooks/README.md) for the full contract and authoring guide.
