@@ -1,6 +1,5 @@
 ---
 name: headline-generator
-license: MIT (see LICENSE)
 description: Generate multiple fact-bound news headlines, press-release headlines, feature headlines, and pitch subject lines from supplied evidence, then recommend the strongest candidate. Use when a story, launch, data point, press pitch, or existing flat headline needs a deliberate candidate sprint, not a complete asset.
 ---
 
@@ -117,10 +116,6 @@ End each group with:
 ```
 
 Then list any fact-check or approval blockers. Do not route to nonexistent sibling skills.
-
-## Provenance
-
-This workflow and its evidence reference were adapted from the `headline-generator` skill in `elvisun/newsjack`. The upstream project and MIT license were verified at main commit `0eebc3206437ae6544733a4e2280cf1bc8cc212d`. See [LICENSE](LICENSE).
 
 ## Quality Gate
 

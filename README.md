@@ -26,7 +26,7 @@ Replace `OWNER/REPOSITORY` with the published repository identifier. Use an abso
 | `majestic-founder` | 7 | Strategy, priorities, finance, go-to-market, launch readiness |
 | `majestic-frontend` | 5 | Visual direction, Core Web Vitals, accessibility, screenshots |
 | `majestic-marketing` | 13 | Positioning, naming, content, campaigns, growth experiments |
-| `majestic-misc` | 2 | Skill grading and skill structure design |
+| `majestic-misc` | 3 | Actionable communication, skill grading, and skill structure design |
 | `majestic-product` | 8 | Discovery, PRDs, roadmaps, pricing, retention, metrics |
 | `majestic-rails` | 36 | Rails and Ruby implementation, Hotwire, Solid, testing, review |
 | `majestic-reasoning` | 3 | Devil's advocate, premortem, reasoning verification |
@@ -186,7 +186,7 @@ The CLI recommends symlinks so multiple agents share one canonical installation.
 | Founder | 7 | [`plugins/founder/skills/`](plugins/founder/skills/) |
 | Frontend | 5 | [`plugins/frontend/skills/`](plugins/frontend/skills/) |
 | Marketing | 13 | [`plugins/marketing/skills/`](plugins/marketing/skills/) |
-| Misc | 2 | [`plugins/misc/skills/`](plugins/misc/skills/) |
+| Misc | 3 | [`plugins/misc/skills/`](plugins/misc/skills/) |
 | Product | 8 | [`plugins/product/skills/`](plugins/product/skills/) |
 | Rails | 36 | [`plugins/rails/skills/`](plugins/rails/skills/) |
 | Reasoning | 3 | [`plugins/reasoning/skills/`](plugins/reasoning/skills/) |
@@ -297,6 +297,7 @@ Counts above are catalog skills only. Cookbooks are counted separately and descr
 
 | Skill | Description |
 | --- | --- |
+| [`actionable-communication`](plugins/misc/skills/actionable-communication/) | Shape responses into direct answers, bounded actions, visible progress, and one concrete next step. |
 | [`skill-grader`](plugins/misc/skills/skill-grader/) | Grade skill executions against expectations using transcript and output evidence. |
 | [`skill-structure`](plugins/misc/skills/skill-structure/) | Decide whether guidance should become an Agent Skill and design a compliant structure when justified. |
 

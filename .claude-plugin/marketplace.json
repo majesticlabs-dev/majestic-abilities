@@ -106,11 +106,12 @@
     {
       "name": "majestic-misc",
       "source": "./plugins/misc",
-      "description": "Portable skills whose long-term domain is undecided: grading skill executions and designing compliant skill structures.",
+      "description": "Portable interaction and skill-design capabilities: actionable communication, execution grading, and compliant skill structure.",
       "version": "0.1.0",
       "category": "misc",
       "keywords": [
         "skills",
+        "communication",
         "meta"
       ]
     },

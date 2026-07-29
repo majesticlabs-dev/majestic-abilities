@@ -2,13 +2,14 @@
   "name": "majestic-misc",
   "displayName": "Majestic Misc",
   "version": "0.1.0",
-  "description": "Portable skills whose long-term domain is undecided: grading skill executions and designing compliant skill structures.",
+  "description": "Portable interaction and skill-design capabilities: actionable communication, execution grading, and compliant skill structure.",
   "author": {
     "name": "David Paluy"
   },
   "license": "MIT",
   "keywords": [
     "skills",
+    "communication",
     "meta"
   ]
 }
