@@ -27,7 +27,7 @@ Replace `OWNER/REPOSITORY` with the published repository identifier. Use an abso
 | `majestic-frontend` | 5 | Visual direction, Core Web Vitals, accessibility, screenshots |
 | `majestic-marketing` | 13 | Positioning, naming, content, campaigns, growth experiments |
 | `majestic-misc` | 3 | Actionable communication, skill grading, and skill structure design |
-| `majestic-product` | 9 | Discovery, PRDs, roadmaps, pricing, retention, metrics |
+| `majestic-product` | 10 | Discovery, requirements quality, PRDs, roadmaps, pricing, retention, metrics |
 | `majestic-rails` | 36 | Rails and Ruby implementation, Hotwire, Solid, testing, review |
 | `majestic-reasoning` | 3 | Devil's advocate, premortem, reasoning verification |
 | `majestic-sales` | 6 | ICP, outbound, pipeline, enablement, proposals, expansion |
@@ -187,7 +187,7 @@ The CLI recommends symlinks so multiple agents share one canonical installation.
 | Frontend | 5 | [`plugins/frontend/skills/`](plugins/frontend/skills/) |
 | Marketing | 13 | [`plugins/marketing/skills/`](plugins/marketing/skills/) |
 | Misc | 3 | [`plugins/misc/skills/`](plugins/misc/skills/) |
-| Product | 9 | [`plugins/product/skills/`](plugins/product/skills/) |
+| Product | 10 | [`plugins/product/skills/`](plugins/product/skills/) |
 | Rails | 36 | [`plugins/rails/skills/`](plugins/rails/skills/) |
 | Reasoning | 3 | [`plugins/reasoning/skills/`](plugins/reasoning/skills/) |
 | Sales | 6 | [`plugins/sales/skills/`](plugins/sales/skills/) |
@@ -249,7 +249,7 @@ Counts above are catalog skills only. Cookbooks are counted separately and descr
 | [`complexity-reviewer`](plugins/engineer/skills/complexity-reviewer/) | Review algorithmic complexity and performance hotspots conservatively. |
 | [`implementation-planning`](plugins/engineer/skills/implementation-planning/) | Create an executable technical plan grounded in the existing repository. |
 | [`multi-agent-architecture`](plugins/engineer/skills/multi-agent-architecture/) | Design persistent multi-agent systems with explicit roles, handoffs, state, permissions, and failure handling. |
-| [`plan-review`](plugins/engineer/skills/plan-review/) | Review planning documents for readiness, implementation risk, unnecessary scope, and verification gaps. |
+| [`plan-review`](plugins/engineer/skills/plan-review/) | Review planning documents as whole delivery artifacts for implementation readiness and risk. |
 | [`structured-logging`](plugins/engineer/skills/structured-logging/) | Design structured application logging for observability and incidents. |
 | [`test-reviewer`](plugins/engineer/skills/test-reviewer/) | Review automated tests for behavioral coverage and reliability. |
 
@@ -314,6 +314,7 @@ Counts above are catalog skills only. Cookbooks are counted separately and descr
 | [`product-planning`](plugins/product/skills/product-planning/) | Prioritize opportunities and build an outcome-based Now, Next, Later roadmap. |
 | [`product-requirements`](plugins/product/skills/product-requirements/) | Write an evidence-grounded PRD with testable requirements, scope, and success measures. |
 | [`product-validation`](plugins/product/skills/product-validation/) | Pressure-test demand and define the smallest test for the riskiest product assumption. |
+| [`requirements-quality`](plugins/product/skills/requirements-quality/) | Audit and repair requirements with evidence-safe status, abstraction-aware checks, and traceability. |
 
 ## Rails Skills
 
