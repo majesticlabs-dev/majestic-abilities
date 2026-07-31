@@ -86,12 +86,16 @@ Check for:
 - conclusion drift from the original question
 - missing alternatives
 - correlation treated as causation
+- claims that depart from a relevant base rate without evidence explaining why this case differs
+- an analogy that relies on surface similarity while ignoring differences that affect the conclusion
 - universal claims from narrow evidence
 - inconsistent standards between options
 - circular support
 - hidden value judgments
 - certainty stronger than the evidence
 - recommendations that do not solve the diagnosed problem
+
+When a base-rate or analogy check applies, name the reference class or the analogy’s source, target, relevant similarities, and material differences. If the required evidence is unavailable, classify it as Unknown rather than inventing or researching it inside this verification pass.
 
 Report only gaps the text actually contains. An empty finding list is a valid result. Do not promote wording or presentation issues to logical gaps in order to fill a section.
 
@@ -157,6 +161,7 @@ Persist the report only when requested or when the user supplied an output path.
 - The reconstruction uses the strongest reading the text supports.
 - Evidence and assumptions are not conflated.
 - Logical deductions are shown rather than asserted.
+- Material base-rate departures and analogies are tested against relevant differences.
 - Status and severity use the defined vocabularies.
 - Findings are real rather than manufactured to fill a section.
 - Unknowns remain unknown.

@@ -27,12 +27,13 @@ Persuasion does not permit deception, fabricated proof, hidden material terms, f
 Inspect supplied context before asking questions. Resolve:
 
 1. **Reader moment:** Who sees this, what just happened, and what do they need now?
-2. **Desired response:** What exact action should the reader take?
-3. **Offer:** What is provided, for whom, at what price or commitment, and under what terms?
-4. **Evidence:** Product facts, demonstrations, results, quotations, testimonials, limitations, and sources.
-5. **Alternative:** What does the reader do today, and what cost or friction is supported by evidence?
-6. **Surface:** Landing page, email, ad, CTA, product message, error, empty state, or another format.
-7. **Voice and constraints:** Supplied guide, required claims, prohibited claims, legal terms, length, and channel rules.
+2. **Primary buyer outcome:** What practical, emotional, or economic result is supported by observed buyer behavior or verified research?
+3. **Desired response:** What exact action should the reader take?
+4. **Offer:** What is provided, for whom, at what price or commitment, and under what terms?
+5. **Evidence:** Product facts, demonstrations, results, quotations, testimonials, limitations, and sources.
+6. **Alternative:** What does the reader do today, and what cost or friction is supported by evidence?
+7. **Surface:** Landing page, email, ad, CTA, product message, error, empty state, or another format.
+8. **Voice and constraints:** Supplied guide, required claims, prohibited claims, legal terms, length, and channel rules.
 
 Ask once, in a concise batch, for missing information that would materially change the copy. Never invent proof, product behavior, numbers, dialogue, testimonials, customer stories, scarcity, or guarantees.
 
@@ -53,6 +54,7 @@ Privately answer:
 
 - What is the reader trying to understand, avoid, complete, or decide at this moment?
 - What concern or objection must be resolved before the action is reasonable?
+- What one primary buyer outcome is supported strongly enough to organize this asset, and which secondary outcomes should remain support rather than competing promises?
 - What is the simplest accurate explanation of the offer?
 - What is the smallest useful next action?
 
@@ -80,7 +82,7 @@ Trace each important feature through supported consequences:
 feature -> functional change -> practical consequence -> reader value
 ```
 
-Stop where evidence stops. Do not invent emotional, financial, or operational outcomes merely because they would be persuasive.
+Stop where evidence stops. Use buyer language only when it comes from supplied or verified research. Choose one supported endpoint as the primary buyer outcome. If evidence supports only the functional change, use that narrower result and record the broader outcome as an open gap. Do not assign a motive from a generic psychology list or invent emotional, financial, or operational outcomes merely because they would be persuasive.
 
 Quantify a problem only from supplied or verified inputs. Show assumptions when a calculation depends on them.
 
@@ -127,6 +129,7 @@ Lead with the complete requested asset. Follow it with:
 
 ```markdown
 **Reader moment:** [who sees this and what just happened]
+**Primary buyer outcome:** [the one supported result organizing the asset]
 **Desired response:** [the exact action]
 **Proof used:** [each material claim and the evidence that permits it]
 **Open gaps:** [unresolved proof or approval blockers, or "none"]
@@ -141,6 +144,7 @@ For embedded handoff or copy-only requests, return only the finished copy.
 The copy is ready when:
 
 - the reader can understand the offer and next action without decoding jargon
+- one primary buyer outcome organizes the asset and is no stronger than its proof
 - claims are no stronger than their evidence
 - proof and material limitations are easy to find
 - persuasion serves an informed decision rather than manipulating attention

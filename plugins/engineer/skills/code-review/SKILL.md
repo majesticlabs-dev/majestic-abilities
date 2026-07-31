@@ -11,7 +11,9 @@ Review the requested change set against its intended behavior. Prioritize defect
 
 Review only the requested diff, patch, files, or comparison range, plus the surrounding code needed to validate behavior. Do not modify code unless the user explicitly asks for fixes.
 
-Use specialist review guidance when the main question is narrower, such as algorithmic complexity, test quality, infrastructure, privacy, or framework conventions.
+Identify the language, framework, and relevant versions before reviewing framework-dependent behavior. Apply framework-specific review guidance whenever the change runs inside a framework. If that guidance or the required version context is unavailable, limit the review to demonstrated language-neutral defects and do not approve framework-dependent behavior.
+
+Use other specialist guidance when the main question is narrower, such as algorithmic complexity, test quality, infrastructure, or privacy.
 
 ## Required Context
 
@@ -19,6 +21,7 @@ Establish:
 
 - the exact review scope and comparison base
 - the requested behavior, acceptance criteria, or issue being solved
+- the language, framework, runtime, and relevant versions
 - repository guidance and relevant architectural constraints
 - checks already run and any known failures
 
@@ -28,12 +31,13 @@ If the scope is empty or ambiguous, say so instead of reviewing an assumed chang
 
 1. Read the entire change set before forming conclusions.
 2. Trace each changed behavior through callers, consumers, data boundaries, and failure paths.
-3. Compare the implementation with the stated requirement and existing repository patterns.
-4. Check for correctness failures, regressions, unsafe defaults, authorization gaps, data loss, concurrency hazards, compatibility breaks, and incomplete migrations.
-5. Challenge new abstractions, configuration, dependencies, and indirection that are not required by the change.
-6. Inspect tests for observable behavior, important branches, failure handling, and regression protection.
-7. Run the narrowest relevant repository checks when execution is available. Distinguish checks actually run from checks merely recommended.
-8. Keep only findings supported by a concrete code path and user-visible or operational consequence.
+3. Assess change risk from the actual semantic change. Trace changed contracts through static and dynamic dependents, side effects, criticality, and relevant cross-cutting failure modes. For each material risk, name the triggering changed path, plausible failure and consequence, evidence strength, and mitigation or verification. Risk without a concrete defect belongs in residual risk, not Findings. Treat missing evidence as residual risk, not proof of safety.
+4. Compare the implementation with the stated requirement and existing repository patterns.
+5. Check for correctness failures, regressions, unsafe defaults, authorization gaps, data loss, concurrency hazards, compatibility breaks, and incomplete migrations.
+6. Challenge new abstractions, configuration, dependencies, and indirection that are not required by the change.
+7. Inspect tests for observable behavior, important branches, failure handling, and regression protection.
+8. Run the narrowest relevant repository checks when execution is available. Distinguish checks actually run from checks merely recommended.
+9. Keep only findings supported by a concrete code path and user-visible or operational consequence.
 
 ## Finding Standard
 

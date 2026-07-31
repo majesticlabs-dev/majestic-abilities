@@ -2,7 +2,7 @@
   "name": "majestic-rails",
   "displayName": "Majestic Rails",
   "version": "0.1.0",
-  "description": "Write, review, and debug Ruby on Rails applications in DHH and 37signals style, across Hotwire, Active Job, Solid, testing, and review.",
+  "description": "Write, debug, and explicitly review Ruby on Rails applications across framework correctness, Hotwire, Active Job, Solid, testing, and Rails-native design.",
   "author": {
     "name": "David Paluy"
   },

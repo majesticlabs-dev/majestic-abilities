@@ -59,10 +59,14 @@ of a use case, that itself is the answer.
 **A6. Crux.** Write the crux in one sentence. Get explicit agreement or iterate until the
 user agrees. Do not proceed without an agreed crux.
 
-**A7. Options menu.** Build at least four: Incremental (run the current business smarter),
-New-product (different product on existing leverage), Exit (sell/leave with payment),
-New-channel (same product, new distribution). Add more if they emerge. Include options the
-user hates — say why they still belong on the menu.
+**A7. Options menu.** Build a default set of four to six options. Consider Incremental (run the
+current business smarter), New-product (different product on existing leverage), Exit (sell/leave
+with payment), and New-channel (same product, new distribution) when they fit the crux. Use different
+mechanisms, time horizons, buyers or markets, distribution or business models, and forms of existing
+leverage as diversity checks, not quotas. Merge true duplicates and state how every retained option
+attacks the agreed crux plus its key unknown. Exclude options already tried or ruled out by the crux.
+Do not rank before the gut check. Expand only when the user asks or a materially different path would
+otherwise be omitted. Include options the user hates — say why they still belong on the menu.
 
 **A8. Gut-check.** For each option ask: *hell yeah / sounds like death / not sure?*
 "Not sure" = default no unless it's curiosity → mark for exploration. Probe what exactly

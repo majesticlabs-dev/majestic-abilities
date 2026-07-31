@@ -14,6 +14,7 @@ Use this skill when a planning document exists but implementation has not starte
 - Identify missing dependencies, integrations, migrations, or operational work.
 - Challenge unnecessary abstractions, extra files, or scope creep.
 - Surface failure modes, rollback concerns, and verification gaps.
+- Assess change risk from intended behavior and affected contracts, not file type or apparent isolation.
 - Trace each user flow through success, invalid input, cancellation, retry, and permission boundaries.
 
 ## Document Readiness
@@ -38,15 +39,16 @@ Separate blocking decisions from polish. Do not average away a blocker with a re
 4. Flag vague language when it hides behavior, thresholds, ownership, or acceptance criteria.
 5. Break the plan into ordered steps and map each step to an acceptance criterion.
 6. List distinct user flows, actors, triggers, expected outcomes, and failure paths.
-7. Check cross-cutting concerns:
+7. Assess change risk from intended behavior, affected contracts, static and dynamic dependents, side effects, criticality, and the cross-cutting concerns below. For each material risk, require a triggering planned step or path, plausible failure and consequence, evidence strength, and mitigation or verification. Reject generic risk lists and keep missing evidence visible.
+8. Check cross-cutting concerns:
    - auth and permissions
    - data shape, migrations, and rollback
    - external APIs and version-sensitive dependencies
    - observability, logging, and alerting
    - performance, caching, and background work
    - testing strategy and verification commands
-8. Ask whether an existing flow already solves part of the problem.
-9. Recommend the smallest change set that still satisfies the goal.
+9. Ask whether an existing flow already solves part of the problem.
+10. Recommend the smallest change set that still satisfies the goal.
 
 ## Common Failure Modes
 
@@ -75,6 +77,7 @@ For a high-risk or cross-cutting plan, also return:
 
 - **Scope challenge:** what already exists, the smallest sufficient change, and work that can defer.
 - **Path-to-test map:** each new user or data path, branches, failure mode, and planned coverage.
+- **Change-risk map:** affected contracts, static and dynamic dependents, criticality, evidence gaps, controls, rollout, and rollback.
 - **Deferred work:** explicitly out-of-scope follow-ups with rationale and prerequisites.
 - **Unresolved decisions:** choices that still need an owner or would materially change implementation.
 

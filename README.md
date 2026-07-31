@@ -23,13 +23,13 @@ Replace `OWNER/REPOSITORY` with the published repository identifier. Use an abso
 | `majestic-data` | 8 | Pipelines, contracts, quality controls, dbt |
 | `majestic-devops` | 10 | OpenTofu, Ansible, cloud-init, Kamal, secrets, infrastructure review |
 | `majestic-engineer` | 7 | Implementation planning, code and test review, complexity, logging |
-| `majestic-founder` | 7 | Strategy, priorities, finance, go-to-market, launch readiness |
+| `majestic-founder` | 8 | Strategy, priorities, finance, technology impact, go-to-market, launch readiness |
 | `majestic-frontend` | 5 | Visual direction, Core Web Vitals, accessibility, screenshots |
 | `majestic-marketing` | 13 | Positioning, naming, content, campaigns, growth experiments |
 | `majestic-misc` | 3 | Actionable communication, skill grading, and skill structure design |
-| `majestic-product` | 10 | Discovery, requirements quality, PRDs, roadmaps, pricing, retention, metrics |
+| `majestic-product` | 13 | Discovery, workflow mapping, decision alignment, requirements, roadmaps, pricing, retention |
 | `majestic-rails` | 36 | Rails and Ruby implementation, Hotwire, Solid, testing, review |
-| `majestic-reasoning` | 3 | Devil's advocate, premortem, reasoning verification |
+| `majestic-reasoning` | 4 | Decision retrospectives, devil's advocate, premortem, reasoning verification |
 | `majestic-sales` | 6 | ICP, outbound, pipeline, enablement, proposals, expansion |
 | `majestic-seo` | 23 | Technical SEO, content strategy, schema, AEO, plus the `ai-search-visibility-foundation` cookbook |
 | `majestic-writing` | 10 | Voice capture, brand voice, copy editing, direct response, Minto |
@@ -183,13 +183,13 @@ The CLI recommends symlinks so multiple agents share one canonical installation.
 | Data | 8 | [`plugins/data/skills/`](plugins/data/skills/) |
 | DevOps | 10 | [`plugins/devops/skills/`](plugins/devops/skills/) |
 | Engineer | 7 | [`plugins/engineer/skills/`](plugins/engineer/skills/) |
-| Founder | 7 | [`plugins/founder/skills/`](plugins/founder/skills/) |
+| Founder | 8 | [`plugins/founder/skills/`](plugins/founder/skills/) |
 | Frontend | 5 | [`plugins/frontend/skills/`](plugins/frontend/skills/) |
 | Marketing | 13 | [`plugins/marketing/skills/`](plugins/marketing/skills/) |
 | Misc | 3 | [`plugins/misc/skills/`](plugins/misc/skills/) |
-| Product | 10 | [`plugins/product/skills/`](plugins/product/skills/) |
+| Product | 13 | [`plugins/product/skills/`](plugins/product/skills/) |
 | Rails | 36 | [`plugins/rails/skills/`](plugins/rails/skills/) |
-| Reasoning | 3 | [`plugins/reasoning/skills/`](plugins/reasoning/skills/) |
+| Reasoning | 4 | [`plugins/reasoning/skills/`](plugins/reasoning/skills/) |
 | Sales | 6 | [`plugins/sales/skills/`](plugins/sales/skills/) |
 | SEO | 22 | [`plugins/seo/skills/`](plugins/seo/skills/) |
 | Writing | 10 | [`plugins/writing/skills/`](plugins/writing/skills/) |
@@ -264,6 +264,7 @@ Counts above are catalog skills only. Cookbooks are counted separately and descr
 | [`go-to-market-motion`](plugins/founder/skills/go-to-market-motion/) | Choose and phase a route to market that fits buying behavior, economics, stage, and capacity. |
 | [`launch-legal-checklist`](plugins/founder/skills/launch-legal-checklist/) | Identify launch legal unknowns, escalation points, and next actions without implying legal clearance. |
 | [`launch-readiness`](plugins/founder/skills/launch-readiness/) | Return a blunt go, narrow, or delay recommendation for a founder-led launch. |
+| [`technology-impact-assessment`](plugins/founder/skills/technology-impact-assessment/) | Assess how an external technology change affects a named company and choose action, experiment, monitoring, or no material action. |
 
 ## Frontend Skills
 
@@ -310,11 +311,14 @@ Counts above are catalog skills only. Cookbooks are counted separately and descr
 | [`lifecycle-retention`](plugins/product/skills/lifecycle-retention/) | Design lifecycle stages, health signals, onboarding, early warnings, and retention interventions. |
 | [`north-star-metric`](plugins/product/skills/north-star-metric/) | Choose and operate one stage-fit product health metric with drivers and guardrails. |
 | [`pricing-strategy`](plugins/product/skills/pricing-strategy/) | Design pricing and packaging from value, evidence, costs, and expansion logic. |
+| [`product-decision-alignment`](plugins/product/skills/product-decision-alignment/) | Diagnose and repair stuck, reopened, or inconsistently executed cross-functional product decisions. |
 | [`product-discovery`](plugins/product/skills/product-discovery/) | Plan interviews, map assumptions, and frame Jobs-to-be-Done before defining a solution. |
 | [`product-planning`](plugins/product/skills/product-planning/) | Prioritize opportunities and build an outcome-based Now, Next, Later roadmap. |
 | [`product-requirements`](plugins/product/skills/product-requirements/) | Write an evidence-grounded PRD with testable requirements, scope, and success measures. |
 | [`product-validation`](plugins/product/skills/product-validation/) | Pressure-test demand and define the smallest test for the riskiest product assumption. |
 | [`requirements-quality`](plugins/product/skills/requirements-quality/) | Audit and repair requirements with evidence-safe status, abstraction-aware checks, and traceability. |
+| [`stakeholder-conversation-roleplay`](plugins/product/skills/stakeholder-conversation-roleplay/) | Rehearse a difficult product conversation in a bounded simulation and debrief observable communication choices. |
+| [`workflow-opportunity-mapping`](plugins/product/skills/workflow-opportunity-mapping/) | Map observed workflows into states, burdens, automation choices, controls, product opportunities, and exceptions. |
 
 ## Rails Skills
 
@@ -342,7 +346,7 @@ Counts above are catalog skills only. Cookbooks are counted separately and descr
 | [`mcp-oauth-setup`](plugins/rails/skills/mcp-oauth-setup/) | Implement MCP server authentication and OAuth registration. |
 | [`minitest-coder`](plugins/rails/skills/minitest-coder/) | Write Minitest tests for Ruby and Rails. |
 | [`performance-reviewer`](plugins/rails/skills/performance-reviewer/) | Review Rails code for query, memory, locking, and throughput problems. |
-| [`pragmatic-rails-reviewer`](plugins/rails/skills/pragmatic-rails-reviewer/) | Review Rails changes for regressions, maintainability, and conventions. |
+| [`rails-code-review`](plugins/rails/skills/rails-code-review/) | Review Rails changes with framework-specific correctness and release gates. |
 | [`privacy-reviewer`](plugins/rails/skills/privacy-reviewer/) | Review PII handling, encryption, and privacy compliance. |
 | [`rails-activity-timeline`](plugins/rails/skills/rails-activity-timeline/) | Add polymorphic activity timelines with Turbo Stream updates. |
 | [`rails-authentication-coder`](plugins/rails/skills/rails-authentication-coder/) | Implement Rails 8 native authentication. |
@@ -361,6 +365,7 @@ Counts above are catalog skills only. Cookbooks are counted separately and descr
 
 | Skill | Description |
 | --- | --- |
+| [`decision-retrospective`](plugins/reasoning/skills/decision-retrospective/) | Review a completed decision by separating process quality, outcome, hindsight, and updated decision rules. |
 | [`devils-advocate`](plugins/reasoning/skills/devils-advocate/) | Pressure-test a preferred approach before commitment. |
 | [`premortem`](plugins/reasoning/skills/premortem/) | Convert plausible future failure stories into safeguards for a concrete plan. |
 | [`reasoning-verifier`](plugins/reasoning/skills/reasoning-verifier/) | Trace requirements, evidence, and assumptions into a completed conclusion. |

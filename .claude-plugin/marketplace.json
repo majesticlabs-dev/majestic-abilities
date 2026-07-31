@@ -70,7 +70,7 @@
     {
       "name": "majestic-founder",
       "source": "./plugins/founder",
-      "description": "Founder decisions: company strategy, priorities, bootstrapped finance, go-to-market, fundraising asks, and launch readiness.",
+      "description": "Founder decisions: company strategy, priorities, technology impact, bootstrapped finance, go-to-market, fundraising asks, and launch readiness.",
       "version": "0.1.0",
       "category": "founder",
       "keywords": [
@@ -118,7 +118,7 @@
     {
       "name": "majestic-product",
       "source": "./plugins/product",
-      "description": "Discovery, requirements, roadmaps, pricing, retention, and product health metrics.",
+      "description": "Product discovery, workflow opportunities, decision alignment, stakeholder rehearsal, requirements, roadmaps, pricing, and retention.",
       "version": "0.1.0",
       "category": "product",
       "keywords": [
@@ -130,7 +130,7 @@
     {
       "name": "majestic-rails",
       "source": "./plugins/rails",
-      "description": "Write, review, and debug Ruby on Rails applications in DHH and 37signals style, across Hotwire, Active Job, Solid, testing, and review.",
+      "description": "Write, debug, and explicitly review Ruby on Rails applications across framework correctness, Hotwire, Active Job, Solid, testing, and Rails-native design.",
       "version": "0.1.0",
       "category": "rails",
       "keywords": [
@@ -142,7 +142,7 @@
     {
       "name": "majestic-reasoning",
       "source": "./plugins/reasoning",
-      "description": "Pressure-test plans and conclusions: devil's advocate, premortem, and reasoning verification.",
+      "description": "Review decisions and pressure-test plans and conclusions through retrospectives, devil's advocate, premortem, and reasoning verification.",
       "version": "0.1.0",
       "category": "reasoning",
       "keywords": [

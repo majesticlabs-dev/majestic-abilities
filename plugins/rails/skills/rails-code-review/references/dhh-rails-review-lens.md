@@ -1,6 +1,6 @@
 # DHH Rails Review Lens
 
-Use this reference as a strict Rails simplicity lens inside `pragmatic-rails-reviewer`.
+Use this reference as a strict, optional simplicity lens inside `rails-code-review`.
 
 ## Review Bias
 

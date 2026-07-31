@@ -2,7 +2,7 @@
   "name": "majestic-reasoning",
   "displayName": "Majestic Reasoning",
   "version": "0.1.0",
-  "description": "Pressure-test plans and conclusions: devil's advocate, premortem, and reasoning verification.",
+  "description": "Review decisions and pressure-test plans and conclusions through retrospectives, devil's advocate, premortem, and reasoning verification.",
   "author": {
     "name": "David Paluy"
   },

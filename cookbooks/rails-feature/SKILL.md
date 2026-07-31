@@ -35,9 +35,11 @@ Run the project's full test suite (or the smallest suite the project's conventio
 
 ### Gate C: Review
 
-Spawn a subagent with a fresh context to review the complete diff. The subagent applies the `pragmatic-rails-reviewer` skill (with the DHH simplicity lens) and the `test-reviewer` skill for test quality, and must finish with `APPROVED` or `NEEDS CHANGES`.
+Spawn a subagent with a fresh context to review the complete diff. The subagent applies the `rails-code-review` skill with its otherwise optional DHH simplicity lens enabled and the `test-reviewer` skill for test quality, and must finish with `APPROVED`, `NEEDS CHANGES`, or `BLOCKED`.
 
 On `NEEDS CHANGES`: apply the feedback, re-run Gates A and B, then re-review. Repeat until `APPROVED`.
+
+On `BLOCKED`: resolve the named missing context or prerequisite, then re-run Gate C. If it cannot be resolved, stop and report that the feature did not pass the review gate.
 
 ## Phase 4: Report
 
@@ -50,14 +52,14 @@ Summarize: what shipped, the plan deviations if any, and the outcome of each gat
 - `ruby-coder` — Ruby-level design rules during implementation
 - `minitest-coder` — test-writing conventions for the TDD loop
 - `rails-lint` — Gate A tooling workflow
-- `pragmatic-rails-reviewer` — Gate C review posture
+- `rails-code-review`: Gate C framework-specific review and release verdict
 - `test-reviewer` — Gate C test-quality review
 
 Install everything:
 
 ```sh
 npx skills add OWNER/REPOSITORY --skill rails-feature dhh-rails-style ruby-coder \
-  minitest-coder rails-lint pragmatic-rails-reviewer test-reviewer \
+  minitest-coder rails-lint rails-code-review test-reviewer \
   implementation-planning --agent claude-code --yes
 ```
 
