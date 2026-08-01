@@ -2,6 +2,8 @@
 
 Use this reference for framework-agnostic typography, color, motion, and spatial composition patterns.
 
+Define the full token set first. See `design-tokens.md` for the token contract these patterns consume.
+
 ## Typography
 
 - Choose display and body fonts intentionally.

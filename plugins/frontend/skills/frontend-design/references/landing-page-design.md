@@ -6,7 +6,7 @@ Visual design principles for high-converting, award-worthy landing pages. Comple
 
 Before writing any code, explicitly decide:
 
-1. **Aesthetic direction** — Pick one from `frontend-design` skill (brutalist, luxury, retro-futuristic, etc.)
+1. **Aesthetic direction** — Pick one from the catalog in `art-direction.md`
 2. **Font pairing** — One display font, one body font (see Typography Pairings below)
 3. **Color palette** — Maximum 5 hex values (bg, text, muted, accent, accent-muted)
 4. **Hero hook** — One interactive element that makes the page memorable

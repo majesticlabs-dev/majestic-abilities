@@ -169,6 +169,19 @@ import { FixedSizeList } from 'react-window';
 </FixedSizeList>
 ```
 
+### Heavy Visual Effects
+
+Canvas, WebGL, particle systems, and procedural texture require:
+
+| Requirement | Implementation |
+|-------------|----------------|
+| Lazy initialization | Start only when the surface is visible (`IntersectionObserver`) |
+| Reduced mode | Static fallback under `prefers-reduced-motion` and on low-end devices |
+| GPU-friendly animation | Animate `transform` and `opacity`, not layout properties |
+| Teardown | Cancel loops and release contexts when the surface unmounts |
+
+Do not enable these by default on a first paint path.
+
 ### Resource Hints
 
 ```html
@@ -214,6 +227,21 @@ import { FixedSizeList } from 'react-window';
 </div>
 ```
 
+### Failure And Recovery States
+
+Every surface accounts for its failure paths. Silent failures and default browser error states are not acceptable output.
+
+| Path | Required behavior |
+|------|-------------------|
+| Network failure or offline | Explain the condition and offer a retry that preserves user input |
+| Partial or delayed data | Show what loaded, mark what did not, keep layout dimensions stable |
+| Slow response | Loading state after ~200ms, skeleton matching final layout, no spinner-only screens |
+| User error | Name the problem and the fix in the same message, keep the user in place |
+| Destructive action | Confirm with consequences stated, or provide undo |
+| Empty by design | Explain why it is empty and what action fills it |
+
+Failure states are designed, not defaulted. They carry the same typography, palette, spacing, and voice as the rest of the interface, and stay informative without becoming verbose.
+
 ### Confirmation Dialogs
 
 | Pattern | Example |
@@ -238,3 +266,5 @@ Before shipping, verify:
 - [ ] Network operations < 500ms perceived
 - [ ] Lists > 100 items virtualized
 - [ ] Error messages include resolution guidance
+- [ ] Offline, partial-data, and empty states designed on brand
+- [ ] Heavy visual effects lazy-initialized with a reduced fallback
