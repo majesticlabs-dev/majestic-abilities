@@ -1,6 +1,6 @@
 ---
 name: copy-editor
-description: Diagnose grammar, clarity, specificity, structure, attribution, voice, and style-guide problems in existing prose with exact quotations and prioritized fixes. Use when asked for a copy review, editorial audit, critique, grammar report, line-level feedback, or explanations before edits.
+description: Diagnose grammar, clarity, specificity, structure, attribution, voice, and style-guide problems in existing prose with exact quotations and prioritized fixes. Use when asked for a copy review, editorial audit, critique, grammar report, line-level feedback, or explanations before edits. Use prose-reviser when clean revised copy is the primary deliverable.
 ---
 
 # Copy Editor
@@ -11,19 +11,21 @@ Review existing prose and explain the smallest changes that would make it more c
 
 Use this skill when the user wants diagnosis and evidence.
 
-- For a clean revised version without a full issue report, use a rewriting workflow.
-- For new articles or guides, use a drafting workflow.
-- For conversion-oriented assets, use a direct-response workflow when persuasion strategy is the main task.
+- For a clean revised version without a full issue report, use `prose-reviser` when available.
+- For new articles or guides, use `content-writer` when available.
+- For conversion-oriented assets whose persuasion strategy is in scope, use `direct-response-copy` when available.
 
-Apply edits only when the user explicitly requests inline edits or a clean copy. Do not let a broad request such as "make this better" silently turn a report into a rewrite.
+The skill must remain useful by itself. Other skills are optional routing suggestions, not dependencies.
+
+Apply edits only when the user explicitly requests inline edits or a clean copy. If a broad request such as "make this better" does not reveal whether the user wants findings or revised copy, ask which deliverable they want. Do not silently choose.
 
 ## Inputs
 
-Collect or infer:
+Collect or infer document context, but never infer permission to edit or rewrite:
 
 1. The document or passage to review.
 2. Its audience, purpose, channel, and publication stakes.
-3. The requested review depth: full report, quick scan, category focus, inline edits, or clean copy.
+3. The requested review depth: full report, quick scan, category focus, inline edits, or clean copy. When no mode is stated for an explicit review request, default to a full report.
 4. Any supplied voice guide, style guide, terminology list, or claims policy.
 5. Sections or structured material that must not change.
 
@@ -59,7 +61,7 @@ Check only categories relevant to the document:
 - **Clarity:** unclear subjects, buried actions, ambiguity, jargon, and unnecessary complexity.
 - **Specificity:** vague claims, missing owners, weak verbs, and unsupported praise.
 - **Structure:** order, repetition, transitions, headings, paragraph jobs, and ending.
-- **Attribution and evidence:** verify quotations against a supplied or canonical source when possible; check citations, factual support, uncertainty, and claim size. When verification is unavailable, flag the quotation or attribution instead of treating it as confirmed.
+- **Attribution and evidence:** when verification is requested or required by the review stakes, verify quotations against a supplied or retrieved source; check citations, factual support, uncertainty, and claim size. Never verify from model recall. When verification is unavailable, flag the quotation or attribution instead of treating it as confirmed.
 - **Voice and tone:** audience fit, register consistency, warmth, confidence, and supplied voice rules.
 - **Style-guide compliance:** exact rule violations, terminology, formatting, accessibility, and channel conventions.
 
@@ -108,8 +110,11 @@ Return:
 2. [next change]
 3. [next change]
 
-### Ambiguities or verification needs
-- [unresolved rule, claim, or source question]
+### Ambiguities, verification, or high-stakes review needs
+- [unresolved rule, claim, source question, or owner-review requirement]
+
+### Cold-read check
+- [whole-document issue confirmed or cleared on the separate cold-read pass]
 ```
 
 #### Quick scan
@@ -122,17 +127,17 @@ Review only the requested categories and say what was not assessed.
 
 #### Inline edits or clean copy
 
-Apply only supported fixes. Preserve facts, quotations, links, code, frontmatter, and structured data. Summarize material changes after the edited text unless the user requested copy only.
+Apply only supported fixes. Preserve facts, quotations, links, code, frontmatter, and structured data. For legal, medical, financial, safety, security, compliance, or public-commitment prose, make only explicitly authorized light-touch edits, preserve the substantive meaning of obligations, conditions, and warnings, and keep defined terms exact. Do not imply specialist validation; recommend review by the appropriate owner when wording changes materially. Required owner-review notes remain visible even when the user requests copy only. Otherwise, summarize material changes after the edited text unless the user requested copy only.
 
 ## Quality Gate
 
 The review is ready when:
 
-- every finding quotes the exact source text
-- every violation cites a rule or explains a concrete reader consequence
+- in modes that produce findings, each finding quotes the exact source text and cites a rule or concrete reader consequence
 - severity reflects impact rather than preference
 - factual uncertainty and guide conflicts are explicit
 - repeated patterns are not inflated into duplicate findings
-- recommendations preserve facts, attribution, uncertainty, and authorial voice
-- the cold-read pass and any necessary independent review are reported
-- the output mode matches the user's request
+- recommendations and applied edits preserve facts, attribution, uncertainty, and authorial voice
+- the cold-read pass is proportional to the requested depth and reported when the output includes findings
+- high-stakes edits remain bounded and carry any necessary owner-review note
+- the output mode matches the user's explicit request or the documented review default

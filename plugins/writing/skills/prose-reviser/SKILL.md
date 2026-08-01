@@ -1,6 +1,6 @@
 ---
 name: prose-reviser
-description: Rewrite existing informational, workplace, technical, or general prose for clarity, natural rhythm, and author fidelity while preserving facts and uncertainty. Use when asked to improve, tighten, simplify, polish, humanize this text, make writing less robotic, or make it more natural, and neither formal voice-profile compliance nor conversion strategy is primary; use style-writer for profile-led work and direct-response-copy for commercial persuasion.
+description: Rewrite existing informational, workplace, technical, or general prose for clarity, natural rhythm, and author fidelity while preserving facts and uncertainty. Use when the user wants revised copy, including requests to rewrite, tighten, simplify, polish, humanize, make text less robotic, or make it more natural. Use copy-editor when findings are the primary deliverable, content-writer for new drafts, style-writer for measured voice-profile work, and direct-response-copy for commercial persuasion.
 ---
 
 # Prose Reviser
@@ -11,12 +11,17 @@ Return a clearer version of existing prose without changing what the author know
 
 Use this skill when the requested deliverable is revised prose.
 
-- For a diagnosis with quoted findings and recommendations, use an editorial-review workflow.
-- For drafting new long-form content from a topic, use a drafting workflow.
-- For applying an existing measured voice profile, use a voice-matched workflow.
+- For a diagnosis with quoted findings and recommendations, use `copy-editor` when available.
+- For drafting new long-form content from a topic, use `content-writer` when available.
+- An ordinary style guide can constrain this revision. When measured compliance with a reusable voice profile is primary, use `style-writer` when available.
+- For commercial copy whose persuasion strategy is in scope, use `direct-response-copy` when available.
 - Do not add factual research, translation, or a new argument unless the user asks for that work explicitly.
 
-A request to "humanize this" means improve naturalness while preserving the author's demonstrated voice. Detector evasion is not a writing-quality objective. Never promise that prose will bypass or defeat a classifier.
+The skill must remain useful by itself. Other skills are optional routing suggestions, not dependencies.
+
+If a broad request such as "make this better" does not reveal whether the user wants revised copy or an editorial report, ask which deliverable they want. Do not silently choose.
+
+A request to "humanize this" means improve naturalness while preserving the author's demonstrated voice. Detector evasion is not a writing-quality objective. If the user explicitly requests classifier bypass, state once that the revision targets writing quality rather than detector evasion, then proceed only with the useful revision work.
 
 ## Inputs
 
@@ -26,9 +31,35 @@ Use:
 2. Its purpose, audience, and genre, when known.
 3. Facts, quotations, terms, actions, and formatting that must remain intact.
 4. A supplied style or voice guide.
-5. The requested degree of change, if specified.
+5. The requested scope and degree of change, if specified.
 
-For a straightforward revision, proceed without an intake interview. Ask only when ambiguity could change meaning, obligations, or tone materially.
+For a straightforward revision, proceed without an intake interview. Ask only when ambiguity could change meaning, obligations, tone, or the requested deliverable materially. For a long document, honor the requested selection; confirm scope before making substantial full-document changes when no scope is clear.
+
+## Choose revision depth
+
+Use the least invasive depth that fulfills the request:
+
+- **Light touch:** Fix local clarity, grammar, awkwardness, and unnecessary wording. Preserve paragraph order and approximate length. Use for requests such as "polish," "clean up," or "lightly edit."
+- **Standard:** Improve sentences and paragraphs, remove genuine repetition, and make moderate structural changes while preserving the document's scope and overall shape. Use for requests such as "rewrite," "tighten," "simplify," or "humanize."
+- **Restructure:** Reorder, merge, cut, or rewrite substantially. Use only when the user requests it or confirms it after you explain why standard revision is insufficient.
+
+When the request does not indicate depth, default to a light touch. Move to standard only when local fixes cannot fulfill the stated purpose without material structural change; ask before proceeding when that change could surprise the user.
+
+Do not shorten text merely to demonstrate improvement. Preserve approximate length unless the user requests compression or redundant material interferes with the text's purpose.
+
+For legal, medical, financial, safety, security, compliance, or public-commitment prose, default to a light touch unless the user clearly authorizes more. Preserve the substantive meaning of obligations, conditions, and warnings, and keep defined terms exact. Do not imply specialist validation; add an appropriate owner-review note when material wording changes.
+
+## Instruction precedence
+
+Apply guidance in this order:
+
+1. Explicit user requirements for the deliverable, degree of change, and format.
+2. Supplied legal, claims, terminology, accessibility, or formatting constraints.
+3. Supplied style or voice guide.
+4. Established project conventions.
+5. The defaults in this skill.
+
+When lower-priority guidance conflicts with a higher-priority constraint, follow the higher-priority constraint. If a requested style change would alter factual meaning, preserve the meaning and state the conflict briefly.
 
 ## Workflow
 
@@ -43,7 +74,9 @@ Before rewriting, identify and preserve:
 - code, commands, identifiers, frontmatter, and structured data
 - genuine opinions and first-person experiences already present
 
-Do not replace a vague claim with invented specificity. Flag an unsupported claim instead of making it sound more credible.
+Treat direct quotations, code, commands, identifiers, links, and structured data as protected spans unless the user explicitly asks to edit them. Do not fix a quotation by changing its text.
+
+Do not replace a vague claim with invented specificity. Absence of supplied evidence alone does not make a user-provided claim false or removable.
 
 ### 2. Diagnose context and voice
 
@@ -61,13 +94,17 @@ Return the text unchanged when it already serves its purpose and no requested ch
 
 ### 3. Revise in ordered passes
 
+Apply only the changes permitted by the selected revision depth. A light touch does not authorize restructuring.
+
 #### Meaning
 
-Preserve the central point, evidence, constraints, uncertainty, and necessary examples. Remove only material that does not change what the reader knows, decides, or does.
+Preserve the central point, evidence, constraints, uncertainty, and necessary examples. Remove only material that adds neither information nor a necessary relationship, navigation, accessibility, or emphasis function.
 
 #### Structure
 
 Lead with the request, result, decision, problem, or useful answer when context permits. Group related information, remove semantic repetition, and place support next to the claim it supports.
+
+When the source requests action, surface any supplied owner, action, deadline, and completion condition. Flag missing operational details only when they block use. Never invent them.
 
 #### Language
 
@@ -108,16 +145,26 @@ Compare the revision with the locked anchors:
 
 ## Output
 
-Return the revised prose by default. Do not expose the internal audit, alternate drafts, change log, or self-critique unless the user asks for it.
+Return the revised prose in the response by default. Write or edit a file only when the user requested a path or the surrounding task already establishes a target file.
 
-When a requested change would alter meaning or cannot be made safely, preserve the text and state the blocker briefly.
+Add a brief `Revision notes` section after the prose only when needed to:
+
+- explain why the text was returned unchanged
+- report a conflict between requested style and protected meaning
+- identify a missing action detail that blocks use
+- flag a material internal contradiction or an attribution that cannot be checked from supplied material
+- state a safety blocker or recommend review by the appropriate owner
+
+Preserve questionable claims in the prose unless the user authorizes factual changes. Do not silently delete, strengthen, or present them as verified.
+
+Do not expose the internal audit, alternate drafts, full change log, or self-critique unless the user asks for it.
 
 ## Quality Gate
 
 The revision is ready when:
 
-- the main point is easy to find
-- every retained sentence contributes information or necessary relationship work
+- the requested improvement is visible without exceeding the selected revision depth
+- no functional material was removed merely to shorten the text
 - facts, uncertainty, attribution, and authorship are intact
 - actions and consequences are operational when the genre requires them
 - the prose sounds natural without fabricated personality
