@@ -27,7 +27,7 @@ Replace `OWNER/REPOSITORY` with the published repository identifier. Use an abso
 | `majestic-frontend` | 5 | Visual direction, Core Web Vitals, accessibility, screenshots |
 | `majestic-marketing` | 13 | Positioning, naming, content, campaigns, growth experiments |
 | `majestic-misc` | 3 | Actionable communication, skill grading, and skill structure design |
-| `majestic-product` | 13 | Discovery, workflow mapping, decision alignment, requirements, roadmaps, pricing, retention |
+| `majestic-product` | 14 | Discovery, workflow mapping, decision alignment, requirements, roadmaps, pricing, retention |
 | `majestic-rails` | 36 | Rails and Ruby implementation, Hotwire, Solid, testing, review |
 | `majestic-reasoning` | 4 | Decision retrospectives, devil's advocate, premortem, reasoning verification |
 | `majestic-sales` | 6 | ICP, outbound, pipeline, enablement, proposals, expansion |
@@ -187,7 +187,7 @@ The CLI recommends symlinks so multiple agents share one canonical installation.
 | Frontend | 5 | [`plugins/frontend/skills/`](plugins/frontend/skills/) |
 | Marketing | 13 | [`plugins/marketing/skills/`](plugins/marketing/skills/) |
 | Misc | 3 | [`plugins/misc/skills/`](plugins/misc/skills/) |
-| Product | 13 | [`plugins/product/skills/`](plugins/product/skills/) |
+| Product | 14 | [`plugins/product/skills/`](plugins/product/skills/) |
 | Rails | 36 | [`plugins/rails/skills/`](plugins/rails/skills/) |
 | Reasoning | 4 | [`plugins/reasoning/skills/`](plugins/reasoning/skills/) |
 | Sales | 6 | [`plugins/sales/skills/`](plugins/sales/skills/) |
@@ -308,6 +308,7 @@ Counts above are catalog skills only. Cookbooks are counted separately and descr
 | --- | --- |
 | [`brainstorm-product`](plugins/product/skills/brainstorm-product/) | Diagnose an existing product's growth ceiling or pressure-test a net-new product idea through an adversarial step-by-step process. |
 | [`feature-brief`](plugins/product/skills/feature-brief/) | Write a compact feature brief or decision document before a full specification. |
+| [`gherkin-stories`](plugins/product/skills/gherkin-stories/) | Decompose requirements into atomic stories with testable Gherkin scenarios and traceability. |
 | [`lifecycle-retention`](plugins/product/skills/lifecycle-retention/) | Design lifecycle stages, health signals, onboarding, early warnings, and retention interventions. |
 | [`north-star-metric`](plugins/product/skills/north-star-metric/) | Choose and operate one stage-fit product health metric with drivers and guardrails. |
 | [`pricing-strategy`](plugins/product/skills/pricing-strategy/) | Design pricing and packaging from value, evidence, costs, and expansion logic. |
