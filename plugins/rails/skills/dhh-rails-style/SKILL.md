@@ -165,7 +165,7 @@ class My::ProfilesController < ApplicationController
 end
 ```
 
-No `index` or `show` with ID needed—resource is implicit from `Current.user`.
+No `index` or `show` with ID needed. The resource is implicit from `Current.user`.
 
 ### Compute at Write Time
 

@@ -7,7 +7,7 @@ description: "Design structured application logging for observability and incide
 
 ## Core Philosophy
 
-- Logs are optimized for **querying**, not writing — design with debugging in mind
+- Logs are optimized for **querying**, not writing. Design with debugging in mind.
 - A log without correlation IDs is useless in distributed systems
 - If you can't answer "Who was affected? What failed? When? Why?" within 5 minutes, logging needs work
 
@@ -43,7 +43,7 @@ Every log event MUST include:
 
 ## High-Cardinality Fields
 
-Include these when available — they make logs queryable during incidents:
+Include these when available. They make logs queryable during incidents:
 
 | Category | Fields |
 |----------|--------|
@@ -68,9 +68,9 @@ Include these when available — they make logs queryable during incidents:
 
 For distributed systems:
 
-1. **Inherit IDs** — Downstream services must receive correlation IDs from upstream
-2. **Pass through boundaries** — HTTP headers, message queues, async jobs
-3. **Middleware injection** — Auto-inject context into every log via middleware/interceptor
+1. **Inherit IDs:** downstream services must receive correlation IDs from upstream
+2. **Pass through boundaries:** HTTP headers, message queues, async jobs
+3. **Middleware injection:** auto-inject context into every log via middleware/interceptor
 
 ```
 [Client] --request_id--> [API Gateway] --request_id--> [Service A] --request_id--> [Service B]
@@ -139,10 +139,10 @@ For distributed systems:
 
 When designing logs, verify you can answer:
 
-- [ ] **Who** — Can filter to specific user/org/account?
-- [ ] **What** — Can identify the exact operation that failed?
-- [ ] **When** — Can narrow to specific time window?
-- [ ] **Why** — Is error context captured (reason, upstream cause)?
-- [ ] **Where** — Can trace across services via correlation ID?
+- [ ] **Who:** can filter to specific user/org/account?
+- [ ] **What:** can identify the exact operation that failed?
+- [ ] **When:** can narrow to specific time window?
+- [ ] **Why:** is error context captured (reason, upstream cause)?
+- [ ] **Where:** can trace across services via correlation ID?
 
 **Post-incident:** Add the logs you wished you had.

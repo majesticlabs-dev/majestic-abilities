@@ -75,7 +75,7 @@ RUN apt-get install --no-install-recommends -y sqlite3 libsqlite3-0
 
 ## Docker Entrypoint
 
-Selective migration — only runs `db:prepare` for the web container, not job workers:
+Selective migration. Only runs `db:prepare` for the web container, not job workers:
 
 ```bash
 #!/bin/bash -e
@@ -92,8 +92,8 @@ Make executable: `chmod +x docker-entrypoint.sh`
 
 **Why this matters:**
 - Web container runs migrations on deploy
-- Job container (`bin/jobs start`) skips migrations — avoids race conditions
-- `db:prepare` is idempotent — creates DB if missing, migrates if exists
+- Job container (`bin/jobs start`) skips migrations, avoids race conditions
+- `db:prepare` is idempotent: creates DB if missing, migrates if exists
 
 ## Volume Patterns
 

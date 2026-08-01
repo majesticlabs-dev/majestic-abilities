@@ -9,7 +9,7 @@ Step-by-step diagnostic for misplaced responsibilities.
 ### How to Apply
 
 1. **Pick a class** (model, controller, service)
-2. **List every responsibility** it handles — one line per responsibility
+2. **List every responsibility** it handles: one line per responsibility
 3. **Label each** with its natural layer: Presentation, Application, Domain, Infrastructure
 4. **Compare** each label to the class's actual layer
 5. **Mismatches are extraction candidates**
@@ -20,12 +20,12 @@ Step-by-step diagnostic for misplaced responsibilities.
 |---|---------------|---------------|--------|
 | 1 | Validates email format | Domain | Yes |
 | 2 | Authenticates password | Domain | Yes |
-| 3 | Processes avatar upload | Infrastructure | NO — extract |
-| 4 | Sends welcome email | Infrastructure | NO — extract |
-| 5 | Formats display name | Presentation | NO — extract or keep if trivial |
+| 3 | Processes avatar upload | Infrastructure | NO: extract |
+| 4 | Sends welcome email | Infrastructure | NO: extract |
+| 5 | Formats display name | Presentation | NO: extract or keep if trivial |
 | 6 | Tracks login count | Domain | Yes |
 | 7 | Generates API token | Domain | Yes |
-| 8 | Logs activity to audit trail | Infrastructure | NO — extract |
+| 8 | Logs activity to audit trail | Infrastructure | NO: extract |
 
 **Extraction plan:**
 - #3 → `Users::ProcessAvatar` service or ActiveStorage callback
@@ -38,10 +38,10 @@ Step-by-step diagnostic for misplaced responsibilities.
 | # | Responsibility | Natural Layer | Match? |
 |---|---------------|---------------|--------|
 | 1 | Parse params | Presentation | Yes |
-| 2 | Authorize user | Application | NO — extract to policy |
-| 3 | Calculate discount | Domain | NO — extract to model/service |
-| 4 | Create order + line items | Application | NO — extract to service |
-| 5 | Send confirmation email | Infrastructure | NO — extract to service |
+| 2 | Authorize user | Application | NO: extract to policy |
+| 3 | Calculate discount | Domain | NO: extract to model/service |
+| 4 | Create order + line items | Application | NO: extract to service |
+| 5 | Send confirmation email | Infrastructure | NO: extract to service |
 | 6 | Render response | Presentation | Yes |
 
 **Extraction plan:**
@@ -58,7 +58,7 @@ Score each model callback 1-5. Extract anything scoring 1-2.
 Computes derived values from the model's own attributes. Essential for data integrity.
 
 ```ruby
-# Score 5 — Keep
+# Score 5: Keep
 before_validation :normalize_email
 before_save :compute_slug_from_title
 before_save :set_published_at, if: :publishing?
@@ -79,7 +79,7 @@ end
 Sanitizes input or maintains internal counters. Safe to keep.
 
 ```ruby
-# Score 4 — Keep
+# Score 4: Keep
 before_save :strip_whitespace_from_bio
 after_create :increment_author_posts_count
 after_destroy :decrement_author_posts_count
@@ -96,7 +96,7 @@ end
 Triggers side-effects that don't affect the model's own data.
 
 ```ruby
-# Score 2 — Consider extracting
+# Score 2: Consider extracting
 after_save :notify_admin_of_changes
 after_update :sync_to_search_index
 after_update :invalidate_cache
@@ -115,7 +115,7 @@ after_commit :notify_admin_of_changes, on: :update
 Business workflow steps disguised as callbacks. Always extract.
 
 ```ruby
-# Score 1 — Extract immediately
+# Score 1: Extract immediately
 after_create :send_welcome_email
 after_create :provision_account
 after_create :create_default_project

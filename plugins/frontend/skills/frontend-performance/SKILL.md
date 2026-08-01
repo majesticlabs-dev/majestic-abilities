@@ -82,7 +82,7 @@ Resources in `<head>` directly impact LCP. Minimize what loads globally.
 ### Script Loading
 
 ```html
-<!-- Blocks rendering — avoid in <head> -->
+<!-- Blocks rendering, avoid in <head> -->
 <script src="/heavy-lib.js"></script>
 
 <!-- Non-blocking alternatives -->
@@ -137,7 +137,7 @@ When reviewing code for frontend performance:
 For each file in layouts/:
   Check <head> for render-blocking resources
   Check font preload order (before stylesheets?)
-  Count globally-loaded assets — flag if > 5 CSS or > 3 JS
+  Count globally-loaded assets, flag if > 5 CSS or > 3 JS
 
 For each new asset addition:
   Verify scoped to narrowest layout

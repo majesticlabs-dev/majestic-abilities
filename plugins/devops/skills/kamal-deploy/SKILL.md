@@ -70,7 +70,7 @@ env:
 **Job worker notes:**
 - `cmd: bin/jobs start` runs Solid Queue in a separate container
 - Set `SOLID_QUEUE_IN_PUMA: false` to disable in-process queue
-- Job role has no proxy — only web role serves HTTP traffic
+- Job role has no proxy, only web role serves HTTP traffic
 
 ### With Local Registry
 
@@ -158,7 +158,7 @@ proxy:
   host: myapp.com
 ```
 
-Automatic Let's Encrypt certificate provisioning — no manual cert management.
+Automatic Let's Encrypt certificate provisioning, no manual cert management.
 
 ### Custom Port
 

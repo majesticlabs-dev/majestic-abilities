@@ -4,9 +4,9 @@ Optional feature: automatically generate human-readable summaries for complex ch
 
 ## When This Is Useful
 
-- **`field_updated` events with long text changes** — a diff between two paragraphs of description text is hard to scan; a one-line summary is much more useful on a timeline
-- **Batch field changes** — when multiple fields change at once, a summary like "Updated priority, assignee, and due date" is clearer than three separate events
-- **Status transitions with complex rationale** — summarize lengthy rationale text into a concise note
+- **`field_updated` events with long text changes:** a diff between two paragraphs of description text is hard to scan; a one-line summary is much more useful on a timeline
+- **Batch field changes:** when multiple fields change at once, a summary like "Updated priority, assignee, and due date" is clearer than three separate events
+- **Status transitions with complex rationale:** summarize lengthy rationale text into a concise note
 
 ## Architecture
 
@@ -58,7 +58,7 @@ OPENROUTER_API_KEY=sk-or-v1-...
 class ActivitySummaryGenerator
   include Raix::ChatCompletion
 
-  # Use a fast, cheap model — summaries don't need heavy reasoning
+  # Use a fast, cheap model: summaries don't need heavy reasoning
   MODEL = ENV.fetch("SUMMARIZER_MODEL", "anthropic/claude-haiku-4-5")
 
   def initialize(event)
@@ -108,9 +108,9 @@ end
 ```
 
 **Why Raix?**
-- `include Raix::ChatCompletion` gives you `transcript`, `chat_completion`, `model=`, and `max_tokens=` — everything needed for a single-turn LLM call in a clean Ruby object
-- Model is configurable via env var — switch between the agent Haiku, GPT-4o-mini, or any OpenRouter model without code changes
-- The `chat_completion` method returns the response text directly — no parsing boilerplate
+- `include Raix::ChatCompletion` gives you `transcript`, `chat_completion`, `model=`, and `max_tokens=`, everything needed for a single-turn LLM call in a clean Ruby object
+- Model is configurable via env var, switch between the agent Haiku, GPT-4o-mini, or any OpenRouter model without code changes
+- The `chat_completion` method returns the response text directly, no parsing boilerplate
 - Works with OpenRouter's unified API, so you're not locked into any single provider
 
 ### Background Job
@@ -222,10 +222,10 @@ end
 ## Cost and Rate Limiting Considerations
 
 - Only summarize changes above a minimum length threshold (> 100 characters)
-- Use a small, fast model (`claude-haiku-4-5` or `gpt-4o-mini`) — summaries don't need heavy reasoning
+- Use a small, fast model (`claude-haiku-4-5` or `gpt-4o-mini`), summaries don't need heavy reasoning
 - Set `max_tokens` low (100-150) since summaries should be one sentence
 - Use `retry_on` with polynomial backoff to handle rate limits gracefully
-- The model is configurable via `SUMMARIZER_MODEL` env var — easy to swap in development vs production
+- The model is configurable via `SUMMARIZER_MODEL` env var, easy to swap in development vs production
 - OpenRouter provides unified rate limiting and cost tracking across all providers
 
 ## Testing

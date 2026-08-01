@@ -7,7 +7,7 @@ description: "Use when configuring or working with Solid Cache for database-back
 
 ## Overview
 
-Solid Cache is Rails 8's default cache backend—a database-backed cache store using NVMe storage instead of RAM. It eliminates the need for Redis/Memcached while providing FIFO eviction.
+Solid Cache is Rails 8's default cache backend, a database-backed cache store using NVMe storage instead of RAM. It eliminates the need for Redis/Memcached while providing FIFO eviction.
 
 ## Configuration
 

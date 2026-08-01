@@ -147,8 +147,8 @@ export default class extends ApplicationController {
 
 Rules:
 - Use `try-catch` for async operations and third-party library calls
-- Never swallow errors — log or report via `handleError()`
-- Use `requestSubmit()` not `submit()` for forms — fires validation and Turbo intercept
+- Never swallow errors, log or report via `handleError()`
+- Use `requestSubmit()` not `submit()` for forms, fires validation and Turbo intercept
 
 ## Anti-Patterns
 

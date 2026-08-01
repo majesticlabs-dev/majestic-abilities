@@ -31,9 +31,9 @@ Collect before issuing a verdict. Missing evidence is not clearance.
 
 ## Decision Gates
 
-- **GO** — No unresolved material blocker. Critical paths have named owners and a workable support / follow-up path for the stated scope.
-- **NARROW** — A concrete, reversible scope reduction would remove every current blocker. State the reduced scope explicitly. Narrowing is not a legal workaround; it is valid only when it demonstrably removes the exposure.
-- **DELAY** — Material legal, compliance, privacy, safety, fulfillment, ownership, or support risk remains unresolved for any shippable scope.
+- **GO:** no unresolved material blocker. Critical paths have named owners and a workable support / follow-up path for the stated scope.
+- **NARROW:** a concrete, reversible scope reduction would remove every current blocker. State the reduced scope explicitly. Narrowing is not a legal workaround; it is valid only when it demonstrably removes the exposure.
+- **DELAY:** material legal, compliance, privacy, safety, fulfillment, ownership, or support risk remains unresolved for any shippable scope.
 
 ## Legal And Compliance Escalation
 
@@ -52,11 +52,11 @@ Say "qualified counsel," not "legally ready," "approved," or "DIY-safe." Do not 
 
 Return:
 
-1. **Verdict** — exactly one of `GO`, `NARROW`, or `DELAY`
-2. **Launch scope** — type, audience, offer, reversibility
-3. **Blockers** — each with evidence, impact, owner, and minimum corrective action
-4. **Material unknowns** — what was not evidenced
-5. **Minimum fixes** — smallest changes that improve readiness or enable a narrower ship
-6. **Escalations** — counsel or specialist handoffs, if any
+1. **Verdict:** exactly one of `GO`, `NARROW`, or `DELAY`
+2. **Launch scope:** type, audience, offer, reversibility
+3. **Blockers:** each with evidence, impact, owner, and minimum corrective action
+4. **Material unknowns:** what was not evidenced
+5. **Minimum fixes:** smallest changes that improve readiness or enable a narrower ship
+6. **Escalations:** counsel or specialist handoffs, if any
 
 If asked for a thirty-day campaign plan or entity setup, refuse that expansion and stay on the readiness verdict. If asked for a general-information legal checklist, route optionally to `launch-legal-checklist`; keep legal clearance and drafting out of scope.

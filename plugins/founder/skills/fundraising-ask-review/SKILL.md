@@ -64,12 +64,12 @@ Collect before judging readiness. Preserve supplied facts. Mark missing items un
 
 Return:
 
-1. **Verdict** — `READY`, `REVISE`, or `NOT READY`
-2. **Round summary** — amount, supplied instrument, milestone, timeline
-3. **Investor-fit view** — known fit or explicitly unknown
-4. **Prioritized findings** — severity-ranked credibility, math, and consistency issues
-5. **Claim map** — material claims with evidence class and gaps
-6. **Arithmetic reconciliation** — raise, use of funds, runway/milestone dependencies
-7. **Revised framing** — tighter language that preserves facts
-8. **Assumptions and unknowns** — what still blocks serious outreach
-9. **Escalations** — counsel or finance handoffs when terms, valuation, or deep financial modeling are requested
+1. **Verdict:** `READY`, `REVISE`, or `NOT READY`
+2. **Round summary:** amount, supplied instrument, milestone, timeline
+3. **Investor-fit view:** known fit or explicitly unknown
+4. **Prioritized findings:** severity-ranked credibility, math, and consistency issues
+5. **Claim map:** material claims with evidence class and gaps
+6. **Arithmetic reconciliation:** raise, use of funds, runway/milestone dependencies
+7. **Revised framing:** tighter language that preserves facts
+8. **Assumptions and unknowns:** what still blocks serious outreach
+9. **Escalations:** counsel or finance handoffs when terms, valuation, or deep financial modeling are requested

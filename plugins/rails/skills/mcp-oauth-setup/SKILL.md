@@ -6,7 +6,7 @@ description: "Implement MCP server authentication with OAuth Dynamic Client Regi
 # MCP Server Authentication & OAuth Dynamic Client Registration
 
 Implement flexible authentication for MCP (Model Context Protocol) server connections.
-For OAuth providers, auto-discover endpoints and dynamically register as a client —
+For OAuth providers, auto-discover endpoints and dynamically register as a client:
 the user just provides the MCP server URL and clicks "Connect." For bearer/API key
 providers, support both admin-shared and per-agent credentials so different agents
 can authenticate with different accounts.
@@ -100,7 +100,7 @@ See: `references/oauth_flow.md`
 
 **Critical pitfalls:**
 
-**Turbo Drive cross-origin redirects**: `redirect_to` with an external URL is silently swallowed by Turbo Drive — browser stays on current page. Use HTML with `<meta http-equiv="refresh" content="0;url=...">` for the external redirect instead.
+**Turbo Drive cross-origin redirects**: `redirect_to` with an external URL is silently swallowed by Turbo Drive: the browser stays on the current page. Use HTML with `<meta http-equiv="refresh" content="0;url=...">` for the external redirect instead.
 
 **State parameter**: Use a signed, expiring message (Rails `message_verifier`) with connector ID, PKCE code verifier, optional agent ID, and timestamp. Set 10-minute expiry.
 
@@ -123,7 +123,7 @@ end
 get "mcp_oauth/callback", to: "mcp_oauth#callback", as: :mcp_oauth_callback
 ```
 
-**Route helper naming**: A member route `mcp_oauth_authorize` on `resources :connectors` generates `mcp_oauth_authorize_connector_path(connector)` — resource name comes **last**. Common source of `NoMethodError`.
+**Route helper naming**: A member route `mcp_oauth_authorize` on `resources :connectors` generates `mcp_oauth_authorize_connector_path(connector)`, resource name comes **last**. Common source of `NoMethodError`.
 
 ### 5. Token Management
 
@@ -143,8 +143,8 @@ Two-step handshake:
 2. Send `tools/list` with session ID header
 
 Critical details:
-- Set `Accept: application/json, text/event-stream` — some servers return 406 without this
-- Some servers return SSE format — parse both formats
+- Set `Accept: application/json, text/event-stream`. Some servers return 406 without this
+- Some servers return SSE format, parse both formats
 - `sync_tools!` must accept `agent:` parameter for per-agent auth
 - Some servers (e.g., Render) allow unauthenticated tool listing
 
@@ -158,7 +158,7 @@ See: `references/ui_patterns.md`
 - Show OAuth fields only for OAuth auth type
 - Use Stimulus controller to toggle visibility based on both `auth_type` AND `credential_mode`
 
-**Agent edit form — three states for per-agent connectors:**
+**Agent edit form (three states for per-agent connectors):**
 1. Per-agent OAuth, not connected → grayed card, "Connect" button
 2. Per-agent bearer/API key, not connected → inline password input
 3. Connected (any type) → tool checkboxes + "Token configured" badge

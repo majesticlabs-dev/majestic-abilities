@@ -118,7 +118,7 @@ def vacuum_into(db_name)
 
   conn.execute("VACUUM INTO '#{temp_path}'")
 
-  # Atomic swap — brief window where DB is unavailable
+  # Atomic swap: brief window where DB is unavailable
   File.rename(temp_path, config.database)
 
   ActiveRecord::Base.establish_connection(:primary)
@@ -197,14 +197,14 @@ vacuum_queue:
 
 ### WAL Interaction
 
-- `VACUUM` requires an **exclusive lock** — blocks all readers and writers
+- `VACUUM` requires an **exclusive lock**, blocks all readers and writers
 - WAL checkpoint happens automatically before VACUUM
 - Schedule during low-traffic windows (e.g., 3am)
 - VACUUM on a WAL-mode database temporarily switches to rollback journal, then back
 
 ### Litestream Impact
 
-- Full `VACUUM` rewrites the entire database — Litestream triggers a **full snapshot**
+- Full `VACUUM` rewrites the entire database. Litestream triggers a **full snapshot**
 - This is expected and safe, but increases backup storage briefly
 - Don't VACUUM all databases at the same time if bandwidth-constrained
 - Stagger: primary at 3:00, cache at 3:15, queue at 3:30

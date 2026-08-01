@@ -152,7 +152,7 @@ class McpServer < ApplicationRecord
 
   private
 
-  # Resolve bearer/API key token — checks per-agent first, falls back to shared
+  # Resolve bearer/API key token: checks per-agent first, falls back to shared
   def resolve_auth_token(agent)
     if per_agent_credentials? && agent
       connection = agent_mcp_connections.find_by(agent: agent)

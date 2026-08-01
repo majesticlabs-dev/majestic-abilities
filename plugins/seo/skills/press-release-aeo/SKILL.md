@@ -91,7 +91,7 @@ HEADLINE: [Company] Releases [Year] [Industry] Benchmark Report:
 
 SUBHEAD: Analysis of [X] organizations reveals [insight]
 
-[City, Date] — New research from [Company] examining [X] [industry]
+[City, Date] - New research from [Company] examining [X] [industry]
 organizations finds that [key finding with statistic].
 
 The [Year] [Industry] Benchmark Report analyzed [methodology description]
@@ -118,7 +118,7 @@ ABOUT [COMPANY]
 HEADLINE: Comparative Analysis: [Category] [Metric] Across
 [X] [Products/Companies/Solutions]
 
-[City, Date] — [Company] today published findings from a comparative
+[City, Date] - [Company] today published findings from a comparative
 evaluation of [X] [category] [products/solutions], measuring [metrics].
 
 The study, conducted [methodology], found that [key comparative finding].

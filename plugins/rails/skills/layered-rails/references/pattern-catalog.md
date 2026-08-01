@@ -326,7 +326,7 @@ module Archivable
 end
 ```
 
-**Anti-pattern — Code-slicing concern:** Grouping by artifact type (all validations, all scopes) rather than behavior. Each concern should represent a cohesive capability.
+**Anti-pattern (code-slicing concern):** Grouping by artifact type (all validations, all scopes) rather than behavior. Each concern should represent a cohesive capability.
 
 ## Decision Summary
 

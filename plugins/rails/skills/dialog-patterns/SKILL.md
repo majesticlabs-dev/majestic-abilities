@@ -27,7 +27,7 @@ Build accessible, modern dialog UIs using the native HTML `<dialog>` element wit
 
 ## Zero-JavaScript Confirmation Dialogs (Recommended)
 
-Modern browsers support the **Invoker Commands API** for declarative dialog control—no JavaScript required. See [references/zero-js-patterns.md](references/zero-js-patterns.md) for complete examples.
+Modern browsers support the **Invoker Commands API** for declarative dialog control, no JavaScript required. See [references/zero-js-patterns.md](references/zero-js-patterns.md) for complete examples.
 
 ### Quick Reference
 

@@ -19,10 +19,10 @@ Add a polymorphic activity timeline with live Turbo Stream updates to any Rails 
 
 Four components:
 
-1. **`ActivityEvent` model** (polymorphic) — the core event record
-2. **`ActivityTrackable` concern** — auto-logs child model lifecycle events on a parent's timeline
-3. **Shared timeline partial** — vertical timeline with Turbo Stream live updates
-4. **Display configuration** — icon SVG path + accent color per action type, kept in the model
+1. **`ActivityEvent` model** (polymorphic): the core event record
+2. **`ActivityTrackable` concern:** auto-logs child model lifecycle events on a parent's timeline
+3. **Shared timeline partial:** vertical timeline with Turbo Stream live updates
+4. **Display configuration:** icon SVG path + accent color per action type, kept in the model
 
 ### Key Associations (on ActivityEvent)
 
@@ -159,15 +159,15 @@ ActivityEvent.where(subject: @task).recent
 
 ## Common Pitfalls
 
-1. **Wrong trackable** — events appear on wrong timeline. `activity_trackable` must return the parent, not `self`.
+1. **Wrong trackable:** events appear on wrong timeline. `activity_trackable` must return the parent, not `self`.
 
-2. **Missing broadcast routing for new types** — add new model types to the `broadcast_partial` case statement; without this broadcasts silently fail.
+2. **Missing broadcast routing for new types:** add new model types to the `broadcast_partial` case statement; without this broadcasts silently fail.
 
-3. **Missing actions in ACTIONS + DISPLAY** — validation rejects unrecognized actions. Always add both.
+3. **Missing actions in ACTIONS + DISPLAY:** validation rejects unrecognized actions. Always add both.
 
-4. **N+1 on timeline** — always use `.timeline` scope (includes `:user`). Add associations to the scope, not the partial.
+4. **N+1 on timeline:** always use `.timeline` scope (includes `:user`). Add associations to the scope, not the partial.
 
-5. **Turbo Stream not updating** — `turbo_stream_from` tag in view must match stream name in broadcast method. Convention: `"#{record_type}_{id}_activity"`.
+5. **Turbo Stream not updating:** `turbo_stream_from` tag in view must match stream name in broadcast method. Convention: `"#{record_type}_{id}_activity"`.
 
 ## Prerequisites
 

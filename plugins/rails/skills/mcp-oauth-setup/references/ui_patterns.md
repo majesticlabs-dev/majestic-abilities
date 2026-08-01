@@ -19,7 +19,7 @@ Use a select dropdown for auth type that dynamically shows/hides relevant fields
 The credential mode radio buttons apply to **all** auth types (bearer, api_key_header,
 oauth), not just OAuth. They should appear whenever auth_type is not `no_auth`.
 
-When `per_agent` is selected for bearer/API key, hide the admin token input — the admin
+When `per_agent` is selected for bearer/API key, hide the admin token input, the admin
 doesn't provide a shared token because each agent will have its own.
 
 ```erb
@@ -205,7 +205,7 @@ Display the number of discovered tools and when they were last synced:
 <td><%%= connector.tools_last_synced_at ? time_ago_in_words(connector.tools_last_synced_at) + " ago" : "Never" %></td>
 ```
 
-## Agent Edit Form — Per-Agent Credentials
+## Agent Edit Form: Per-Agent Credentials
 
 The agent form must handle three distinct states for per-agent connectors:
 

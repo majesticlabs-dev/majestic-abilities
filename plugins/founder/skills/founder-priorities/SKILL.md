@@ -50,10 +50,10 @@ Hand off runway, unit economics, and hiring ROI analysis to `bootstrapped-financ
 
 Return:
 
-1. **Operating priorities** — today / week / month outcomes
-2. **Calendar changes** — purpose-based blocks and what moves or stops
-3. **Cut / delegate / defer** — with reversibility and escalation notes
-4. **Cadence** — lightweight review, follow-up, and escalation rhythm
-5. **Execution traps** — stage-fit risks and the assumption under challenge
-6. **Revisit triggers / kill criteria** — evidence that would change the plan
-7. **Unknowns** — missing inputs labeled explicitly
+1. **Operating priorities:** today / week / month outcomes
+2. **Calendar changes:** purpose-based blocks and what moves or stops
+3. **Cut / delegate / defer:** with reversibility and escalation notes
+4. **Cadence:** lightweight review, follow-up, and escalation rhythm
+5. **Execution traps:** stage-fit risks and the assumption under challenge
+6. **Revisit triggers / kill criteria:** evidence that would change the plan
+7. **Unknowns:** missing inputs labeled explicitly

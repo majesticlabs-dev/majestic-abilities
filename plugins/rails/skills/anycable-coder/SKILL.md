@@ -7,7 +7,7 @@ description: "Use when implementing real-time features requiring reliability, es
 
 ## Why AnyCable Over Action Cable
 
-Action Cable provides "at-most once" delivery—messages can be lost on reconnection. For LLM streaming where every chunk matters, this is insufficient.
+Action Cable provides "at-most once" delivery. Messages can be lost on reconnection. For LLM streaming where every chunk matters, this is insufficient.
 
 **AnyCable provides:**
 - **At-least once delivery** - Messages are guaranteed to arrive

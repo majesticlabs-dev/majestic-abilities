@@ -249,4 +249,4 @@ end
 | Thread-based concurrency | Race condition detection |
 | Adapter-aware helpers | SQLite/MySQL compatibility |
 
-**Philosophy:** Stay with Rails conventions—minitest, fixtures, standard patterns—to produce elegant, maintainable tests without exotic frameworks.
+**Philosophy:** Stay with Rails conventions (minitest, fixtures, standard patterns) to produce elegant, maintainable tests without exotic frameworks.

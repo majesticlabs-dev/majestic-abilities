@@ -1,6 +1,6 @@
 # Display Configuration
 
-How to customize the visual presentation of activity events — icons, colors, titles, and detail text.
+How to customize the visual presentation of activity events: icons, colors, titles, and detail text.
 
 ## The DISPLAY Hash
 

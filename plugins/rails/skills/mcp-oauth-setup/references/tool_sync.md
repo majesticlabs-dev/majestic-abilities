@@ -6,7 +6,7 @@ After establishing a connection (OAuth, bearer, or API key), sync the list of av
 tools from the MCP server. The MCP Streamable HTTP protocol uses JSON-RPC over HTTP POST
 and requires a session initialization handshake before calling any methods.
 
-**Important:** Some MCP servers (e.g., Render) allow unauthenticated tool listing — auth
+**Important:** Some MCP servers (e.g., Render) allow unauthenticated tool listing, auth
 is only required for tool execution. Others require a valid token even for discovery.
 
 ## Two-Step Handshake
@@ -34,7 +34,7 @@ def sync_tools!(agent: nil)
   http.open_timeout = 10
   http.read_timeout = 30
 
-  # Get auth headers — passes agent for per-agent credential resolution
+  # Get auth headers: passes agent for per-agent credential resolution
   auth_headers = to_sdk_config(agent: agent)["headers"] || {}
 
   # Step 1: Initialize the MCP session

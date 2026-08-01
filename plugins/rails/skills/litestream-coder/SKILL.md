@@ -222,7 +222,7 @@ Full `VACUUM` rewrites the entire database file. Litestream detects this as a co
 **Operational considerations:**
 - VACUUM increases backup storage temporarily (old snapshot + new snapshot retained during retention window)
 - Stagger VACUUM across databases to avoid bandwidth spikes: primary at 3:00, cache at 3:15, queue at 3:30
-- This is expected and safe — don't disable VACUUM to avoid snapshots
+- This is expected and safe. Do not disable VACUUM to avoid snapshots
 - Monitor with `litestream databases` after VACUUM to confirm snapshot completed
 
 See `resources/database-admin/sqlite.md` for VACUUM scheduling strategies.

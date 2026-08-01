@@ -7,7 +7,7 @@ description: "Use when configuring or working with Solid Queue for background jo
 
 ## Overview
 
-Solid Queue is Rails 8's default job backend—a database-backed Active Job adapter that eliminates the need for Redis. Jobs are stored in your database with ACID guarantees.
+Solid Queue is Rails 8's default job backend, a database-backed Active Job adapter that eliminates the need for Redis. Jobs are stored in your database with ACID guarantees.
 
 ## Configuration
 

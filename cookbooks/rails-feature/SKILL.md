@@ -47,13 +47,13 @@ Summarize: what shipped, the plan deviations if any, and the outcome of each gat
 
 ## Requires
 
-- `implementation-planning` — Phase 1 planning contract
-- `dhh-rails-style` — implementation and review style for all Rails code
-- `ruby-coder` — Ruby-level design rules during implementation
-- `minitest-coder` — test-writing conventions for the TDD loop
-- `rails-lint` — Gate A tooling workflow
+- `implementation-planning`: Phase 1 planning contract
+- `dhh-rails-style`: implementation and review style for all Rails code
+- `ruby-coder`: Ruby-level design rules during implementation
+- `minitest-coder`: test-writing conventions for the TDD loop
+- `rails-lint`: Gate A tooling workflow
 - `rails-code-review`: Gate C framework-specific review and release verdict
-- `test-reviewer` — Gate C test-quality review
+- `test-reviewer`: Gate C test-quality review
 
 Install everything:
 

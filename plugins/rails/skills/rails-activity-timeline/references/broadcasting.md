@@ -47,7 +47,7 @@ end
 
 ### Replace (updated events)
 
-Used when an event is updated after creation — for example, when an AI summary is added to a `field_updated` event:
+Used when an event is updated after creation, for example, when an AI summary is added to a `field_updated` event:
 
 ```ruby
 after_update_commit :broadcast_activity_replace
@@ -84,7 +84,7 @@ def broadcast_partial
 end
 ```
 
-**Why you might need different partials**: Some timelines display extra fields — a project timeline might show assignee avatars and status badges, while a blog post timeline just shows the action and timestamp. Keeping a single partial that conditionally renders everything leads to spaghetti. Better to use focused partials per context.
+**Why you might need different partials**: Some timelines display extra fields: a project timeline might show assignee avatars and status badges, while a blog post timeline just shows the action and timestamp. Keeping a single partial that conditionally renders everything leads to spaghetti. Better to use focused partials per context.
 
 ## Shared Timeline Partial
 
@@ -116,7 +116,7 @@ Key points:
 - `turbo_stream_from` subscribes to the Action Cable channel for live updates
 - The `id` on the inner `div` must match the `target` in `broadcast_prepend_to`
 - The `no_activity_events` element gets removed by the first broadcast prepend
-- `max_height` defaults to `max-h-96` (384px) — pass a different Tailwind class to adjust
+- `max_height` defaults to `max-h-96` (384px), pass a different Tailwind class to adjust
 
 ### Usage in a show view
 
@@ -166,7 +166,7 @@ Create `app/views/activity_events/_activity_event.html.erb`:
 ### Design notes
 
 - The vertical "spine" (circle + line) creates a connected timeline visual
-- Each event has `dom_id(event)` as its `id` — required for the `broadcast_replace_to` to target individual events
+- Each event has `dom_id(event)` as its `id`, required for the `broadcast_replace_to` to target individual events
 - User display falls back through `display_name`, `name`, then `email` to work with any User model
 - All colors use standard Tailwind with `dark:` variants for dark mode support
 - The `group` class on the outer div enables hover effects if you want to add them (e.g., `group-hover:bg-gray-50`)
@@ -223,7 +223,7 @@ In development, you can verify broadcasts are working by:
 3. The event should appear in both windows without a page reload
 
 ```ruby
-# In rails console — create a test event
+# In rails console: create a test event
 project = Project.first
 ActivityEvent.create!(
   trackable: project,

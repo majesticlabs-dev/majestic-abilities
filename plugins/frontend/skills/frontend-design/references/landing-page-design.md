@@ -6,11 +6,11 @@ Visual design principles for high-converting, award-worthy landing pages. Comple
 
 Before writing any code, explicitly decide:
 
-1. **Aesthetic direction** — Pick one from the catalog in `art-direction.md`
-2. **Font pairing** — One display font, one body font (see Typography Pairings below)
-3. **Color palette** — Maximum 5 hex values (bg, text, muted, accent, accent-muted)
-4. **Hero hook** — One interactive element that makes the page memorable
-5. **Company context** — Generate realistic placeholder content, never lorem ipsum
+1. **Aesthetic direction:** pick one from the catalog in `art-direction.md`
+2. **Font pairing:** one display font, one body font (see Typography Pairings below)
+3. **Color palette:** maximum 5 hex values (bg, text, muted, accent, accent-muted)
+4. **Hero hook:** one interactive element that makes the page memorable
+5. **Company context:** generate realistic placeholder content, never lorem ipsum
 
 State these decisions explicitly before implementation. This prevents generic output.
 

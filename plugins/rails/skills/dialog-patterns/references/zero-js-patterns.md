@@ -1,6 +1,6 @@
 # Zero-JavaScript Dialog Patterns
 
-Modern browsers support the **Invoker Commands API** for declarative dialog control—no JavaScript required.
+Modern browsers support the **Invoker Commands API** for declarative dialog control, no JavaScript required.
 
 ## Basic Pattern
 

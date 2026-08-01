@@ -31,7 +31,7 @@ Mustang → Topicality (T*) → NavBoost → Twiddlers
 
 **Key Implications:**
 - Content must pass Mustang's quality gate before relevance even matters
-- User behavior (NavBoost) accumulates over 13 months—patience required
+- User behavior (NavBoost) accumulates over 13 months, patience required
 - Two foundational pillars: Q* (site quality) and P* (popularity via Chrome data)
 - Page potential is capped by domain's `siteAuthority` score
 
@@ -105,7 +105,7 @@ Evaluate content depth and value. Google's `contentEffort` signal measures ML-as
 | Depth | Expert-level detail | /10 | contentEffort |
 
 **Token Truncation Awareness:**
-Google uses token limits—long documents may be truncated. Optimize for this:
+Google uses token limits. Long documents may be truncated. Optimize for this:
 - [ ] Critical information in first 20% of content (inverted pyramid)
 - [ ] Key facts lead each section
 - [ ] Paragraphs <120 words
@@ -179,7 +179,7 @@ Assess Experience, Expertise, Authority, Trust signals. These map directly to te
 - [ ] Security indicators
 
 **Disconnected Entity Check:**
-Sites without verifiable ownership, author info, and contact transparency trigger algorithmic distrust—even with high content quality.
+Sites without verifiable ownership, author info, and contact transparency trigger algorithmic distrust, even with high content quality.
 
 ### Phase 5: AI/GEO Readiness
 

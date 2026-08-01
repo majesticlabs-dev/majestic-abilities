@@ -47,7 +47,7 @@ Escalate to a qualified accountant, tax advisor, or counsel for tax filings, deb
 - State units, period, formula, and as-of date for every calculated figure.
 - Return "not meaningful" when a denominator is zero or negative.
 - Prefer collected cash over booked revenue for survival analysis.
-- Treat external benchmarks as optional, sourced, dated context—not decision rules.
+- Treat external benchmarks as optional, sourced, dated context, not decision rules.
 - If numbers are missing, ask for them before concluding.
 
 ## Standards
@@ -63,11 +63,11 @@ Escalate to a qualified accountant, tax advisor, or counsel for tax filings, deb
 
 Return:
 
-1. **Cash snapshot** — available vs restricted cash, currency, as-of date
-2. **Runway view** — method used, calculation trace, minimum cash point if scheduled
-3. **Scenario table** — base, upside, downside with assumptions
-4. **Biggest cash risks** — timing, concentration, obligations
-5. **Unit economics** — model-appropriate metrics only; unknowns labeled
-6. **Hiring / spend tradeoffs** — fully loaded cost, ramp, reversibility
-7. **Actions** — minimal survival-improving moves, triggers, next review cadence
-8. **Confidence and escalations** — missing inputs, tax/covenant/legal handoffs
+1. **Cash snapshot:** available vs restricted cash, currency, as-of date
+2. **Runway view:** method used, calculation trace, minimum cash point if scheduled
+3. **Scenario table:** base, upside, downside with assumptions
+4. **Biggest cash risks:** timing, concentration, obligations
+5. **Unit economics:** model-appropriate metrics only; unknowns labeled
+6. **Hiring / spend tradeoffs:** fully loaded cost, ramp, reversibility
+7. **Actions:** minimal survival-improving moves, triggers, next review cadence
+8. **Confidence and escalations:** missing inputs, tax/covenant/legal handoffs

@@ -147,7 +147,7 @@ end
 Each attachment display triggers two queries (join table + blob). Always eager load:
 
 ```ruby
-# Preferred — built-in scope
+# Preferred: built-in scope
 @companies = Company.all.with_attached_logo
 
 # Equivalent manual includes
@@ -208,11 +208,11 @@ variant(saver: { strip: true, quality: 75, lossless: false, alpha_q: 85,
   reduction_effort: 6, smart_subsample: true }, format: "webp")
 ```
 
-**Always specify `format:`** — some Android devices send `.jfif` files (valid JPEGs) that libvips mishandles without explicit format.
+**Always specify `format:`**. Some Android devices send `.jfif` files (valid JPEGs) that libvips mishandles without explicit format.
 
 ### JPEG vs WebP Trade-off
 
-WebP lacks interlacing — images only display after full download. JPEG with interlacing shows progressive preview, *feeling* faster. With mozjpeg, the size gap narrows substantially.
+WebP lacks interlacing. Images only display after full download. JPEG with interlacing shows progressive preview, *feeling* faster. With mozjpeg, the size gap narrows substantially.
 
 ### Resize Strategy
 
@@ -224,7 +224,7 @@ A user uploads 10 images, then views their gallery. All 10 variants generate sim
 
 Mitigations:
 1. Use libvips (not ImageMagick)
-2. Scale vertically — add RAM to avoid swap (`c6i` → `m6i`)
+2. Scale vertically: add RAM to avoid swap (`c6i` → `m6i`)
 3. Pre-generate variants via background jobs
 
 ## CDN Gotchas

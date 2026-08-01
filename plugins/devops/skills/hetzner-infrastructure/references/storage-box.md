@@ -2,7 +2,7 @@
 
 Hetzner Storage Boxes are external network storage (not Cloud API). Provisioned via Robot panel or API, mounted via CIFS/SMB, SFTP, or SCP. Common use: off-server backup destination for Litestream and docker-volume-backup.
 
-**Not manageable via OpenTofu** — the hcloud provider only covers Hetzner Cloud. Storage Boxes are a separate Hetzner product ordered through Robot.
+**Not manageable via OpenTofu:** the hcloud provider only covers Hetzner Cloud. Storage Boxes are a separate Hetzner product ordered through Robot.
 
 ## CIFS Mount via Ansible
 
@@ -137,7 +137,7 @@ accessories:
 | 10 TB | ~18.52 EUR | Large datasets + backups |
 | 20 TB | ~30.89 EUR | Full archive storage |
 
-Prices approximate — check Hetzner Robot for current pricing.
+Prices are approximate. Check Hetzner Robot for current pricing.
 
 ## Mount Options Reference
 

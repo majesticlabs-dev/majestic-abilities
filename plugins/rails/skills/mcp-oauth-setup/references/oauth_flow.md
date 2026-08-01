@@ -6,7 +6,7 @@ Fetch the provider's OAuth metadata from its well-known endpoint. The URL is der
 from the MCP server's host (not the full path).
 
 **Important:** Not all MCP servers support OAuth discovery. Some (e.g., Render) return
-404. Handle this gracefully — those servers should use bearer or API key auth instead.
+404. Handle this gracefully. Those servers should use bearer or API key auth instead.
 
 ```ruby
 # On the McpServer model
@@ -136,7 +136,7 @@ def authorize
   )
 
   # CRITICAL: Do NOT use redirect_to for external URLs with Turbo Drive.
-  # Turbo cannot follow cross-origin 302 redirects — the browser silently
+  # Turbo cannot follow cross-origin 302 redirects, the browser silently
   # stays on the current page. Use HTML meta refresh instead.
   render html: helpers.tag.html(
     helpers.tag.head(
@@ -305,7 +305,7 @@ end
 For bearer/API key auth types, resolve per-agent or shared credentials:
 
 ```ruby
-# On the McpServer model — resolves bearer tokens and API keys
+# On the McpServer model: resolves bearer tokens and API keys
 def resolve_auth_token(agent)
   if per_agent_credentials? && agent
     connection = agent_mcp_connections.find_by(agent: agent)

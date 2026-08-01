@@ -166,7 +166,7 @@ end
 
 ## Frozen Fixtures Anti-Pattern
 
-Tests that assert exact collections "freeze" fixtures—adding new fixture records breaks unrelated tests.
+Tests that assert exact collections "freeze" fixtures, adding new fixture records breaks unrelated tests.
 
 ### ❌ Freezing fixtures with exact collection assertions
 

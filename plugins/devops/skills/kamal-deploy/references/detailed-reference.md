@@ -23,10 +23,10 @@ DATABASE_URL=$DATABASE_URL
 ### Multi-Environment
 
 ```yaml
-# config/deploy.yml — base config
+# config/deploy.yml: base config
 service: myapp
 
-# config/deploy.staging.yml — overrides
+# config/deploy.staging.yml: overrides
 service: myapp-staging
 servers:
   web:
@@ -186,7 +186,7 @@ accessories:
         - LITESTREAM_SECRET_ACCESS_KEY
 ```
 
-Mount storage as read-only (`:ro`) — Litestream only reads WAL files.
+Mount storage as read-only (`:ro`): Litestream only reads WAL files.
 
 ## Directory Structure
 
@@ -219,5 +219,5 @@ myapp/
 
 ## References
 
-- [references/request-flow.md](request-flow.md) — Request architecture and Cloudflare integration
-- [references/docker-patterns.md](docker-patterns.md) — Production Dockerfile, entrypoint, and volume patterns
+- [references/request-flow.md](request-flow.md): Request architecture and Cloudflare integration
+- [references/docker-patterns.md](docker-patterns.md): Production Dockerfile, entrypoint, and volume patterns

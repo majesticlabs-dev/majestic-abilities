@@ -63,7 +63,7 @@ This serves assets through Rails (cacheable by Cloudflare) instead of redirect U
 
 ## Multi-App on Single Server
 
-kamal-proxy routes by hostname — multiple apps share ports 80/443:
+kamal-proxy routes by hostname. Multiple apps share ports 80/443:
 
 ```yaml
 # App 1: config/deploy.yml

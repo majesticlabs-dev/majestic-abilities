@@ -306,7 +306,7 @@ end
 
 **When morph fits well:** Moderate-scale views (dashboards, queues with ~15-50 items), pages where multiple elements change together, multitenant apps broadcasting to several views.
 
-**When morph needs help:** Audio/visual notifications triggered by specific events still need targeted streams or a supplementary Stimulus controller listening on a dedicated channel — morph alone only updates DOM, it can't trigger side effects like playing a sound.
+**When morph needs help:** Audio/visual notifications triggered by specific events still need targeted streams or a supplementary Stimulus controller listening on a dedicated channel: morph alone only updates DOM, it can't trigger side effects like playing a sound.
 
 ## Key Benefits
 

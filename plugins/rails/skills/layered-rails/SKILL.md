@@ -72,16 +72,16 @@ Rate each callback 1-5. Extract anything scoring 1-2.
 
 | Situation | Pattern | Layer | Skill |
 |-----------|---------|-------|-------|
-| Complex multi-model form | Form Object | Presentation | — |
-| Request param filtering | Filter Object | Presentation | — |
+| Complex multi-model form | Form Object | Presentation | n/a |
+| Request param filtering | Filter Object | Presentation | n/a |
 | View-specific formatting | Presenter / ViewComponent | Presentation | `viewcomponent-coder` |
 | Authorization rules | Policy Object | Application | `action-policy-coder` |
 | Business operation (one-time) | Service / Interaction | Application | `active-interaction-coder` |
 | Multi-model orchestration | Service Object | Application | `active-interaction-coder` |
 | State lifecycle management | State Machine | Domain | `aasm-coder` |
-| Complex reusable query | Query Object | Domain | — |
-| Immutable concept (Money, DateRange) | Value Object | Domain | — |
-| Shared model behavior | Concern | Domain | — |
+| Complex reusable query | Query Object | Domain | n/a |
+| Immutable concept (Money, DateRange) | Value Object | Domain | n/a |
+| Shared model behavior | Concern | Domain | n/a |
 | Typed configuration | Config Object | Infrastructure | `anyway-config-coder` |
 | Domain events / audit trail | Event Sourcing | Infrastructure | `event-sourcing-coder` |
 | JSON-backed attributes | Store Model | Domain | `store-model-coder` |
@@ -156,7 +156,7 @@ class Order < ApplicationRecord
   # 4. Normalizations
   # 5. Validations
   # 6. Scopes
-  # 7. Callbacks (transformers/normalizers only — score 4-5)
+  # 7. Callbacks (transformers/normalizers only, score 4-5)
   # 8. Delegations
   # 9. Public methods
   # 10. Private methods
@@ -169,11 +169,11 @@ This skill complements `dhh-rails-style`, not replaces it.
 
 | Situation | Use |
 |-----------|-----|
-| Small/medium app, standard CRUD | `dhh-rails-style` — keep it simple |
-| Complex domain, multiple bounded contexts | `layered-rails` — add structure |
+| Small/medium app, standard CRUD | `dhh-rails-style`: keep it simple |
+| Complex domain, multiple bounded contexts | `layered-rails`: add structure |
 | Authorization beyond simple checks | `action-policy-coder` via layered guidance |
 | Fat model with 500+ lines | `layered-rails` extraction signals |
-| Standard controller actions | `dhh-rails-style` — 7 REST actions |
+| Standard controller actions | `dhh-rails-style`: 7 REST actions |
 | Multi-step business operation | `active-interaction-coder` via layered guidance |
 
 **Default to simplicity.** Reach for layered patterns only when complexity demands it.

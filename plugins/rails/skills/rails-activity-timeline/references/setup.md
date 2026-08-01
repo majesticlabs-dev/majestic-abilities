@@ -7,7 +7,7 @@ Complete guide to adding the activity timeline system to a Rails 7+/8+ applicati
 - Rails 7+ with `turbo-rails` gem installed
 - Action Cable configured (or Solid Cable on Rails 8)
 - Tailwind CSS (for default styling; adapt classes for other frameworks)
-- A `User` model (optional — events can be anonymous)
+- A `User` model (optional: events can be anonymous)
 
 ## Migration
 
@@ -39,8 +39,8 @@ end
 ```
 
 Key design decisions:
-- `trackable` is **required** — every event must belong to a parent entity's timeline
-- `subject` is **optional** — used when the event is _about_ a related entity (e.g., a comment added to a project)
+- `trackable` is **required**, every event must belong to a parent entity's timeline
+- `subject` is **optional**, used when the event is _about_ a related entity (e.g., a comment added to a project)
 - `subject_label` stores a human-readable label snapshotted at creation time, so it survives if the subject is later deleted
 - `details` is JSONB for flexible metadata (field changes, status transitions, etc.)
 - The composite index on `(trackable_type, trackable_id, created_at)` is critical for the `timeline` scope performance
@@ -297,7 +297,7 @@ end
 
 ### Why `subject_type` and `subject_id` are set manually on destroy
 
-In `log_activity_destroyed`, we set `subject_type` and `subject_id` directly instead of `subject: self` because the record is being destroyed — Active Record may have already nullified or invalidated the association by the time the `after_destroy_commit` callback fires. Setting the polymorphic columns explicitly ensures the reference is preserved in the event record.
+In `log_activity_destroyed`, we set `subject_type` and `subject_id` directly instead of `subject: self` because the record is being destroyed. Active Record may have already nullified or invalidated the association by the time the `after_destroy_commit` callback fires. Setting the polymorphic columns explicitly ensures the reference is preserved in the event record.
 
 ## Adding Custom Actions
 
