@@ -71,6 +71,7 @@ env:
 - `cmd: bin/jobs start` runs Solid Queue in a separate container
 - Set `SOLID_QUEUE_IN_PUMA: false` to disable in-process queue
 - Job role has no proxy, only web role serves HTTP traffic
+- Fiber workers (`fibers:` in `config/queue.yml`) make the separate container the safer default: in-Puma mode forces `isolation_level = :fiber` on the web process too
 
 ### With Local Registry
 

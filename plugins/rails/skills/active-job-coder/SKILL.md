@@ -50,6 +50,8 @@ class ReportGenerationJob < ApplicationJob
 end
 ```
 
+The queue also selects the execution model when the backend runs mixed workers, since Solid Queue supports `fibers:` alongside `threads:`. Route by workload shape: I/O-bound jobs such as LLM calls, HTTP requests, and Turbo broadcasts belong on a fiber queue; CPU-bound work and jobs holding a transaction for their whole run belong on a thread queue. See `solid-queue-coder` for the worker config and pool sizing.
+
 ## Error Handling & Retry Strategies
 
 ```ruby
@@ -125,6 +127,7 @@ For multi-tenant apps, serialize tenant context at enqueue time and restore it a
 | Ignoring errors | Silent failures | Use `rescue_from` with logging |
 | Monolithic steps | Can't resume after failure | Use Continuable pattern with state |
 | `Current.user` inside `perform` | Request context is gone | Pass actor or tenant context at enqueue |
+| CPU-heavy or long-transaction job on a fiber queue | Blocks the reactor for every other fiber, or pins a connection for the job's lifetime | Route it to a thread worker queue |
 
 ## Output Format
 
