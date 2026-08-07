@@ -22,7 +22,7 @@ Replace `OWNER/REPOSITORY` with the published repository identifier. Use an abso
 | `majestic-core` | 2 | Agent-ready repositories and nested guidance audits |
 | `majestic-data` | 8 | Pipelines, contracts, quality controls, dbt |
 | `majestic-devops` | 10 | OpenTofu, Ansible, cloud-init, Kamal, secrets, infrastructure review |
-| `majestic-engineer` | 7 | Implementation planning, code and test review, complexity, logging |
+| `majestic-engineer` | 8 | Minimal sufficient work, implementation planning, code and test review, complexity, logging |
 | `majestic-founder` | 8 | Strategy, priorities, finance, technology impact, go-to-market, launch readiness |
 | `majestic-frontend` | 5 | Visual direction, Core Web Vitals, accessibility, screenshots |
 | `majestic-marketing` | 13 | Positioning, naming, content, campaigns, growth experiments |
@@ -182,7 +182,7 @@ The CLI recommends symlinks so multiple agents share one canonical installation.
 | Core | 2 | [`plugins/core/skills/`](plugins/core/skills/) |
 | Data | 8 | [`plugins/data/skills/`](plugins/data/skills/) |
 | DevOps | 10 | [`plugins/devops/skills/`](plugins/devops/skills/) |
-| Engineer | 7 | [`plugins/engineer/skills/`](plugins/engineer/skills/) |
+| Engineer | 8 | [`plugins/engineer/skills/`](plugins/engineer/skills/) |
 | Founder | 8 | [`plugins/founder/skills/`](plugins/founder/skills/) |
 | Frontend | 5 | [`plugins/frontend/skills/`](plugins/frontend/skills/) |
 | Marketing | 13 | [`plugins/marketing/skills/`](plugins/marketing/skills/) |
@@ -248,6 +248,7 @@ Counts above are catalog skills only. Cookbooks are counted separately and descr
 | [`code-review`](plugins/engineer/skills/code-review/) | Review change sets for defects, regressions, unnecessary complexity, missing tests, and release readiness. |
 | [`complexity-reviewer`](plugins/engineer/skills/complexity-reviewer/) | Review algorithmic complexity and performance hotspots conservatively. |
 | [`implementation-planning`](plugins/engineer/skills/implementation-planning/) | Create an executable technical plan grounded in the existing repository. |
+| [`minimal-sufficient-work`](plugins/engineer/skills/minimal-sufficient-work/) | Apply the MSW deletion rule so only work necessary to satisfy or prove the requested outcome is performed. |
 | [`multi-agent-architecture`](plugins/engineer/skills/multi-agent-architecture/) | Design persistent multi-agent systems with explicit roles, handoffs, state, permissions, and failure handling. |
 | [`plan-review`](plugins/engineer/skills/plan-review/) | Review planning documents as whole delivery artifacts for implementation readiness and risk. |
 | [`structured-logging`](plugins/engineer/skills/structured-logging/) | Design structured application logging for observability and incidents. |
