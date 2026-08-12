@@ -1,0 +1,6 @@
+interface:
+  display_name: "To Tasks"
+  short_description: "Turn plans into dependency-aware tasks"
+  default_prompt: "Use $to-tasks to split this approved plan into vertical tasks with explicit dependencies."
+policy:
+  allow_implicit_invocation: false
