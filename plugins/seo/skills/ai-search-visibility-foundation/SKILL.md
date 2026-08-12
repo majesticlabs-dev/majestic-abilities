@@ -1,11 +1,11 @@
 ---
 name: ai-search-visibility-foundation
-description: "Audit and establish a website's SEO, entity, AI navigation, crawler, structured-data, and AEO measurement foundations. Use when the user invokes /ai-search-visibility-foundation or wants a site-level AI search visibility program with validated implementation evidence."
+description: "Audit and establish a website's SEO, entity, AI navigation, crawler, structured-data, and AEO measurement foundations. Use when the user invokes ai-search-visibility-foundation by name or wants a site-level AI search visibility program with validated implementation evidence."
 ---
 
 # AI Search Visibility Foundation
 
-Establish the visibility foundation for the site described in $ARGUMENTS. Complete the phases in order. Report implementation and measurement evidence without promising rankings, recommendations, or citations.
+Establish the visibility foundation for the site described in the user's request. Complete the phases in order. Report implementation and measurement evidence without promising rankings, recommendations, or citations.
 
 ## Phase 1: Establish The Baseline
 
@@ -92,14 +92,7 @@ Install everything:
 ```sh
 npx skills add OWNER/REPOSITORY --skill ai-search-visibility-foundation \
   seo-audit entity-triplets llms-txt-builder ai-crawler-readiness \
-  schema-architect aeo-scorecard --agent claude-code --yes
-```
-
-Or as Claude Code plugins:
-
-```sh
-/plugin marketplace add OWNER/REPOSITORY
-/plugin install majestic-seo@majestic-abilities
+  schema-architect aeo-scorecard
 ```
 
 ## Hard Gates

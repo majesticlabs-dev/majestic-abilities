@@ -1,0 +1,27 @@
+{
+  "name": "majestic-sales",
+  "version": "0.1.0",
+  "description": "B2B selling: ICP definition, outbound prospecting, pipeline analysis, enablement, proposals, and account expansion.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "sales",
+    "b2b",
+    "outbound"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Majestic Sales",
+    "shortDescription": "B2B ICP, prospecting, pipeline, and account-growth skills.",
+    "longDescription": "B2B selling: ICP definition, outbound prospecting, pipeline analysis, enablement, proposals, and account expansion.",
+    "developerName": "Majestic Labs",
+    "category": "Sales",
+    "capabilities": ["Skills"],
+    "defaultPrompt": [
+      "Define the right customer profile.",
+      "Review this B2B pipeline."
+    ]
+  }
+}

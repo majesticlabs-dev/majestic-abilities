@@ -1,0 +1,27 @@
+{
+  "name": "majestic-data",
+  "version": "0.1.0",
+  "description": "Design, test, and operate data pipelines, contracts, quality controls, dbt projects, and source assessments.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "data",
+    "pipelines",
+    "dbt"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Majestic Data",
+    "shortDescription": "Data pipelines, contracts, quality, and dbt skills.",
+    "longDescription": "Design, test, and operate data pipelines, contracts, quality controls, dbt projects, and source assessments.",
+    "developerName": "Majestic Labs",
+    "category": "Data & Analytics",
+    "capabilities": ["Skills"],
+    "defaultPrompt": [
+      "Design a reliable data pipeline.",
+      "Review this data quality control."
+    ]
+  }
+}

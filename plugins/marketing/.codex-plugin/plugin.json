@@ -1,0 +1,27 @@
+{
+  "name": "majestic-marketing",
+  "version": "0.1.0",
+  "description": "Positioning, naming, content, campaigns, and growth experiments grounded in verified evidence.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "marketing",
+    "content",
+    "growth"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Majestic Marketing",
+    "shortDescription": "Evidence-grounded positioning, content, and growth skills.",
+    "longDescription": "Positioning, naming, content, campaigns, and growth experiments grounded in verified evidence.",
+    "developerName": "Majestic Labs",
+    "category": "Marketing",
+    "capabilities": ["Skills"],
+    "defaultPrompt": [
+      "Turn this evidence into a growth experiment.",
+      "Review this positioning against the audience."
+    ]
+  }
+}

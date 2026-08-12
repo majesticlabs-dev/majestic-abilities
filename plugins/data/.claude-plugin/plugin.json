@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "Design, test, and operate data pipelines, contracts, quality controls, dbt projects, and source assessments.",
   "author": {
-    "name": "David Paluy"
+    "name": "Majestic Labs"
   },
   "license": "MIT",
   "keywords": [

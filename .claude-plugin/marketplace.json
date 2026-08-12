@@ -1,7 +1,7 @@
 {
   "name": "majestic-abilities",
   "owner": {
-    "name": "David Paluy"
+    "name": "Majestic Labs"
   },
   "description": "Portable agent skills organized by capability category, one installable plugin per category.",
   "metadata": {

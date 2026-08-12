@@ -1,11 +1,11 @@
 ---
 name: rails-feature
-description: "Build a Rails feature end-to-end: plan, implement in DHH style with TDD, then pass lint, test, and review quality gates. Use when the user invokes /rails-feature or asks for a full feature workflow in a Rails project."
+description: "Build a Rails feature end-to-end: plan, implement in DHH style with TDD, then pass lint, test, and review quality gates. Use when the user invokes rails-feature by name or asks for a full feature workflow in a Rails project."
 ---
 
 # Rails Feature Workflow
 
-Build the feature described in $ARGUMENTS by working through the phases below in order. Do not skip a phase, and do not proceed past a failing gate.
+Build the feature described in the user's request by working through the phases below in order. Do not skip a phase, and do not proceed past a failing gate.
 
 ## Phase 1: Plan
 
@@ -60,9 +60,9 @@ Install everything:
 ```sh
 npx skills add OWNER/REPOSITORY --skill rails-feature dhh-rails-style ruby-coder \
   minitest-coder rails-lint rails-code-review test-reviewer \
-  implementation-planning --agent claude-code --yes
+  implementation-planning
 ```
 
 ## Hard Gates
 
-Gates A and B are mechanical and must not depend on this skill being followed. Back them in the consuming project with hooks or CI, for example a `PostToolUse` hook running RuboCop on changed Ruby files and a `Stop` hook (or CI job) running the test suite.
+Gates A and B are mechanical and must not depend on this skill being followed. Back them in the consuming project with harness-supported post-edit and completion hooks, or with CI. For example, run RuboCop after Ruby edits and run the test suite before completion.

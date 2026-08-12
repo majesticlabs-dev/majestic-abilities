@@ -1,0 +1,27 @@
+{
+  "name": "majestic-writing",
+  "version": "0.1.0",
+  "description": "Draft, revise, and audit prose: voice capture, brand voice, copy editing, direct response, and Minto structure.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "writing",
+    "editing",
+    "copy"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Majestic Writing",
+    "shortDescription": "Writing, editing, voice, and copy skills.",
+    "longDescription": "Draft, revise, and audit prose: voice capture, brand voice, copy editing, direct response, and Minto structure.",
+    "developerName": "Majestic Labs",
+    "category": "Writing",
+    "capabilities": ["Skills"],
+    "defaultPrompt": [
+      "Revise this draft for clarity and voice.",
+      "Edit this copy against its facts."
+    ]
+  }
+}

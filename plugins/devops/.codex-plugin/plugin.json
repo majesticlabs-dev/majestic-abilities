@@ -1,0 +1,27 @@
+{
+  "name": "majestic-devops",
+  "version": "0.1.0",
+  "description": "Provision and operate infrastructure: OpenTofu, Ansible, cloud-init, Kamal deploys, secrets, and infrastructure review.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "devops",
+    "infrastructure",
+    "deployment"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Majestic DevOps",
+    "shortDescription": "Infrastructure provisioning, deployment, and operations skills.",
+    "longDescription": "Provision and operate infrastructure: OpenTofu, Ansible, cloud-init, Kamal deploys, secrets, and infrastructure review.",
+    "developerName": "Majestic Labs",
+    "category": "Developer Tools",
+    "capabilities": ["Skills"],
+    "defaultPrompt": [
+      "Plan a safe infrastructure change.",
+      "Review this deployment configuration."
+    ]
+  }
+}

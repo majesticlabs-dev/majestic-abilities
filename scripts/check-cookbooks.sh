@@ -115,6 +115,13 @@ for cookbook in $cookbooks; do
     fail "$cookbook name '$cookbook_name' collides with a catalog skill"
   fi
 
+  if grep -Fq '$ARGUMENTS' "$cookbook"; then
+    fail "$cookbook uses harness-specific \$ARGUMENTS instead of the user's request"
+  fi
+  if grep -Eq 'invokes /[a-z0-9][a-z0-9-]*' "$cookbook"; then
+    fail "$cookbook uses harness-specific slash invocation syntax"
+  fi
+
   # Requires entries look like: - `skill-name` - reason
   requires=$(awk '/^## Requires/{flag=1; next} /^## /{flag=0} flag' "$cookbook" \
     | grep -E '^- `' | sed -E 's/^- `([^`]+)`.*/\1/' || true)
@@ -168,12 +175,11 @@ $(printf '%s\n' "$skill_index" | awk -F'\t' -v n="$name" '$1 == n {print $2; exi
         fail "$cookbook install command omits skill '$name'"
       fi
     done
-    if [ -n "$host_plugin" ]; then
-      if ! printf '%s\n' "$install_block" | grep -Fq "${host_plugin}@"; then
-        fail "$cookbook install command omits plugin '$host_plugin'"
-      fi
-    elif printf '%s\n' "$install_block" | grep -Fq "/plugin install"; then
-      fail "$cookbook spans plugins and must not advertise a /plugin install route"
+    if printf '%s\n' "$install_block" | grep -Eq -- '(^|[[:space:]])--agent([=[:space:]]|$)'; then
+      fail "$cookbook install command must be harness-neutral and cannot use --agent"
+    fi
+    if printf '%s\n' "$install_block" | grep -Eq '(/plugin install|codex plugin)'; then
+      fail "$cookbook install command must not use a harness-native plugin command"
     fi
   fi
 done

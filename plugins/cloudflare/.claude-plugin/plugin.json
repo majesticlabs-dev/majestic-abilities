@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "Provision, build, and deploy on Cloudflare: OpenTofu infrastructure, Workers development, and Wrangler deployment.",
   "author": {
-    "name": "David Paluy"
+    "name": "Majestic Labs"
   },
   "license": "MIT",
   "keywords": [

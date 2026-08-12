@@ -8,10 +8,10 @@ Placement follows the plugins its required skills belong to:
 
 | Required skills come from | The cookbook lives in | Install routes |
 | --- | --- | --- |
-| One plugin | That plugin, at `plugins/<category>/skills/<name>/` | Skills CLI or `/plugin install` |
+| One plugin | That plugin, at `plugins/<category>/skills/<name>/` | Skills CLI or the harness's native category-plugin installer |
 | Two or more plugins | This directory, `cookbooks/<name>/` | Skills CLI only |
 
-A cross-plugin cookbook is not part of any plugin, so there is nothing to `/plugin install`. Installing it as a plugin would drag in every category it touches and load all of their skill descriptions into every session. The Skills CLI installs exactly the named skills instead.
+A cross-plugin cookbook is not part of any category plugin. Installing it as one would drag in every category it touches and load all of their skill descriptions into every session. The Skills CLI installs exactly the named skills instead.
 
 `scripts/check-cookbooks.sh` enforces this rule in both directions: a single-plugin cookbook left here fails, and a cross-plugin cookbook placed inside a plugin fails.
 
@@ -20,7 +20,7 @@ A cross-plugin cookbook is not part of any plugin, so there is nothing to `/plug
 | | Catalog skills | Cookbooks |
 | --- | --- | --- |
 | Contract | One decoupled capability; never references sibling skills | A procedure; references skills by exact `name:` |
-| Trigger | Auto-triggered by description, or invoked directly | User-invoked (`/rails-feature ...`) |
+| Trigger | Auto-triggered by description, or invoked directly | Invoked directly by name |
 | Portability | Installable alone | Requires the skills it names (see `## Requires` in each cookbook) |
 
 Both use the same `SKILL.md` format, so cookbooks install exactly like skills.
@@ -33,10 +33,10 @@ Each cookbook declares its dependencies in a `## Requires` section and includes 
 # Example: the rails-feature cookbook plus every skill it names
 npx skills add OWNER/REPOSITORY --skill rails-feature dhh-rails-style ruby-coder \
   minitest-coder rails-lint rails-code-review test-reviewer \
-  implementation-planning --agent claude-code --yes
+  implementation-planning
 ```
 
-A single-plugin cookbook arrives with its plugin, so `/plugin install majestic-seo@majestic-abilities` is enough for `ai-search-visibility-foundation`.
+Omit `--agent` so the Skills CLI can detect or ask for the current harness. A single-plugin cookbook also arrives with its category plugin when the harness supports native plugins.
 
 ## Scope Rules
 
@@ -48,6 +48,6 @@ A single-plugin cookbook arrives with its plugin, so `/plugin install majestic-s
 
 1. List the skills the workflow needs and find which plugins own them. That decides the location: one plugin means `plugins/<category>/skills/<name>/SKILL.md`, two or more means `cookbooks/<name>/SKILL.md`.
 2. Create `SKILL.md` there with standard frontmatter (`name`, `description`), and sequence the steps referencing skills by their exact frontmatter `name:`.
-3. Add a `## Requires` section listing each referenced skill with a one-line reason, followed by the complete `npx skills` command naming the cookbook and every required skill. For a single-plugin cookbook, add the `/plugin install <plugin>@majestic-abilities` route too.
+3. Add a `## Requires` section listing each referenced skill with a one-line reason, followed by a harness-neutral `npx skills` command naming the cookbook and every required skill. Do not add `--agent` or a harness-native plugin command to a cookbook.
 4. Add a `## Hard Gates` section naming the steps the consuming project should enforce with hooks or CI.
 5. Run `scripts/check-cookbooks.sh`.

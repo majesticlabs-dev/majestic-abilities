@@ -1,0 +1,27 @@
+{
+  "name": "majestic-founder",
+  "version": "0.1.0",
+  "description": "Founder decisions: company strategy, priorities, technology impact, bootstrapped finance, go-to-market, fundraising asks, and launch readiness.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "founder",
+    "strategy",
+    "startup"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Majestic Founder",
+    "shortDescription": "Founder strategy, finance, go-to-market, and launch skills.",
+    "longDescription": "Founder decisions: company strategy, priorities, technology impact, bootstrapped finance, go-to-market, fundraising asks, and launch readiness.",
+    "developerName": "Majestic Labs",
+    "category": "Business",
+    "capabilities": ["Skills"],
+    "defaultPrompt": [
+      "Pressure-test this company strategy.",
+      "Assess whether this launch is ready."
+    ]
+  }
+}

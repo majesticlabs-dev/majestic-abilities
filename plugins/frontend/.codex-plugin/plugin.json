@@ -1,0 +1,27 @@
+{
+  "name": "majestic-frontend",
+  "version": "0.1.0",
+  "description": "Design, audit, and validate user interfaces: visual direction, Core Web Vitals, accessibility, and screenshot documentation.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "frontend",
+    "ui",
+    "performance"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Majestic Frontend",
+    "shortDescription": "Interface design, accessibility, performance, and validation skills.",
+    "longDescription": "Design, audit, and validate user interfaces: visual direction, Core Web Vitals, accessibility, and screenshot documentation.",
+    "developerName": "Majestic Labs",
+    "category": "Developer Tools",
+    "capabilities": ["Skills"],
+    "defaultPrompt": [
+      "Design this interface with clear states.",
+      "Audit this UI for accessibility and performance."
+    ]
+  }
+}

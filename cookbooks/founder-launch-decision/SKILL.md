@@ -1,11 +1,11 @@
 ---
 name: founder-launch-decision
-description: "Turn a founder-led launch proposal into a defensible audience, go-to-market motion, legal-unknown inventory, and final GO, NARROW, or DELAY decision. Use when the user invokes /founder-launch-decision or needs a launch decision before execution."
+description: "Turn a founder-led launch proposal into a defensible audience, go-to-market motion, legal-unknown inventory, and final GO, NARROW, or DELAY decision. Use when the user invokes founder-launch-decision by name or needs a launch decision before execution."
 ---
 
 # Founder Launch Decision
 
-Evaluate the launch described in $ARGUMENTS. Produce a decision, not a campaign, legal clearance, or implementation plan.
+Evaluate the launch described in the user's request. Produce a decision, not a campaign, legal clearance, or implementation plan.
 
 ## Phase 1: Define The Audience
 
@@ -79,8 +79,7 @@ Install everything:
 
 ```sh
 npx skills add OWNER/REPOSITORY --skill founder-launch-decision \
-  icp-definition go-to-market-motion launch-legal-checklist launch-readiness \
-  --agent claude-code --yes
+  icp-definition go-to-market-motion launch-legal-checklist launch-readiness
 ```
 
 ## Hard Gates

@@ -1,0 +1,27 @@
+{
+  "name": "majestic-rails",
+  "version": "0.1.0",
+  "description": "Write, debug, and explicitly review Ruby on Rails applications across framework correctness, Hotwire, Active Job, Solid, testing, and Rails-native design.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "rails",
+    "ruby",
+    "hotwire"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Majestic Rails",
+    "shortDescription": "Rails and Ruby implementation, testing, and review skills.",
+    "longDescription": "Write, debug, and explicitly review Ruby on Rails applications across framework correctness, Hotwire, Active Job, Solid, testing, and Rails-native design.",
+    "developerName": "Majestic Labs",
+    "category": "Developer Tools",
+    "capabilities": ["Skills"],
+    "defaultPrompt": [
+      "Implement this Rails change with focused tests.",
+      "Review this Rails diff for framework risks."
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "majestic-reasoning",
+  "version": "0.1.0",
+  "description": "Review decisions and pressure-test plans and conclusions through retrospectives, devil's advocate, premortem, and reasoning verification.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "reasoning",
+    "critique"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Majestic Reasoning",
+    "shortDescription": "Decision review, critique, premortem, and reasoning skills.",
+    "longDescription": "Review decisions and pressure-test plans and conclusions through retrospectives, devil's advocate, premortem, and reasoning verification.",
+    "developerName": "Majestic Labs",
+    "category": "Productivity",
+    "capabilities": ["Skills"],
+    "defaultPrompt": [
+      "Pressure-test this decision.",
+      "Run a premortem on this plan."
+    ]
+  }
+}

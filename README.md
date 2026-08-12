@@ -2,7 +2,7 @@
 
 Portable agent skills organized by capability category and compatible with the Agent Skills format.
 
-Each category is a separately installable Claude Code plugin, so you load only the categories you work in. The same skills install individually with the Vercel Skills CLI for Claude Code, Codex, and Pi.
+Each category is a separately installable plugin for Claude Code and Codex, so you load only the categories you work in. The same skills also install individually with the Vercel Skills CLI for Claude Code, Codex, and Pi.
 
 ## Install As Claude Code Plugins
 
@@ -37,6 +37,25 @@ Replace `OWNER/REPOSITORY` with the published repository identifier. Use an abso
 Plugin skills are namespaced, so `dhh-rails-style` from `majestic-rails` is invoked as `/majestic-rails:dhh-rails-style`. Each plugin's skill descriptions are always in context once enabled, so installing only the categories you use keeps that cost proportional: `claude plugin details <name>` reports the projected token cost before you commit.
 
 Manage installed plugins with `/plugin`, `claude plugin list`, and `claude plugin uninstall <name>`.
+
+## Install As Codex Plugins
+
+This repository also includes a repo-scoped Codex marketplace at `.agents/plugins/marketplace.json`.
+From the repository root, add it to Codex and inspect the available plugins:
+
+```sh
+codex plugin marketplace add .
+codex plugin list --marketplace majestic-abilities-codex --available
+```
+
+Install one category with:
+
+```sh
+codex plugin add majestic-rails@majestic-abilities-codex
+codex plugin add majestic-engineer@majestic-abilities-codex
+```
+
+The Codex package for each category is declared in `plugins/<category>/.codex-plugin/plugin.json` and shares that category's existing `skills/` directory. The Claude Code manifests and marketplace remain available separately.
 
 ## Install With `npx skills`
 
@@ -439,16 +458,21 @@ Where a cookbook lives follows from what it requires. If every required skill be
 | [`product-engineering-handoff`](cookbooks/product-engineering-handoff/) | `majestic-engineer`, `majestic-product` | Turn an approved product direction into a PRD, repository-grounded implementation plan, and reviewed engineering handoff. |
 | [`rails-feature`](cookbooks/rails-feature/) | `majestic-engineer`, `majestic-rails` | Build a Rails feature end-to-end: plan, implement in DHH style with TDD, then pass lint, test, and review quality gates. |
 
-Cookbooks install like any other skill, but always install their required skills alongside them; neither installer resolves these dependencies for you. Each cookbook lists the complete `npx skills` command, and the single-plugin ones also list their `/plugin install` route. `scripts/check-cookbooks.sh` verifies placement, that every referenced skill exists, and that the install commands cover it; run it before committing cookbook changes. See [`cookbooks/README.md`](cookbooks/README.md) for the full contract and authoring guide.
+Cookbooks install like any other skill, but always install their required skills alongside them; installers do not resolve these dependencies for you. Each cookbook lists a harness-neutral `npx skills` command without `--agent`. Native category-plugin installation remains documented in the harness-specific sections above. `scripts/check-cookbooks.sh` verifies placement, that every referenced skill exists, and that the install commands cover it; run it before committing cookbook changes. See [`cookbooks/README.md`](cookbooks/README.md) for the full contract and authoring guide.
 
 ## Layout
 
 ```text
 .claude-plugin/
   marketplace.json          # one entry per plugin below
+.agents/
+  plugins/
+    marketplace.json        # Codex marketplace, one entry per plugin below
 plugins/
   <category>/
     .claude-plugin/
+      plugin.json
+    .codex-plugin/
       plugin.json
     skills/
       <skill-name>/
@@ -462,7 +486,8 @@ cookbooks/
   <cookbook-name>/              # cross-plugin cookbooks; not a plugin
     SKILL.md
 scripts/
+  check-codex-plugins.sh
   check-cookbooks.sh
 ```
 
-Each skill is self-contained. Each category directory is a complete plugin: `plugin.json` names it, and Claude Code discovers everything under its `skills/` directory automatically. The same directories provide catalog organization and category-scoped installation for the Skills CLI, which flattens installed skills into each agent's native skill directory. Cookbooks are the composition layer: they may reference catalog skills by name, and `scripts/check-cookbooks.sh` keeps those references, their placement, and their install routes honest.
+Each skill is self-contained. Each category directory is a complete plugin: `.claude-plugin/plugin.json` packages it for Claude Code, `.codex-plugin/plugin.json` packages it for Codex, and both runtimes discover the shared `skills/` directory. The same directories provide catalog organization and category-scoped installation for the Skills CLI, which flattens installed skills into each agent's native skill directory. Run `scripts/check-codex-plugins.sh` and `scripts/check-cookbooks.sh` before committing packaging or cookbook changes. Cookbooks are the composition layer: they may reference catalog skills by name, and the validation scripts keep those references, their placement, and their install routes honest.

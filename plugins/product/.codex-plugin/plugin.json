@@ -1,0 +1,27 @@
+{
+  "name": "majestic-product",
+  "version": "0.1.0",
+  "description": "Product discovery, workflow opportunities, decision alignment, stakeholder rehearsal, requirements, roadmaps, pricing, and retention.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "product",
+    "prd",
+    "roadmap"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Majestic Product",
+    "shortDescription": "Product discovery, requirements, strategy, and planning skills.",
+    "longDescription": "Product discovery, workflow opportunities, decision alignment, stakeholder rehearsal, requirements, roadmaps, pricing, and retention.",
+    "developerName": "Majestic Labs",
+    "category": "Product",
+    "capabilities": ["Skills"],
+    "defaultPrompt": [
+      "Turn this product direction into requirements.",
+      "Pressure-test this product idea."
+    ]
+  }
+}

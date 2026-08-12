@@ -1,11 +1,11 @@
 ---
 name: product-engineering-handoff
-description: "Turn an approved product direction into an evidence-grounded PRD, a repository-specific implementation plan, and a reviewed engineering handoff. Use when the user invokes /product-engineering-handoff or asks to prepare a product decision for engineering without implementing it."
+description: "Turn an approved product direction into an evidence-grounded PRD, a repository-specific implementation plan, and a reviewed engineering handoff. Use when the user invokes product-engineering-handoff by name or asks to prepare a product decision for engineering without implementing it."
 ---
 
 # Product Engineering Handoff
 
-Prepare the approved product direction described in $ARGUMENTS for engineering. Complete the phases in order and stop before implementation.
+Prepare the approved product direction described in the user's request for engineering. Complete the phases in order and stop before implementation.
 
 ## Phase 1: Confirm The Direction
 
@@ -76,8 +76,7 @@ Install everything:
 
 ```sh
 npx skills add OWNER/REPOSITORY --skill product-engineering-handoff \
-  product-requirements implementation-planning plan-review \
-  --agent claude-code --yes
+  product-requirements implementation-planning plan-review
 ```
 
 ## Hard Gates

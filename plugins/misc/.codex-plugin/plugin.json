@@ -1,0 +1,27 @@
+{
+  "name": "majestic-misc",
+  "version": "0.1.0",
+  "description": "Portable interaction and skill-design capabilities: actionable communication, execution grading, and compliant skill structure.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "communication",
+    "meta"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Majestic Misc",
+    "shortDescription": "Actionable communication and skill-design skills.",
+    "longDescription": "Portable interaction and skill-design capabilities: actionable communication, execution grading, and compliant skill structure.",
+    "developerName": "Majestic Labs",
+    "category": "Productivity",
+    "capabilities": ["Skills"],
+    "defaultPrompt": [
+      "Improve this skill structure.",
+      "Make this answer more actionable."
+    ]
+  }
+}

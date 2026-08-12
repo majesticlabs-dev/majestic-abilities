@@ -1,0 +1,27 @@
+{
+  "name": "majestic-seo",
+  "version": "0.1.0",
+  "description": "Technical SEO, content strategy, structured data, and Answer Engine Optimization for search engines and LLMs.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "seo",
+    "aeo",
+    "schema"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Majestic SEO",
+    "shortDescription": "Technical SEO, content, schema, and AEO skills.",
+    "longDescription": "Technical SEO, content strategy, structured data, and Answer Engine Optimization for search engines and LLMs.",
+    "developerName": "Majestic Labs",
+    "category": "Marketing",
+    "capabilities": ["Skills"],
+    "defaultPrompt": [
+      "Audit this site's search visibility.",
+      "Plan an evidence-grounded SEO improvement."
+    ]
+  }
+}

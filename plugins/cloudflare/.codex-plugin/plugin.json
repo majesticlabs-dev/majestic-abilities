@@ -1,0 +1,27 @@
+{
+  "name": "majestic-cloudflare",
+  "version": "0.1.0",
+  "description": "Provision, build, and deploy on Cloudflare: OpenTofu infrastructure, Workers development, and Wrangler deployment.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "cloudflare",
+    "workers",
+    "opentofu"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Majestic Cloudflare",
+    "shortDescription": "Cloudflare infrastructure, Workers, and deployment skills.",
+    "longDescription": "Provision, build, and deploy on Cloudflare: OpenTofu infrastructure, Workers development, and Wrangler deployment.",
+    "developerName": "Majestic Labs",
+    "category": "Developer Tools",
+    "capabilities": ["Skills"],
+    "defaultPrompt": [
+      "Plan and verify Cloudflare infrastructure changes.",
+      "Build and deploy a Cloudflare Worker safely."
+    ]
+  }
+}

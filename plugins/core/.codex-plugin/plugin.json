@@ -1,0 +1,26 @@
+{
+  "name": "majestic-core",
+  "version": "0.1.0",
+  "description": "Foundational repository capabilities: making repositories agent-ready and auditing nested repository guidance.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "repository",
+    "agents"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Majestic Core",
+    "shortDescription": "Repository guidance and agent-readiness skills.",
+    "longDescription": "Foundational repository capabilities: making repositories agent-ready and auditing nested repository guidance.",
+    "developerName": "Majestic Labs",
+    "category": "Developer Tools",
+    "capabilities": ["Skills"],
+    "defaultPrompt": [
+      "Make this repository more agent-ready.",
+      "Audit the repository's AGENTS.md guidance."
+    ]
+  }
+}

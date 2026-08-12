@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "Provision and operate infrastructure: OpenTofu, Ansible, cloud-init, Kamal deploys, secrets, and infrastructure review.",
   "author": {
-    "name": "David Paluy"
+    "name": "Majestic Labs"
   },
   "license": "MIT",
   "keywords": [
