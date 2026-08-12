@@ -90,7 +90,9 @@ Use **Not applicable** only when a check has no meaningful obligation at the cur
 
 Review consistency, same-level duplication, coverage for the intended next phase, terminology, organization, modifiability, traceability, and governance metadata.
 
-Completeness is relative to the intended consumer and is never fully provable from prose alone. State the coverage techniques used and the evidence that was unavailable.
+Run the coverage sweep in [quality-model.md](references/quality-model.md) in the listed order and mark every category `Covered`, `Gap`, or `Not applicable`. Do not stop at the categories that produced findings. The order exists to reach the categories a reviewer habitually skips.
+
+Completeness is relative to the intended consumer and is never fully provable from prose alone. State the evidence that was unavailable.
 
 ### 6. Propose repairs
 

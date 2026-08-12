@@ -165,14 +165,17 @@ Merge requirements only when they impose the same obligation at the same level a
 
 Judge coverage against the intended next phase, not against an imaginary final specification.
 
-State the techniques applied, such as:
+Sweep these categories in order. Mark each one `Covered`, `Gap`, or `Not applicable`:
 
-- goal and stakeholder trace
-- actor and journey coverage
-- happy, invalid, empty, denied, cancellation, retry, recovery, and offboarding states
-- entity lifecycle and create, read, update, archive, or delete behavior
-- security, privacy, accessibility, regulatory, data, performance, reliability, and operational concerns
-- dependency and external-interface review
+1. goal and stakeholder trace
+2. actor and journey coverage
+3. happy, invalid, empty, denied, cancellation, retry, recovery, and offboarding states
+4. entity lifecycle and create, read, update, archive, or delete behavior
+5. feature interaction and concurrent or repeated execution
+6. security, privacy, accessibility, regulatory, data, performance, reliability, and operational concerns
+7. dependency and external-interface review
+
+Report the marks only. Do not expand a `Gap` into a scenario table, a severity, or per-category commentary. A `Gap` becomes at most one open decision in the review output.
 
 Missing categories are prompts for investigation, not requirements to invent. Report completeness as bounded by the supplied evidence.
 
