@@ -18,7 +18,7 @@ Replace `OWNER/REPOSITORY` with the published repository identifier. Use an abso
 
 | Plugin | Skills | Contents |
 | --- | ---: | --- |
-| `majestic-cloudflare` | 3 | Cloudflare infrastructure, Workers development, Wrangler deployment |
+| `majestic-cloudflare` | 4 | Cloudflare infrastructure, Workers development, Wrangler deployment |
 | `majestic-core` | 2 | Agent-ready repositories and nested guidance audits |
 | `majestic-data` | 8 | Pipelines, contracts, quality controls, dbt |
 | `majestic-devops` | 10 | OpenTofu, Ansible, cloud-init, Kamal, secrets, infrastructure review |
@@ -197,7 +197,7 @@ The CLI recommends symlinks so multiple agents share one canonical installation.
 
 | Category | Skills | Path |
 | --- | ---: | --- |
-| Cloudflare | 3 | [`plugins/cloudflare/skills/`](plugins/cloudflare/skills/) |
+| Cloudflare | 4 | [`plugins/cloudflare/skills/`](plugins/cloudflare/skills/) |
 | Core | 2 | [`plugins/core/skills/`](plugins/core/skills/) |
 | Data | 8 | [`plugins/data/skills/`](plugins/data/skills/) |
 | DevOps | 10 | [`plugins/devops/skills/`](plugins/devops/skills/) |
@@ -244,6 +244,7 @@ Counts above are catalog skills only. Cookbooks are counted separately and descr
 | [`cloudflare-infrastructure`](plugins/cloudflare/skills/cloudflare-infrastructure/) | Provision and review Cloudflare infrastructure with OpenTofu. |
 | [`cloudflare-worker-development`](plugins/cloudflare/skills/cloudflare-worker-development/) | Build and review TypeScript applications for the Cloudflare Workers runtime. |
 | [`cloudflare-workers-deployment`](plugins/cloudflare/skills/cloudflare-workers-deployment/) | Configure, validate, and deploy Cloudflare Workers with Wrangler. |
+| [`wrangler-coder`](plugins/cloudflare/skills/wrangler-coder/) | Develop and deploy Cloudflare Workers and Pages with Wrangler CLI. |
 
 ## DevOps Skills
 
