@@ -103,6 +103,20 @@ Handle zero targets explicitly:
 
 Do not calculate a single "voice accuracy" score. A weighted average creates false precision and can hide a serious violation.
 
+### 4a. Check for generic AI-shaped prose
+
+Run a separate editorial check for patterns that can make otherwise correct prose feel generic:
+
+- uniform sentence lengths or rectangular paragraphs
+- repeated previews, recaps, or signposted conclusions
+- abstract claims without a supplied concrete detail
+- automatic both-sides framing or tidy optimism
+- repeated contrast frames such as "not X, but Y"
+- stock phrases, prompt residue, or unnecessary self-commentary
+- anecdotes that are too neat to support the supplied evidence
+
+Treat these as review signals, not universal prohibitions. Do not ban em dashes, Oxford commas, semicolons, contractions, or any other feature without evidence from the selected voice profile and register. Do not add facts, names, numbers, anecdotes, or awkward substitutions to make prose appear more human. If a concrete detail is needed, request it or use one from the source material.
+
 ### 5. Revise selectively
 
 Fix the largest meaningful deviations first:
@@ -110,9 +124,10 @@ Fix the largest meaningful deviations first:
 1. wrong register or stance
 2. factual or attribution problems
 3. banned patterns
-4. structure and paragraph rhythm
-5. sentence rhythm and punctuation
-6. vocabulary and minor frequency differences
+4. generic AI-shaped patterns that conflict with the profile or brief
+5. structure and paragraph rhythm
+6. sentence rhythm and punctuation
+7. vocabulary and minor frequency differences
 
 Re-measure only the passages affected. Stop when further metric chasing would make the prose worse.
 
@@ -137,6 +152,7 @@ The draft is ready when:
 - the selected register is consistent
 - strict bans are absent
 - high-signal style patterns are recognizable but not forced
+- generic AI-shaped patterns were reviewed without applying universal bans
 - facts and attribution remain intact
 - the audit table distinguishes fixes, justified deviations, and non-applicable constraints
 - deviations are disclosed when readability or accuracy required them
