@@ -2,7 +2,7 @@
   "name": "majestic-cloudflare",
   "displayName": "Majestic Cloudflare",
   "version": "0.1.0",
-  "description": "Provision, build, and deploy on Cloudflare: OpenTofu infrastructure, Workers development, and Wrangler deployment.",
+  "description": "Build, secure, provision, and deploy across the Cloudflare platform: Workers, Agents SDK, Durable Objects, Sandbox SDK, Cloudflare One, Email, Turnstile, OpenTofu infrastructure, and Wrangler.",
   "author": {
     "name": "Majestic Labs"
   },

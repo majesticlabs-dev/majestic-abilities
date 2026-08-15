@@ -1,7 +1,7 @@
 {
   "name": "majestic-cloudflare",
   "version": "0.1.0",
-  "description": "Provision, build, and deploy on Cloudflare: OpenTofu infrastructure, Workers development, and Wrangler deployment.",
+  "description": "Build, secure, provision, and deploy across the Cloudflare platform: Workers, Agents SDK, Durable Objects, Sandbox SDK, Cloudflare One, Email, Turnstile, OpenTofu infrastructure, and Wrangler.",
   "author": {
     "name": "Majestic Labs"
   },
@@ -14,8 +14,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Majestic Cloudflare",
-    "shortDescription": "Cloudflare infrastructure, Workers, and deployment skills.",
-    "longDescription": "Provision, build, and deploy on Cloudflare: OpenTofu infrastructure, Workers development, and Wrangler deployment.",
+    "shortDescription": "Cloudflare platform, Workers, security, infrastructure, and deployment skills.",
+    "longDescription": "Build, secure, provision, and deploy across the Cloudflare platform: Workers, Agents SDK, Durable Objects, Sandbox SDK, Cloudflare One, Email, Turnstile, OpenTofu infrastructure, and Wrangler.",
     "developerName": "Majestic Labs",
     "category": "Developer Tools",
     "capabilities": ["Skills"],

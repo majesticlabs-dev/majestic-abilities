@@ -18,7 +18,7 @@ Replace `OWNER/REPOSITORY` with the published repository identifier. Use an abso
 
 | Plugin | Skills | Contents |
 | --- | ---: | --- |
-| `majestic-cloudflare` | 4 | Cloudflare infrastructure, Workers development, Wrangler deployment |
+| `majestic-cloudflare` | 13 | Cloudflare platform, Workers, Agents SDK, Durable Objects, Sandbox SDK, Cloudflare One, Email, Turnstile, infrastructure, and deployment |
 | `majestic-core` | 2 | Agent-ready repositories and nested guidance audits |
 | `majestic-data` | 8 | Pipelines, contracts, quality controls, dbt |
 | `majestic-devops` | 10 | OpenTofu, Ansible, cloud-init, Kamal, secrets, infrastructure review |
@@ -241,10 +241,19 @@ Counts above are catalog skills only. Cookbooks are counted separately and descr
 
 | Skill | Description |
 | --- | --- |
+| [`agents-sdk`](plugins/cloudflare/skills/agents-sdk/) | Build AI agents on Cloudflare Workers with state, workflows, queues, MCP, chat, and real-time APIs. |
+| [`cloudflare`](plugins/cloudflare/skills/cloudflare/) | Route Cloudflare platform work to the relevant product and reference guidance. |
+| [`cloudflare-email-service`](plugins/cloudflare/skills/cloudflare-email-service/) | Send and receive transactional email with Cloudflare Email Service. |
 | [`cloudflare-infrastructure`](plugins/cloudflare/skills/cloudflare-infrastructure/) | Provision and review Cloudflare infrastructure with OpenTofu. |
+| [`cloudflare-one`](plugins/cloudflare/skills/cloudflare-one/) | Design, configure, troubleshoot, and review Cloudflare One Zero Trust deployments. |
+| [`cloudflare-one-migrations`](plugins/cloudflare/skills/cloudflare-one-migrations/) | Plan migrations from Zscaler, Palo Alto, VPN, SWG, and SASE stacks to Cloudflare One. |
 | [`cloudflare-worker-development`](plugins/cloudflare/skills/cloudflare-worker-development/) | Build and review TypeScript applications for the Cloudflare Workers runtime. |
 | [`cloudflare-workers-deployment`](plugins/cloudflare/skills/cloudflare-workers-deployment/) | Configure, validate, and deploy Cloudflare Workers with Wrangler. |
-| [`wrangler-coder`](plugins/cloudflare/skills/wrangler-coder/) | Develop and deploy Cloudflare Workers and Pages with Wrangler CLI. |
+| [`durable-objects`](plugins/cloudflare/skills/durable-objects/) | Build and review Cloudflare Durable Objects for coordinated stateful applications. |
+| [`sandbox-sdk`](plugins/cloudflare/skills/sandbox-sdk/) | Build isolated code execution environments with the Cloudflare Sandbox SDK. |
+| [`turnstile-spin`](plugins/cloudflare/skills/turnstile-spin/) | Set up and validate Cloudflare Turnstile protection end to end. |
+| [`workers-best-practices`](plugins/cloudflare/skills/workers-best-practices/) | Review and author Cloudflare Workers code against current production practices. |
+| [`wrangler`](plugins/cloudflare/skills/wrangler/) | Use the current Wrangler CLI for Cloudflare Workers, Pages, storage, AI, queues, workflows, and deployment operations. |
 
 ## DevOps Skills
 
