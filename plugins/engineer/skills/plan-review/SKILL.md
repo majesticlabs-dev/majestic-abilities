@@ -16,21 +16,6 @@ Use this skill when a planning document exists but implementation has not starte
 - Surface failure modes, rollback concerns, and verification gaps.
 - Assess change risk from intended behavior and affected contracts, not file type or apparent isolation.
 - Trace each user flow through success, invalid input, cancellation, retry, and permission boundaries.
-- Apply the requested scope posture without changing scope silently.
-
-## Scope Posture
-
-Establish the review posture when scope is part of the question:
-
-- **Hold:** Treat current scope as fixed and improve its delivery readiness.
-- **Reduce:** Find the smallest version that still achieves and proves the stated outcome.
-- **Consider expansion:** Keep current scope as the baseline, then present only additions with a clear user or operational benefit.
-
-Infer the posture only from an explicit request such as "hold scope," "simplify this," or "think bigger." Otherwise default to Hold. Ask one question only when the choice would materially change the review.
-
-For Reduce or Consider expansion, compare two or three materially different approaches when alternatives exist. Include the smallest sufficient approach and the strongest justified design, with concrete tradeoffs. Recommend one based on the stated outcome, not ambition or implementation volume.
-
-Do not add or remove material scope without user approval. Separate proposed changes from readiness defects in the current plan. Reject speculative features, mandatory ceremony, and exhaustive artifacts that do not help satisfy or prove the outcome.
 
 ## Document Readiness
 
@@ -63,11 +48,7 @@ Separate blocking decisions from polish. Do not average away a blocker with a re
    - performance, caching, and background work
    - testing strategy and verification commands
 9. Ask whether an existing flow already solves part of the problem.
-10. Apply the selected scope posture:
-   - Hold: recommend the smallest corrections needed to make the current plan ready.
-   - Reduce: identify removable work and show that the reduced plan still satisfies each acceptance criterion.
-   - Consider expansion: review the baseline first, then list optional additions separately with benefit, cost, risk, and effect on acceptance criteria.
-11. Require explicit approval before incorporating a material scope change into the reviewed plan.
+10. Recommend the smallest change set that still satisfies the goal.
 
 ## Common Failure Modes
 
@@ -86,10 +67,9 @@ Return a concise markdown review with:
 2. **Viability**: ready, risky, or blocked.
 3. **Critical issues**: items that should be fixed before implementation or handoff.
 4. **Missing considerations**: important but non-blocking gaps.
-5. **Scope recommendation**: hold, reduce, or optional expansions, with material scope changes still pending approval.
-6. **Simpler path**: smaller solution if the plan is overbuilt.
-7. **Recommended edits**: concrete plan changes.
-8. **Verification**: what should prove the plan worked once implemented.
+5. **Simpler path**: smaller solution if the plan is overbuilt.
+6. **Recommended edits**: concrete plan changes.
+7. **Verification**: what should prove the plan worked once implemented.
 
 ## Thorough Mode
 

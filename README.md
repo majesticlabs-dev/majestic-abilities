@@ -23,7 +23,7 @@ Replace `OWNER/REPOSITORY` with the published repository identifier. Use an abso
 | `majestic-data` | 8 | Pipelines, contracts, quality controls, dbt |
 | `majestic-devops` | 10 | OpenTofu, Ansible, cloud-init, Kamal, secrets, infrastructure review |
 | `majestic-engineer` | 9 | Minimal sufficient work, implementation planning, task decomposition, code and test review, complexity, logging |
-| `majestic-founder` | 8 | Strategy, priorities, finance, technology impact, go-to-market, launch readiness |
+| `majestic-founder` | 9 | Strategy, plan review, priorities, finance, technology impact, go-to-market, launch readiness |
 | `majestic-frontend` | 5 | Visual direction, Core Web Vitals, accessibility, screenshots |
 | `majestic-marketing` | 13 | Positioning, naming, content, campaigns, growth experiments |
 | `majestic-misc` | 4 | Actionable communication, visual explanations, skill grading, and skill structure design |
@@ -202,7 +202,7 @@ The CLI recommends symlinks so multiple agents share one canonical installation.
 | Data | 8 | [`plugins/data/skills/`](plugins/data/skills/) |
 | DevOps | 10 | [`plugins/devops/skills/`](plugins/devops/skills/) |
 | Engineer | 9 | [`plugins/engineer/skills/`](plugins/engineer/skills/) |
-| Founder | 8 | [`plugins/founder/skills/`](plugins/founder/skills/) |
+| Founder | 9 | [`plugins/founder/skills/`](plugins/founder/skills/) |
 | Frontend | 5 | [`plugins/frontend/skills/`](plugins/frontend/skills/) |
 | Marketing | 13 | [`plugins/marketing/skills/`](plugins/marketing/skills/) |
 | Misc | 4 | [`plugins/misc/skills/`](plugins/misc/skills/) |
@@ -290,6 +290,7 @@ Counts above are catalog skills only. Cookbooks are counted separately and descr
 | --- | --- |
 | [`bootstrapped-finance`](plugins/founder/skills/bootstrapped-finance/) | Analyze cash runway, burn, unit economics, working capital, hiring ROI, and spending tradeoffs for bootstrapped companies. |
 | [`company-strategy`](plugins/founder/skills/company-strategy/) | Build future-back company strategy with explicit horizons, dependencies, bets, and revisit triggers. |
+| [`founder-plan-review`](plugins/founder/skills/founder-plan-review/) | Review a concrete plan for premise quality, ambition, focus, strategic leverage, user value, and execution risk. |
 | [`founder-priorities`](plugins/founder/skills/founder-priorities/) | Turn competing priorities and calendar load into a stage-fit operating plan with tradeoffs and revisit criteria. |
 | [`fundraising-ask-review`](plugins/founder/skills/fundraising-ask-review/) | Review an existing fundraising ask for round coherence, evidence-backed claims, and investor relevance. |
 | [`go-to-market-motion`](plugins/founder/skills/go-to-market-motion/) | Choose and phase a route to market that fits buying behavior, economics, stage, and capacity. |
