@@ -338,7 +338,7 @@ Counts above are catalog skills only. Cookbooks are counted separately and descr
 
 | Skill | Description |
 | --- | --- |
-| [`brainstorm-product`](plugins/product/skills/brainstorm-product/) | Diagnose an existing product's growth ceiling or pressure-test a net-new product idea through an adversarial step-by-step process. |
+| [`brainstorm-product`](plugins/product/skills/brainstorm-product/) | Diagnose an existing product, pressure-test a commercial idea, or shape a non-commercial builder project. |
 | [`feature-brief`](plugins/product/skills/feature-brief/) | Write a compact feature brief or decision document before a full specification. |
 | [`gherkin-stories`](plugins/product/skills/gherkin-stories/) | Decompose requirements into atomic stories with testable Gherkin scenarios and traceability. |
 | [`lifecycle-retention`](plugins/product/skills/lifecycle-retention/) | Design lifecycle stages, health signals, onboarding, early warnings, and retention interventions. |

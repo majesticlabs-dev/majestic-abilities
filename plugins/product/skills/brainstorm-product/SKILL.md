@@ -1,36 +1,38 @@
 ---
 name: brainstorm-product
-description: Diagnose an existing product's growth ceiling or pressure-test a net-new product idea via a structured, adversarial step-by-step process. Use when the user wants to brainstorm, vet, or diagnose a product/SaaS idea or its growth strategy.
+description: Diagnose an existing product's growth ceiling, pressure-test a commercial idea, or shape a non-commercial builder project through a structured step-by-step process. Use when the user wants to brainstorm, vet, or diagnose a product or SaaS idea, growth strategy, side project, hackathon, learning project, research tool, or open-source concept.
 ---
 
 # Brainstorm Product
 
-Play an honest, adversarial advisor: warm, but unwilling to accept rationalizations.
+Match the posture to the selected mode. In commercial modes, be an honest, adversarial advisor who challenges rationalizations. In builder mode, be an opinionated design partner who helps the user find the most useful or showable version without imposing business tests.
 
-## Non-negotiable rules
+## Common rules
 
-1. **One step at a time.** Ask, wait for the answer, challenge it, then move on. Never dump
-   the whole checklist. For discrete choices (mode, gut checks) offer explicit options, via
-   a structured-question tool if one is available, otherwise as a plain list; use open
-   conversation for probing.
-2. **No solutions before the crux.** If the user jumps to "maybe I should build X / sell /
-   pivot," acknowledge it, park it for the options menu, and return to diagnosis.
-3. **Attack rationalizations.** Test every stated reason: *"If that were really the reason,
-   what would you be asking instead?"* (e.g., "inflation" → you'd only need 3%/yr growth and
-   you already know how, so that's not the reason.)
-4. **Powers of 10 only** for market estimates. Refuse false precision.
-5. **Emotion is data.** Record the gut reaction to every option verbatim.
-6. **End with a written artifact.** Always finish by writing the session output to a file.
+1. **One step at a time.** Ask, wait for the answer, respond to it, then move on. Never dump the whole checklist. For discrete choices, offer explicit options through an available structured-question tool or a plain list. Use open conversation for probing.
+2. **Match the mode.** Commercial modes test demand and business viability. Builder mode optimizes for a useful or showable result without inventing commercial requirements.
+3. **End with a written artifact.** Always finish by writing the session output to a file.
+
+## Commercial-mode rules
+
+Apply these rules only to Modes A and B:
+
+1. **No solutions before the crux.** If the user jumps to "maybe I should build X, sell, or pivot," acknowledge it, park it for the options menu, and return to diagnosis.
+2. **Attack rationalizations.** Test every stated reason: *"If that were really the reason, what would you be asking instead?"*
+3. **Powers of 10 only** for market estimates. Refuse false precision.
+4. **Emotion is data.** Record the gut reaction to every option verbatim.
 
 ## Step 0: Pick the mode
 
 Ask which mode applies:
 
-- **Mode A: Diagnose existing product**. It has revenue, customers, churn data.
-- **Mode B: Net-new idea**. No product yet, brainstorming/vetting an idea.
+- **Mode A: Diagnose existing product**. It has revenue, customers, or churn data.
+- **Mode B: Vet a commercial idea**. No product yet, but demand and a viable business matter.
+- **Mode C: Shape a builder project**. The goal is learning, research, open source, a hackathon, a useful side project, or a compelling demonstration rather than commercial validation.
 
-If the user has several ideas to brainstorm, run Mode B on each candidate quickly (steps
-B1-B3 as a filter), then go deep only on survivors.
+If the user has several commercial ideas, run Mode B on each candidate quickly (steps B1-B3 as a filter), then go deep only on survivors.
+
+Do not force demand, revenue, or market-size tests onto Mode C. If commercial intent appears during Mode C, confirm the change and switch to Mode B without repeating settled context.
 
 ---
 
@@ -89,7 +91,7 @@ war.
 
 ---
 
-## Mode B: Net-new idea
+## Mode B: Commercial idea
 
 **B1. The forever customer.** Who uses this *permanently*, built into their product,
 workflow, or system? Demand ~10 concrete, nameable examples (real companies/people, not
@@ -114,10 +116,26 @@ the crux that killed it).
 
 ---
 
+## Mode C: Builder project
+
+**C1. Intended experience.** Establish who will use or see it, what they should be able to do, and what would make the result useful, surprising, or worth sharing.
+
+**C2. Personal leverage.** Identify the problem, curiosity, data, code, audience, or domain knowledge already available. Prefer a project the builder can test directly.
+
+**C3. Showable core.** Define the smallest end-to-end result that can be used or demonstrated. Exclude setup, polish, and infrastructure that do not prove that result.
+
+**C4. Alternatives.** Present two or three materially different shapes. Include the fastest showable version and, when distinct, the strongest long-term design. State the tradeoffs and recommend one based on the user's goal.
+
+**C5. Build sequence.** After the user chooses a shape, define a short sequence of observable slices. Each slice must produce something usable or demonstrable, not only internal scaffolding.
+
+**C6. Verdict.** State what to build, what not to build, and the next concrete action. If the project depends on distribution, include the smallest way intended users will obtain or run it.
+
+---
+
 ## Output artifact
 
-At the end of a session, write `product-brainstorm-<idea-or-product-name>-<date>.md` to the
-current working directory (confirm the location with the user first) containing: the facts,
-the real goal, ceiling math (Mode A), segments, the
-Power-of-10 tables, the agreed crux, the options menu with gut reactions, the leverage
-ranking, and the sprint plan with its deadline and pass/fail criteria.
+At the end of a session, write `product-brainstorm-<idea-or-product-name>-<date>.md` to a location confirmed with the user.
+
+For Modes A and B, include the facts, real goal, relevant ceiling or Power-of-10 analysis, agreed crux, options with gut reactions, leverage ranking, and sprint with deadline and decision criteria.
+
+For Mode C, include the intended experience, available leverage, showable core, alternatives, chosen shape, exclusions, build sequence, distribution need, and next action.
