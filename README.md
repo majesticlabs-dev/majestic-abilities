@@ -26,7 +26,7 @@ Replace `OWNER/REPOSITORY` with the published repository identifier. Use an abso
 | `majestic-founder` | 8 | Strategy, priorities, finance, technology impact, go-to-market, launch readiness |
 | `majestic-frontend` | 5 | Visual direction, Core Web Vitals, accessibility, screenshots |
 | `majestic-marketing` | 13 | Positioning, naming, content, campaigns, growth experiments |
-| `majestic-misc` | 3 | Actionable communication, skill grading, and skill structure design |
+| `majestic-misc` | 4 | Actionable communication, visual explanations, skill grading, and skill structure design |
 | `majestic-product` | 14 | Discovery, workflow mapping, decision alignment, requirements, roadmaps, pricing, retention |
 | `majestic-rails` | 36 | Rails and Ruby implementation, Hotwire, Solid, testing, review |
 | `majestic-reasoning` | 4 | Decision retrospectives, devil's advocate, premortem, reasoning verification |
@@ -205,7 +205,7 @@ The CLI recommends symlinks so multiple agents share one canonical installation.
 | Founder | 8 | [`plugins/founder/skills/`](plugins/founder/skills/) |
 | Frontend | 5 | [`plugins/frontend/skills/`](plugins/frontend/skills/) |
 | Marketing | 13 | [`plugins/marketing/skills/`](plugins/marketing/skills/) |
-| Misc | 3 | [`plugins/misc/skills/`](plugins/misc/skills/) |
+| Misc | 4 | [`plugins/misc/skills/`](plugins/misc/skills/) |
 | Product | 14 | [`plugins/product/skills/`](plugins/product/skills/) |
 | Rails | 36 | [`plugins/rails/skills/`](plugins/rails/skills/) |
 | Reasoning | 4 | [`plugins/reasoning/skills/`](plugins/reasoning/skills/) |
@@ -330,6 +330,7 @@ Counts above are catalog skills only. Cookbooks are counted separately and descr
 | Skill | Description |
 | --- | --- |
 | [`actionable-communication`](plugins/misc/skills/actionable-communication/) | Shape responses into direct answers, bounded actions, visible progress, and one concrete next step. |
+| [`show-me`](plugins/misc/skills/show-me/) | Explain the current topic with the smallest accurate visual. |
 | [`skill-grader`](plugins/misc/skills/skill-grader/) | Grade skill executions against expectations using transcript and output evidence. |
 | [`skill-structure`](plugins/misc/skills/skill-structure/) | Decide whether guidance should become an Agent Skill and design a compliant structure when justified. |
 
