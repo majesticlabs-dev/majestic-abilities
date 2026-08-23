@@ -1,6 +1,6 @@
 {
   "name": "majestic-cloudflare",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Build, secure, provision, and deploy across the Cloudflare platform: Workers, Agents SDK, Durable Objects, Sandbox SDK, Cloudflare One, Email, Turnstile, OpenTofu infrastructure, and Wrangler.",
   "author": {
     "name": "Majestic Labs"
