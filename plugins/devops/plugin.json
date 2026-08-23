@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "majestic-devops",
+  "version": "0.1.0",
+  "description": "Provision and operate infrastructure: OpenTofu, Ansible, cloud-init, Kamal deploys, secrets, and infrastructure review.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "devops",
+    "infrastructure",
+    "deployment"
+  ]
+}

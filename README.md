@@ -2,7 +2,15 @@
 
 Portable agent skills organized by capability category and compatible with the Agent Skills format.
 
-Each category is a separately installable plugin for Claude Code and Codex, so you load only the categories you work in. The same skills also install individually with the Vercel Skills CLI for Claude Code, Codex, and Pi.
+Each category is an Agent Plugins 1.0.0 package and a separately installable native plugin for Claude Code and Codex, so you load only the categories you work in. The same skills also install individually with the Vercel Skills CLI for Claude Code, Codex, and Pi.
+
+## Agent Plugins
+
+Each `plugins/<category>/` directory contains a portable root `plugin.json` and discovers skills from the standard `skills/<skill-name>/SKILL.md` location. Agent Plugins defines the package format, not marketplace distribution, so the Claude Code and Codex manifests and marketplaces remain available for their native install routes.
+
+The root `plugin.json` is authoritative for metadata shared by the portable, Claude Code, and Codex manifests. Category versions are independent. Update a category's root and native manifest versions together, plus each marketplace entry that carries the version.
+
+Install the portable validation dependency with `python3 -m pip install -r requirements-dev.txt`, then run `scripts/check-agent-plugins.sh`.
 
 ## Install As Claude Code Plugins
 
@@ -197,7 +205,7 @@ The CLI recommends symlinks so multiple agents share one canonical installation.
 
 | Category | Skills | Path |
 | --- | ---: | --- |
-| Cloudflare | 4 | [`plugins/cloudflare/skills/`](plugins/cloudflare/skills/) |
+| Cloudflare | 13 | [`plugins/cloudflare/skills/`](plugins/cloudflare/skills/) |
 | Core | 2 | [`plugins/core/skills/`](plugins/core/skills/) |
 | Data | 8 | [`plugins/data/skills/`](plugins/data/skills/) |
 | DevOps | 10 | [`plugins/devops/skills/`](plugins/devops/skills/) |
@@ -482,10 +490,11 @@ Cookbooks install like any other skill, but always install their required skills
     marketplace.json        # Codex marketplace, one entry per plugin below
 plugins/
   <category>/
+    plugin.json               # Agent Plugins 1.0.0 portable manifest
     .claude-plugin/
-      plugin.json
+      plugin.json             # Claude Code compatibility manifest
     .codex-plugin/
-      plugin.json
+      plugin.json             # Codex compatibility manifest
     skills/
       <skill-name>/
         SKILL.md
@@ -498,8 +507,11 @@ cookbooks/
   <cookbook-name>/              # cross-plugin cookbooks; not a plugin
     SKILL.md
 scripts/
+  check-agent-plugins.sh
   check-codex-plugins.sh
   check-cookbooks.sh
 ```
 
-Each skill is self-contained. Each category directory is a complete plugin: `.claude-plugin/plugin.json` packages it for Claude Code, `.codex-plugin/plugin.json` packages it for Codex, and both runtimes discover the shared `skills/` directory. The same directories provide catalog organization and category-scoped installation for the Skills CLI, which flattens installed skills into each agent's native skill directory. Run `scripts/check-codex-plugins.sh` and `scripts/check-cookbooks.sh` before committing packaging or cookbook changes. Cookbooks are the composition layer: they may reference catalog skills by name, and the validation scripts keep those references, their placement, and their install routes honest.
+Each skill is self-contained. Each category directory is a complete portable Agent Plugin. The `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json` files preserve the native installation routes, and all three formats discover the shared `skills/` directory. The same directories provide catalog organization and category-scoped installation for the Skills CLI, which flattens installed skills into each agent's native skill directory.
+
+Run `scripts/check-agent-plugins.sh`, `scripts/check-codex-plugins.sh`, and `scripts/check-cookbooks.sh` before committing packaging or cookbook changes. Cookbooks are the composition layer: they may reference catalog skills by name, and the validation scripts keep those references, their placement, and their install routes honest.

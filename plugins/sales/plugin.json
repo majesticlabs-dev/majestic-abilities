@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "majestic-sales",
+  "version": "0.1.0",
+  "description": "B2B selling: ICP definition, outbound prospecting, pipeline analysis, enablement, proposals, and account expansion.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "sales",
+    "b2b",
+    "outbound"
+  ]
+}

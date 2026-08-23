@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "majestic-cloudflare",
+  "version": "0.1.0",
+  "description": "Build, secure, provision, and deploy across the Cloudflare platform: Workers, Agents SDK, Durable Objects, Sandbox SDK, Cloudflare One, Email, Turnstile, OpenTofu infrastructure, and Wrangler.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "cloudflare",
+    "workers",
+    "opentofu"
+  ]
+}

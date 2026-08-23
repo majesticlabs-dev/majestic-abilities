@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "majestic-founder",
+  "version": "0.1.0",
+  "description": "Founder decisions: company strategy, plan review, priorities, technology impact, bootstrapped finance, go-to-market, fundraising asks, and launch readiness.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "founder",
+    "strategy",
+    "startup"
+  ]
+}

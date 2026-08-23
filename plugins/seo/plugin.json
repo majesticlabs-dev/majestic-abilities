@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "majestic-seo",
+  "version": "0.1.0",
+  "description": "Technical SEO, content strategy, structured data, and Answer Engine Optimization for search engines and LLMs.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "seo",
+    "aeo",
+    "schema"
+  ]
+}

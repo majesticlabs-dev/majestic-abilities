@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "majestic-product",
+  "version": "0.1.0",
+  "description": "Product discovery, workflow opportunities, decision alignment, stakeholder rehearsal, requirements, roadmaps, pricing, and retention.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "product",
+    "prd",
+    "roadmap"
+  ]
+}

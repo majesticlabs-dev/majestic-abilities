@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "majestic-data",
+  "version": "0.1.0",
+  "description": "Design, test, and operate data pipelines, contracts, quality controls, dbt projects, and source assessments.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "data",
+    "pipelines",
+    "dbt"
+  ]
+}

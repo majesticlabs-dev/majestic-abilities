@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "majestic-writing",
+  "version": "0.1.0",
+  "description": "Draft, revise, and audit prose: voice capture, brand voice, copy editing, direct response, and Minto structure.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "writing",
+    "editing",
+    "copy"
+  ]
+}

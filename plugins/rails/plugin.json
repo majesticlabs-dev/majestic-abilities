@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "majestic-rails",
+  "version": "0.1.0",
+  "description": "Write, debug, and explicitly review Ruby on Rails applications across framework correctness, Hotwire, Active Job, Solid, testing, and Rails-native design.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "rails",
+    "ruby",
+    "hotwire"
+  ]
+}

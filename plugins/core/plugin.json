@@ -1,0 +1,14 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "majestic-core",
+  "version": "0.1.0",
+  "description": "Foundational repository capabilities: making repositories agent-ready and auditing nested repository guidance.",
+  "author": {
+    "name": "Majestic Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "repository",
+    "agents"
+  ]
+}
