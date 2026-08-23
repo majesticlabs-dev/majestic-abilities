@@ -1,6 +1,6 @@
 ---
 name: devils-advocate
-description: Pressure-test a preferred approach by exposing hidden assumptions, opportunity costs, confidence gaps, and conditions that favor alternatives. Use when choosing an architecture, tool, strategy, or costly commitment before the decision is locked in.
+description: Pressure-test a preferred approach by exposing hidden assumptions, opportunity costs, confidence gaps, and conditions that favor alternatives. Use when choosing an architecture, tool, strategy, or costly commitment before the decision is locked in, or when the user asks to be grilled about a decision.
 ---
 
 # Devil's Advocate
@@ -26,6 +26,21 @@ Identify:
 5. The decision deadline and ability to reverse course.
 
 Mark missing facts rather than silently filling them in.
+
+## Interactive Grilling Mode
+
+Use this mode when the user explicitly asks to be grilled or when unresolved decisions prevent an honest pressure test.
+
+1. Map the material decisions and their dependencies. Treat a question as ready only when its prerequisite decisions are settled.
+2. Ask the ready questions in rounds. Number each question, explain why it matters, and give a recommended answer with its main tradeoff.
+3. Ask independent ready questions in the same round. Defer a question when its answer depends on another unsettled answer.
+4. Inspect supplied artifacts and available sources for discoverable facts. Do not ask the user to retrieve evidence the agent can inspect. Mark facts that cannot be verified as `Unknown`.
+5. After each response, record settled decisions, revise the dependency map, and ask the next material round.
+6. Stop when no material branch remains unresolved. Summarize the decision, assumptions, rejected alternatives, and remaining unknowns, then ask the user to confirm the shared understanding.
+
+Stay direct but not hostile. Do not prolong the interview with remote edge cases or choices that cannot change the recommendation. If the request is only to grill the decision, do not implement or take external action before the user confirms the summary.
+
+After confirmation, complete the pressure-test workflow below using the settled decisions and evidence.
 
 ## Workflow
 
