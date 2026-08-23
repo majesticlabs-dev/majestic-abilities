@@ -31,12 +31,14 @@ Mark missing facts rather than silently filling them in.
 
 Use this mode when the user explicitly asks to be grilled or when unresolved decisions prevent an honest pressure test.
 
-1. Map the material decisions and their dependencies. Treat a question as ready only when its prerequisite decisions are settled.
-2. Ask the ready questions in rounds. Number each question, explain why it matters, and give a recommended answer with its main tradeoff.
-3. Ask independent ready questions in the same round. Defer a question when its answer depends on another unsettled answer.
-4. Inspect supplied artifacts and available sources for discoverable facts. Do not ask the user to retrieve evidence the agent can inspect. Mark facts that cannot be verified as `Unknown`.
-5. After each response, record settled decisions, revise the dependency map, and ask the next material round.
-6. Stop when no material branch remains unresolved. Summarize the decision, assumptions, rejected alternatives, and remaining unknowns, then ask the user to confirm the shared understanding.
+1. Inspect supplied artifacts and available sources for discoverable facts. Do not ask the user to retrieve evidence the agent can inspect. Mark facts that cannot be verified as `Unknown`.
+2. Run a blindspot pass over relevant source, documentation, tests, documented limits, and known failure modes. Report only findings that could change the choice, and name the cheapest way to resolve each unverified risk.
+3. Map the material decisions and their dependencies. Treat a question as ready only when its prerequisite decisions are settled.
+4. When the decision depends on criteria the user can recognize but cannot specify, show contrasting prototypes, examples, or references. Convert the user's reactions into explicit decision criteria instead of asking abstract preference questions.
+5. Ask the ready questions in rounds. Number each question, explain why it matters, and give a recommended answer with its main tradeoff. State low-risk defaults for veto instead of extending the interview.
+6. Ask independent ready questions in the same round. Defer a question when its answer depends on another unsettled answer.
+7. After each response, record settled decisions, revise the dependency map, and ask the next material round.
+8. Stop when no material branch remains unresolved. Summarize the decision, assumptions, rejected alternatives, and remaining unknowns, then ask the user to confirm the shared understanding.
 
 Stay direct but not hostile. Do not prolong the interview with remote edge cases or choices that cannot change the recommendation. If the request is only to grill the decision, do not implement or take external action before the user confirms the summary.
 
