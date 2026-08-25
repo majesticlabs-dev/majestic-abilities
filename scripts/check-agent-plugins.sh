@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Verify portable Agent Plugins manifests, shared metadata, skill discovery, and package containment.
+# Verify Agent Plugins, harness marketplaces, the Pi package, skill discovery, and containment.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
@@ -262,6 +262,20 @@ codex_marketplace = marketplace_entries(
     if isinstance(entry.get("source"), dict)
     else None,
 )
+cursor_marketplace = marketplace_entries(
+    root / ".cursor-plugin" / "marketplace.json",
+    lambda entry: entry.get("source"),
+)
+
+pi_package = load_object(root / "package.json")
+if pi_package is not None:
+    keywords = pi_package.get("keywords")
+    if not isinstance(keywords, list) or "pi-package" not in keywords:
+        fail("package.json must include the pi-package keyword")
+    pi_manifest = pi_package.get("pi")
+    expected_pi_skills = ["./plugins/*/skills", "./cookbooks"]
+    if not isinstance(pi_manifest, dict) or pi_manifest.get("skills") != expected_pi_skills:
+        fail(f"package.json pi.skills must equal {expected_pi_skills!r}")
 
 plugin_dirs = sorted(path for path in plugins_root.iterdir() if path.is_dir())
 if not plugin_dirs:
@@ -271,6 +285,7 @@ plugin_sources = {f"./plugins/{path.name}" for path in plugin_dirs}
 for marketplace_path, entries in (
     (root / ".claude-plugin" / "marketplace.json", claude_marketplace),
     (root / ".agents" / "plugins" / "marketplace.json", codex_marketplace),
+    (root / ".cursor-plugin" / "marketplace.json", cursor_marketplace),
 ):
     for source in sorted(set(entries) - plugin_sources):
         fail(f"{marketplace_path} lists missing plugin directory {source}")
@@ -306,6 +321,7 @@ for plugin_dir in plugin_dirs:
         for marketplace_path, entries in (
             (root / ".claude-plugin" / "marketplace.json", claude_marketplace),
             (root / ".agents" / "plugins" / "marketplace.json", codex_marketplace),
+            (root / ".cursor-plugin" / "marketplace.json", cursor_marketplace),
         ):
             entry = entries.get(source)
             if entry is None:
@@ -360,7 +376,7 @@ if errors:
     sys.exit(1)
 
 print(
-    f"OK: {len(plugin_dirs)} Agent Plugins manifests, portable metadata, "
-    "skill trees, and package paths all validate"
+    f"OK: {len(plugin_dirs)} Agent Plugins manifests, harness marketplaces, "
+    "the Pi package, skill trees, and package paths all validate"
 )
 PY

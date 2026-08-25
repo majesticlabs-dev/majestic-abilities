@@ -2,11 +2,11 @@
 
 Portable agent skills organized by capability category and compatible with the Agent Skills format.
 
-Each category is an Agent Plugins 1.0.0 package and a separately installable native plugin for Claude Code and Codex, so you load only the categories you work in. The same skills also install individually with the Vercel Skills CLI for Claude Code, Codex, Pi, and Cursor.
+Each category is an Agent Plugins 1.0.0 package with native marketplace support for Claude Code, Codex, and Cursor. Pi can install the complete catalog as one package. The same skills also install individually with the Vercel Skills CLI for all four harnesses.
 
 ## Agent Plugins
 
-Each `plugins/<category>/` directory contains a portable root `plugin.json` and discovers skills from the standard `skills/<skill-name>/SKILL.md` location. Agent Plugins defines the package format, not marketplace distribution, so the Claude Code and Codex manifests and marketplaces remain available for their native install routes.
+Each `plugins/<category>/` directory contains a portable root `plugin.json` and discovers skills from the standard `skills/<skill-name>/SKILL.md` location. Cursor loads these portable manifests directly. Claude Code and Codex use their existing native manifests and marketplaces.
 
 The root `plugin.json` is authoritative for metadata shared by the portable, Claude Code, and Codex manifests. Category versions are independent. Update a category's root and native manifest versions together, plus each marketplace entry that carries the version.
 
@@ -64,6 +64,32 @@ codex plugin add majestic-engineer@majestic-abilities-codex
 ```
 
 The Codex package for each category is declared in `plugins/<category>/.codex-plugin/plugin.json` and shares that category's existing `skills/` directory. The Claude Code manifests and marketplace remain available separately.
+
+## Install As Cursor Plugins
+
+Cursor loads the existing portable Agent Plugins without Cursor-specific wrappers. The root `.cursor-plugin/marketplace.json` lists every category for Cursor marketplace imports.
+
+For local use, symlink only the categories you need, then restart Cursor or run **Developer: Reload Window**:
+
+```sh
+mkdir -p ~/.cursor/plugins/local
+ln -s "$(pwd)/plugins/rails" ~/.cursor/plugins/local/majestic-rails
+ln -s "$(pwd)/plugins/engineer" ~/.cursor/plugins/local/majestic-engineer
+```
+
+## Install As A Pi Package
+
+The root `package.json` exposes all category skills and cross-category cookbooks as one Pi package:
+
+```sh
+# User installation
+pi install git:github.com/majesticlabs-dev/majestic-abilities
+
+# Project installation
+pi install git:github.com/majesticlabs-dev/majestic-abilities -l
+```
+
+Use `pi config` to enable or disable package skills.
 
 ## Install With `npx skills`
 
@@ -491,6 +517,9 @@ Cookbooks install like any other skill, but always install their required skills
 .agents/
   plugins/
     marketplace.json        # Codex marketplace, one entry per plugin below
+.cursor-plugin/
+  marketplace.json          # Cursor marketplace, one entry per plugin below
+package.json                # Pi package manifest for the complete catalog
 plugins/
   <category>/
     plugin.json               # Agent Plugins 1.0.0 portable manifest
@@ -515,6 +544,6 @@ scripts/
   check-cookbooks.sh
 ```
 
-Each skill is self-contained. Each category directory is a complete portable Agent Plugin. The `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json` files preserve the native installation routes, and all three formats discover the shared `skills/` directory. The same directories provide catalog organization and category-scoped installation for the Skills CLI, which flattens installed skills into each agent's native skill directory.
+Each skill is self-contained. Each category directory is a complete portable Agent Plugin used directly by Cursor. The `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json` files preserve the native Claude Code and Codex routes. The root Pi package and the Skills CLI discover the same skill directories without copying skill bodies into another source tree.
 
 Run `scripts/check-agent-plugins.sh`, `scripts/check-codex-plugins.sh`, and `scripts/check-cookbooks.sh` before committing packaging or cookbook changes. Cookbooks are the composition layer: they may reference catalog skills by name, and the validation scripts keep those references, their placement, and their install routes honest.
