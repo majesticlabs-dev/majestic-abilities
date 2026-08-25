@@ -1,9 +1,0 @@
-{
-  "name": "majestic-abilities",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "test:opencode": "node --test tests/opencode-loader.test.js",
-    "check:opencode": "bash scripts/check-opencode-loader.sh"
-  }
-}

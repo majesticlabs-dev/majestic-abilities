@@ -2,20 +2,15 @@
 
 Portable agent skills organized by capability category and compatible with the Agent Skills format.
 
-Each category is an Agent Plugins 1.0.0 package. Supported install routes are Claude Code plugins, Codex plugins, Pi via `npx skills`, Cursor through the existing portable Agent Plugins packages, and OpenCode V1 `1.18.22` through a path-only loader. Grok and Kimi have no dedicated plugin packaging.
+Each category is an Agent Plugins 1.0.0 package and a separately installable native plugin for Claude Code and Codex, so you load only the categories you work in. The same skills also install individually with the Vercel Skills CLI for Claude Code, Codex, Pi, and Cursor.
 
 ## Agent Plugins
 
-Each `plugins/<category>/` directory contains a portable root `plugin.json` targeting the vendor-neutral [Agent Plugins 1.0.0](https://agent-plugins.org) package format, and discovers skills from the standard `skills/<skill-name>/SKILL.md` location. Agent Plugins defines the package format, not marketplace distribution, so the Claude Code and Codex manifests and marketplaces remain available for their native install routes. Cursor loads those same portable packages; OpenCode discovers the shared `skills/` trees through `.opencode/plugins/majestic-abilities.js`.
+Each `plugins/<category>/` directory contains a portable root `plugin.json` and discovers skills from the standard `skills/<skill-name>/SKILL.md` location. Agent Plugins defines the package format, not marketplace distribution, so the Claude Code and Codex manifests and marketplaces remain available for their native install routes.
 
-The root `plugin.json` is authoritative for metadata shared by the portable, Claude Code, and Codex manifests. Category versions are independent. After editing a category root, synchronize derived records with:
+The root `plugin.json` is authoritative for metadata shared by the portable, Claude Code, and Codex manifests. Category versions are independent. Update a category's root and native manifest versions together, plus each marketplace entry that carries the version.
 
-```sh
-python3 scripts/sync-plugin-metadata.py --write
-python3 scripts/sync-plugin-metadata.py --check
-```
-
-Then run the full validation matrix in [Validate](#validate). Install the portable validation dependency with `python3 -m pip install -r requirements-dev.txt` before the Python-backed checks.
+Install the portable validation dependency with `python3 -m pip install -r requirements-dev.txt`, then run `scripts/check-agent-plugins.sh`.
 
 ## Install As Claude Code Plugins
 
@@ -70,73 +65,6 @@ codex plugin add majestic-engineer@majestic-abilities-codex
 
 The Codex package for each category is declared in `plugins/<category>/.codex-plugin/plugin.json` and shares that category's existing `skills/` directory. The Claude Code manifests and marketplace remain available separately.
 
-## Install In Cursor
-
-Cursor loads the existing portable Agent Plugins packages directly. This repository ships no Cursor-native manifests and no Cursor marketplace files. Official Cursor Marketplace submission is out of scope.
-
-Create one absolute symlink per selected category:
-
-```sh
-mkdir -p ~/.cursor/plugins/local
-ln -s "$(pwd)/plugins/core" ~/.cursor/plugins/local/majestic-core
-ln -s "$(pwd)/plugins/rails" ~/.cursor/plugins/local/majestic-rails
-```
-
-Replace `core` / `rails` with any category under `plugins/`. The destination must not already exist. After install or update, restart Cursor or run `Developer: Reload Window`.
-
-Update the checkout, then reload:
-
-```sh
-git -C <checkout> pull --ff-only
-```
-
-Removal deletes only the selected symlink:
-
-```sh
-test -L ~/.cursor/plugins/local/majestic-core && \
-  rm -- ~/.cursor/plugins/local/majestic-core
-```
-
-Structural validation is `bash scripts/check-cursor-plugins.sh`. Authenticated Cursor model discovery is optional evidence only and is never part of the automatic release gates.
-
-## Install In OpenCode
-
-OpenCode support targets OpenCode V1 `1.18.22` only. OpenCode V2 is unsupported. The loader at `.opencode/plugins/majestic-abilities.js` registers sorted absolute `plugins/<category>/skills` paths and does not generate commands, rewrite `opencode.json`, or publish an npm package.
-
-Project route — absolute symlink into a target project:
-
-```sh
-mkdir -p <target-project>/.opencode/plugins
-ln -s "$(pwd)/.opencode/plugins/majestic-abilities.js" \
-  <target-project>/.opencode/plugins/majestic-abilities.js
-```
-
-User route — absolute symlink for every project:
-
-```sh
-mkdir -p ~/.config/opencode/plugins
-ln -s "$(pwd)/.opencode/plugins/majestic-abilities.js" \
-  ~/.config/opencode/plugins/majestic-abilities.js
-```
-
-Update:
-
-```sh
-git -C <checkout> pull --ff-only
-```
-
-Removal deletes only that symlink:
-
-```sh
-test -L "<target-project>/.opencode/plugins/majestic-abilities.js" && \
-  rm -- "<target-project>/.opencode/plugins/majestic-abilities.js"
-# or
-test -L ~/.config/opencode/plugins/majestic-abilities.js && \
-  rm -- ~/.config/opencode/plugins/majestic-abilities.js
-```
-
-Validate with `bash scripts/check-opencode-loader.sh`.
-
 ## Install With `npx skills`
 
 The [Vercel Skills CLI](https://github.com/vercel-labs/skills) discovers every `SKILL.md` in this repository. You can install one skill, a whole category, or the complete catalog.
@@ -172,10 +100,13 @@ npx skills add OWNER/REPOSITORY --skill code-review --agent codex --yes
 # Install one skill for Pi
 npx skills add OWNER/REPOSITORY --skill code-review --agent pi --yes
 
-# Install the selected skill for all three agents
+# Install one skill for Cursor
+npx skills add OWNER/REPOSITORY --skill code-review --agent cursor --yes
+
+# Install the selected skill for all four agents
 npx skills add OWNER/REPOSITORY \
   --skill code-review \
-  --agent claude-code codex pi \
+  --agent claude-code codex pi cursor \
   --yes
 ```
 
@@ -186,6 +117,7 @@ The CLI uses these project locations:
 | Claude Code | `claude-code` | `.claude/skills/` |
 | Codex | `codex` | `.agents/skills/` |
 | Pi | `pi` | `.pi/skills/` |
+| Cursor | `cursor` | `.agents/skills/` |
 
 Omit `--agent` to choose from detected agents interactively.
 
@@ -201,10 +133,10 @@ npx skills add OWNER/REPOSITORY \
   --global \
   --yes
 
-# Install one skill globally for Codex and Pi
+# Install one skill globally for Codex, Pi, and Cursor
 npx skills add OWNER/REPOSITORY \
   --skill code-review \
-  --agent codex pi \
+  --agent codex pi cursor \
   --global \
   --yes
 ```
@@ -216,6 +148,7 @@ Global installations normally resolve to:
 | Claude Code | `~/.claude/skills/` |
 | Codex | `$CODEX_HOME/skills/`, normally `~/.codex/skills/` |
 | Pi | `~/.pi/agent/skills/` |
+| Cursor | `~/.cursor/skills/` |
 
 ### Install A Category
 
@@ -225,13 +158,13 @@ Point the CLI at a category directory and select every discovered skill:
 # From a local checkout
 npx skills add ./plugins/engineer/skills \
   --skill '*' \
-  --agent claude-code codex pi \
+  --agent claude-code codex pi cursor \
   --yes
 
 # From GitHub
 npx skills add https://github.com/OWNER/REPOSITORY/tree/master/plugins/engineer/skills \
   --skill '*' \
-  --agent claude-code codex pi \
+  --agent claude-code codex pi cursor \
   --yes
 ```
 
@@ -243,13 +176,13 @@ Add `--global` to either command for a user-level category installation.
 # Project installation
 npx skills add OWNER/REPOSITORY \
   --skill '*' \
-  --agent claude-code codex pi \
+  --agent claude-code codex pi cursor \
   --yes
 
 # User installation
 npx skills add OWNER/REPOSITORY \
   --skill '*' \
-  --agent claude-code codex pi \
+  --agent claude-code codex pi cursor \
   --global \
   --yes
 ```
@@ -560,14 +493,6 @@ Cookbooks install like any other skill, but always install their required skills
 .agents/
   plugins/
     marketplace.json        # Codex marketplace, one entry per plugin below
-.opencode/
-  plugins/
-    majestic-abilities.js   # OpenCode V1 path-only loader
-.github/
-  workflows/
-    validate.yml            # blocking release gates on master
-package.json                # private ESM marker for the OpenCode loader
-requirements-dev.txt        # pinned PyYAML for portable validation
 plugins/
   <category>/
     plugin.json               # Agent Plugins 1.0.0 portable manifest
@@ -587,36 +512,11 @@ cookbooks/
   <cookbook-name>/              # cross-plugin cookbooks; not a plugin
     SKILL.md
 scripts/
-  sync-plugin-metadata.py
   check-agent-plugins.sh
-  check-claude-plugins.sh
   check-codex-plugins.sh
   check-cookbooks.sh
-  check-cursor-plugins.sh
-  check-opencode-loader.sh
-  check-readme.sh
-tests/
-  test_*.py
-  opencode-loader.test.js
 ```
 
-Each skill is self-contained. Each category directory is a complete portable Agent Plugin. The `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json` files preserve the native installation routes, and all three formats discover the shared `skills/` directory. Cursor uses those same portable category roots. OpenCode discovers the same trees through the V1 loader without copying skill bodies. The Skills CLI flattens installed skills into each agent's native skill directory.
+Each skill is self-contained. Each category directory is a complete portable Agent Plugin. The `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json` files preserve the native installation routes, and all three formats discover the shared `skills/` directory. The same directories provide catalog organization and category-scoped installation for the Skills CLI, which flattens installed skills into each agent's native skill directory.
 
-## Validate
-
-Run all eight release gates before committing packaging, skill, cookbook, harness-adapter, or documentation changes. Cookbooks are the composition layer: they may reference catalog skills by name, and these checks keep those references, their placement, and their install routes honest.
-
-| Check | Scope |
-| --- | --- |
-| `python3 scripts/sync-plugin-metadata.py --check` | Shared metadata parity from each category root `plugin.json` into Claude and Codex derived records |
-| `scripts/check-agent-plugins.sh` | Portable manifests and skill frontmatter against the Agent Plugins 1.0.0 and Agent Skills rules; metadata parity across the portable, Claude Code, and Codex manifests plus both marketplaces; package containment (immediate `skills/` children only, paths inside the plugin root, symlinks that cannot escape) |
-| `scripts/check-claude-plugins.sh` | Official `claude plugin validate --strict` over the marketplace and every category Claude manifest |
-| `scripts/check-codex-plugins.sh` | Repository-owned Codex native validation; optional external validator only when `CODEX_PLUGIN_VALIDATOR` is set |
-| `scripts/check-cookbooks.sh` | Cookbook placement, `## Requires` references, and harness-neutral install commands |
-| `scripts/check-cursor-plugins.sh` | Portable category packages for Cursor, no `.cursor-plugin` files, and local symlink route proof |
-| `scripts/check-opencode-loader.sh` | OpenCode V1 loader Node tests plus pinned `opencode` `1.18.22` debug smoke |
-| `scripts/check-readme.sh` | Support-matrix headings, catalog counts, `master` workflow trigger, and banned legacy names |
-
-Supporting suites: `PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p 'test_*.py'` and `node --test tests/opencode-loader.test.js`.
-
-The portable manifests declare `$schema: https://agent-plugins.org/schemas/1.0.0/plugin.schema.json`. Clients treat `$schema` as an identifier and never fetch it, and the [Agent Plugins specification](https://agent-plugins.org/schemas) publishes canonical schemas without a validator CLI. That is why `check-agent-plugins.sh` mirrors the published 1.0.0 rules locally instead of validating against a live schema.
+Run `scripts/check-agent-plugins.sh`, `scripts/check-codex-plugins.sh`, and `scripts/check-cookbooks.sh` before committing packaging or cookbook changes. Cookbooks are the composition layer: they may reference catalog skills by name, and the validation scripts keep those references, their placement, and their install routes honest.

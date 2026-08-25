@@ -29,7 +29,17 @@ ALLOWED_PLUGIN_FIELDS = {
     "keywords",
     "extensions",
 }
-REQUIRED_CANONICAL = {
+PORTABLE_METADATA_FIELDS = {
+    "name",
+    "version",
+    "description",
+    "author",
+    "homepage",
+    "repository",
+    "license",
+    "keywords",
+}
+REQUIRED_PROJECT_FIELDS = {
     "name",
     "version",
     "description",
@@ -37,10 +47,6 @@ REQUIRED_CANONICAL = {
     "license",
     "keywords",
 }
-OPTIONAL_CANONICAL = {"homepage", "repository"}
-CLAUDE_MARKETPLACE_FIELDS = {"name", "version", "description"}
-CODEX_MARKETPLACE_FIELDS = {"name"}
-ADAPTER_DIR_NAMES = {".claude-plugin", ".codex-plugin", ".opencode", ".cursor-plugin"}
 PLUGIN_NAME = re.compile(r"^(?!.*(?:--|\.\.))[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?$")
 SKILL_NAME = re.compile(r"^(?!.*--)[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$")
 ALLOWED_SKILL_FIELDS = {
@@ -108,7 +114,7 @@ def validate_portable_manifest(path):
     if unknown:
         fail(f"{path} has unsupported top-level fields: {', '.join(unknown)}")
 
-    missing = sorted(REQUIRED_CANONICAL - set(manifest))
+    missing = sorted(REQUIRED_PROJECT_FIELDS - set(manifest))
     if missing:
         fail(f"{path} is missing project metadata fields: {', '.join(missing)}")
 
@@ -244,111 +250,45 @@ def marketplace_entries(path, source_for):
     return result
 
 
-def compare_native_metadata(manifest_path, manifest, native_path, native):
-    for field in REQUIRED_CANONICAL:
-        if field not in native:
-            fail(f"{native_path} is missing required shared field {field!r}")
-        elif native.get(field) != manifest.get(field):
-            fail(f"{native_path} field {field!r} does not match {manifest_path}")
-
-    for field in OPTIONAL_CANONICAL:
-        if field in manifest:
-            if native.get(field) != manifest[field]:
-                fail(f"{native_path} field {field!r} does not match {manifest_path}")
-        elif field in native:
-            fail(f"{native_path} field {field!r} must be absent when omitted by {manifest_path}")
-
-
-def compare_marketplace_entry(manifest_path, manifest, marketplace_path, entry, fields):
-    for field in fields:
-        if field not in entry:
-            fail(f"{marketplace_path} entry for {manifest_path} is missing required field {field!r}")
-        elif entry.get(field) != manifest.get(field):
-            fail(f"{marketplace_path} field {field!r} for {manifest_path} does not match")
-
-
 root = Path.cwd().resolve()
 plugins_root = root / "plugins"
-claude_marketplace_path = root / ".claude-plugin" / "marketplace.json"
-codex_marketplace_path = root / ".agents" / "plugins" / "marketplace.json"
 claude_marketplace = marketplace_entries(
-    claude_marketplace_path,
+    root / ".claude-plugin" / "marketplace.json",
     lambda entry: entry.get("source"),
 )
 codex_marketplace = marketplace_entries(
-    codex_marketplace_path,
+    root / ".agents" / "plugins" / "marketplace.json",
     lambda entry: entry.get("source", {}).get("path")
     if isinstance(entry.get("source"), dict)
     else None,
 )
 
-if not plugins_root.is_dir():
-    fail("plugins/ must contain at least one plugin directory")
-    plugins_real = None
-else:
-    try:
-        plugins_real = plugins_root.resolve()
-    except OSError as error:
-        fail(f"cannot resolve plugins/: {error}")
-        plugins_real = None
-    else:
-        if not plugins_real.is_relative_to(root):
-            fail(f"plugins/ resolves outside the repository: {plugins_real}")
-            plugins_real = None
-
-plugin_dirs = []
-if plugins_real is not None:
-    for path in sorted(plugins_root.iterdir()):
-        if not path.is_dir():
-            continue
-        try:
-            category_real = path.resolve()
-        except OSError as error:
-            fail(f"cannot resolve {path}: {error}")
-            continue
-        if not category_real.is_relative_to(plugins_real):
-            fail(f"{path} resolves outside the plugins root")
-            continue
-        plugin_dirs.append((path, category_real))
-
-if plugins_real is not None and not plugin_dirs:
+plugin_dirs = sorted(path for path in plugins_root.iterdir() if path.is_dir())
+if not plugin_dirs:
     fail("plugins/ must contain at least one plugin directory")
 
-plugin_sources = {f"./plugins/{path.name}" for path, _ in plugin_dirs}
+plugin_sources = {f"./plugins/{path.name}" for path in plugin_dirs}
 for marketplace_path, entries in (
-    (claude_marketplace_path, claude_marketplace),
-    (codex_marketplace_path, codex_marketplace),
+    (root / ".claude-plugin" / "marketplace.json", claude_marketplace),
+    (root / ".agents" / "plugins" / "marketplace.json", codex_marketplace),
 ):
     for source in sorted(set(entries) - plugin_sources):
         fail(f"{marketplace_path} lists missing plugin directory {source}")
 
-skill_owners = {}
-
-for plugin_dir, category_real in plugin_dirs:
+for plugin_dir in plugin_dirs:
     source = f"./plugins/{plugin_dir.name}"
     manifest_path = plugin_dir / "plugin.json"
+    manifest = validate_portable_manifest(manifest_path)
 
     try:
-        manifest_real = manifest_path.resolve()
+        if not manifest_path.resolve().is_relative_to(plugin_dir.resolve()):
+            fail(f"{manifest_path} resolves outside its plugin root")
     except OSError as error:
         fail(f"cannot resolve {manifest_path}: {error}")
-        continue
-    if not manifest_real.is_relative_to(category_real):
-        fail(f"{manifest_path} resolves outside its plugin root")
-        continue
-
-    manifest = validate_portable_manifest(manifest_path)
 
     native_manifests = []
     for client in (".claude-plugin", ".codex-plugin"):
         path = plugin_dir / client / "plugin.json"
-        try:
-            if path.exists() and not path.resolve().is_relative_to(category_real):
-                fail(f"{path} resolves outside its plugin root")
-                continue
-        except OSError as error:
-            fail(f"cannot resolve {path}: {error}")
-            continue
         native = load_object(path)
         if native is not None:
             native_manifests.append((path, native))
@@ -359,68 +299,44 @@ for plugin_dir, category_real in plugin_dirs:
             fail(f"{manifest_path} declares {manifest.get('name')!r}, expected {expected_name!r}")
 
         for native_path, native in native_manifests:
-            compare_native_metadata(manifest_path, manifest, native_path, native)
+            for field in PORTABLE_METADATA_FIELDS & set(manifest):
+                if native.get(field) != manifest[field]:
+                    fail(f"{native_path} field {field!r} does not match {manifest_path}")
 
-        claude_entry = claude_marketplace.get(source)
-        if claude_entry is None:
-            fail(f"{claude_marketplace_path} does not list {source}")
-        else:
-            compare_marketplace_entry(
-                manifest_path,
-                manifest,
-                claude_marketplace_path,
-                claude_entry,
-                CLAUDE_MARKETPLACE_FIELDS,
-            )
-
-        codex_entry = codex_marketplace.get(source)
-        if codex_entry is None:
-            fail(f"{codex_marketplace_path} does not list {source}")
-        else:
-            compare_marketplace_entry(
-                manifest_path,
-                manifest,
-                codex_marketplace_path,
-                codex_entry,
-                CODEX_MARKETPLACE_FIELDS,
-            )
+        for marketplace_path, entries in (
+            (root / ".claude-plugin" / "marketplace.json", claude_marketplace),
+            (root / ".agents" / "plugins" / "marketplace.json", codex_marketplace),
+        ):
+            entry = entries.get(source)
+            if entry is None:
+                fail(f"{marketplace_path} does not list {source}")
+                continue
+            if entry.get("name") != manifest.get("name"):
+                fail(f"{marketplace_path} name for {source} does not match {manifest_path}")
+            for field in PORTABLE_METADATA_FIELDS & set(manifest) & set(entry):
+                if entry[field] != manifest[field]:
+                    fail(f"{marketplace_path} field {field!r} for {source} does not match {manifest_path}")
 
     skills_dir = plugin_dir / "skills"
     if not skills_dir.is_dir():
         fail(f"{skills_dir} must be a directory")
         continue
-    try:
-        if not skills_dir.resolve().is_relative_to(category_real):
-            fail(f"{skills_dir} resolves outside its plugin root")
-            continue
-    except OSError as error:
-        fail(f"cannot resolve {skills_dir}: {error}")
-        continue
 
     immediate_skills = []
     for child in sorted(skills_dir.iterdir()):
-        if child.name.startswith("."):
-            continue
         if not child.is_dir():
             continue
         skill_file = child / "SKILL.md"
         if not skill_file.is_file():
             fail(f"{child} is an immediate skill directory without SKILL.md")
             continue
+        immediate_skills.append(skill_file)
         try:
-            if not skill_file.resolve().is_relative_to(category_real):
+            if not skill_file.resolve().is_relative_to(plugin_dir.resolve()):
                 fail(f"{skill_file} resolves outside its plugin root")
-                continue
         except OSError as error:
             fail(f"cannot resolve {skill_file}: {error}")
-            continue
-        immediate_skills.append(skill_file)
         validate_skill(skill_file)
-        owners = skill_owners.setdefault(child.name, [])
-        owners.append(str(skill_file))
-
-    if not immediate_skills:
-        fail(f"{skills_dir} must contain at least one immediate skill")
 
     discovered = set(immediate_skills)
     for nested in skills_dir.glob("**/SKILL.md"):
@@ -428,30 +344,15 @@ for plugin_dir, category_real in plugin_dirs:
             fail(f"{nested} is nested too deeply for Agent Plugins discovery")
 
     for directory, subdirs, filenames in os.walk(plugin_dir, followlinks=False):
-        rel_parts = Path(directory).relative_to(plugin_dir).parts
-        if rel_parts and rel_parts[0] in ADAPTER_DIR_NAMES and "SKILL.md" in filenames:
-            fail(f"{Path(directory) / 'SKILL.md'} must not exist under an adapter directory")
         for name in [*subdirs, *filenames]:
             path = Path(directory) / name
             if not path.is_symlink():
                 continue
             try:
-                if not path.resolve().is_relative_to(category_real):
+                if not path.resolve().is_relative_to(plugin_dir.resolve()):
                     fail(f"{path} is a symlink that resolves outside its plugin root")
             except OSError as error:
                 fail(f"cannot resolve symlink {path}: {error}")
-
-for dirpath, dirnames, filenames in os.walk(root, followlinks=False):
-    rel = Path(dirpath).relative_to(root)
-    if rel.parts and rel.parts[0] == ".git":
-        dirnames[:] = []
-        continue
-    if "SKILL.md" in filenames and any(part in ADAPTER_DIR_NAMES for part in rel.parts):
-        fail(f"{rel / 'SKILL.md'} must not exist under an adapter directory")
-
-for name, owners in sorted(skill_owners.items()):
-    if len(owners) > 1:
-        fail(f"duplicate skill name {name!r}: {', '.join(owners)}")
 
 if errors:
     for error in errors:
