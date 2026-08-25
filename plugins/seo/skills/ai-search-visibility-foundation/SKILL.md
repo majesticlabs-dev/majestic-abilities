@@ -90,7 +90,7 @@ Distinguish `IMPLEMENTED`, `VALIDATED`, `BLOCKED`, and `NOT APPLICABLE`. Never r
 Install everything:
 
 ```sh
-npx skills add OWNER/REPOSITORY --skill ai-search-visibility-foundation \
+npx skills add majesticlabs-dev/majestic-abilities --skill ai-search-visibility-foundation \
   seo-audit entity-triplets llms-txt-builder ai-crawler-readiness \
   schema-architect aeo-scorecard
 ```

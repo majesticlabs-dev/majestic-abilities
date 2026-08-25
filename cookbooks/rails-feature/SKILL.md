@@ -58,7 +58,7 @@ Summarize: what shipped, the plan deviations if any, and the outcome of each gat
 Install everything:
 
 ```sh
-npx skills add OWNER/REPOSITORY --skill rails-feature dhh-rails-style ruby-coder \
+npx skills add majesticlabs-dev/majestic-abilities --skill rails-feature dhh-rails-style ruby-coder \
   minitest-coder rails-lint rails-code-review test-reviewer \
   implementation-planning
 ```

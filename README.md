@@ -17,12 +17,12 @@ Install the portable validation dependency with `python3 -m pip install -r requi
 This repository is a plugin marketplace. Add it once, then install one plugin per category you need:
 
 ```sh
-/plugin marketplace add OWNER/REPOSITORY
+/plugin marketplace add majesticlabs-dev/majestic-abilities
 /plugin install majestic-rails@majestic-abilities
 /plugin install majestic-engineer@majestic-abilities
 ```
 
-Replace `OWNER/REPOSITORY` with the published repository identifier. Use an absolute path instead while developing from a local checkout.
+Use an absolute path instead while developing from a local checkout.
 
 | Plugin | Skills | Contents |
 | --- | ---: | --- |
@@ -78,13 +78,11 @@ Use the local checkout while developing this repository:
 npx skills add . --list
 ```
 
-After publication, use the GitHub repository identifier instead:
+For the published repository, use:
 
 ```sh
-npx skills add OWNER/REPOSITORY --list
+npx skills add majesticlabs-dev/majestic-abilities --list
 ```
-
-Replace `OWNER/REPOSITORY` in the examples below with the published repository identifier.
 
 ### Install Into A Project
 
@@ -92,19 +90,19 @@ Project scope is the default. Run the command from the project that should recei
 
 ```sh
 # Install one skill for Claude Code
-npx skills add OWNER/REPOSITORY --skill code-review --agent claude-code --yes
+npx skills add majesticlabs-dev/majestic-abilities --skill code-review --agent claude-code --yes
 
 # Install one skill for Codex
-npx skills add OWNER/REPOSITORY --skill code-review --agent codex --yes
+npx skills add majesticlabs-dev/majestic-abilities --skill code-review --agent codex --yes
 
 # Install one skill for Pi
-npx skills add OWNER/REPOSITORY --skill code-review --agent pi --yes
+npx skills add majesticlabs-dev/majestic-abilities --skill code-review --agent pi --yes
 
 # Install one skill for Cursor
-npx skills add OWNER/REPOSITORY --skill code-review --agent cursor --yes
+npx skills add majesticlabs-dev/majestic-abilities --skill code-review --agent cursor --yes
 
 # Install the selected skill for all four agents
-npx skills add OWNER/REPOSITORY \
+npx skills add majesticlabs-dev/majestic-abilities \
   --skill code-review \
   --agent claude-code codex pi cursor \
   --yes
@@ -127,14 +125,14 @@ Add `--global` (or `-g`) to make skills available across projects:
 
 ```sh
 # Install one skill globally for Claude Code
-npx skills add OWNER/REPOSITORY \
+npx skills add majesticlabs-dev/majestic-abilities \
   --skill code-review \
   --agent claude-code \
   --global \
   --yes
 
 # Install one skill globally for Codex, Pi, and Cursor
-npx skills add OWNER/REPOSITORY \
+npx skills add majesticlabs-dev/majestic-abilities \
   --skill code-review \
   --agent codex pi cursor \
   --global \
@@ -162,7 +160,7 @@ npx skills add ./plugins/engineer/skills \
   --yes
 
 # From GitHub
-npx skills add https://github.com/OWNER/REPOSITORY/tree/master/plugins/engineer/skills \
+npx skills add https://github.com/majesticlabs-dev/majestic-abilities/tree/master/plugins/engineer/skills \
   --skill '*' \
   --agent claude-code codex pi cursor \
   --yes
@@ -174,13 +172,13 @@ Add `--global` to either command for a user-level category installation.
 
 ```sh
 # Project installation
-npx skills add OWNER/REPOSITORY \
+npx skills add majesticlabs-dev/majestic-abilities \
   --skill '*' \
   --agent claude-code codex pi cursor \
   --yes
 
 # User installation
-npx skills add OWNER/REPOSITORY \
+npx skills add majesticlabs-dev/majestic-abilities \
   --skill '*' \
   --agent claude-code codex pi cursor \
   --global \
