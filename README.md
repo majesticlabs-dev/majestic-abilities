@@ -2,11 +2,11 @@
 
 Portable agent skills organized by capability category and compatible with the Agent Skills format.
 
-Each category is an Agent Plugins 1.0.0 package and a separately installable native plugin for Claude Code and Codex, so you load only the categories you work in. The same skills also install individually with the Vercel Skills CLI for Claude Code, Codex, and Pi.
+Each category is an Agent Plugins 1.0.0 package with native marketplace support for Claude Code, Codex, and Cursor. Pi can install the complete catalog as one package. The same skills also install individually with the Vercel Skills CLI for all four harnesses.
 
 ## Agent Plugins
 
-Each `plugins/<category>/` directory contains a portable root `plugin.json` and discovers skills from the standard `skills/<skill-name>/SKILL.md` location. Agent Plugins defines the package format, not marketplace distribution, so the Claude Code and Codex manifests and marketplaces remain available for their native install routes.
+Each `plugins/<category>/` directory contains a portable root `plugin.json` and discovers skills from the standard `skills/<skill-name>/SKILL.md` location. Cursor loads these portable manifests directly. Claude Code and Codex use their existing native manifests and marketplaces.
 
 The root `plugin.json` is authoritative for metadata shared by the portable, Claude Code, and Codex manifests. Category versions are independent. Update a category's root and native manifest versions together, plus each marketplace entry that carries the version.
 
@@ -17,12 +17,12 @@ Install the portable validation dependency with `python3 -m pip install -r requi
 This repository is a plugin marketplace. Add it once, then install one plugin per category you need:
 
 ```sh
-/plugin marketplace add OWNER/REPOSITORY
+/plugin marketplace add majesticlabs-dev/majestic-abilities
 /plugin install majestic-rails@majestic-abilities
 /plugin install majestic-engineer@majestic-abilities
 ```
 
-Replace `OWNER/REPOSITORY` with the published repository identifier. Use an absolute path instead while developing from a local checkout.
+Use an absolute path instead while developing from a local checkout.
 
 | Plugin | Skills | Contents |
 | --- | ---: | --- |
@@ -65,6 +65,32 @@ codex plugin add majestic-engineer@majestic-abilities-codex
 
 The Codex package for each category is declared in `plugins/<category>/.codex-plugin/plugin.json` and shares that category's existing `skills/` directory. The Claude Code manifests and marketplace remain available separately.
 
+## Install As Cursor Plugins
+
+Cursor loads the existing portable Agent Plugins without Cursor-specific wrappers. The root `.cursor-plugin/marketplace.json` lists every category for Cursor marketplace imports.
+
+For local use, symlink only the categories you need, then restart Cursor or run **Developer: Reload Window**:
+
+```sh
+mkdir -p ~/.cursor/plugins/local
+ln -s "$(pwd)/plugins/rails" ~/.cursor/plugins/local/majestic-rails
+ln -s "$(pwd)/plugins/engineer" ~/.cursor/plugins/local/majestic-engineer
+```
+
+## Install As A Pi Package
+
+The root `package.json` exposes all category skills and cross-category cookbooks as one Pi package:
+
+```sh
+# User installation
+pi install git:github.com/majesticlabs-dev/majestic-abilities
+
+# Project installation
+pi install git:github.com/majesticlabs-dev/majestic-abilities -l
+```
+
+Use `pi config` to enable or disable package skills.
+
 ## Install With `npx skills`
 
 The [Vercel Skills CLI](https://github.com/vercel-labs/skills) discovers every `SKILL.md` in this repository. You can install one skill, a whole category, or the complete catalog.
@@ -78,13 +104,11 @@ Use the local checkout while developing this repository:
 npx skills add . --list
 ```
 
-After publication, use the GitHub repository identifier instead:
+For the published repository, use:
 
 ```sh
-npx skills add OWNER/REPOSITORY --list
+npx skills add majesticlabs-dev/majestic-abilities --list
 ```
-
-Replace `OWNER/REPOSITORY` in the examples below with the published repository identifier.
 
 ### Install Into A Project
 
@@ -92,18 +116,21 @@ Project scope is the default. Run the command from the project that should recei
 
 ```sh
 # Install one skill for Claude Code
-npx skills add OWNER/REPOSITORY --skill code-review --agent claude-code --yes
+npx skills add majesticlabs-dev/majestic-abilities --skill code-review --agent claude-code --yes
 
 # Install one skill for Codex
-npx skills add OWNER/REPOSITORY --skill code-review --agent codex --yes
+npx skills add majesticlabs-dev/majestic-abilities --skill code-review --agent codex --yes
 
 # Install one skill for Pi
-npx skills add OWNER/REPOSITORY --skill code-review --agent pi --yes
+npx skills add majesticlabs-dev/majestic-abilities --skill code-review --agent pi --yes
 
-# Install the selected skill for all three agents
-npx skills add OWNER/REPOSITORY \
+# Install one skill for Cursor
+npx skills add majesticlabs-dev/majestic-abilities --skill code-review --agent cursor --yes
+
+# Install the selected skill for all four agents
+npx skills add majesticlabs-dev/majestic-abilities \
   --skill code-review \
-  --agent claude-code codex pi \
+  --agent claude-code codex pi cursor \
   --yes
 ```
 
@@ -114,6 +141,7 @@ The CLI uses these project locations:
 | Claude Code | `claude-code` | `.claude/skills/` |
 | Codex | `codex` | `.agents/skills/` |
 | Pi | `pi` | `.pi/skills/` |
+| Cursor | `cursor` | `.agents/skills/` |
 
 Omit `--agent` to choose from detected agents interactively.
 
@@ -123,16 +151,16 @@ Add `--global` (or `-g`) to make skills available across projects:
 
 ```sh
 # Install one skill globally for Claude Code
-npx skills add OWNER/REPOSITORY \
+npx skills add majesticlabs-dev/majestic-abilities \
   --skill code-review \
   --agent claude-code \
   --global \
   --yes
 
-# Install one skill globally for Codex and Pi
-npx skills add OWNER/REPOSITORY \
+# Install one skill globally for Codex, Pi, and Cursor
+npx skills add majesticlabs-dev/majestic-abilities \
   --skill code-review \
-  --agent codex pi \
+  --agent codex pi cursor \
   --global \
   --yes
 ```
@@ -144,6 +172,7 @@ Global installations normally resolve to:
 | Claude Code | `~/.claude/skills/` |
 | Codex | `$CODEX_HOME/skills/`, normally `~/.codex/skills/` |
 | Pi | `~/.pi/agent/skills/` |
+| Cursor | `~/.cursor/skills/` |
 
 ### Install A Category
 
@@ -153,13 +182,13 @@ Point the CLI at a category directory and select every discovered skill:
 # From a local checkout
 npx skills add ./plugins/engineer/skills \
   --skill '*' \
-  --agent claude-code codex pi \
+  --agent claude-code codex pi cursor \
   --yes
 
 # From GitHub
-npx skills add https://github.com/OWNER/REPOSITORY/tree/master/plugins/engineer/skills \
+npx skills add https://github.com/majesticlabs-dev/majestic-abilities/tree/master/plugins/engineer/skills \
   --skill '*' \
-  --agent claude-code codex pi \
+  --agent claude-code codex pi cursor \
   --yes
 ```
 
@@ -169,15 +198,15 @@ Add `--global` to either command for a user-level category installation.
 
 ```sh
 # Project installation
-npx skills add OWNER/REPOSITORY \
+npx skills add majesticlabs-dev/majestic-abilities \
   --skill '*' \
-  --agent claude-code codex pi \
+  --agent claude-code codex pi cursor \
   --yes
 
 # User installation
-npx skills add OWNER/REPOSITORY \
+npx skills add majesticlabs-dev/majestic-abilities \
   --skill '*' \
-  --agent claude-code codex pi \
+  --agent claude-code codex pi cursor \
   --global \
   --yes
 ```
@@ -488,6 +517,9 @@ Cookbooks install like any other skill, but always install their required skills
 .agents/
   plugins/
     marketplace.json        # Codex marketplace, one entry per plugin below
+.cursor-plugin/
+  marketplace.json          # Cursor marketplace, one entry per plugin below
+package.json                # Pi package manifest for the complete catalog
 plugins/
   <category>/
     plugin.json               # Agent Plugins 1.0.0 portable manifest
@@ -512,6 +544,6 @@ scripts/
   check-cookbooks.sh
 ```
 
-Each skill is self-contained. Each category directory is a complete portable Agent Plugin. The `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json` files preserve the native installation routes, and all three formats discover the shared `skills/` directory. The same directories provide catalog organization and category-scoped installation for the Skills CLI, which flattens installed skills into each agent's native skill directory.
+Each skill is self-contained. Each category directory is a complete portable Agent Plugin used directly by Cursor. The `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json` files preserve the native Claude Code and Codex routes. The root Pi package and the Skills CLI discover the same skill directories without copying skill bodies into another source tree.
 
 Run `scripts/check-agent-plugins.sh`, `scripts/check-codex-plugins.sh`, and `scripts/check-cookbooks.sh` before committing packaging or cookbook changes. Cookbooks are the composition layer: they may reference catalog skills by name, and the validation scripts keep those references, their placement, and their install routes honest.

@@ -78,7 +78,7 @@ Do not produce campaign copy, a launch calendar, forecasts, legal documents, or 
 Install everything:
 
 ```sh
-npx skills add OWNER/REPOSITORY --skill founder-launch-decision \
+npx skills add majesticlabs-dev/majestic-abilities --skill founder-launch-decision \
   icp-definition go-to-market-motion launch-legal-checklist launch-readiness
 ```
 

@@ -1,0 +1,16 @@
+{
+  "name": "majestic-abilities",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Portable agent skills organized by capability category.",
+  "keywords": [
+    "pi-package",
+    "agent-skills"
+  ],
+  "pi": {
+    "skills": [
+      "./plugins/*/skills",
+      "./cookbooks"
+    ]
+  }
+}

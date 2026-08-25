@@ -31,7 +31,7 @@ Each cookbook declares its dependencies in a `## Requires` section and includes 
 
 ```sh
 # Example: the rails-feature cookbook plus every skill it names
-npx skills add OWNER/REPOSITORY --skill rails-feature dhh-rails-style ruby-coder \
+npx skills add majesticlabs-dev/majestic-abilities --skill rails-feature dhh-rails-style ruby-coder \
   minitest-coder rails-lint rails-code-review test-reviewer \
   implementation-planning
 ```

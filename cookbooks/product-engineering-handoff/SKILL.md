@@ -75,7 +75,7 @@ Return:
 Install everything:
 
 ```sh
-npx skills add OWNER/REPOSITORY --skill product-engineering-handoff \
+npx skills add majesticlabs-dev/majestic-abilities --skill product-engineering-handoff \
   product-requirements implementation-planning plan-review
 ```
 

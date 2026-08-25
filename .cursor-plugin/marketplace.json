@@ -1,0 +1,72 @@
+{
+  "name": "majestic-abilities",
+  "owner": {
+    "name": "Majestic Labs"
+  },
+  "metadata": {
+    "description": "Portable agent skills organized by capability category, one installable plugin per category.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "majestic-cloudflare",
+      "source": "./plugins/cloudflare"
+    },
+    {
+      "name": "majestic-core",
+      "source": "./plugins/core"
+    },
+    {
+      "name": "majestic-data",
+      "source": "./plugins/data"
+    },
+    {
+      "name": "majestic-devops",
+      "source": "./plugins/devops"
+    },
+    {
+      "name": "majestic-engineer",
+      "source": "./plugins/engineer"
+    },
+    {
+      "name": "majestic-founder",
+      "source": "./plugins/founder"
+    },
+    {
+      "name": "majestic-frontend",
+      "source": "./plugins/frontend"
+    },
+    {
+      "name": "majestic-marketing",
+      "source": "./plugins/marketing"
+    },
+    {
+      "name": "majestic-misc",
+      "source": "./plugins/misc"
+    },
+    {
+      "name": "majestic-product",
+      "source": "./plugins/product"
+    },
+    {
+      "name": "majestic-rails",
+      "source": "./plugins/rails"
+    },
+    {
+      "name": "majestic-reasoning",
+      "source": "./plugins/reasoning"
+    },
+    {
+      "name": "majestic-sales",
+      "source": "./plugins/sales"
+    },
+    {
+      "name": "majestic-seo",
+      "source": "./plugins/seo"
+    },
+    {
+      "name": "majestic-writing",
+      "source": "./plugins/writing"
+    }
+  ]
+}
