@@ -1,12 +1,14 @@
 ---
 name: layered-rails
-description: "Design Rails applications using layered architecture. Use when analyzing codebases for architecture violations, planning feature implementations, deciding where code belongs, or extracting abstractions from fat models/controllers. Complements dhh-rails-style (which keeps things simple) with guidance for when complexity demands structure."
+description: "Design Rails applications using layered architecture. Use when deciding where Rails business logic should live, implementing workflow-oriented domain behavior, analyzing codebases for architecture violations, planning feature implementations, or extracting abstractions from fat models/controllers. Complements dhh-rails-style (which keeps things simple) with guidance for when complexity demands structure."
 ---
 
 # Layered Rails Architecture
 
 **Audience:** Rails developers working on applications that have outgrown single-file patterns.
 **Goal:** Know which layer code belongs in, when to extract, and which existing skill handles the implementation.
+
+When the request asks where business logic should live, load [references/rails-business-logic.md](references/rails-business-logic.md). Start with ordinary Rails objects and add a specialized boundary only when it removes real complexity. Return the selected implementation path, why it fits, its transaction boundary, and the tests required for the behavior.
 
 ## Four-Layer Architecture
 

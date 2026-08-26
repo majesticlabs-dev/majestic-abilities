@@ -1,6 +1,6 @@
 ---
 name: rails-activity-timeline
-description: "Use when adding polymorphic activity timelines with live Turbo Stream updates to any Rails model. Covers migration, model, concern, shared partials, broadcasting, and optional AI-generated change summaries. Triggers on activity feed, audit trail, timeline, field change tracking, or Turbo Stream broadcasting patterns."
+description: "Build user-visible, polymorphic activity timelines with live Turbo Stream updates in Rails. Use when rendering field-change history, audit events, status transitions, comments, or attachments with timeline display metadata. Covers the model, concern, shared partials, broadcasting, and optional AI-generated summaries."
 ---
 
 # Rails Activity Timeline

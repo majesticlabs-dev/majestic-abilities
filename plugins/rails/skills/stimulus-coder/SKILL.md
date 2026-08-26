@@ -95,18 +95,19 @@ export default class extends Controller {
 ```erb
 <button data-action="click->toggle#toggle">Toggle</button>
 <input data-action="input->search#update focus->search#expand">
-<button data-action="modal#open" data-modal-id-param="confirm-dialog">Open</button>
+<button data-action="tabs#select" data-tabs-index-param="2">Details</button>
 <input data-action="keydown.enter->form#submit keydown.escape->form#cancel">
 ```
 
 ### Action Parameters
 
 ```javascript
-open(event) {
-  const modalId = event.params.id
-  document.getElementById(modalId)?.showModal()
+select(event) {
+  this.indexValue = event.params.index
 }
 ```
+
+For native dialogs and overlay workflows in server-rendered Rails applications, use `dialog-patterns`. Keep generic Stimulus examples independent of a specific UI pattern.
 
 ## Common Controller Patterns
 

@@ -1,6 +1,6 @@
 ---
 name: solid-queue-coder
-description: "Use when configuring or working with Solid Queue for background jobs. Applies Rails 8 conventions, database-backed job processing, concurrency settings, recurring jobs, and production deployment patterns."
+description: "Configure, operate, or deploy Solid Queue as the Active Job backend. Use for the queue database, queue.yml, worker execution modes, connection sizing, adapter-specific concurrency, recurring jobs, and production deployment. Use Active Job guidance for job-class behavior and retry policy."
 ---
 
 # Solid Queue Coder
@@ -114,20 +114,6 @@ Pool size is per worker process, and the total across processes must fit under t
 
 ## Queue Design
 
-### Priority Strategy
-
-```ruby
-class CriticalNotificationJob < ApplicationJob
-  queue_as :critical
-  queue_with_priority 1  # Lower = higher priority
-end
-
-class ReportGenerationJob < ApplicationJob
-  queue_as :low_priority
-  queue_with_priority 50
-end
-```
-
 ### Concurrency Control
 
 ```ruby
@@ -177,23 +163,6 @@ services:
     command: bundle exec rake solid_queue:start
 ```
 
-## Error Handling
-
-```ruby
-class ExternalApiJob < ApplicationJob
-  retry_on Net::OpenTimeout, wait: :polynomially_longer, attempts: 5
-  discard_on ActiveJob::DeserializationError
-
-  rescue_from StandardError do |exception|
-    if executions >= 5
-      FailedJob.create!(job_class: self.class.name, error_message: exception.message)
-    else
-      raise exception
-    end
-  end
-end
-```
-
 ## Database Maintenance
 
 ```ruby
@@ -236,5 +205,5 @@ When configuring Solid Queue, provide:
 1. **Database Setup** - Multi-database configuration
 2. **Queue Config** - `config/queue.yml` settings
 3. **Execution Mode** - Threads or fibers per queue, with the pool size that follows
-4. **Worker Setup** - Procfile/Docker configuration
-5. **Jobs** - Example job classes with error handling
+4. **Concurrency** - Adapter limits and their operational effect
+5. **Worker Setup** - Procfile/Docker configuration

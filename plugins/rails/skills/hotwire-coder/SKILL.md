@@ -143,12 +143,9 @@ Broadcast callbacks run outside the request context. Pass explicit locals to par
 
 ## Common Patterns
 
-### Modal Pattern
+### Dialogs and Overlays
 
-```erb
-<%= link_to "New Post", new_post_path, data: { turbo_frame: "modal" } %>
-<turbo-frame id="modal"></turbo-frame>
-```
+When the primary outcome is a modal, confirmation, toast, or slideover in a server-rendered Rails application, use `dialog-patterns`. Apply this skill only to the Turbo Frame or Turbo Stream mechanics that the dialog workflow needs.
 
 ### Infinite Scroll
 

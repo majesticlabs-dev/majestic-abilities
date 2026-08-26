@@ -1,6 +1,6 @@
 ---
 name: event-sourcing-coder
-description: "Record domain events and dispatch to inbox handlers for side effects, audit trails, and activity feeds. Use when building activity logs, syncing external services, or decoupling event creation from processing. Triggers on event recording, audit trails, activity feeds, or inbox patterns."
+description: "Record domain events and dispatch them to inbox handlers for integrations, asynchronous side effects, analytics, and durable processing history. Use when decoupling event creation from downstream processing, synchronizing external systems, or implementing inbox patterns. Do not use only to render an activity or audit timeline."
 ---
 
 # Event Sourcing for Rails Monoliths
@@ -9,16 +9,17 @@ Record significant domain events and dispatch them to specialized handlers - a p
 
 ## When to Use This Skill
 
-- Building activity feeds or audit trails
-- Syncing data to external services (CRMs, analytics, webhooks)
-- Automating workflows triggered by domain events
+- Dispatching one domain event to multiple independent handlers
+- Syncing data to external services such as CRMs, analytics, or webhooks
+- Automating asynchronous workflows triggered by domain events
 - Decoupling "what happened" from "what to do about it"
-- Tracking user actions for analytics or debugging
+- Keeping durable processing history for integrations or debugging
 
 ## When NOT to Use Events
 
 | Scenario | Better Alternative |
 |----------|-------------------|
+| Rendered activity or audit timeline without downstream dispatch | A dedicated activity timeline pattern |
 | Simple callbacks on single model | ActiveRecord callbacks |
 | Synchronous side effects only | Service objects or ActiveInteraction |
 | Need full event replay/rebuilding | Dedicated event sourcing gem (Rails Event Store) |

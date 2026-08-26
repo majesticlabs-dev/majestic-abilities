@@ -9,6 +9,8 @@ Build accessible, modern dialog UIs using the native HTML `<dialog>` element wit
 
 ## When to Use This Skill
 
+Use this skill for server-rendered Rails views that use Turbo, Stimulus, or both. If the page uses Inertia, keep modal and overlay behavior inside the selected React, Vue, or Svelte architecture.
+
 - Building modal dialogs for forms, confirmations, or content
 - Creating toast/alert notifications
 - Implementing confirmation dialogs (delete, destructive actions)
