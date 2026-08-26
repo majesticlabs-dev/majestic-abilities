@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "majestic-misc",
   "version": "0.1.0",
-  "description": "Portable interaction and skill-design capabilities: actionable communication, visual explanations, execution grading, and compliant skill structure.",
+  "description": "Portable capabilities for actionable communication, lessons learned, visual explanations, execution grading, and skill design.",
   "author": {
     "name": "Majestic Labs"
   },

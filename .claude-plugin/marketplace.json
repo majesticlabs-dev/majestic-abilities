@@ -106,7 +106,7 @@
     {
       "name": "majestic-misc",
       "source": "./plugins/misc",
-      "description": "Portable interaction and skill-design capabilities: actionable communication, visual explanations, execution grading, and compliant skill structure.",
+      "description": "Portable capabilities for actionable communication, lessons learned, visual explanations, execution grading, and skill design.",
       "version": "0.1.0",
       "category": "misc",
       "keywords": [

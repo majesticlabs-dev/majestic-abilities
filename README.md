@@ -1,6 +1,6 @@
 # Majestic Abilities
 
-Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 165 standalone skills and 4 cookbooks, and follows the [Agent Skills](https://agentskills.io/) format.
+Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 166 standalone skills and 4 cookbooks, and follows the [Agent Skills](https://agentskills.io/) format.
 
 You can install:
 
@@ -159,7 +159,7 @@ The CLI normally recommends symlinks so several agents can share one canonical i
 
 ## Browse the Catalog
 
-The catalog contains 165 standalone skills. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see every installable ability.
+The catalog contains 166 standalone skills. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see every installable ability.
 
 | Category | Plugin | Skills | Focus |
 | --- | --- | ---: | --- |
@@ -171,7 +171,7 @@ The catalog contains 165 standalone skills. Follow a category link to browse its
 | [Founder](plugins/founder/skills/) | `majestic-founder` | 9 | Strategy, priorities, finance, fundraising, go-to-market, and launch readiness |
 | [Frontend](plugins/frontend/skills/) | `majestic-frontend` | 5 | Visual direction, performance, accessibility, validation, and screenshots |
 | [Marketing](plugins/marketing/skills/) | `majestic-marketing` | 13 | Positioning, naming, research, content, campaigns, and growth experiments |
-| [Misc](plugins/misc/skills/) | `majestic-misc` | 4 | Communication, visual explanations, skill grading, and skill structure |
+| [Misc](plugins/misc/skills/) | `majestic-misc` | 5 | Communication, lessons learned, visual explanations, skill grading, and skill structure |
 | [Product](plugins/product/skills/) | `majestic-product` | 14 | Discovery, workflow mapping, requirements, planning, pricing, and retention |
 | [Rails](plugins/rails/skills/) | `majestic-rails` | 36 | Rails and Ruby implementation, Hotwire, architecture, testing, and review |
 | [Reasoning](plugins/reasoning/skills/) | `majestic-reasoning` | 4 | Decision retrospectives, challenge, premortems, and reasoning verification |
