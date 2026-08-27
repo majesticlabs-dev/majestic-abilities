@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "majestic-engineer",
   "version": "0.1.0",
-  "description": "Scope, plan, review, and harden software changes: minimal sufficient work, implementation planning, code and test review, complexity, logging, and multi-agent architecture.",
+  "description": "Scope, plan, review, simplify, and harden software changes: minimal sufficient work, implementation planning, code and test review, code simplification, complexity, logging, and multi-agent architecture.",
   "author": {
     "name": "Majestic Labs"
   },
