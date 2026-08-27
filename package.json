@@ -10,7 +10,7 @@
   "pi": {
     "skills": [
       "./plugins/*/skills",
-      "./cookbooks"
+      "./skills"
     ]
   }
 }

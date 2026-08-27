@@ -224,6 +224,8 @@ def validate_skill(skill_file):
     if allowed_tools is not None and not isinstance(allowed_tools, str):
         fail(f"{skill_file} allowed-tools must be a string")
 
+    return fields
+
 
 def marketplace_entries(path, source_for):
     marketplace = load_object(path)
@@ -273,13 +275,16 @@ if pi_package is not None:
     if not isinstance(keywords, list) or "pi-package" not in keywords:
         fail("package.json must include the pi-package keyword")
     pi_manifest = pi_package.get("pi")
-    expected_pi_skills = ["./plugins/*/skills", "./cookbooks"]
+    expected_pi_skills = ["./plugins/*/skills", "./skills"]
     if not isinstance(pi_manifest, dict) or pi_manifest.get("skills") != expected_pi_skills:
         fail(f"package.json pi.skills must equal {expected_pi_skills!r}")
 
 plugin_dirs = sorted(path for path in plugins_root.iterdir() if path.is_dir())
 if not plugin_dirs:
     fail("plugins/ must contain at least one plugin directory")
+
+plugin_skill_files = []
+plugin_cookbook_files = []
 
 plugin_sources = {f"./plugins/{path.name}" for path in plugin_dirs}
 for marketplace_path, entries in (
@@ -347,6 +352,9 @@ for plugin_dir in plugin_dirs:
             fail(f"{child} is an immediate skill directory without SKILL.md")
             continue
         immediate_skills.append(skill_file)
+        plugin_skill_files.append(skill_file)
+        if re.search(r"^## Requires\s*$", skill_file.read_text(encoding="utf-8"), re.MULTILINE):
+            plugin_cookbook_files.append(skill_file)
         try:
             if not skill_file.resolve().is_relative_to(plugin_dir.resolve()):
                 fail(f"{skill_file} resolves outside its plugin root")
@@ -369,6 +377,29 @@ for plugin_dir in plugin_dirs:
                     fail(f"{path} is a symlink that resolves outside its plugin root")
             except OSError as error:
                 fail(f"cannot resolve symlink {path}: {error}")
+
+cross_cookbook_files = sorted(root.glob("skills/*/SKILL.md"))
+for skill_file in cross_cookbook_files:
+    validate_skill(skill_file)
+    if not re.search(r"^## Requires\s*$", skill_file.read_text(encoding="utf-8"), re.MULTILINE):
+        fail(f"{skill_file} must be a cross-category cookbook with a ## Requires section")
+
+standalone_count = len(plugin_skill_files) - len(plugin_cookbook_files)
+if standalone_count != 168:
+    fail(f"expected 168 standalone plugin skills, found {standalone_count}")
+if len(plugin_cookbook_files) != 1:
+    fail(f"expected 1 plugin-hosted cookbook, found {len(plugin_cookbook_files)}")
+if len(cross_cookbook_files) != 4:
+    fail(f"expected 4 Skills CLI-discoverable cross-category cookbooks, found {len(cross_cookbook_files)}")
+if (root / "cookbooks").exists():
+    fail("cross-category cookbooks must live under skills/ for default Skills CLI discovery")
+
+sort_hat = root / ".maintainer" / "skills" / "sort-hat" / "SKILL.md"
+sort_hat_fields = validate_skill(sort_hat)
+if not isinstance(sort_hat_fields, dict) or sort_hat_fields.get("name") != "sort-hat":
+    fail(".maintainer/skills/sort-hat/SKILL.md must remain the sort-hat maintainer skill")
+if list(root.glob(".agents/skills/*/SKILL.md")):
+    fail("repository-maintainer skills must not use the public .agents/skills discovery container")
 
 if errors:
     for error in errors:

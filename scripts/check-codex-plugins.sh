@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 marketplace=".agents/plugins/marketplace.json"
-validator="${CODEX_PLUGIN_VALIDATOR:-$HOME/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py}"
+validator="${CODEX_PLUGIN_VALIDATOR:-scripts/vendor/codex-plugin-validator/validate_plugin.py}"
 status=0
 
 fail() {

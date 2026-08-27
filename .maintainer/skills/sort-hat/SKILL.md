@@ -25,7 +25,7 @@ Before deciding, inspect:
 
 - `README.md` for catalog categories and placement rules
 - `plugins/*/skills/**/SKILL.md` for equivalent triggers, workflows, and outputs
-- `cookbooks/**/SKILL.md` for composed workflows
+- `skills/**/SKILL.md` for cross-category composed workflows
 - the closest matching skill in full
 
 Prefer extending an existing asset when users would not know which of two skills to choose.

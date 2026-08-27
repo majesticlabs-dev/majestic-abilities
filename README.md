@@ -1,12 +1,12 @@
 # Majestic Abilities
 
-Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 168 standalone skills and 5 cookbooks, and follows the [Agent Skills](https://agentskills.io/) format.
+Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 168 standalone skills, one plugin-hosted cookbook, and four cross-category cookbooks, and follows the [Agent Skills](https://agentskills.io/) format.
 
 You can install:
 
-- a capability category as a native plugin for Claude Code, Codex, or Cursor;
+- a capability category as a native plugin for Claude Code or Codex;
 - the complete catalog as a Pi package;
-- individual skills, categories, or cookbooks with the [Vercel Skills CLI](https://github.com/vercel-labs/skills).
+- individual skills, categories, or cookbooks for supported agents, including Cursor, with the [Vercel Skills CLI](https://github.com/vercel-labs/skills).
 
 ## Contents
 
@@ -23,10 +23,11 @@ You can install:
 
 | Need | Route | Installed scope |
 | --- | --- | --- |
-| One capability category in Claude Code, Codex, or Cursor | Native plugin | All abilities in that category |
+| One capability category in Claude Code or Codex | Native plugin | All abilities in that category |
 | The complete catalog in Pi | Pi package | All categories and cross-category cookbooks |
 | One or more selected abilities | Skills CLI | Only the named skills or cookbooks |
 | The same selected abilities across several agents | Skills CLI | The named abilities for each selected agent |
+| One local category in Cursor during development | Local symlink | All abilities in the linked category |
 
 Native plugins keep skill descriptions namespaced by category. Installing only the categories you use reduces the descriptions loaded into each session.
 
@@ -69,7 +70,7 @@ codex plugin add majestic-engineer@majestic-abilities-codex
 
 ### Cursor
 
-Cursor loads the portable category manifests directly. For local development, symlink the categories you need:
+The supported public Cursor route is the Skills CLI below. There is no documented remote Cursor marketplace import for this repository. For local development from a checkout, symlink the categories you need:
 
 ```sh
 mkdir -p ~/.cursor/plugins/local
@@ -77,7 +78,7 @@ ln -s "$(pwd)/plugins/rails" ~/.cursor/plugins/local/majestic-rails
 ln -s "$(pwd)/plugins/engineer" ~/.cursor/plugins/local/majestic-engineer
 ```
 
-Restart Cursor or run **Developer: Reload Window** after changing the links. The root `.cursor-plugin/marketplace.json` lists every category for marketplace imports.
+Restart Cursor or run **Developer: Reload Window** after changing the links. The root `.cursor-plugin/marketplace.json` is retained for local manifest validation; it is not presented as a public remote-install route.
 
 ## Install the Pi Package
 
@@ -95,7 +96,7 @@ Use `pi config` to enable or disable package skills.
 
 ## Install with the Skills CLI
 
-The Skills CLI discovers every `SKILL.md` in the repository. It supports Claude Code, Codex, Pi, and Cursor.
+The default Skills CLI scan discovers 173 public abilities: 168 standalone skills, one plugin-hosted cookbook, and four cross-category cookbooks. The repository-only `sort-hat` maintainer skill lives outside public discovery containers. The CLI supports Claude Code, Codex, Pi, and Cursor.
 
 List the available abilities:
 
@@ -159,7 +160,7 @@ The CLI normally recommends symlinks so several agents can share one canonical i
 
 ## Browse the Catalog
 
-The catalog contains 168 standalone skills. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see every installable ability.
+The catalog contains 168 standalone skills plus five cookbooks, for 173 publicly installable abilities. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see the exact public inventory.
 
 | Category | Plugin | Skills | Focus |
 | --- | --- | ---: | --- |
@@ -188,14 +189,14 @@ Cookbooks are user-invoked workflows that sequence catalog skills by name. Catal
 | Cookbook | Location | Required categories | Purpose |
 | --- | --- | --- | --- |
 | [`ai-search-visibility-foundation`](plugins/seo/skills/ai-search-visibility-foundation/) | SEO plugin | `majestic-seo` | Establish SEO, entity, crawler, structured-data, and AEO measurement foundations |
-| [`founder-launch-decision`](cookbooks/founder-launch-decision/) | Cross-category | `majestic-founder`, `majestic-sales` | Produce a founder-led launch decision |
-| [`founder-next-stage-decision`](cookbooks/founder-next-stage-decision/) | Cross-category | `majestic-founder`, `majestic-product` | Decide a founder's next growth stage with a time-boxed evidence sprint |
-| [`product-engineering-handoff`](cookbooks/product-engineering-handoff/) | Cross-category | `majestic-engineer`, `majestic-product` | Prepare an approved product direction for engineering |
-| [`rails-feature`](cookbooks/rails-feature/) | Cross-category | `majestic-engineer`, `majestic-rails` | Build and review a Rails feature end to end |
+| [`founder-launch-decision`](skills/founder-launch-decision/) | Cross-category | `majestic-founder`, `majestic-sales` | Produce a founder-led launch decision |
+| [`founder-next-stage-decision`](skills/founder-next-stage-decision/) | Cross-category | `majestic-founder`, `majestic-product` | Decide a founder's next growth stage with a time-boxed evidence sprint |
+| [`product-engineering-handoff`](skills/product-engineering-handoff/) | Cross-category | `majestic-engineer`, `majestic-product` | Prepare an approved product direction for engineering |
+| [`rails-feature`](skills/rails-feature/) | Cross-category | `majestic-engineer`, `majestic-rails` | Build and review a Rails feature end to end |
 
-A cookbook that uses one category lives inside that category plugin. A cookbook that spans categories lives in `cookbooks/` and is available through Pi or the Skills CLI, not through a native category plugin.
+A cookbook that uses one category lives inside that category plugin. A cookbook that spans categories lives in the top-level `skills/` discovery container and is available through Pi or the Skills CLI, not through a native category plugin.
 
-Install every skill listed in the cookbook's `## Requires` section with the cookbook. Installers do not resolve these dependencies. See [`cookbooks/README.md`](cookbooks/README.md) for installation examples, placement rules, and the authoring contract.
+Install every skill listed in the cookbook's `## Requires` section with the cookbook. Installers do not resolve these dependencies. See [`skills/README.md`](skills/README.md) for installation examples, placement rules, and the authoring contract.
 
 ## Repository Model
 
@@ -204,7 +205,7 @@ Each category has one shared skill tree and three manifest routes:
 ```text
 .claude-plugin/marketplace.json       # Claude Code marketplace
 .agents/plugins/marketplace.json      # Codex marketplace
-.cursor-plugin/marketplace.json       # Cursor marketplace
+.cursor-plugin/marketplace.json       # Cursor metadata for local validation
 package.json                          # Pi package for the complete catalog
 plugins/
   <category>/
@@ -217,31 +218,35 @@ plugins/
         references/                   # optional
         scripts/                      # optional
         assets/                       # optional
-cookbooks/
+skills/                               # Skills CLI discovery container
   <cookbook-name>/
     SKILL.md
 scripts/
   check-agent-plugins.sh
   check-codex-plugins.sh
   check-cookbooks.sh
+  check-skills-cli.sh
 ```
 
 The category root `plugin.json` is authoritative for metadata shared by the portable, Claude Code, and Codex manifests. Category versions are independent. When a category version changes, update its root and native manifests together, plus each marketplace entry that carries the version.
 
 ## Development
 
-Install the portable manifest validator:
+Create an isolated Python environment and install the source-controlled validation dependencies:
 
 ```sh
-python3 -m pip install -r requirements-dev.txt
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements-dev.txt
 ```
 
-Run the repository checks before committing packaging or cookbook changes:
+Run the repository checks before committing packaging or cookbook changes. The Codex check uses the Apache-2.0 validator vendored under `scripts/vendor/`; it does not require `~/.codex`.
 
 ```sh
 scripts/check-agent-plugins.sh
 scripts/check-codex-plugins.sh
 scripts/check-cookbooks.sh
+scripts/check-skills-cli.sh
 ```
 
-The checks validate plugin manifests, cookbook placement, referenced skill names, and cookbook installation commands.
+The checks validate plugin manifests, the exact public inventory, cookbook placement, referenced skill names, cookbook installation commands, default Skills CLI discovery, and a real `rails-feature` install. The Skills CLI smoke check requires Node.js and network access for its pinned CLI package; pass a public repository source as its first argument to test the published source after release.

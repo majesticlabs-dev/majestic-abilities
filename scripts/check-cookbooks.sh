@@ -8,6 +8,8 @@ marketplace=".claude-plugin/marketplace.json"
 
 status=0
 found_cookbook=0
+hosted_cookbook_count=0
+cross_cookbook_count=0
 
 fail() {
   echo "FAIL: $1"
@@ -16,9 +18,10 @@ fail() {
 
 # A cookbook is any SKILL.md that declares a '## Requires' section. Cookbooks live
 # either inside the single plugin owning all their skills, or in top-level
-# cookbooks/ when they span two or more plugins.
+# skills/ when they span two or more plugins. skills/ is a default Skills CLI
+# discovery container.
 cookbooks=$(
-  for skill in plugins/*/skills/*/SKILL.md cookbooks/*/SKILL.md; do
+  for skill in plugins/*/skills/*/SKILL.md skills/*/SKILL.md; do
     [ -f "$skill" ] || continue
     grep -q '^## Requires' "$skill" && printf '%s\n' "$skill"
   done
@@ -104,6 +107,10 @@ for cookbook in $cookbooks; do
   case "$cookbook" in
     plugins/*)
       host_plugin="majestic-$(basename "$(dirname "$(dirname "$(dirname "$cookbook")")")")"
+      hosted_cookbook_count=$((hosted_cookbook_count + 1))
+      ;;
+    skills/*)
+      cross_cookbook_count=$((cross_cookbook_count + 1))
       ;;
   esac
 
@@ -144,7 +151,7 @@ $(printf '%s\n' "$skill_index" | awk -F'\t' -v n="$name" '$1 == n {print $2; exi
   plugin_count=$(printf '%s\n' "$required_plugins" | grep -c . || true)
 
   # Placement rule: a single-plugin cookbook ships inside that plugin, a
-  # cross-plugin cookbook stays in cookbooks/ and installs via the Skills CLI only.
+  # cross-plugin cookbook stays in skills/ and installs via the Skills CLI or Pi.
   if [ "$plugin_count" -eq 1 ]; then
     if [ -z "$host_plugin" ]; then
       fail "$cookbook needs only '$required_plugins' and belongs in plugins/${required_plugins#majestic-}/skills/"
@@ -152,7 +159,7 @@ $(printf '%s\n' "$skill_index" | awk -F'\t' -v n="$name" '$1 == n {print $2; exi
       fail "$cookbook ships in '$host_plugin' but its skills all live in '$required_plugins'"
     fi
   elif [ -n "$host_plugin" ]; then
-    fail "$cookbook spans $plugin_count plugins ($(printf '%s' "$required_plugins" | tr '\n' ' ')) and belongs in cookbooks/"
+    fail "$cookbook spans $plugin_count plugins ($(printf '%s' "$required_plugins" | tr '\n' ' ')) and belongs in skills/"
   fi
 
   body_refs=$(grep -oE '`[a-z0-9][a-z0-9-]*`' "$cookbook" \
@@ -169,6 +176,9 @@ $(printf '%s\n' "$skill_index" | awk -F'\t' -v n="$name" '$1 == n {print $2; exi
   if [ -z "$install_block" ]; then
     fail "$cookbook has no install command"
   else
+    if ! printf '%s\n' "$install_block" | grep -Fq 'npx skills add majesticlabs-dev/majestic-abilities'; then
+      fail "$cookbook install command must use the public Majestic Abilities Skills CLI source"
+    fi
     for name in "$cookbook_name" $requires; do
       if ! printf '%s\n' "$install_block" \
         | grep -Eq "(^|[[:space:]])${name}([[:space:]\\\\]|$)"; then
@@ -185,7 +195,13 @@ $(printf '%s\n' "$skill_index" | awk -F'\t' -v n="$name" '$1 == n {print $2; exi
 done
 
 if [ "$found_cookbook" -eq 0 ]; then
-  fail "no cookbooks found in cookbooks/ or under plugins/*/skills/"
+  fail "no cookbooks found in skills/ or under plugins/*/skills/"
+fi
+if [ "$hosted_cookbook_count" -ne 1 ]; then
+  fail "expected 1 plugin-hosted cookbook, found $hosted_cookbook_count"
+fi
+if [ "$cross_cookbook_count" -ne 4 ]; then
+  fail "expected 4 Skills CLI-discoverable cross-category cookbooks, found $cross_cookbook_count"
 fi
 
 if [ "$status" -eq 0 ]; then

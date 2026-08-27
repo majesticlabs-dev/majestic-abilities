@@ -9,7 +9,7 @@ Placement follows the plugins its required skills belong to:
 | Required skills come from | The cookbook lives in | Install routes |
 | --- | --- | --- |
 | One plugin | That plugin, at `plugins/<category>/skills/<name>/` | Skills CLI or the harness's native category-plugin installer |
-| Two or more plugins | This directory, `cookbooks/<name>/` | Skills CLI only |
+| Two or more plugins | This directory, `skills/<name>/` | Skills CLI or Pi package |
 
 A cross-plugin cookbook is not part of any category plugin. Installing it as one would drag in every category it touches and load all of their skill descriptions into every session. The Skills CLI installs exactly the named skills instead.
 
@@ -46,7 +46,7 @@ Omit `--agent` so the Skills CLI can detect or ask for the current harness. A si
 
 ## Writing A New Cookbook
 
-1. List the skills the workflow needs and find which plugins own them. That decides the location: one plugin means `plugins/<category>/skills/<name>/SKILL.md`, two or more means `cookbooks/<name>/SKILL.md`.
+1. List the skills the workflow needs and find which plugins own them. That decides the location: one plugin means `plugins/<category>/skills/<name>/SKILL.md`, two or more means `skills/<name>/SKILL.md`.
 2. Create `SKILL.md` there with standard frontmatter (`name`, `description`), and sequence the steps referencing skills by their exact frontmatter `name:`.
 3. Add a `## Requires` section listing each referenced skill with a one-line reason, followed by a harness-neutral `npx skills` command naming the cookbook and every required skill. Do not add `--agent` or a harness-native plugin command to a cookbook.
 4. Add a `## Hard Gates` section naming the steps the consuming project should enforce with hooks or CI.
