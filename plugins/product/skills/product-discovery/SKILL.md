@@ -20,12 +20,13 @@ Own discovery research, synthesis, and assumption framing. Stop at prioritized a
 
 1. Write the decision and list current assumptions as desirability, viability, or feasibility.
 2. Choose interviews, observation, existing-data analysis, or a research prototype based on the question and participant risk.
-3. For interviews, ask about recent concrete behavior, current workaround, trigger, cost, search, switching, and decision process.
-4. Map the job: situation, functional progress, emotional and social dimensions, and push, pull, anxiety, and habit forces.
-5. Capture verbatim evidence separately from interpretation and minimize personal data.
-6. Synthesize repeated patterns, contradictions, segment differences, and negative cases.
-7. Rank assumptions by impact if wrong, evidence weakness, and reversibility.
-8. State what evidence is still required before solution definition or an executable validation test.
+3. For interviews, choose a light interview plan or a traceable multi-interview round. Use [customer-interview-system.md](references/customer-interview-system.md) when goals, hypotheses, questions, participant records, and findings must remain linked across a research round.
+4. Ask about recent concrete behavior, current workaround, trigger, cost, search, switching, and decision process.
+5. Map the job: situation, functional progress, emotional and social dimensions, and push, pull, anxiety, and habit forces.
+6. Capture verbatim evidence separately from interpretation and minimize personal data.
+7. Synthesize repeated patterns, contradictions, segment differences, and negative cases.
+8. Rank assumptions by impact if wrong, evidence weakness, and reversibility.
+9. State what evidence is still required before solution definition or an executable validation test.
 
 ## Output
 
@@ -33,7 +34,8 @@ Own discovery research, synthesis, and assumption framing. Stop at prioritized a
 2. **Interview or research plan**
 3. **Evidence table and JTBD framing**
 4. **Synthesis with contradictions and confidence**
-5. **Prioritized assumptions and evidence gaps**
+5. **Traceability register and round status when using the multi-interview workflow**
+6. **Prioritized assumptions and evidence gaps**
 
 ## Quality Gate
 
@@ -41,8 +43,9 @@ Own discovery research, synthesis, and assumption framing. Stop at prioritized a
 - Anecdotes are not called patterns.
 - Feature requests are traced to underlying jobs.
 - Interpretation rules are set before research begins.
+- In a traceable round, material findings cite participant records and state sample limits.
 - No demand test or product verdict is smuggled into discovery.
 
 ## Reference
 
-Use [discovery-methods.md](references/discovery-methods.md) for interview and assumption worksheets.
+Use [discovery-methods.md](references/discovery-methods.md) for lightweight interview and assumption worksheets. Use [customer-interview-system.md](references/customer-interview-system.md) for a traceable multi-interview round.
