@@ -1,6 +1,6 @@
 # Majestic Abilities
 
-Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 168 standalone skills and 4 cookbooks, and follows the [Agent Skills](https://agentskills.io/) format.
+Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 168 standalone skills and 5 cookbooks, and follows the [Agent Skills](https://agentskills.io/) format.
 
 You can install:
 

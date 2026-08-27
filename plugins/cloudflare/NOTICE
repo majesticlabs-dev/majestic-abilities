@@ -1,0 +1,11 @@
+Cloudflare Agent Skills
+
+The majestic-cloudflare plugin contains material derived from
+https://github.com/cloudflare/skills, licensed under the Apache License 2.0.
+The audited upstream snapshot is commit f96bff754e428838818017f75817f0f9428acd48.
+Majestic Labs repackaged the material and modified metadata and selected skill
+content for this multi-agent catalog.
+
+The plugin is distributed under the Apache License 2.0 in this directory.
+Subcomponents with their own LICENSE files retain those separate terms and
+copyright notices.
