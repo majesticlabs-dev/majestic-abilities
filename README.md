@@ -1,6 +1,6 @@
 # Majestic Abilities
 
-Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 166 standalone skills and 4 cookbooks, and follows the [Agent Skills](https://agentskills.io/) format.
+Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 167 standalone skills and 4 cookbooks, and follows the [Agent Skills](https://agentskills.io/) format.
 
 You can install:
 
@@ -159,7 +159,7 @@ The CLI normally recommends symlinks so several agents can share one canonical i
 
 ## Browse the Catalog
 
-The catalog contains 166 standalone skills. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see every installable ability.
+The catalog contains 167 standalone skills. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see every installable ability.
 
 | Category | Plugin | Skills | Focus |
 | --- | --- | ---: | --- |
@@ -167,7 +167,7 @@ The catalog contains 166 standalone skills. Follow a category link to browse its
 | [Core](plugins/core/skills/) | `majestic-core` | 2 | Agent-ready repositories and nested guidance audits |
 | [Data](plugins/data/skills/) | `majestic-data` | 8 | Pipelines, contracts, quality controls, source assessment, and dbt |
 | [DevOps](plugins/devops/skills/) | `majestic-devops` | 10 | OpenTofu, Ansible, cloud-init, Kamal, secrets, storage, and infrastructure review |
-| [Engineer](plugins/engineer/skills/) | `majestic-engineer` | 9 | Scoping, planning, task decomposition, code review, testing, complexity, and logging |
+| [Engineer](plugins/engineer/skills/) | `majestic-engineer` | 10 | Scoping, planning, task decomposition, code review, testing, complexity, logging, and code simplification |
 | [Founder](plugins/founder/skills/) | `majestic-founder` | 9 | Strategy, priorities, finance, fundraising, go-to-market, and launch readiness |
 | [Frontend](plugins/frontend/skills/) | `majestic-frontend` | 5 | Visual direction, performance, accessibility, validation, and screenshots |
 | [Marketing](plugins/marketing/skills/) | `majestic-marketing` | 13 | Positioning, naming, research, content, campaigns, and growth experiments |

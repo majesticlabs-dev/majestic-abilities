@@ -1,7 +1,7 @@
 {
   "name": "majestic-engineer",
   "version": "0.1.0",
-  "description": "Scope, plan, review, and harden software changes: minimal sufficient work, implementation planning, code and test review, complexity, logging, and multi-agent architecture.",
+  "description": "Scope, plan, review, simplify, and harden software changes: minimal sufficient work, implementation planning, code and test review, code simplification, complexity, logging, and multi-agent architecture.",
   "author": {
     "name": "Majestic Labs"
   },
@@ -14,8 +14,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Majestic Engineer",
-    "shortDescription": "Software planning, review, testing, and architecture skills.",
-    "longDescription": "Scope, plan, review, and harden software changes: minimal sufficient work, implementation planning, code and test review, complexity, logging, and multi-agent architecture.",
+    "shortDescription": "Software planning, review, testing, architecture, and code simplification skills.",
+    "longDescription": "Scope, plan, review, simplify, and harden software changes: minimal sufficient work, implementation planning, code and test review, code simplification, complexity, logging, and multi-agent architecture.",
     "developerName": "Majestic Labs",
     "category": "Developer Tools",
     "capabilities": ["Skills"],
