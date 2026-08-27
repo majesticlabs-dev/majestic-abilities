@@ -189,6 +189,7 @@ Cookbooks are user-invoked workflows that sequence catalog skills by name. Catal
 | --- | --- | --- | --- |
 | [`ai-search-visibility-foundation`](plugins/seo/skills/ai-search-visibility-foundation/) | SEO plugin | `majestic-seo` | Establish SEO, entity, crawler, structured-data, and AEO measurement foundations |
 | [`founder-launch-decision`](cookbooks/founder-launch-decision/) | Cross-category | `majestic-founder`, `majestic-sales` | Produce a founder-led launch decision |
+| [`founder-next-stage-decision`](cookbooks/founder-next-stage-decision/) | Cross-category | `majestic-founder`, `majestic-product` | Decide a founder's next growth stage with a time-boxed evidence sprint |
 | [`product-engineering-handoff`](cookbooks/product-engineering-handoff/) | Cross-category | `majestic-engineer`, `majestic-product` | Prepare an approved product direction for engineering |
 | [`rails-feature`](cookbooks/rails-feature/) | Cross-category | `majestic-engineer`, `majestic-rails` | Build and review a Rails feature end to end |
 
