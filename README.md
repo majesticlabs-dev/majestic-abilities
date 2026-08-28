@@ -108,6 +108,16 @@ npx skills add majesticlabs-dev/majestic-abilities --list
 npx skills add . --list
 ```
 
+Find relevant skills for the current project:
+
+```sh
+npx skills add \
+  https://github.com/majesticlabs-dev/majestic-abilities/tree/master/tools/majestic-skill-finder \
+  --skill majestic-skill-finder
+```
+
+Run `majestic-skill-finder` from the active agent harness. Remove it from the project after it installs the selected abilities.
+
 Install one skill into a project:
 
 ```sh
