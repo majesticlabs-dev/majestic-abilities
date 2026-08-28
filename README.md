@@ -108,6 +108,25 @@ npx skills add majesticlabs-dev/majestic-abilities --list
 npx skills add . --list
 ```
 
+### Find and Install Relevant Skills
+
+From the project root, temporarily install `majestic-skill-finder`:
+
+```sh
+npx skills add \
+  https://github.com/majesticlabs-dev/majestic-abilities/tree/master/tools/majestic-skill-finder \
+  --skill majestic-skill-finder \
+  --agent codex \
+  --yes
+```
+
+This installs the temporary finder only in `.agents/skills`. Use a low-cost model with a 1M-token context window, such as `deepseek-v4-flash`. Then:
+
+1. Ask that harness to run `majestic-skill-finder`.
+2. Review the recommendations and select the skills to install.
+3. Select `.agents/skills` (default) or `.claude/skills` as the project destination.
+4. When installation finishes, confirm whether the finder should remove its temporary project copy.
+
 Install one skill into a project:
 
 ```sh
