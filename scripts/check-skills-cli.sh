@@ -19,8 +19,8 @@ list_file="$tmp_home/skills-list.txt"
 printf '%s\n' "$list_output" > "$list_file"
 printf '%s\n' "$list_output"
 
-if ! grep -Fq 'Found 173 skills' "$list_file"; then
-  echo "FAIL: Skills CLI must discover exactly 173 public abilities" >&2
+if ! grep -Fq 'Found 174 skills' "$list_file"; then
+  echo "FAIL: Skills CLI must discover exactly 174 abilities" >&2
   exit 1
 fi
 
@@ -28,30 +28,31 @@ for skill in \
   ai-search-visibility-foundation \
   founder-launch-decision \
   founder-next-stage-decision \
+  plugin-release \
   product-engineering-handoff \
-  rails-feature; do
+  rails-feature \
+  sort-hat; do
   if ! grep -Fq "$skill" "$list_file"; then
     echo "FAIL: Skills CLI did not discover $skill" >&2
     exit 1
   fi
 done
 
-if grep -Fq 'sort-hat' "$list_file"; then
-  echo "FAIL: internal maintainer skill sort-hat leaked into public discovery" >&2
-  exit 1
-fi
-
-if (
+(
   cd "$tmp_project"
   npx --yes "skills@${skills_cli_version}" add "$source_ref" \
-    --skill sort-hat \
+    --skill plugin-release sort-hat \
     --agent codex \
     --copy \
-    --yes >/dev/null 2>&1
-); then
-  echo "FAIL: internal maintainer skill sort-hat is publicly installable" >&2
-  exit 1
-fi
+    --yes >/dev/null
+)
+
+for skill in plugin-release sort-hat; do
+  if [ ! -f "$tmp_project/.agents/skills/$skill/SKILL.md" ]; then
+    echo "FAIL: Skills CLI did not install repository skill $skill for Codex" >&2
+    exit 1
+  fi
+done
 
 (
   cd "$tmp_project"
@@ -78,4 +79,4 @@ for skill in \
   fi
 done
 
-echo "OK: Skills CLI ${skills_cli_version} discovers 173 public abilities and installs rails-feature with all required skills"
+echo "OK: Skills CLI ${skills_cli_version} discovers 174 abilities and installs repository skills plus rails-feature dependencies"

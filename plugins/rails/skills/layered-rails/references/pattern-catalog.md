@@ -1,6 +1,6 @@
 # Pattern Catalog by Layer
 
-Detailed selection guidance for each pattern. For implementation, use the referenced skill.
+Use this catalog to select and implement a fitting pattern without assuming another skill is installed.
 
 ## Presentation Layer
 
@@ -76,7 +76,7 @@ class DashboardPresenter
 end
 ```
 
-**Prefer ViewComponent when:** The presenter needs its own template (use `viewcomponent-coder`).
+**Prefer ViewComponent when:** The presenter needs its own template.
 
 ### Serializer
 
@@ -156,7 +156,7 @@ Orchestrates operations across multiple domain objects.
 - External side-effects (emails, API calls) must be coordinated
 - Operation is reused from controllers, jobs, and console
 
-**Prefer ActiveInteraction** over plain service objects for typed inputs and standardized interface. See `active-interaction-coder`.
+Use ActiveInteraction when the application already uses it and the operation benefits from typed inputs, validations, and a standardized outcome. Otherwise, start with a plain Ruby operation object.
 
 ```ruby
 # Plain service (when ActiveInteraction is not available)
@@ -170,31 +170,31 @@ module Orders
     end
 
     def call
-      ActiveRecord::Base.transaction do
-        order = create_order
-        charge = process_payment(order)
-        order.update!(payment_id: charge.id)
-        send_confirmation(order)
-        order
-      end
+      order = create_pending_order
+      charge = PaymentGateway.charge(
+        @payment_method,
+        amount: order.total,
+        idempotency_key: "order-#{order.id}"
+      )
+      order.update!(payment_id: charge.id, status: "paid")
+      OrderMailer.confirmation(order).deliver_later
+      order
     end
 
     private
 
-    def create_order
-      Order.create!(user: @user, items: @cart.items, total: @cart.total)
-    end
-
-    def process_payment(order)
-      PaymentGateway.charge(@payment_method, amount: order.total)
-    end
-
-    def send_confirmation(order)
-      OrderMailer.confirmation(order).deliver_later
+    def create_pending_order
+      ActiveRecord::Base.transaction do
+        order = Order.create!(user: @user, total: @cart.total, status: "pending")
+        order.line_items.create!(@cart.line_item_attributes)
+        order
+      end
     end
   end
 end
 ```
+
+Persist the pending order before the external call so a retry can recover it. Use a stable idempotency key to prevent duplicate charges.
 
 **Warning signs the service should be split:**
 - Service > 50 lines
@@ -203,9 +203,7 @@ end
 
 ### Policy Object
 
-Authorization decisions separated from controllers.
-
-See `action-policy-coder` for full implementation guidance.
+Authorization decisions separated from controllers. Use the application's existing policy library, or a plain Ruby policy with one public decision method.
 
 **Use when:**
 - Authorization rules are complex (RBAC, ABAC, resource-based)
@@ -288,7 +286,7 @@ end
 
 ### State Machine
 
-See `aasm-coder` for full implementation guidance.
+Model explicit states, permitted transitions, and guards together. Use AASM when the application already depends on it; otherwise, plain enum-backed transition methods can be sufficient.
 
 **Use when:**
 - Object has distinct states with defined transitions
@@ -331,12 +329,12 @@ end
 ## Decision Summary
 
 ```
-Need typed inputs + standard interface? → ActiveInteraction (active-interaction-coder)
-Need authorization? → ActionPolicy (action-policy-coder)
-Need state transitions? → AASM (aasm-coder)
-Need JSON attributes? → StoreModel (store-model-coder)
-Need typed config? → AnywayConfig (anyway-config-coder)
-Need event audit trail? → Event Sourcing (event-sourcing-coder)
-Need view components? → ViewComponent (viewcomponent-coder)
-Everything else → Use patterns in this catalog
+Need typed inputs and a standard outcome? → ActiveInteraction when already adopted
+Need authorization? → Policy Object using the application's policy library
+Need state transitions? → State Machine, with AASM when already adopted
+Need typed JSON attributes? → StoreModel or a typed value object
+Need typed configuration? → Configuration object using the application's existing library
+Need a durable audit trail? → Persisted domain event records
+Need reusable rendered UI? → ViewComponent
+Everything else → Use the simplest pattern in this catalog
 ```

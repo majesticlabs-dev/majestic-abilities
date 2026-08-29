@@ -1,114 +1,141 @@
 # Rails Business Logic SOP
 
-Use this SOP to decide whether Rails business logic belongs in a typed operation, a state machine, a model, or another layer.
+Use this SOP to decide where Rails business logic belongs. Start with ordinary Rails objects and add a specialized pattern only when it removes demonstrated complexity.
 
-## Routing
+## Selection
 
-| Need | Use | When |
+| Need | Pattern | When |
 | --- | --- | --- |
-| Typed operation | `active-interaction-coder` | One-time business operation with typed inputs and validations |
-| State machine | `aasm-coder` | Entity lifecycle with explicit states and transitions |
-| Layer extraction | `layered-rails` | Business logic is leaking across controller, model, service, and callback boundaries |
-| Event history | `event-sourcing-coder` | State transitions need durable event records or audit trails |
+| Invariant with one clear owner | Model method or concern | The rule depends on one domain object |
+| Multi-model operation | Plain operation object | One action coordinates records or owns a transaction boundary |
+| Typed inputs and validations | ActiveInteraction | The application already uses it and needs a standard outcome object |
+| Explicit lifecycle | State machine | Valid states, transitions, and guards form part of the domain |
+| Durable audit history | Persisted domain event record | The application must retain what happened, when, and by whom |
+| Misplaced responsibility | Extract to the correct layer | HTTP, domain, orchestration, and infrastructure concerns are mixed |
 
-## ActiveInteraction
+Do not combine these patterns by default. For example, a state machine does not require an operation object unless transition orchestration has its own clear boundary.
 
-Use for operations that happen once:
+## Model Behavior
 
-- User registration
-- Order placement
-- Payment processing
-- Data imports
-- Report generation
+Keep a rule on the model when one object owns it and the behavior protects its own valid state.
 
 ```ruby
-outcome = Users::Create.run(email: email, name: name)
+class Order < ApplicationRecord
+  def cancel!(actor:)
+    raise CannotCancel unless pending?
+
+    update!(status: "cancelled", cancelled_by: actor)
+  end
+end
 ```
 
-## AASM
+Pass request context such as the current user as an explicit argument. Models must not read controller objects, request parameters, or request-local state.
 
-Use for stateful entities with a lifecycle:
+## Operation Objects
 
-- Order status: pending, paid, shipped
-- Subscription state: trial, active, cancelled
-- Document workflow: draft, review, published
-- Task status: todo, in_progress, done
-
-```ruby
-order.pay!
-order.ship!
-```
-
-## Combined Pattern
-
-Interactions can trigger state transitions when the operation owns the transaction boundary.
+Use one operation object when a user action coordinates multiple domain objects or owns one transaction boundary.
 
 ```ruby
 module Orders
-  class Process < ActiveInteraction::Base
-    object :order, class: Order
+  class Place
+    def initialize(cart:, customer:)
+      @cart = cart
+      @customer = customer
+    end
 
-    def execute
-      order.process!
-      fulfill_order(order)
-      order
+    def call
+      validate_cart!
+
+      ActiveRecord::Base.transaction do
+        order = Order.create!(customer: @customer, total: @cart.total)
+        order.line_items.create!(@cart.line_item_attributes)
+        order
+      end
     end
   end
 end
 ```
 
-## Transaction Boundaries
+Use a plain Ruby object first. Use ActiveInteraction when the application already depends on it and typed inputs, validations, composition, or a standard outcome object provide a concrete benefit.
 
-Multi-step database changes need explicit transaction boundaries.
+## State Machines
+
+Use a state machine when the entity has explicit states and only specified transitions are valid.
 
 ```ruby
-def transfer_funds(from, to, amount)
-  ActiveRecord::Base.transaction do
-    from.lock!
-    to.lock!
-    from.update!(balance: from.balance - amount)
-    to.update!(balance: to.balance + amount)
+class Order < ApplicationRecord
+  enum :status, pending: "pending", paid: "paid", shipped: "shipped"
+
+  def mark_paid!
+    raise InvalidTransition unless pending?
+
+    update!(status: "paid")
   end
+end
+```
+
+Use AASM when the application already depends on it and several transitions, guards, or callbacks make plain transition methods difficult to inspect. Keep external side effects outside transition transactions.
+
+## Durable Event History
+
+A state column records the current value. It does not record how the entity reached that value. Add an event record only when audit, activity, integration, or debugging requirements need durable history.
+
+Persist the state change and its event in the same database transaction. Dispatch notifications, webhooks, and other external side effects after commit.
+
+## Transaction Boundaries
+
+Multi-step database changes need an explicit transaction boundary.
+
+```ruby
+ActiveRecord::Base.transaction do
+  from.lock!
+  to.lock!
+  from.update!(balance: from.balance - amount)
+  to.update!(balance: to.balance + amount)
 end
 ```
 
 Rules:
 
-1. Lock records in a consistent order.
-2. Keep transactions short.
-3. Do not wait for user input inside transactions.
-4. Do not call external APIs inside transactions.
-5. Validate first, transact last.
+1. Validate inputs before opening the transaction.
+2. Lock records in a consistent order.
+3. Keep the transaction short.
+4. Do not wait for user input inside a transaction.
+5. Do not call external APIs inside a transaction.
+6. Dispatch asynchronous side effects after commit.
 
 ## Nested Transactions
 
-Use `requires_new: true` when an inner failure must roll back only the inner unit.
+Use `requires_new: true` only when a database savepoint is the required behavior. An exception that escapes the inner block still rolls back the outer transaction.
 
 ```ruby
-transaction do
-  create_order!
-  transaction(requires_new: true) do
-    charge_card!
+Order.transaction do
+  order.update!(status: "processed")
+
+  AuditRecord.transaction(requires_new: true) do
+    AuditRecord.create!(record: order, action: "processed")
   end
 end
 ```
 
-## Anti-Patterns
+Avoid nested transactions when one clear outer transaction can express the operation.
 
-| Anti-Pattern | Problem | Fix |
-| --- | --- | --- |
-| Long transactions | Lock contention | Split into smaller units |
-| API calls inside transactions | Timeouts block database locks | Call outside, then persist results |
-| User input inside transactions | Indefinite locks | Validate before transaction |
-| Nested transactions by accident | Savepoint confusion | Use explicit transaction semantics |
-| Services accepting controller objects | HTTP concerns leak into domain layer | Pass typed inputs or model objects |
+## Tests
+
+Test observable behavior at the boundary that owns it:
+
+- Model test for one-object invariants and invalid state changes.
+- Operation test for validation, persisted results, and atomic rollback.
+- State machine test for permitted and rejected transitions.
+- Event-history test for state and event records committed together.
+- Integration test for asynchronous side effects dispatched after commit.
 
 ## Success Checklist
 
 - Lower layers do not reference higher layers.
 - Models do not access request-local state.
-- Services do not accept request or controller objects.
+- Operation objects accept domain values, not request or controller objects.
 - Controllers contain only HTTP concerns.
-- Domain logic lives in the right domain object or operation.
-- Callback-heavy flows are extracted or justified.
-- Each abstraction belongs to exactly one layer.
+- External calls do not hold database locks.
+- Each abstraction owns one clear boundary.
+- Every specialized pattern solves a demonstrated problem.

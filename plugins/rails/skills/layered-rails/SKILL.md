@@ -1,12 +1,12 @@
 ---
 name: layered-rails
-description: "Design Rails applications using layered architecture. Use when analyzing codebases for architecture violations, planning feature implementations, deciding where code belongs, or extracting abstractions from fat models/controllers. Complements dhh-rails-style (which keeps things simple) with guidance for when complexity demands structure."
+description: "Design Rails applications using layered architecture. Use when analyzing codebases for architecture violations, planning feature implementations, deciding where code belongs, or extracting abstractions from fat models/controllers. Default to ordinary Rails conventions until application complexity requires explicit boundaries."
 ---
 
 # Layered Rails Architecture
 
 **Audience:** Rails developers working on applications that have outgrown single-file patterns.
-**Goal:** Know which layer code belongs in, when to extract, and which existing skill handles the implementation.
+**Goal:** Know which layer code belongs in, when to extract, and which implementation pattern fits.
 
 ## Four-Layer Architecture
 
@@ -70,21 +70,21 @@ Rate each callback 1-5. Extract anything scoring 1-2.
 
 **"Where should this code go?"**
 
-| Situation | Pattern | Layer | Skill |
-|-----------|---------|-------|-------|
-| Complex multi-model form | Form Object | Presentation | n/a |
-| Request param filtering | Filter Object | Presentation | n/a |
-| View-specific formatting | Presenter / ViewComponent | Presentation | `viewcomponent-coder` |
-| Authorization rules | Policy Object | Application | `action-policy-coder` |
-| Business operation (one-time) | Service / Interaction | Application | `active-interaction-coder` |
-| Multi-model orchestration | Service Object | Application | `active-interaction-coder` |
-| State lifecycle management | State Machine | Domain | `aasm-coder` |
-| Complex reusable query | Query Object | Domain | n/a |
-| Immutable concept (Money, DateRange) | Value Object | Domain | n/a |
-| Shared model behavior | Concern | Domain | n/a |
-| Typed configuration | Config Object | Infrastructure | `anyway-config-coder` |
-| Domain events / audit trail | Event Sourcing | Infrastructure | `event-sourcing-coder` |
-| JSON-backed attributes | Store Model | Domain | `store-model-coder` |
+| Situation | Pattern | Layer |
+|-----------|---------|-------|
+| Complex multi-model form | Form Object | Presentation |
+| Request param filtering | Filter Object | Presentation |
+| View-specific formatting | Presenter or ViewComponent | Presentation |
+| Authorization rules | Policy Object | Application |
+| Business operation with one transaction boundary | Plain Operation Object | Application |
+| Operation needing typed inputs and validations | ActiveInteraction | Application |
+| State lifecycle management | State Machine, with AASM when already adopted | Domain |
+| Complex reusable query | Query Object | Domain |
+| Immutable concept (Money, DateRange) | Value Object | Domain |
+| Shared model behavior | Concern | Domain |
+| Typed configuration | Config Object | Infrastructure |
+| Durable domain event or audit history | Event Record | Infrastructure |
+| JSON-backed attributes | Typed Value Object or StoreModel | Domain |
 
 ### Decision Tree
 
@@ -97,18 +97,18 @@ Is it about HTTP/params/rendering?
   NO ↓
 
 Is it authorization?
-  YES → Policy Object (action-policy-coder)
+  YES → Policy Object
   NO ↓
 
-Does it orchestrate multiple models/services?
+Does it orchestrate multiple models or services?
   YES → Application layer
-    One-time operation? → Service/Interaction (active-interaction-coder)
-    Needs typed inputs? → ActiveInteraction (active-interaction-coder)
+    One transaction boundary? → Plain Operation Object
+    Needs typed inputs and validations? → ActiveInteraction
   NO ↓
 
 Is it a business rule about a single model?
   YES → Domain layer (keep in model or concern)
-    Has state transitions? → AASM (aasm-coder)
+    Has state transitions? → State Machine
     Reusable query? → Query Object
     Immutable value? → Value Object
   NO ↓
@@ -163,20 +163,18 @@ class Order < ApplicationRecord
 end
 ```
 
-## When Layered vs DHH Style
+## When to Add Layers
 
-This skill complements `dhh-rails-style`, not replaces it.
+| Situation | Approach |
+|-----------|----------|
+| Small or medium app with standard CRUD | Keep ordinary Rails structure |
+| Complex domain with multiple bounded contexts | Add explicit layer boundaries |
+| Authorization beyond simple checks | Extract a policy object |
+| Fat model with several responsibilities | Apply the extraction signals |
+| Standard controller actions | Keep the seven REST actions |
+| Multi-step business operation | Add one operation object with an explicit transaction boundary |
 
-| Situation | Use |
-|-----------|-----|
-| Small/medium app, standard CRUD | `dhh-rails-style`: keep it simple |
-| Complex domain, multiple bounded contexts | `layered-rails`: add structure |
-| Authorization beyond simple checks | `action-policy-coder` via layered guidance |
-| Fat model with 500+ lines | `layered-rails` extraction signals |
-| Standard controller actions | `dhh-rails-style`: 7 REST actions |
-| Multi-step business operation | `active-interaction-coder` via layered guidance |
-
-**Default to simplicity.** Reach for layered patterns only when complexity demands it.
+**Default to simplicity.** Add a layer only when it removes demonstrated complexity.
 
 ## Success Checklist
 
@@ -189,19 +187,8 @@ This skill complements `dhh-rails-style`, not replaces it.
 - [ ] Concerns group by behavior, not by artifact type
 - [ ] Each abstraction belongs to exactly one layer
 
-## Cross-References
+## References
 
-| Need | Skill |
-|------|-------|
-| Authorization policies | `action-policy-coder` |
-| Typed business operations | `active-interaction-coder` |
-| State machines | `aasm-coder` |
-| Operations + state routing | `active-interaction-coder`, `aasm-coder`, and [references/rails-business-logic.md](references/rails-business-logic.md) |
-| ViewComponents | `viewcomponent-coder` |
-| Typed configuration | `anyway-config-coder` |
-| Event sourcing / audit | `event-sourcing-coder` |
-| JSON attributes | `store-model-coder` |
-| Refactoring execution | `rails-refactorer` |
-| DHH-style simplicity | `dhh-rails-style` |
-| Pattern catalog details | [references/pattern-catalog.md](references/pattern-catalog.md) |
-| Extraction methodology | [references/extraction-signals.md](references/extraction-signals.md) |
+- [Business logic and transaction guidance](references/rails-business-logic.md)
+- [Pattern catalog](references/pattern-catalog.md)
+- [Extraction methodology](references/extraction-signals.md)

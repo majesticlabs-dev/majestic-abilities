@@ -31,7 +31,7 @@ Step-by-step diagnostic for misplaced responsibilities.
 - #3 → `Users::ProcessAvatar` service or ActiveStorage callback
 - #4 → `after_create_commit` job or Active Delivery
 - #5 → Keep if simple (`def display_name = "#{first} #{last}"`), else Presenter
-- #8 → Event handler or `event-sourcing-coder` pattern
+- #8 → Persisted domain event record and event handler
 
 ### Worked Example: `OrdersController` (Presentation Layer)
 
@@ -45,9 +45,9 @@ Step-by-step diagnostic for misplaced responsibilities.
 | 6 | Render response | Presentation | Yes |
 
 **Extraction plan:**
-- #2 → `OrderPolicy` via `action-policy-coder`
-- #3 → `Order#apply_discount` or `Discounts::Calculate` interaction
-- #4 + #5 → `Orders::Create` interaction via `active-interaction-coder`
+- #2 → `OrderPolicy`
+- #3 → `Order#apply_discount` or a `Discounts::Calculate` operation
+- #4 + #5 → One `Orders::Create` operation with an explicit transaction boundary
 
 ## Callback Scoring Rubric
 
@@ -107,7 +107,7 @@ after_commit :notify_admin_of_changes, on: :update
 
 **Extraction options:**
 - Move to `after_commit` + background job (minimum fix)
-- Extract to Active Delivery notification (see `event-sourcing-coder`)
+- Extract to the application's notification abstraction
 - Use pub/sub if multiple observers exist
 
 ### Score 1: Operation
@@ -122,7 +122,7 @@ after_create :create_default_project
 after_create :enqueue_onboarding_sequence
 
 # These are an entire workflow hiding in callbacks.
-# Extract to: Users::Onboard interaction (active-interaction-coder)
+# Extract to: Users::Onboard operation object
 ```
 
 **Why extract:** These callbacks couple the model to orchestration logic. Creating a User in tests/console triggers the entire onboarding workflow. The model shouldn't know about business processes.

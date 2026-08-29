@@ -107,7 +107,7 @@
       "name": "majestic-misc",
       "source": "./plugins/misc",
       "description": "Portable capabilities for actionable communication, lessons learned, visual explanations, execution grading, and skill design.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "category": "misc",
       "keywords": [
         "skills",
@@ -131,7 +131,7 @@
       "name": "majestic-rails",
       "source": "./plugins/rails",
       "description": "Write, debug, and explicitly review Ruby on Rails applications across framework correctness, Hotwire, Active Job, Solid, testing, and Rails-native design.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "category": "rails",
       "keywords": [
         "rails",

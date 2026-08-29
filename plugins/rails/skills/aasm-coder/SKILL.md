@@ -196,6 +196,6 @@ end
 For multiple state machines, persistence options, and history tracking see:
 - `references/aasm-patterns.md`
 
-## Related Skills
+## Durable Event History
 
-- **`event-sourcing-coder`** - For recording domain events when state transitions should trigger notifications, webhooks, or audit trails.
+AASM stores the current state, not a durable transition history. When audit or integration requirements need that history, persist an event record in the same database transaction as the state change. Dispatch notifications, webhooks, and other external side effects after commit.

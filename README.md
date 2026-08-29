@@ -1,6 +1,6 @@
 # Majestic Abilities
 
-Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 168 standalone skills, one plugin-hosted cookbook, and four cross-category cookbooks, and follows the [Agent Skills](https://agentskills.io/) format.
+Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 167 catalog skills, five cookbooks, and two repository-operating skills, and follows the [Agent Skills](https://agentskills.io/) format.
 
 You can install:
 
@@ -96,7 +96,7 @@ Use `pi config` to enable or disable package skills.
 
 ## Install with the Skills CLI
 
-The default Skills CLI scan discovers 173 public abilities: 168 standalone skills, one plugin-hosted cookbook, and four cross-category cookbooks. The repository-only `sort-hat` maintainer skill lives outside public discovery containers. The CLI supports Claude Code, Codex, Pi, and Cursor.
+The default Skills CLI scan discovers 174 abilities: 167 catalog skills, one plugin-hosted cookbook, four cross-category cookbooks, and two repository-operating skills. The CLI supports Claude Code, Codex, Pi, and Cursor.
 
 List the available abilities:
 
@@ -179,7 +179,7 @@ The CLI normally recommends symlinks so several agents can share one canonical i
 
 ## Browse the Catalog
 
-The catalog contains 168 standalone skills plus five cookbooks, for 173 publicly installable abilities. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see the exact public inventory.
+The catalog contains 167 skills plus five cookbooks. Two repository-operating skills bring the Skills CLI inventory to 174 abilities. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see the exact inventory.
 
 | Category | Plugin | Skills | Focus |
 | --- | --- | ---: | --- |
@@ -193,13 +193,22 @@ The catalog contains 168 standalone skills plus five cookbooks, for 173 publicly
 | [Marketing](plugins/marketing/skills/) | `majestic-marketing` | 13 | Positioning, naming, research, content, campaigns, and growth experiments |
 | [Misc](plugins/misc/skills/) | `majestic-misc` | 5 | Communication, lessons learned, visual explanations, skill grading, and skill structure |
 | [Product](plugins/product/skills/) | `majestic-product` | 14 | Discovery, workflow mapping, requirements, planning, pricing, and retention |
-| [Rails](plugins/rails/skills/) | `majestic-rails` | 36 | Rails and Ruby implementation, Hotwire, architecture, testing, and review |
+| [Rails](plugins/rails/skills/) | `majestic-rails` | 35 | Rails and Ruby implementation, Hotwire, architecture, testing, and review |
 | [Reasoning](plugins/reasoning/skills/) | `majestic-reasoning` | 4 | Decision retrospectives, challenge, premortems, and reasoning verification |
 | [Sales](plugins/sales/skills/) | `majestic-sales` | 6 | ICP, outbound, pipeline, enablement, proposals, and account expansion |
 | [SEO](plugins/seo/skills/) | `majestic-seo` | 22 | Technical SEO, content strategy, schema, AEO, and AI search visibility |
 | [Writing](plugins/writing/skills/) | `majestic-writing` | 10 | Voice capture, brand voice, drafting, editing, copy, and structure |
 
 Core contains foundational repository capabilities. Other categories do not depend on it. Misc is a temporary home for useful portable skills whose long-term category is not settled.
+
+## Repository Skills
+
+Repository-operating skills live under `.agents/skills/`. They maintain this repository and are available when an agent works from this checkout:
+
+- `plugin-release` updates category plugin versions, validates distribution, and publishes an authorized release.
+- `sort-hat` decides whether proposed capability guidance belongs in the catalog.
+
+These skills are discoverable through the Skills CLI but are not shipped by category plugins or the private Pi package.
 
 ## Cookbooks
 

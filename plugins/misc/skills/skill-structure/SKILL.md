@@ -50,7 +50,7 @@ skill-name/
 
 A repository may organize source skills under category folders when its installer supports that catalog layout. The installed unit must still be the `skill-name` directory containing `SKILL.md` and its own resources.
 
-Keep supporting files local to the skill. Avoid dependencies on sibling skills unless they are optional routing suggestions.
+Keep supporting files local to the skill. A catalog skill must not depend on or route to sibling skills. Put multi-skill routing in a cookbook that declares every dependency under `## Requires`.
 
 ## Frontmatter
 
@@ -131,7 +131,8 @@ Document real environment requirements through instructions or the standard `com
 - [ ] Frontmatter parses as strict YAML.
 - [ ] Description has concrete activation language.
 - [ ] Main instructions are focused and actionable.
-- [ ] Supporting links resolve locally.
+- [ ] Supporting links resolve inside the skill directory.
+- [ ] The skill does not depend on or route to sibling skills.
 - [ ] Scripts are executable, self-contained, and tested.
 - [ ] Runtime-specific syntax is absent or intentionally isolated.
 - [ ] The skill remains useful when installed by itself.

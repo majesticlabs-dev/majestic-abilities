@@ -57,6 +57,7 @@ ALLOWED_SKILL_FIELDS = {
     "metadata",
     "allowed-tools",
 }
+REPOSITORY_SKILL_FIELDS = ALLOWED_SKILL_FIELDS | {"disable-model-invocation"}
 
 
 class UniqueKeyLoader(yaml.SafeLoader):
@@ -157,7 +158,7 @@ def validate_portable_manifest(path):
     return manifest
 
 
-def validate_skill(skill_file):
+def validate_skill(skill_file, allowed_fields=ALLOWED_SKILL_FIELDS):
     try:
         lines = skill_file.read_text(encoding="utf-8").splitlines()
     except OSError as error:
@@ -184,7 +185,7 @@ def validate_skill(skill_file):
         fail(f"{skill_file} frontmatter must be a YAML mapping")
         return
 
-    unknown = sorted(str(field) for field in set(fields) - ALLOWED_SKILL_FIELDS)
+    unknown = sorted(str(field) for field in set(fields) - allowed_fields)
     if unknown:
         fail(f"{skill_file} has unsupported Agent Skills fields: {', '.join(unknown)}")
 
@@ -385,8 +386,8 @@ for skill_file in cross_cookbook_files:
         fail(f"{skill_file} must be a cross-category cookbook with a ## Requires section")
 
 standalone_count = len(plugin_skill_files) - len(plugin_cookbook_files)
-if standalone_count != 168:
-    fail(f"expected 168 standalone plugin skills, found {standalone_count}")
+if standalone_count != 167:
+    fail(f"expected 167 standalone plugin skills, found {standalone_count}")
 if len(plugin_cookbook_files) != 1:
     fail(f"expected 1 plugin-hosted cookbook, found {len(plugin_cookbook_files)}")
 if len(cross_cookbook_files) != 4:
@@ -394,12 +395,18 @@ if len(cross_cookbook_files) != 4:
 if (root / "cookbooks").exists():
     fail("cross-category cookbooks must live under skills/ for default Skills CLI discovery")
 
-sort_hat = root / ".maintainer" / "skills" / "sort-hat" / "SKILL.md"
-sort_hat_fields = validate_skill(sort_hat)
-if not isinstance(sort_hat_fields, dict) or sort_hat_fields.get("name") != "sort-hat":
-    fail(".maintainer/skills/sort-hat/SKILL.md must remain the sort-hat maintainer skill")
-if list(root.glob(".agents/skills/*/SKILL.md")):
-    fail("repository-maintainer skills must not use the public .agents/skills discovery container")
+repository_skill_files = sorted(root.glob(".agents/skills/*/SKILL.md"))
+required_repository_skills = {"plugin-release", "sort-hat"}
+found_repository_skills = {skill_file.parent.name for skill_file in repository_skill_files}
+if not required_repository_skills <= found_repository_skills:
+    missing = sorted(required_repository_skills - found_repository_skills)
+    fail(f".agents/skills/ is missing repository skills: {', '.join(missing)}")
+for skill_file in repository_skill_files:
+    fields = validate_skill(skill_file, REPOSITORY_SKILL_FIELDS)
+    if skill_file.parent.name == "plugin-release" and (
+        not isinstance(fields, dict) or fields.get("disable-model-invocation") is not True
+    ):
+        fail(f"{skill_file} must be a manual command with disable-model-invocation: true")
 
 if errors:
     for error in errors:
