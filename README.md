@@ -24,7 +24,7 @@ You can install:
 | Need | Route | Installed scope |
 | --- | --- | --- |
 | One capability category in Claude Code or Codex | Native plugin | All abilities in that category |
-| The complete catalog in Pi | Pi package | All categories and cross-category cookbooks |
+| The complete catalog in Pi | Pi package | All category plugins, including their cookbooks |
 | One or more selected abilities | Skills CLI | Only the named skills or cookbooks |
 | The same selected abilities across several agents | Skills CLI | The named abilities for each selected agent |
 | One local category in Cursor during development | Local symlink | All abilities in the linked category |
@@ -82,7 +82,7 @@ Restart Cursor or run **Developer: Reload Window** after changing the links. The
 
 ## Install the Pi Package
 
-The root `package.json` exposes every category and cross-category cookbook as one Pi package.
+The root `package.json` exposes every category plugin, including its cookbooks, as one Pi package.
 
 ```sh
 # Install for the current user
@@ -96,7 +96,7 @@ Use `pi config` to enable or disable package skills.
 
 ## Install with the Skills CLI
 
-The default Skills CLI scan discovers 174 abilities: 167 catalog skills, one plugin-hosted cookbook, four cross-category cookbooks, and two repository-operating skills. The CLI supports Claude Code, Codex, Pi, and Cursor.
+The default Skills CLI scan discovers 174 abilities: 167 catalog skills, five plugin-hosted cookbooks, and two repository-operating skills. The CLI supports Claude Code, Codex, Pi, and Cursor.
 
 List the available abilities:
 
@@ -188,12 +188,12 @@ The catalog contains 167 skills plus five cookbooks. Two repository-operating sk
 | [Data](plugins/data/skills/) | `majestic-data` | 8 | Pipelines, contracts, quality controls, source assessment, and dbt |
 | [DevOps](plugins/devops/skills/) | `majestic-devops` | 10 | OpenTofu, Ansible, cloud-init, Kamal, secrets, storage, and infrastructure review |
 | [Engineer](plugins/engineer/skills/) | `majestic-engineer` | 10 | Scoping, planning, task decomposition, code review, testing, complexity, logging, and code simplification |
-| [Founder](plugins/founder/skills/) | `majestic-founder` | 10 | Strategy, priorities, founder fit, finance, fundraising, go-to-market, and launch readiness |
+| [Founder](plugins/founder/skills/) | `majestic-founder` | 12 | Strategy, priorities, founder fit, finance, fundraising, go-to-market, and launch readiness |
 | [Frontend](plugins/frontend/skills/) | `majestic-frontend` | 5 | Visual direction, performance, accessibility, validation, and screenshots |
 | [Marketing](plugins/marketing/skills/) | `majestic-marketing` | 13 | Positioning, naming, research, content, campaigns, and growth experiments |
 | [Misc](plugins/misc/skills/) | `majestic-misc` | 5 | Communication, lessons learned, visual explanations, skill grading, and skill structure |
-| [Product](plugins/product/skills/) | `majestic-product` | 14 | Discovery, workflow mapping, requirements, planning, pricing, and retention |
-| [Rails](plugins/rails/skills/) | `majestic-rails` | 35 | Rails and Ruby implementation, Hotwire, architecture, testing, and review |
+| [Product](plugins/product/skills/) | `majestic-product` | 15 | Discovery, workflow mapping, requirements, planning, pricing, and retention |
+| [Rails](plugins/rails/skills/) | `majestic-rails` | 36 | Rails and Ruby implementation, Hotwire, architecture, testing, and review |
 | [Reasoning](plugins/reasoning/skills/) | `majestic-reasoning` | 4 | Decision retrospectives, challenge, premortems, and reasoning verification |
 | [Sales](plugins/sales/skills/) | `majestic-sales` | 6 | ICP, outbound, pipeline, enablement, proposals, and account expansion |
 | [SEO](plugins/seo/skills/) | `majestic-seo` | 22 | Technical SEO, content strategy, schema, AEO, and AI search visibility |
@@ -217,14 +217,12 @@ Cookbooks are user-invoked workflows that sequence catalog skills by name. Catal
 | Cookbook | Location | Required categories | Purpose |
 | --- | --- | --- | --- |
 | [`ai-search-visibility-foundation`](plugins/seo/skills/ai-search-visibility-foundation/) | SEO plugin | `majestic-seo` | Establish SEO, entity, crawler, structured-data, and AEO measurement foundations |
-| [`founder-launch-decision`](skills/founder-launch-decision/) | Cross-category | `majestic-founder`, `majestic-sales` | Produce a founder-led launch decision |
-| [`founder-next-stage-decision`](skills/founder-next-stage-decision/) | Cross-category | `majestic-founder`, `majestic-product` | Decide a founder's next growth stage with a time-boxed evidence sprint |
-| [`product-engineering-handoff`](skills/product-engineering-handoff/) | Cross-category | `majestic-engineer`, `majestic-product` | Prepare an approved product direction for engineering |
-| [`rails-feature`](skills/rails-feature/) | Cross-category | `majestic-engineer`, `majestic-rails` | Build and review a Rails feature end to end |
+| [`founder-launch-decision`](plugins/founder/skills/founder-launch-decision/) | Founder plugin | `majestic-founder`, `majestic-sales` | Produce a founder-led launch decision |
+| [`founder-next-stage-decision`](plugins/founder/skills/founder-next-stage-decision/) | Founder plugin | `majestic-founder`, `majestic-product` | Decide a founder's next growth stage with a time-boxed evidence sprint |
+| [`product-engineering-handoff`](plugins/product/skills/product-engineering-handoff/) | Product plugin | `majestic-engineer`, `majestic-product` | Prepare an approved product direction for engineering |
+| [`rails-feature`](plugins/rails/skills/rails-feature/) | Rails plugin | `majestic-engineer`, `majestic-rails` | Build and review a Rails feature end to end |
 
-A cookbook that uses one category lives inside that category plugin. A cookbook that spans categories lives in the top-level `skills/` discovery container and is available through Pi or the Skills CLI, not through a native category plugin.
-
-Install every skill listed in the cookbook's `## Requires` section with the cookbook. Installers do not resolve these dependencies. See [`skills/README.md`](skills/README.md) for installation examples, placement rules, and the authoring contract.
+Each cookbook lives in the plugin that owns its primary user trigger and output. Supporting skills can come from other plugins. Cookbook frontmatter declares dependencies in the repository-defined string-valued `metadata.requires` key. Each cookbook's installation command includes the same dependency set because installers do not resolve dependencies.
 
 ## Repository Model
 
@@ -246,9 +244,6 @@ plugins/
         references/                   # optional
         scripts/                      # optional
         assets/                       # optional
-skills/                               # Skills CLI discovery container
-  <cookbook-name>/
-    SKILL.md
 scripts/
   check-agent-plugins.sh
   check-codex-plugins.sh

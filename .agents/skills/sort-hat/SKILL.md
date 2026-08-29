@@ -24,8 +24,7 @@ Ask a follow-up question only when the answer would change the decision.
 Before deciding, inspect:
 
 - `README.md` for catalog categories and placement rules
-- `plugins/*/skills/**/SKILL.md` for equivalent triggers, workflows, and outputs
-- `skills/**/SKILL.md` for cross-category composed workflows
+- `plugins/*/skills/**/SKILL.md` for equivalent triggers, workflows, outputs, and composed workflows
 - the closest matching skill in full
 
 Prefer extending an existing asset when users would not know which of two skills to choose.
@@ -38,7 +37,7 @@ Choose the smallest correct home:
 | --- | --- |
 | New Skill | The proposal teaches reusable task guidance for a distinct, recurring trigger. |
 | Update Existing | An existing skill already owns the trigger, workflow, or output. |
-| Cookbook | The value is a user-invoked sequence of existing skills, not standalone guidance. |
+| Cookbook | The value is a user-invoked sequence of existing skills, not standalone guidance. Place it in the plugin that owns its primary user trigger and output. Declare dependencies in string-valued `metadata.requires` and include the same set in the installation command. |
 | Reference | The material is background, examples, policy, or lookup content. |
 | Script or Asset | The behavior is deterministic or needs a static template or data file. |
 | Runtime Wrapper | The value depends on one client's commands, tools, permissions, or orchestration. Keep only a portable core in the catalog. |

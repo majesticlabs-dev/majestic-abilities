@@ -1,6 +1,6 @@
 {
   "name": "majestic-rails",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Write, debug, and explicitly review Ruby on Rails applications across framework correctness, Hotwire, Active Job, Solid, testing, and Rails-native design.",
   "author": {
     "name": "Majestic Labs"

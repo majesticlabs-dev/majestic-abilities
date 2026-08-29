@@ -276,7 +276,7 @@ if pi_package is not None:
     if not isinstance(keywords, list) or "pi-package" not in keywords:
         fail("package.json must include the pi-package keyword")
     pi_manifest = pi_package.get("pi")
-    expected_pi_skills = ["./plugins/*/skills", "./skills"]
+    expected_pi_skills = ["./plugins/*/skills"]
     if not isinstance(pi_manifest, dict) or pi_manifest.get("skills") != expected_pi_skills:
         fail(f"package.json pi.skills must equal {expected_pi_skills!r}")
 
@@ -354,14 +354,15 @@ for plugin_dir in plugin_dirs:
             continue
         immediate_skills.append(skill_file)
         plugin_skill_files.append(skill_file)
-        if re.search(r"^## Requires\s*$", skill_file.read_text(encoding="utf-8"), re.MULTILINE):
+        fields = validate_skill(skill_file)
+        metadata = fields.get("metadata") if isinstance(fields, dict) else None
+        if isinstance(metadata, dict) and metadata.get("requires"):
             plugin_cookbook_files.append(skill_file)
         try:
             if not skill_file.resolve().is_relative_to(plugin_dir.resolve()):
                 fail(f"{skill_file} resolves outside its plugin root")
         except OSError as error:
             fail(f"cannot resolve {skill_file}: {error}")
-        validate_skill(skill_file)
 
     discovered = set(immediate_skills)
     for nested in skills_dir.glob("**/SKILL.md"):
@@ -379,21 +380,14 @@ for plugin_dir in plugin_dirs:
             except OSError as error:
                 fail(f"cannot resolve symlink {path}: {error}")
 
-cross_cookbook_files = sorted(root.glob("skills/*/SKILL.md"))
-for skill_file in cross_cookbook_files:
-    validate_skill(skill_file)
-    if not re.search(r"^## Requires\s*$", skill_file.read_text(encoding="utf-8"), re.MULTILINE):
-        fail(f"{skill_file} must be a cross-category cookbook with a ## Requires section")
-
 standalone_count = len(plugin_skill_files) - len(plugin_cookbook_files)
 if standalone_count != 167:
     fail(f"expected 167 standalone plugin skills, found {standalone_count}")
-if len(plugin_cookbook_files) != 1:
-    fail(f"expected 1 plugin-hosted cookbook, found {len(plugin_cookbook_files)}")
-if len(cross_cookbook_files) != 4:
-    fail(f"expected 4 Skills CLI-discoverable cross-category cookbooks, found {len(cross_cookbook_files)}")
-if (root / "cookbooks").exists():
-    fail("cross-category cookbooks must live under skills/ for default Skills CLI discovery")
+if len(plugin_cookbook_files) != 5:
+    fail(f"expected 5 plugin-hosted cookbooks, found {len(plugin_cookbook_files)}")
+for obsolete_directory in (root / "cookbooks", root / "skills"):
+    if obsolete_directory.exists():
+        fail(f"{obsolete_directory.relative_to(root)}/ is obsolete; every cookbook must live in its primary domain plugin")
 
 repository_skill_files = sorted(root.glob(".agents/skills/*/SKILL.md"))
 required_repository_skills = {"plugin-release", "sort-hat"}

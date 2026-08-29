@@ -1,6 +1,8 @@
 ---
 name: founder-next-stage-decision
 description: "Decide how a founder of an existing product gets to the next growth stage: diagnose the ceiling, commit to one time-boxed discovery sprint, and decide with evidence instead of hope. Use when the user invokes founder-next-stage-decision by name or asks how to restart growth or get to the next stage."
+metadata:
+  requires: "brainstorm-product,founder-priorities,founder-plan-review"
 ---
 
 # Founder Next Stage Decision
@@ -60,13 +62,9 @@ Return:
 
 Do not produce a campaign, a full business plan, or a multi-year forecast.
 
-## Requires
+## Installation
 
-- `brainstorm-product` - Phase 1 diagnosis, options menu, sprint design, and closure audit
-- `founder-priorities` - Phase 2 protected calendar and sprint cadence
-- `founder-plan-review` - Phase 3 next-stage plan review and verdict
-
-Install everything:
+Install the cookbook and its dependencies:
 
 ```sh
 npx skills add majesticlabs-dev/majestic-abilities --skill founder-next-stage-decision \

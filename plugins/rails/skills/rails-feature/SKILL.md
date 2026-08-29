@@ -1,6 +1,8 @@
 ---
 name: rails-feature
 description: "Build a Rails feature end-to-end: plan, implement in DHH style with TDD, then pass lint, test, and review quality gates. Use when the user invokes rails-feature by name or asks for a full feature workflow in a Rails project."
+metadata:
+  requires: "implementation-planning,dhh-rails-style,ruby-coder,minitest-coder,rails-lint,rails-code-review,test-reviewer"
 ---
 
 # Rails Feature Workflow
@@ -45,17 +47,9 @@ On `BLOCKED`: resolve the named missing context or prerequisite, then re-run Gat
 
 Summarize: what shipped, the plan deviations if any, and the outcome of each gate. Do not commit or push unless the user asked for it.
 
-## Requires
+## Installation
 
-- `implementation-planning`: Phase 1 planning contract
-- `dhh-rails-style`: implementation and review style for all Rails code
-- `ruby-coder`: Ruby-level design rules during implementation
-- `minitest-coder`: test-writing conventions for the TDD loop
-- `rails-lint`: Gate A tooling workflow
-- `rails-code-review`: Gate C framework-specific review and release verdict
-- `test-reviewer`: Gate C test-quality review
-
-Install everything:
+Install the cookbook and its dependencies:
 
 ```sh
 npx skills add majesticlabs-dev/majestic-abilities --skill rails-feature dhh-rails-style ruby-coder \

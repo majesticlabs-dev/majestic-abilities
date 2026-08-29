@@ -1,6 +1,8 @@
 ---
 name: ai-search-visibility-foundation
 description: "Audit and establish a website's SEO, entity, AI navigation, crawler, structured-data, and AEO measurement foundations. Use when the user invokes ai-search-visibility-foundation by name or wants a site-level AI search visibility program with validated implementation evidence."
+metadata:
+  requires: "seo-audit,entity-triplets,llms-txt-builder,ai-crawler-readiness,schema-architect,aeo-scorecard"
 ---
 
 # AI Search Visibility Foundation
@@ -78,16 +80,9 @@ Return:
 
 Distinguish `IMPLEMENTED`, `VALIDATED`, `BLOCKED`, and `NOT APPLICABLE`. Never report expected visibility lift as observed performance.
 
-## Requires
+## Installation
 
-- `seo-audit` - Phase 1 SEO, content, trust, and GEO baseline
-- `entity-triplets` - Phase 2 entity consistency model
-- `llms-txt-builder` - Phase 3 AI navigation file
-- `ai-crawler-readiness` - Phase 4 HTTP discovery and measurement layers
-- `schema-architect` - Phase 5 structured-data implementation and validation
-- `aeo-scorecard` - Phase 6 recurring visibility measurement
-
-Install everything:
+Install the cookbook and its dependencies:
 
 ```sh
 npx skills add majesticlabs-dev/majestic-abilities --skill ai-search-visibility-foundation \

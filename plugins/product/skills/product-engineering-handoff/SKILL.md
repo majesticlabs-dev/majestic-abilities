@@ -1,6 +1,8 @@
 ---
 name: product-engineering-handoff
 description: "Turn an approved product direction into an evidence-grounded PRD, a repository-specific implementation plan, and a reviewed engineering handoff. Use when the user invokes product-engineering-handoff by name or asks to prepare a product decision for engineering without implementing it."
+metadata:
+  requires: "product-requirements,implementation-planning,plan-review"
 ---
 
 # Product Engineering Handoff
@@ -66,13 +68,9 @@ Return:
 5. verification commands or checks
 6. explicit statement that implementation has not started
 
-## Requires
+## Installation
 
-- `product-requirements` - Phase 2 product behavior and acceptance contract
-- `implementation-planning` - Phase 3 repository-grounded technical plan
-- `plan-review` - Phase 4 independent handoff-readiness review
-
-Install everything:
+Install the cookbook and its dependencies:
 
 ```sh
 npx skills add majesticlabs-dev/majestic-abilities --skill product-engineering-handoff \

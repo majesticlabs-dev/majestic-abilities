@@ -1,6 +1,8 @@
 ---
 name: founder-launch-decision
 description: "Turn a founder-led launch proposal into a defensible audience, go-to-market motion, legal-unknown inventory, and final GO, NARROW, or DELAY decision. Use when the user invokes founder-launch-decision by name or needs a launch decision before execution."
+metadata:
+  requires: "icp-definition,go-to-market-motion,launch-legal-checklist,launch-readiness"
 ---
 
 # Founder Launch Decision
@@ -68,14 +70,9 @@ Return:
 
 Do not produce campaign copy, a launch calendar, forecasts, legal documents, or an assertion of legal readiness.
 
-## Requires
+## Installation
 
-- `icp-definition` - Phase 1 audience fit, buyer roles, and validation evidence
-- `go-to-market-motion` - Phase 2 route-to-market decision
-- `launch-legal-checklist` - Phase 3 legal and compliance unknown inventory
-- `launch-readiness` - Phase 4 final launch verdict
-
-Install everything:
+Install the cookbook and its dependencies:
 
 ```sh
 npx skills add majesticlabs-dev/majestic-abilities --skill founder-launch-decision \

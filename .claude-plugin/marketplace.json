@@ -71,7 +71,7 @@
       "name": "majestic-founder",
       "source": "./plugins/founder",
       "description": "Founder decisions: company strategy, plan review, priorities, technology impact, bootstrapped finance, go-to-market, fundraising asks, and launch readiness.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "category": "founder",
       "keywords": [
         "founder",
@@ -119,7 +119,7 @@
       "name": "majestic-product",
       "source": "./plugins/product",
       "description": "Product discovery, workflow opportunities, decision alignment, stakeholder rehearsal, requirements, roadmaps, pricing, and retention.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "category": "product",
       "keywords": [
         "product",
@@ -131,7 +131,7 @@
       "name": "majestic-rails",
       "source": "./plugins/rails",
       "description": "Write, debug, and explicitly review Ruby on Rails applications across framework correctness, Hotwire, Active Job, Solid, testing, and Rails-native design.",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "category": "rails",
       "keywords": [
         "rails",

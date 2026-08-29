@@ -50,7 +50,7 @@ skill-name/
 
 A repository may organize source skills under category folders when its installer supports that catalog layout. The installed unit must still be the `skill-name` directory containing `SKILL.md` and its own resources.
 
-Keep supporting files local to the skill. A catalog skill must not depend on or route to sibling skills. Put multi-skill routing in a cookbook that declares every dependency under `## Requires`.
+Keep supporting files local to the skill. A catalog skill must not depend on or route to sibling skills. Put multi-skill routing in a cookbook. Declare its comma-separated dependency names in the string-valued `metadata.requires` frontmatter field, then include the same set in its installation command.
 
 ## Frontmatter
 
@@ -72,7 +72,7 @@ Validate:
 - `description` is non-empty and no longer than 1024 characters
 - the description explains both capability and activation triggers
 
-The specification also defines optional `license`, `compatibility`, `metadata`, and experimental `allowed-tools` fields. Add optional fields only when required and supported by intended clients. Keep runtime-specific routing out of portable frontmatter.
+The specification also defines optional `license`, `compatibility`, `metadata`, and experimental `allowed-tools` fields. Add optional fields only when required and supported by intended clients. Metadata values must be strings. This repository uses `metadata.requires` as a comma-separated cookbook dependency convention. Clients are not required to resolve it. Keep runtime-specific routing out of portable frontmatter.
 
 ## Naming
 
@@ -132,7 +132,7 @@ Document real environment requirements through instructions or the standard `com
 - [ ] Description has concrete activation language.
 - [ ] Main instructions are focused and actionable.
 - [ ] Supporting links resolve inside the skill directory.
-- [ ] The skill does not depend on or route to sibling skills.
+- [ ] A catalog skill does not depend on or route to sibling skills. A cookbook keeps `metadata.requires` and its installation command synchronized.
 - [ ] Scripts are executable, self-contained, and tested.
 - [ ] Runtime-specific syntax is absent or intentionally isolated.
 - [ ] The skill remains useful when installed by itself.

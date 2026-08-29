@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Verify the default Skills CLI discovery and a cross-category cookbook install.
+# Verify the default Skills CLI discovery and a plugin-hosted cookbook install.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
