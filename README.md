@@ -94,21 +94,7 @@ pi install git:github.com/majesticlabs-dev/majestic-abilities -l
 
 Use `pi config` to enable or disable package skills.
 
-## Install with the Skills CLI
-
-The default Skills CLI scan discovers 174 abilities: 167 catalog skills, five plugin-hosted cookbooks, and two repository-operating skills. The CLI supports Claude Code, Codex, Pi, and Cursor.
-
-List the available abilities:
-
-```sh
-# Published repository
-npx skills add majesticlabs-dev/majestic-abilities --list
-
-# Local checkout
-npx skills add . --list
-```
-
-### Find and Install Relevant Skills
+## Find and Install Relevant Skills
 
 From the project root, temporarily install `majestic-skill-finder`:
 
@@ -120,12 +106,26 @@ npx skills add \
   --yes
 ```
 
-This installs the temporary finder only in `.agents/skills`. Use a low-cost model with a 1M-token context window, such as `deepseek-v4-flash`. Then:
+This installs the temporary finder in `.agents/skills`. The Skills CLI can also create `skills-lock.json` in the project root. Use a low-cost model with a 1M-token context window, such as `deepseek-v4-flash`. Then:
 
-1. Ask that harness to run `majestic-skill-finder`.
+1. Ask your harness (Claude, Codex, Pi, Cursor, etc.) to run `majestic-skill-finder`.
 2. Review the recommendations and select the skills to install.
 3. Select `.agents/skills` (default) or `.claude/skills` as the project destination.
-4. When installation finishes, confirm whether the finder should remove its temporary project copy.
+4. Confirm whether the finder should remove its temporary project files.
+
+## Install with the Skills CLI
+
+The CLI supports Claude Code, Codex, Pi, and Cursor.
+
+List the available abilities:
+
+```sh
+# Published repository
+npx skills add majesticlabs-dev/majestic-abilities --list
+
+# Local checkout
+npx skills add . --list
+```
 
 ### Install Skills Manually
 
