@@ -127,6 +127,8 @@ This installs the temporary finder only in `.agents/skills`. Use a low-cost mode
 3. Select `.agents/skills` (default) or `.claude/skills` as the project destination.
 4. When installation finishes, confirm whether the finder should remove its temporary project copy.
 
+### Install Skills Manually
+
 Install one skill into a project:
 
 ```sh
