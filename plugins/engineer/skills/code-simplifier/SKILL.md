@@ -1,6 +1,6 @@
 ---
 name: code-simplifier
-description: Simplify settled, recently changed code for reuse, quality, and efficiency while preserving behavior. Use for explicit code simplification requests after implementation and before handoff.
+description: Simplify or review settled, recently changed code for unnecessary complexity while preserving behavior. Use for explicit simplification requests, deletion-focused reviews, or questions such as "what can we delete?" and "is this over-engineered?" after implementation and before handoff.
 ---
 
 # Code Simplifier
@@ -17,7 +17,7 @@ Before detailed review, skip a scope that contains only documentation, generated
 
 Follow the repository's mode convention:
 
-- For analysis or review requests limited to simplification, return findings without edits.
+- For analysis or review requests limited to simplification, including requests to find over-engineering or code to delete, return findings without edits.
 - For explicit requests to simplify or apply a simplification, make only surgical edits in the resolved scope and necessary in-scope seams.
 - Do not use this skill for general code review or broad correctness, security, accessibility, framework, or performance review. Keep those review tasks outside this workflow.
 
@@ -53,7 +53,23 @@ After edits, run configured project-wide type and lint checks. Run tests matched
 
 ## Report
 
-Report:
+For a deletion-focused review, report only verified opportunities, one line each:
+
+```text
+path:line: <category>: <what to cut>. <safe replacement or "Nothing">.
+```
+
+Use these categories:
+
+- `delete`: dead code, unused flexibility, or speculative behavior
+- `stdlib`: custom code replaced by a standard-library primitive
+- `native`: code or a dependency replaced by a verified runtime, platform, or framework feature
+- `yagni`: an abstraction, option, or layer without a current consumer
+- `shrink`: equivalent logic with a materially smaller clear form
+
+Each finding must preserve observable behavior and identify the evidence that makes the removal safe. Do not estimate net lines saved or treat fewer lines as proof of a better result. If there are no verified opportunities, say `No unnecessary complexity found.`
+
+For an applied simplification, report:
 
 1. What was already sound.
 2. Applied findings by lens: reuse, quality, and efficiency.
