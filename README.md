@@ -1,6 +1,6 @@
 # Majestic Abilities
 
-Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 167 catalog skills, five cookbooks, and two repository-operating skills, and follows the [Agent Skills](https://agentskills.io/) format.
+Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 168 catalog skills, five cookbooks, and two repository-operating skills, and follows the [Agent Skills](https://agentskills.io/) format.
 
 You can install:
 
@@ -181,12 +181,12 @@ The CLI normally recommends symlinks so several agents can share one canonical i
 
 ## Browse the Catalog
 
-The catalog contains 167 skills plus five cookbooks. Two repository-operating skills bring the Skills CLI inventory to 174 abilities. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see the exact inventory.
+The catalog contains 168 skills plus five cookbooks. Two repository-operating skills bring the Skills CLI inventory to 175 abilities. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see the exact inventory.
 
 | Category | Plugin | Skills | Focus |
 | --- | --- | ---: | --- |
 | [Cloudflare](plugins/cloudflare/skills/) | `majestic-cloudflare` | 13 | Cloudflare platform, Workers, Agents SDK, Durable Objects, security, infrastructure, and deployment |
-| [Core](plugins/core/skills/) | `majestic-core` | 2 | Agent-ready repositories and nested guidance audits |
+| [Core](plugins/core/skills/) | `majestic-core` | 3 | Agent-ready repositories, nested guidance audits, and durable session handoffs |
 | [Data](plugins/data/skills/) | `majestic-data` | 8 | Pipelines, contracts, quality controls, source assessment, and dbt |
 | [DevOps](plugins/devops/skills/) | `majestic-devops` | 10 | OpenTofu, Ansible, cloud-init, Kamal, secrets, storage, and infrastructure review |
 | [Engineer](plugins/engineer/skills/) | `majestic-engineer` | 10 | Scoping, planning, task decomposition, code review, testing, complexity, logging, and code simplification |
@@ -201,7 +201,7 @@ The catalog contains 167 skills plus five cookbooks. Two repository-operating sk
 | [SEO](plugins/seo/skills/) | `majestic-seo` | 22 | Technical SEO, content strategy, schema, AEO, and AI search visibility |
 | [Writing](plugins/writing/skills/) | `majestic-writing` | 10 | Voice capture, brand voice, drafting, editing, copy, and structure |
 
-Core contains foundational repository capabilities. Other categories do not depend on it. Misc is a temporary home for useful portable skills whose long-term category is not settled.
+Core contains foundational repository and agent-session capabilities. Other categories do not depend on it. Misc is a temporary home for useful portable skills whose long-term category is not settled.
 
 ## Repository Skills
 

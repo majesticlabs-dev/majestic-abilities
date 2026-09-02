@@ -1,14 +1,15 @@
 {
   "name": "majestic-core",
   "displayName": "Majestic Core",
-  "version": "0.1.0",
-  "description": "Foundational repository capabilities: making repositories agent-ready and auditing nested repository guidance.",
+  "version": "0.2.0",
+  "description": "Foundational agent capabilities for repository readiness, scoped guidance, and durable session handoffs.",
   "author": {
     "name": "Majestic Labs"
   },
   "license": "MIT",
   "keywords": [
     "repository",
-    "agents"
+    "agents",
+    "handoff"
   ]
 }

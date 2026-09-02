@@ -19,8 +19,8 @@ list_file="$tmp_home/skills-list.txt"
 printf '%s\n' "$list_output" > "$list_file"
 printf '%s\n' "$list_output"
 
-if ! grep -Fq 'Found 174 skills' "$list_file"; then
-  echo "FAIL: Skills CLI must discover exactly 174 abilities" >&2
+if ! grep -Fq 'Found 175 skills' "$list_file"; then
+  echo "FAIL: Skills CLI must discover exactly 175 abilities" >&2
   exit 1
 fi
 
@@ -31,6 +31,7 @@ for skill in \
   plugin-release \
   product-engineering-handoff \
   rails-feature \
+  session-handoff \
   sort-hat; do
   if ! grep -Fq "$skill" "$list_file"; then
     echo "FAIL: Skills CLI did not discover $skill" >&2
@@ -41,13 +42,13 @@ done
 (
   cd "$tmp_project"
   npx --yes "skills@${skills_cli_version}" add "$source_ref" \
-    --skill plugin-release sort-hat \
+    --skill plugin-release session-handoff sort-hat \
     --agent codex \
     --copy \
     --yes >/dev/null
 )
 
-for skill in plugin-release sort-hat; do
+for skill in plugin-release session-handoff sort-hat; do
   if [ ! -f "$tmp_project/.agents/skills/$skill/SKILL.md" ]; then
     echo "FAIL: Skills CLI did not install repository skill $skill for Codex" >&2
     exit 1
@@ -79,4 +80,4 @@ for skill in \
   fi
 done
 
-echo "OK: Skills CLI ${skills_cli_version} discovers 174 abilities and installs repository skills plus rails-feature dependencies"
+echo "OK: Skills CLI ${skills_cli_version} discovers 175 abilities and installs repository skills, session-handoff, and rails-feature dependencies"
