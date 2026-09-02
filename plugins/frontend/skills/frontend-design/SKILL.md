@@ -29,6 +29,7 @@ An interface is correct when all of these hold:
 | Polish | [references/css-polish-tips.md](references/css-polish-tips.md) | Accessibility debugging, focus, defensive CSS |
 | React/Vue | [references/react-vue.md](references/react-vue.md) | Framer Motion, Vue Transitions, token-driven components |
 | Landing pages | [references/landing-page-design.md](references/landing-page-design.md) | Section design, palettes, typography pairings |
+| Rendered critique | [references/visual-critique.md](references/visual-critique.md) | Screenshot-first review and bounded correction loop |
 
 ## Workflow
 
@@ -54,7 +55,7 @@ Use `web-interface-standards.md`. Cover offline, partial or delayed data, user e
 
 ### 6. Validate
 
-Run `css-polish-tips.md` and `motion-patterns.md`, then the quality gate below.
+Run `css-polish-tips.md` and `motion-patterns.md`, then the quality gate below. For a substantial build or refinement, render representative desktop and mobile views and apply `visual-critique.md`. Preserve comparable baseline screenshots for refinement work when practical. Fix the highest-impact gaps and re-render before completion.
 
 ## Output Shape
 
