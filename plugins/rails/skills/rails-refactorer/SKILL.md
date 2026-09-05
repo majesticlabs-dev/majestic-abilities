@@ -9,11 +9,7 @@ description: "Use when refactoring Rails code for conventional, maintainable Rub
 
 ### 1. Analyze Before Changing
 
-Before any refactoring:
-- Read the existing code thoroughly
-- Identify existing test coverage (`spec/` or `test/`)
-- Understand the code's purpose and context
-- Check for existing patterns in the codebase
+Preserve observable behavior and supported interfaces. Inspect the affected code, consumers, and existing tests. Expand inspection when shared state or dependencies make the effect uncertain.
 
 ### 2. Apply Rails Conventions
 
@@ -60,14 +56,9 @@ belongs_to :author, class_name: "User"
 - Use for operations spanning multiple models
 - Keep them single-purpose
 
-### 3. Apply Sandi Metz Rules
+### 3. Keep Abstractions Proportional
 
-| Rule | Limit | Action |
-|------|-------|--------|
-| Class length | 100 lines | Extract classes |
-| Method length | 5 lines | Extract methods |
-| Parameters | 4 max | Use parameter objects |
-| Controller objects | 1 | Use facades |
+Follow project limits where configured. Extract a class or method when it clarifies a responsibility or removes concrete duplication. Do not add parameter objects or facades solely to meet generic size limits.
 
 ### 4. Idiomatic Ruby
 
@@ -103,10 +94,7 @@ email != nil && email != ""
 
 ### 5. Maintain Test Coverage
 
-- Run tests before and after refactoring
-- Update tests if interfaces change
-- Add tests for extracted classes/methods
-- Never break existing tests
+Use existing behavior tests to verify the refactor. Add a regression test when coverage does not protect an affected behavior. Do not add tests solely because a method or class was extracted. Fix failures caused by the refactor and rerun affected checks; distinguish pre-existing failures.
 
 ## Migration Safety
 
@@ -185,6 +173,8 @@ add_index :orders, :customer_id, algorithm: :concurrently
 - [ ] Lock timeouts configured for DDL?
 
 ## Output Format
+
+Finish when the requested refactor preserves behavior and relevant checks pass, or report the concrete blocker. Do not report tests as passing without running them.
 
 After refactoring, provide:
 

@@ -12,7 +12,7 @@
       "name": "majestic-cloudflare",
       "source": "./plugins/cloudflare",
       "description": "Build, secure, provision, and deploy across the Cloudflare platform: Workers, Agents SDK, Durable Objects, Sandbox SDK, Cloudflare One, Email, Turnstile, OpenTofu infrastructure, and Wrangler.",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "category": "cloudflare",
       "keywords": [
         "cloudflare",
@@ -24,7 +24,7 @@
       "name": "majestic-core",
       "source": "./plugins/core",
       "description": "Foundational agent capabilities for repository readiness, scoped guidance, and durable session handoffs.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "category": "core",
       "keywords": [
         "repository",
@@ -60,7 +60,7 @@
       "name": "majestic-engineer",
       "source": "./plugins/engineer",
       "description": "Scope, plan, review, simplify, and harden software changes: minimal sufficient work, implementation planning, code and test review, code simplification, complexity, logging, and multi-agent architecture.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "category": "engineer",
       "keywords": [
         "engineering",
@@ -72,7 +72,7 @@
       "name": "majestic-founder",
       "source": "./plugins/founder",
       "description": "Founder decisions: company strategy, plan review, priorities, technology impact, bootstrapped finance, go-to-market, fundraising asks, and launch readiness.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "category": "founder",
       "keywords": [
         "founder",
@@ -96,7 +96,7 @@
       "name": "majestic-marketing",
       "source": "./plugins/marketing",
       "description": "Positioning, naming, content, campaigns, and growth experiments grounded in verified evidence.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "category": "marketing",
       "keywords": [
         "marketing",
@@ -108,7 +108,7 @@
       "name": "majestic-misc",
       "source": "./plugins/misc",
       "description": "Portable capabilities for actionable communication, lessons learned, visual explanations, execution grading, and skill design.",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "category": "misc",
       "keywords": [
         "skills",
@@ -120,7 +120,7 @@
       "name": "majestic-product",
       "source": "./plugins/product",
       "description": "Product discovery, workflow opportunities, decision alignment, stakeholder rehearsal, requirements, roadmaps, pricing, and retention.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "category": "product",
       "keywords": [
         "product",
@@ -132,7 +132,7 @@
       "name": "majestic-rails",
       "source": "./plugins/rails",
       "description": "Write, debug, and explicitly review Ruby on Rails applications across framework correctness, Hotwire, Active Job, Solid, testing, and Rails-native design.",
-      "version": "0.3.0",
+      "version": "0.3.1",
       "category": "rails",
       "keywords": [
         "rails",
@@ -144,7 +144,7 @@
       "name": "majestic-reasoning",
       "source": "./plugins/reasoning",
       "description": "Review decisions and pressure-test plans and conclusions through retrospectives, devil's advocate, premortem, and reasoning verification.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "category": "reasoning",
       "keywords": [
         "reasoning",
@@ -167,7 +167,7 @@
       "name": "majestic-seo",
       "source": "./plugins/seo",
       "description": "Technical SEO, content strategy, structured data, and Answer Engine Optimization for search engines and LLMs.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "category": "seo",
       "keywords": [
         "seo",
@@ -179,7 +179,7 @@
       "name": "majestic-writing",
       "source": "./plugins/writing",
       "description": "Draft, revise, and audit prose: voice capture, brand voice, copy editing, direct response, and Minto structure.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "category": "writing",
       "keywords": [
         "writing",

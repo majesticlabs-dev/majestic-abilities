@@ -16,6 +16,7 @@ Create nested guidance only where project boundaries justify it.
 ## Workflow
 
 1. Inventory existing root and nested instruction files.
+   Read applicable guidance and inspect boundaries relevant to the requested scope. Expand to a repository-wide inventory only for a repository-wide audit.
 2. Map stable repository boundaries using evidence such as:
    - independent dependency manifests or task runners
    - applications, packages, services, plugins, or deployable units
@@ -52,6 +53,8 @@ A nested file should normally contain only:
 - important local entry points
 - common mistakes specific to that area
 
+State the required outcome and safe operating permissions where they differ from the parent. Permit local checks with disposable data within an authorized implementation task. Retain explicit boundaries for shared data, external writes, destructive actions, and deployment.
+
 ## Anti-Patterns
 
 - Creating nested files for every conventional source directory.
@@ -60,3 +63,6 @@ A nested file should normally contain only:
 - Assuming nearest-file precedence is universal across runtimes.
 - Documenting a proposed architecture as though it already exists.
 - Keeping nested files after their local distinction disappears.
+- Requiring repository-wide reading or repeated file checks for every task.
+- Prescribing fixed test sequences where focused checks and project requirements are sufficient.
+- Repeating generic coding advice instead of defining the completion endpoint.

@@ -1,6 +1,6 @@
 {
   "name": "majestic-core",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Foundational agent capabilities for repository readiness, scoped guidance, and durable session handoffs.",
   "author": {
     "name": "Majestic Labs"

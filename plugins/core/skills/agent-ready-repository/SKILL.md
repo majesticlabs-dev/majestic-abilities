@@ -31,6 +31,8 @@ Gather concrete examples:
 
 Do not add rules for hypothetical problems that the repository already makes obvious.
 
+Use the reported failure to select the relevant checks below. A focused repair does not require a full repository audit.
+
 ### 2. Audit Context Discovery
 
 Check:
@@ -92,10 +94,13 @@ Periodically check for:
 - docs with no implementation owner
 - generated artifacts committed in source paths
 - warnings that everyone ignores
+- mandatory broad reading, repeated checks, or fixed test sequences without a concrete need
+
+Keep completion criteria: implement the requested behavior, exercise it where practical, fix failures caused by the change, and continue to the agreed endpoint or a concrete blocker. Allow safe local verification with disposable data within the task's authorization. Retain approval boundaries for destructive actions, shared resources, external writes, and deployment.
 
 Automated cleanup may propose changes, but destructive cleanup still requires normal review and validation.
 
-Load [patterns.md](references/patterns.md) for compact templates and structural-test examples.
+Load [patterns.md](references/patterns.md) when creating a guidance template or structural check.
 
 ## Completion Report
 
