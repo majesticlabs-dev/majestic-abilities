@@ -1,6 +1,6 @@
 ---
 name: ai-crawler-readiness
-description: "Configure HTTP-layer signals for LLM discovery and citation. Use when auditing robots.txt for AI bots, serving Markdown alternates, adding alternate Link headers, handling Accept: text/markdown, or measuring AI-referrer traffic."
+description: "Use when improving a site's AI-crawler access, Markdown delivery, or AI-fetch analytics."
 ---
 
 # AI Crawler Readiness

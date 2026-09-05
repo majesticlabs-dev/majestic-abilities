@@ -1,6 +1,6 @@
 ---
 name: requirements-quality
-description: Audit and repair individual requirements and requirement sets without inventing missing decisions. Use when requirements in a PRD, specification, user-story set, acceptance criteria, BRD, FRD, or catalogue need statement-level or set-level review for ambiguity, consistency, traceability, testability, evidence, abstraction fit, or coverage. Not for whole-document or implementation-plan readiness.
+description: "Use when auditing or repairing requirements for ambiguity, consistency, traceability, or testability."
 ---
 
 # Requirements Quality

@@ -1,6 +1,6 @@
 ---
 name: dialog-patterns
-description: "Native HTML dialog patterns for Rails with Turbo and Stimulus. Use when building modals, confirmations, alerts, or any overlay UI. Triggers on modal, dialog, popup, confirmation, alert, or toast patterns."
+description: "Use when building modals, confirmations, alerts, or any overlay UI."
 ---
 
 # Native Dialog Patterns for Rails

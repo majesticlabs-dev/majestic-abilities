@@ -1,6 +1,6 @@
 ---
 name: stakeholder-conversation-roleplay
-description: Rehearse a difficult product conversation through a bounded simulation, then debrief the user's observable communication choices and prepare a stronger next attempt. Use before or after a conversation with an engineer, designer, executive, customer, or operational stakeholder. Not for predicting what a real person thinks or generating synthetic feedback as if it came from them.
+description: "Use when rehearsing and debriefing a difficult product stakeholder conversation."
 ---
 
 # Stakeholder Conversation Roleplay

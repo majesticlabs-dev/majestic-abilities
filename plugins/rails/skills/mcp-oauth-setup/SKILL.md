@@ -1,6 +1,6 @@
 ---
 name: mcp-oauth-setup
-description: "Implement MCP server authentication with OAuth Dynamic Client Registration (RFC 7591), Authorization Server Metadata Discovery (RFC 8414), and per-agent credential support. Use when building admin UIs that let users connect to third-party MCP servers using OAuth (Linear, Sentry, Granola), bearer tokens (Render, custom APIs), or API keys. Covers metadata discovery, client registration, PKCE authorization, token exchange, token refresh, tool sync, and credential storage patterns."
+description: "Use when building admin UIs that let users connect to third-party MCP servers using OAuth (Linear, Sentry, Granola), bearer tokens (Render, custom APIs), or API keys."
 ---
 
 # MCP Server Authentication & OAuth Dynamic Client Registration

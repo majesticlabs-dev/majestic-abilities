@@ -1,6 +1,6 @@
 ---
 name: anycable-coder
-description: "Use when implementing real-time features requiring reliability, especially LLM streaming. Applies AnyCable patterns for message delivery guarantees, presence tracking, and Action Cable migration."
+description: "Use when implementing real-time features requiring reliability, especially LLM streaming."
 ---
 
 # AnyCable Coder

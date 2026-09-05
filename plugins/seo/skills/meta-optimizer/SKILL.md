@@ -1,6 +1,6 @@
 ---
 name: meta-optimizer
-description: "Create optimized meta titles, descriptions, and URL suggestions based on character limits and best practices. Generate compelling, keyword-rich metadata."
+description: "Use when optimizing page titles, meta descriptions, and URLs for search."
 ---
 
 # Meta Optimizer

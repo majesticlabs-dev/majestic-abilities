@@ -1,6 +1,6 @@
 ---
 name: copy-editor
-description: Diagnose grammar, clarity, specificity, structure, attribution, voice, and style-guide problems in existing prose with exact quotations and prioritized fixes. Use when asked for a copy review, editorial audit, critique, grammar report, line-level feedback, or explanations before edits. Use prose-reviser when clean revised copy is the primary deliverable.
+description: "Use when reviewing existing prose and delivering editorial findings rather than revisions."
 ---
 
 # Copy Editor

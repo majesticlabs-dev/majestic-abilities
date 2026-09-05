@@ -1,6 +1,6 @@
 ---
 name: direct-response-copy
-description: Create evidence-safe, conversion-oriented landing pages, sales emails, CTAs, ads, offers, and product microcopy from a reader moment, proof set, offer, and desired action. Use when writing a complete commercial asset whose job is to earn a specific response, or rewriting one whose persuasion strategy is in scope; use content-writer for general articles, headline-generator for a headline candidate sprint, copy-editor for a diagnostic review, and prose-reviser for clarity-only revision.
+description: "Use when writing or strategically rewriting a conversion-focused commercial asset."
 ---
 
 # Direct Response Copy

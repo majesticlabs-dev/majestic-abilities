@@ -1,6 +1,6 @@
 ---
 name: rails-lint
-description: "Run and fix Rails code-quality checks across Ruby, ERB, and security tooling. Use before pushing Rails changes, when CI reports RuboCop or ERB Lint violations, or when Brakeman reports security warnings."
+description: "Use when running or fixing Rails code-quality checks."
 ---
 
 # Rails Lint

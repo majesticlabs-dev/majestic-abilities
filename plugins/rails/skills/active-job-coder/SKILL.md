@@ -1,6 +1,6 @@
 ---
 name: active-job-coder
-description: "Use when creating or refactoring Active Job background jobs. Applies Rails 8 conventions, Solid Queue patterns, error handling, retry strategies, and job design best practices."
+description: "Use when creating or refactoring Active Job background jobs."
 ---
 
 # Active Job Coder

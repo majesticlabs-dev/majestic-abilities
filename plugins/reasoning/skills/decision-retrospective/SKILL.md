@@ -1,6 +1,6 @@
 ---
 name: decision-retrospective
-description: Review a completed consequential decision by separating the quality of the process from its outcome, reconstructing what was knowable at the time, and turning lessons into changed decision rules. Use after a product, strategy, hiring, vendor, architecture, or operating decision has produced enough evidence to learn from. Not for choosing among live options.
+description: "Use after a consequential decision has enough evidence to improve future decision rules."
 ---
 
 # Decision Retrospective

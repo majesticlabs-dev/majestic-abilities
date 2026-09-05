@@ -1,6 +1,6 @@
 ---
 name: to-tasks
-description: Convert an approved plan, specification, or settled conversation into the smallest dependency-aware set of vertical implementation tasks, then optionally create them in an authorized task system or as local Markdown. Use when work spans multiple implementation sessions, needs explicit blockers or safe parallel execution, or requires expand-migrate-contract sequencing for a wide refactor.
+description: "Use when turning an approved plan into dependency-aware implementation tasks."
 ---
 
 # To Tasks

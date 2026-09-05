@@ -1,6 +1,6 @@
 ---
 name: seo-audit
-description: "Run SEO and GEO audits on URLs covering technical SEO, content quality, E-E-A-T signals, and AI citation readiness. Use when evaluating search performance or diagnosing ranking issues."
+description: "Use when evaluating search performance or diagnosing ranking issues."
 ---
 
 # SEO Audit Skill

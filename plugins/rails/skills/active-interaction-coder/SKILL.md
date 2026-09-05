@@ -1,6 +1,6 @@
 ---
 name: active-interaction-coder
-description: "Implement typed business operations with ActiveInteraction. Covers input types, composition, controller patterns, and testing."
+description: "Use when implementing typed Rails operations with ActiveInteraction."
 ---
 
 # ActiveInteraction Coder

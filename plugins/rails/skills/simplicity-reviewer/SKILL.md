@@ -1,6 +1,6 @@
 ---
 name: simplicity-reviewer
-description: "Final review for code simplicity. Identifies anti-patterns, code smells, and YAGNI violations."
+description: "Use when reviewing Rails code for unnecessary complexity."
 ---
 
 # Code Simplicity Review

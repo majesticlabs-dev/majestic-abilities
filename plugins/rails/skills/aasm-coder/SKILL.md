@@ -1,6 +1,6 @@
 ---
 name: aasm-coder
-description: "Implement state machines with AASM for workflow management. Covers state transitions, guards, callbacks, and testing."
+description: "Use when implementing AASM state machines in Rails."
 ---
 
 # AASM Coder

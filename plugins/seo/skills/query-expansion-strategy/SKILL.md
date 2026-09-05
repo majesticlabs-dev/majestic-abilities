@@ -1,6 +1,6 @@
 ---
 name: query-expansion-strategy
-description: "Maximize AI visibility through query fan-out coverage. Use when planning content clusters, targeting LLM sub-questions, or expanding semantic keyword coverage to get cited by AI systems. Covers semantic variation analysis and sub-question targeting strategies."
+description: "Use when planning content clusters, targeting LLM sub-questions, or expanding semantic keyword coverage to get cited by AI systems."
 ---
 
 # Query Expansion Strategy

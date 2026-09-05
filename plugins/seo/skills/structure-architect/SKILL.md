@@ -1,6 +1,6 @@
 ---
 name: structure-architect
-description: "Analyze and optimize content structure, header hierarchy, schema markup, and internal linking for SEO."
+description: "Use when optimizing page structure and internal linking for SEO."
 ---
 
 # Structure Architect

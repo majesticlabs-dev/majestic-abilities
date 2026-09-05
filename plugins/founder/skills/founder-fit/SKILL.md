@@ -1,6 +1,6 @@
 ---
 name: founder-fit
-description: Map a founder's drives, hindrances, and outside-in edge into an evidence-based self-portrait, then distill the one or two extreme traits a strategy can bet on. Use when a founder asks who they really are, what work fits them, what to build given who they are, what drives or drains them, what their unfair advantage is, or what to bet the company on. Not for company or product strength inventories, strategy design, positioning, or therapy.
+description: "Use when a founder needs to identify personal strengths, constraints, and strategic edge."
 ---
 
 # Founder Fit

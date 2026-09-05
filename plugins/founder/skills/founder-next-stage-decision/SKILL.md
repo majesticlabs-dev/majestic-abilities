@@ -1,6 +1,6 @@
 ---
 name: founder-next-stage-decision
-description: "Decide how a founder of an existing product gets to the next growth stage: diagnose the ceiling, commit to one time-boxed discovery sprint, and decide with evidence instead of hope. Use when the user invokes founder-next-stage-decision by name or asks how to restart growth or get to the next stage."
+description: "Use when the user invokes founder-next-stage-decision by name or asks how to restart growth or get to the next stage."
 metadata:
   requires: "brainstorm-product,founder-priorities,founder-plan-review"
 ---

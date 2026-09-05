@@ -1,6 +1,6 @@
 ---
 name: editorial-planning
-description: Generate, evaluate, prioritize, and schedule evidence-backed content ideas around audience needs and business goals. Use when choosing what to publish next, building a content program, or replacing an unranked backlog with a defensible editorial plan. Not for search-led topic discovery driven by keyword or query data, cluster coverage planning, or deriving derivative assets from one existing source.
+description: "Use when prioritizing and scheduling evidence-backed content ideas."
 ---
 
 # Editorial Planning

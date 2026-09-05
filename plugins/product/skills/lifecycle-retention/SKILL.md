@@ -1,6 +1,6 @@
 ---
 name: lifecycle-retention
-description: Design a customer lifecycle retention system with stage outcomes, onboarding, health signals, early warnings, intervention playbooks, and measurement. Use when churn is poorly understood, onboarding underperforms, or teams need proactive retention instrumentation rather than account-by-account sales actions. Not for account-specific commercial motions or for choosing a single top-level product health metric.
+description: "Use when improving retention through lifecycle stages, health signals, and intervention playbooks."
 ---
 
 # Lifecycle Retention

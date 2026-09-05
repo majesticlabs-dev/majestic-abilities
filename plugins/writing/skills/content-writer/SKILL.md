@@ -1,6 +1,6 @@
 ---
 name: content-writer
-description: Draft source-grounded general articles, blog posts, how-tos, and guides through a brief, outline, and section workflow. Use when article structure and evidence are primary; use style-writer when formal compliance with an existing voice profile is primary, direct-response-copy for conversion assets, and seo-content for a search-optimization workflow.
+description: "Use when drafting source-grounded general articles, blog posts, how-tos, or guides."
 ---
 
 # Content Writer

@@ -1,6 +1,6 @@
 ---
 name: plugin-release
-description: Update one or more Majestic Abilities category plugin versions and publish an approved repository release. Use when changed plugin skills or metadata are ready to validate, version, commit, push, and verify on the public install route.
+description: "Use when approved plugin changes need validation, versioning, release, and publication."
 disable-model-invocation: true
 ---
 

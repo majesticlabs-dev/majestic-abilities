@@ -1,6 +1,6 @@
 ---
 name: prose-reviser
-description: Rewrite existing informational, workplace, technical, or general prose for clarity, natural rhythm, and author fidelity while preserving facts and uncertainty. Use when the user wants revised copy, including requests to rewrite, tighten, simplify, polish, humanize, make text less robotic, or make it more natural. Use copy-editor when findings are the primary deliverable, content-writer for new drafts, style-writer for measured voice-profile work, and direct-response-copy for commercial persuasion.
+description: "Use when rewriting existing prose for clarity while preserving facts and author fidelity."
 ---
 
 # Prose Reviser

@@ -1,6 +1,6 @@
 ---
 name: brainstorm-product
-description: Diagnose an existing product's growth ceiling, pressure-test a commercial idea, or shape a non-commercial builder project through a structured step-by-step process. Use when the user wants to brainstorm, vet, or diagnose a product or SaaS idea, growth strategy, side project, hackathon, learning project, research tool, or open-source concept.
+description: "Use when brainstorming, vetting, or diagnosing a product, SaaS, or builder-project idea."
 ---
 
 # Brainstorm Product

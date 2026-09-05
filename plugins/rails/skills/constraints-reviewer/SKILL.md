@@ -1,6 +1,6 @@
 ---
 name: constraints-reviewer
-description: "Review data constraints and referential integrity in Rails models and migrations."
+description: "Use when reviewing Rails data constraints and referential integrity."
 ---
 
 # Constraints & Referential Integrity Review

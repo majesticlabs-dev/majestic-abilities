@@ -1,6 +1,6 @@
 ---
 name: keyword-strategist
-description: "Analyze keyword density, suggest LSI keywords and semantic variations for content optimization."
+description: "Use when optimizing existing content's keyword use and semantic coverage."
 ---
 
 # Keyword Strategist
