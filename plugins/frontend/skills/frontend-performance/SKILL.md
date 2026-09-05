@@ -1,6 +1,6 @@
 ---
 name: frontend-performance
-description: "Prevent and diagnose frontend performance regressions affecting Core Web Vitals. Use when modifying layouts, fonts, images, scripts, shared assets, loading behavior, or page responsiveness measured by LCP, CLS, or INP."
+description: "Prevent, audit, and diagnose frontend performance regressions affecting Core Web Vitals. Use when modifying layouts, fonts, images, scripts, shared assets, loading behavior, or page responsiveness measured by LCP, CLS, or INP."
 ---
 
 # Frontend Performance
@@ -128,6 +128,50 @@ Images are the most common LCP element.
 | Dynamically injected content above viewport | Reserve space with min-height or aspect-ratio |
 | Ads/embeds without reserved space | Use `aspect-ratio` container or fixed dimensions |
 | Late-loading CSS shifting layout | Inline critical CSS or preload stylesheet |
+
+## Measured Audit Workflow
+
+Use browser performance, network, and rendered-page inspection capabilities when they are available. If they are unavailable, state that runtime metrics are unverified and limit findings to static code evidence.
+
+Label each measurement as a local test (lab data) or real-user data (field data). Use local tests to diagnose one controlled run, not to claim a site-wide Core Web Vitals pass. A pass requires real-user data at the 75th percentile for all three metrics, segmented by mobile and desktop.
+
+1. Record the target URL, viewport, authentication state, cache state, and relevant device or network conditions.
+2. Capture a page-load trace with a reload. Keep conditions consistent when comparing runs.
+3. Record LCP and CLS. Report INP only after a representative interaction; do not treat Total Blocking Time as INP.
+4. Inspect the LCP breakdown, layout-shift culprits, document latency, render-blocking resources, and critical request chains.
+5. Inspect request details for large payloads, compression, caching, late discovery, and unused connection hints.
+6. Correlate each runtime issue with source code when the codebase is available. Skip this step for third-party sites.
+7. Rank only issues supported by evidence. Include measured or tool-estimated savings when available, and do not recommend work with no material impact.
+
+Verify that a resource is unused before recommending its removal. Name the affected resource, element, request, or source location instead of giving a generic optimization.
+
+## Audit Report
+
+```markdown
+## Core Web Vitals
+
+| Metric | Value | Rating | Data Source | Evidence |
+|--------|-------|--------|-------------|----------|
+| LCP | ... / not measured | good / needs improvement / poor / unknown | local test / real-user data / unavailable | ... |
+| CLS | ... / not measured | good / needs improvement / poor / unknown | local test / real-user data / unavailable | ... |
+| INP | ... / not measured | good / needs improvement / poor / unknown | local test / real-user data / unavailable | ... |
+
+## Prioritized Issues
+
+| Priority | Issue | Impact | Evidence |
+|----------|-------|--------|----------|
+| 1 | ... | measured or estimated savings | trace, request, element, or source location |
+
+## Recommended Changes
+
+1. [Specific change tied to an issue and its evidence]
+
+## Codebase Findings
+
+[Framework, bundler, relevant configuration, and source locations. Omit when source is unavailable.]
+```
+
+If measured performance is already good and no material bottleneck is present, say so and do not manufacture recommendations.
 
 ## Audit Patterns
 
