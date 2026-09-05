@@ -7,45 +7,39 @@ metadata:
 
 # Rails Feature Workflow
 
-Build the feature described in the user's request by working through the phases below in order. Do not skip a phase, and do not proceed past a failing gate.
+Build the requested feature through verified behavior. Use the guidance below according to the change, existing project rules, and user instructions.
 
-## Phase 1: Plan
+## Planning
 
-Invoke the `implementation-planning` skill. Produce the smallest viable slice: explicit scope, ordered changes, and how each change will be verified. Present the plan before writing code.
+Use `implementation-planning` when the feature needs a technical plan. For a small, clear change, proceed from the existing acceptance criteria. Ask only about unresolved choices that change scope, behavior, or permission.
 
-## Phase 2: Implement (TDD)
+## Implementation
 
-Invoke the `dhh-rails-style` skill and follow it for every file touched. For Ruby-level design (method size, clarity, idiom), apply the `ruby-coder` skill.
+Use `dhh-rails-style` for Rails design decisions and `ruby-coder` for Ruby design questions when project guidance does not already resolve them. Load only the guidance needed for the affected behavior.
 
-Work test-first:
+Add regression tests for bugs and tests of observable behavior for feature changes. Use `minitest-coder` when the project uses Minitest and test design needs guidance. Follow a test-first process when the project or user requires it.
 
-1. Write the failing test using the `minitest-coder` skill.
-2. Implement the minimum code to pass it.
-3. Refactor while keeping tests green.
+## Verification
 
-## Phase 3: Quality Gates
+Run the checks required by the project and those needed to verify the change. Safe local checks with disposable data can proceed within the implementation request. Confirm that they cannot affect production or shared resources.
 
-Run each gate in order. A gate must pass before the next one starts.
+### Lint
 
-### Gate A: Lint
+Use `rails-lint` for configured code-quality checks that apply to the change. Keep corrections within scope.
 
-Invoke the `rails-lint` skill: run the project's configured RuboCop, ERB Lint, and Brakeman checks and fix violations without changing behavior.
+### Tests
 
-### Gate B: Tests
+Run tests for the changed behavior and affected consumers. Run the full suite when required by the project or when the change has broad effects. Fix failures caused by the change, then rerun affected checks. Report unrelated failures and unavailable checks separately.
 
-Run the project's full test suite (or the smallest suite the project's conventions define as the pre-push bar). All tests must pass. Report failures verbatim; never mark this gate passed with failing or skipped tests.
+### Review
 
-### Gate C: Review
+Use `rails-code-review` when a Rails review is requested or the change risk warrants it. Use `test-reviewer` when test quality needs a separate review. Use an independent reviewer when required or when it adds useful evidence. Resolve material defects and verify the corrections; repeat review only for changed or unresolved concerns.
 
-Spawn a subagent with a fresh context to review the complete diff. The subagent applies the `rails-code-review` skill with its otherwise optional DHH simplicity lens enabled and the `test-reviewer` skill for test quality, and must finish with `APPROVED`, `NEEDS CHANGES`, or `BLOCKED`.
+## Completion
 
-On `NEEDS CHANGES`: apply the feedback, re-run Gates A and B, then re-review. Repeat until `APPROVED`.
+Continue until the requested behavior works, relevant checks pass, and failures caused by the change are fixed, or a concrete blocker requires user input. For a runnable feature, exercise the affected path when the environment permits. For an authorized build or install, confirm that the running process uses the new artifact.
 
-On `BLOCKED`: resolve the named missing context or prerequisite, then re-run Gate C. If it cannot be resolved, stop and report that the feature did not pass the review gate.
-
-## Phase 4: Report
-
-Summarize: what shipped, the plan deviations if any, and the outcome of each gate. Do not commit or push unless the user asked for it.
+Report the result, verification evidence, and any remaining blocker. Distinguish local implementation from deployment and live verification. Do not commit, push, or deploy unless authorized by the user.
 
 ## Installation
 
@@ -56,7 +50,3 @@ npx skills add majesticlabs-dev/majestic-abilities --skill rails-feature dhh-rai
   minitest-coder rails-lint rails-code-review test-reviewer \
   implementation-planning
 ```
-
-## Hard Gates
-
-Gates A and B are mechanical and must not depend on this skill being followed. Back them in the consuming project with harness-supported post-edit and completion hooks, or with CI. For example, run RuboCop after Ruby edits and run the test suite before completion.

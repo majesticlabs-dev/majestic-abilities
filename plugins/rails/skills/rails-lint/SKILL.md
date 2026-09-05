@@ -11,7 +11,7 @@ Run the project's configured quality checks, fix violations without changing beh
 
 ### 1. Inspect Project Configuration
 
-Read the files that define the project's actual lint contract before running or changing anything:
+Use the project command and configuration for the requested check. Relevant sources can include:
 
 - `.rubocop.yml`
 - `.rubocop_todo.yml`
@@ -31,7 +31,7 @@ git diff --name-only
 git diff --cached --name-only
 ```
 
-Use focused checks while fixing a small change. Run the full configured checks before declaring success.
+For a small change, use checks scoped to affected files. Run full checks when the user requests a repository audit, the configuration change affects the repository, or project rules require them.
 
 ### 3. Run Checks
 
@@ -64,7 +64,7 @@ If a tool is not configured in the project, report that instead of adding it wit
 
 ### 4. Apply Corrections
 
-Start with safe automatic corrections:
+Use safe automatic corrections on the requested files. These commands apply to the full repository, so use them only for that scope:
 
 ```bash
 bundle exec rubocop -a
@@ -108,15 +108,7 @@ Common fixes:
 
 ### 6. Verify
 
-Rerun every applicable check and inspect the final diff:
-
-```bash
-bundle exec rubocop
-bundle exec erblint --lint-all
-bin/brakeman --no-pager
-git diff --check
-git diff
-```
+Rerun checks affected by corrections and inspect the final diff. Stop when the requested scope passes. Report pre-existing failures and unavailable tools separately; do not expand the work to unrelated violations.
 
 Do not stage or commit automatically.
 
