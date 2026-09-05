@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "majestic-reasoning",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Review decisions and pressure-test plans and conclusions through retrospectives, devil's advocate, premortem, and reasoning verification.",
   "author": {
     "name": "Majestic Labs"

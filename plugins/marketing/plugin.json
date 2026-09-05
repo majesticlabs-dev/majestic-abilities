@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "majestic-marketing",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Positioning, naming, content, campaigns, and growth experiments grounded in verified evidence.",
   "author": {
     "name": "Majestic Labs"

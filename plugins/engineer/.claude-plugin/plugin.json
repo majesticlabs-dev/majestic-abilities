@@ -1,7 +1,7 @@
 {
   "name": "majestic-engineer",
   "displayName": "Majestic Engineer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Scope, plan, review, simplify, and harden software changes: minimal sufficient work, implementation planning, code and test review, code simplification, complexity, logging, and multi-agent architecture.",
   "author": {
     "name": "Majestic Labs"
