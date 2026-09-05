@@ -1,6 +1,6 @@
 ---
 name: keyword-research
-description: "Find content topics and prioritize them without expensive SEO tools. Use when search demand drives topic selection, deciding what to write about against real queries, or doing keyword research on a budget. Uses the 6 Circles Method for systematic topic discovery and prioritization. Not for audience-led editorial programs, calendars, or production capacity planning."
+description: "Use when search demand drives topic selection, deciding what to write about against real queries, or doing keyword research on a budget."
 ---
 
 # Keyword Research Without Expensive Tools

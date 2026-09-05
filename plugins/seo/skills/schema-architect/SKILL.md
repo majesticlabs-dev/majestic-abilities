@@ -1,6 +1,6 @@
 ---
 name: schema-architect
-description: "Use when adding or auditing Schema.org structured data for Google Search rich results, AI Overviews, and classic search indexing. Generate JSON-LD for organization, FAQ, HowTo, product, and article schemas. Not for direct LLM citation in ChatGPT, Claude, or Perplexity; use ai-crawler-readiness for HTTP-layer LLM visibility. Not for content structure; use structure-architect."
+description: "Use when adding or auditing Schema.org structured data."
 ---
 
 # Schema Architect

@@ -1,6 +1,6 @@
 ---
 name: ai-search-visibility-foundation
-description: "Audit and establish a website's SEO, entity, AI navigation, crawler, structured-data, and AEO measurement foundations. Use when the user invokes ai-search-visibility-foundation by name or wants a site-level AI search visibility program with validated implementation evidence."
+description: "Use when the user invokes ai-search-visibility-foundation by name or wants a site-level AI search visibility program with validated implementation evidence."
 metadata:
   requires: "seo-audit,entity-triplets,llms-txt-builder,ai-crawler-readiness,schema-architect,aeo-scorecard"
 ---

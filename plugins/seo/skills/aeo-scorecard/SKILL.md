@@ -1,6 +1,6 @@
 ---
 name: aeo-scorecard
-description: "Measurement framework for Answer Engine Optimization (AEO). Provides AI visibility metrics, share of voice tracking, citation monitoring, and referral demand measurement. Use when discussing AEO/GEO metrics or AI visibility performance."
+description: "Use when discussing AEO/GEO metrics or AI visibility performance."
 ---
 
 # AEO Scorecard: Measuring AI Visibility

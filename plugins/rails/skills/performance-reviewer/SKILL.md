@@ -1,6 +1,6 @@
 ---
 name: performance-reviewer
-description: Review Rails code for query, memory, locking, and throughput problems before they become production incidents.
+description: "Use when reviewing Rails code for performance problems."
 ---
 
 # Performance Reviewer

@@ -1,6 +1,6 @@
 ---
 name: rails-authentication-coder
-description: Use when implementing Rails 8 built-in authentication, session management, admin sign-in, password reset, or protecting Rails controllers without Devise. Prefer Rails native auth generator and Minitest.
+description: "Use when implementing Rails 8 built-in authentication, session management, admin sign-in, password reset, or protecting Rails controllers without Devise."
 ---
 
 # Rails Authentication Coder

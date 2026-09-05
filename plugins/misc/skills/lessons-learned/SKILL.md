@@ -1,6 +1,6 @@
 ---
 name: lessons-learned
-description: Extract evidence-based lessons from completed work or a resolved problem and convert them into specific future practices. Use after a project, incident, experiment, implementation, campaign, or operating cycle has enough evidence to assess what should be repeated, changed, or avoided. Not for judging whether a consequential decision process was sound.
+description: "Use after completed work has enough evidence to identify repeatable lessons."
 ---
 
 # Lessons Learned

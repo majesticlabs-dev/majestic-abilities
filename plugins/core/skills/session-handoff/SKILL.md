@@ -1,6 +1,6 @@
 ---
 name: session-handoff
-description: "Create or resume a durable coding-session handoff across fresh contexts and agent harnesses. Use when the user asks to hand work to another session or harness, invokes a handoff command, a host signals context pressure, pre-compaction, or session end, or a new session must continue from HANDOFF.md."
+description: "Use when handing work to another session or resuming work from HANDOFF.md."
 ---
 
 # Session Handoff

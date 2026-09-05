@@ -1,6 +1,6 @@
 ---
 name: rails-code-review
-description: Review Ruby on Rails diffs, pull requests, patches, or staged changes for framework-specific correctness, regressions, security, data and deployment safety, performance, convention fit, and missing tests. Use whenever changed behavior runs inside a Rails application or engine.
+description: "Use when reviewing Rails changes for correctness, safety, and missing tests."
 ---
 
 # Rails Code Review

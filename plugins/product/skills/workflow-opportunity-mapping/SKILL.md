@@ -1,6 +1,6 @@
 ---
 name: workflow-opportunity-mapping
-description: Map an observed operational workflow into actors, work objects, states, handoffs, evidence, burdens, automation choices, control points, and exceptions. Use when customer research, process notes, support evidence, or operator interviews need to become a grounded workflow model and a shortlist of software or AI opportunities. Not for conducting discovery research, validating demand, or writing requirements.
+description: "Use when turning observed workflow evidence into a model and software or AI opportunities."
 ---
 
 # Workflow Opportunity Mapping

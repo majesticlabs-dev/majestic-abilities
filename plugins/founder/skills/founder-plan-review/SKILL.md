@@ -1,6 +1,6 @@
 ---
 name: founder-plan-review
-description: "Review an existing company, product, feature, or system plan from a founder perspective for premise quality, ambition, focus, strategic leverage, user value, and execution risk. Use when a founder asks to think bigger, rethink a plan, test whether it is ambitious enough, hold scope while increasing rigor, selectively consider expansion, or reduce an overbuilt plan. Not for authoring an implementation plan or checking engineering handoff readiness alone."
+description: "Use when a founder asks to think bigger, rethink a plan, test whether it is ambitious enough, hold scope while increasing rigor, selectively consider expansion, or reduce an overbuilt plan. Not for authoring an implementation plan or checking engineering handoff readiness alone."
 ---
 
 # Founder Plan Review

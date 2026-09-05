@@ -1,6 +1,6 @@
 ---
 name: rails-refactorer
-description: "Use proactively when refactoring Ruby on Rails code. Applies Rails conventions, Sandi Metz rules, and idiomatic Ruby patterns while maintaining test coverage."
+description: "Use when refactoring Rails code for conventional, maintainable Ruby."
 ---
 
 # Rails Refactorer

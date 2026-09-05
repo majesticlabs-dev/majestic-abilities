@@ -1,6 +1,6 @@
 ---
 name: technology-impact-assessment
-description: Assess how a current external technology, platform, model, standard, or vendor change affects a named company or product, then recommend action, experiment, monitoring, or no material action. Use when a founder asks what a technology announcement means for the business. Not for general market research, implementation planning, or trend summaries without a decision context.
+description: "Use when a founder asks what a technology announcement means for the business. Not for general market research, implementation planning, or trend summaries without a decision context."
 ---
 
 # Technology Impact Assessment

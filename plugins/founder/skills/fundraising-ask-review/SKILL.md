@@ -1,6 +1,6 @@
 ---
 name: fundraising-ask-review
-description: "Review and tighten an existing fundraising ask for round coherence, evidence-backed claims, milestone fit, and target-investor relevance. Use when a founder shares a pitch deck, fundraising memo, investor email, meeting narrative, round summary, or use-of-funds plan before investor outreach or meetings. Not for choosing an instrument, valuation, or legal terms."
+description: "Use when a founder shares a pitch deck, fundraising memo, investor email, meeting narrative, round summary, or use-of-funds plan before investor outreach or meetings. Not for choosing an instrument, valuation, or legal terms."
 ---
 
 # Fundraising Ask Review

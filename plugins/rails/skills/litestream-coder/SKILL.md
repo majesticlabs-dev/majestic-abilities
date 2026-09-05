@@ -1,6 +1,6 @@
 ---
 name: litestream-coder
-description: "This skill guides configuring Litestream for continuous SQLite backup in Rails 8+ apps. Use when setting up production backups for SQLite databases (Solid Queue, Solid Cache, Solid Cable)."
+description: "Use when setting up production backups for SQLite databases (Solid Queue, Solid Cache, Solid Cable)."
 ---
 
 # Litestream Coder

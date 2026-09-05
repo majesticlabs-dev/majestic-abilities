@@ -1,6 +1,6 @@
 ---
 name: market-research
-description: Research a market, audience, competitors, and customer language into a decision-ready evidence report. Use when entering a market, validating demand context, sizing an opportunity, or grounding positioning in real customer behavior and language. Not for setting targeting criteria and account scoring, designing customer interviews, framing Jobs-to-be-Done, or testing demand for one specific idea.
+description: "Use when researching a market, audience, competitors, or customer language for a decision."
 ---
 
 # Market Research

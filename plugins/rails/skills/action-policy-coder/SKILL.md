@@ -1,6 +1,6 @@
 ---
 name: action-policy-coder
-description: "Use proactively for authorization with ActionPolicy. Creates policies, scopes, and integrates with GraphQL/ActionCable. Preferred over Pundit for composable, cacheable authorization."
+description: "Use when implementing ActionPolicy authorization in Rails."
 ---
 
 # ActionPolicy Coder

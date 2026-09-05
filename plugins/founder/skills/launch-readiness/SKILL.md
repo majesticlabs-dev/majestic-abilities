@@ -1,6 +1,6 @@
 ---
 name: launch-readiness
-description: "Review a founder-led launch and return a blunt go, narrow, or delay recommendation with blockers and minimum fixes. Use when deciding whether to ship a waitlist, beta, paid release, or public campaign, especially when owners, follow-up, support capacity, sequencing, or legal and compliance exposure are unclear."
+description: "Use when deciding whether to ship a waitlist, beta, paid release, or public campaign, especially when owners, follow-up, support capacity, sequencing, or legal and compliance exposure are unclear."
 ---
 
 # Launch Readiness

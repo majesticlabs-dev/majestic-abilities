@@ -1,6 +1,6 @@
 ---
 name: founder-priorities
-description: "Turn a founder's competing priorities and calendar into a stage-fit operating plan with explicit tradeoffs, delegation choices, review cadence, and revisit criteria. Use when a founder is overloaded or reactive, has too many priorities, asks what to cut, delegate, or defer, needs a calendar audit, or needs a daily, weekly, and monthly execution cadence."
+description: "Use when a founder is overloaded or reactive, has too many priorities, asks what to cut, delegate, or defer, needs a calendar audit, or needs a daily, weekly, and monthly execution cadence."
 ---
 
 # Founder Priorities

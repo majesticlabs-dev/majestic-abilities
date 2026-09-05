@@ -1,6 +1,6 @@
 ---
 name: event-sourcing-coder
-description: "Record domain events and dispatch to inbox handlers for side effects, audit trails, and activity feeds. Use when building activity logs, syncing external services, or decoupling event creation from processing. Triggers on event recording, audit trails, activity feeds, or inbox patterns."
+description: "Use when building activity logs, syncing external services, or decoupling event creation from processing."
 ---
 
 # Event Sourcing for Rails Monoliths

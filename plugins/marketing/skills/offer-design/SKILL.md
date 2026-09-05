@@ -1,6 +1,6 @@
 ---
 name: offer-design
-description: Design a truthful commercial or lead-generation offer with audience fit, value structure, risk reversal, options, proof, and a clear bridge to the next step. Use when packaging a product, service, bundle, guarantee, or lead magnet before writing final copy. Not for drafting the finished commercial asset, nor for setting the value metric, tiers, and price points themselves.
+description: "Use when packaging a product, service, bundle, guarantee, or lead magnet before writing copy."
 ---
 
 # Offer Design

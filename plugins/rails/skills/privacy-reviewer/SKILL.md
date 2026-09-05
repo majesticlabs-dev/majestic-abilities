@@ -1,6 +1,6 @@
 ---
 name: privacy-reviewer
-description: "Review PII handling, encryption, and GDPR/CCPA compliance in Rails applications."
+description: "Use when reviewing PII handling and privacy compliance in Rails."
 ---
 
 # Privacy Compliance Review

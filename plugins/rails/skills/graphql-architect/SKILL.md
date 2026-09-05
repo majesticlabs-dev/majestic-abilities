@@ -1,6 +1,6 @@
 ---
 name: graphql-architect
-description: "Use proactively for GraphQL API design, schema optimization, or N+1 query issues. Designs schemas, resolvers, and subscriptions using graphql-ruby patterns."
+description: "Use when designing or optimizing GraphQL APIs with graphql-ruby."
 ---
 
 # GraphQL Architect for Rails

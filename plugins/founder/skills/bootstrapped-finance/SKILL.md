@@ -1,6 +1,6 @@
 ---
 name: bootstrapped-finance
-description: "Analyze cash runway, burn, unit economics, working capital, hiring ROI, and spending tradeoffs for bootstrapped companies. Use when a founder asks how long cash will last, whether the business can afford a hire or tool, what to cut, whether growth economics are sustainable, or how base, upside, and downside scenarios affect survival."
+description: "Use when a founder asks how long cash will last, whether the business can afford a hire or tool, what to cut, whether growth economics are sustainable, or how base, upside, and downside scenarios affect survival."
 ---
 
 # Bootstrapped Finance

@@ -1,6 +1,6 @@
 ---
 name: tailwind-coder
-description: "Use when applying Tailwind CSS styling to Rails views. Uses utility classes, responsive design patterns, and integrates with Rails view helpers."
+description: "Use when applying Tailwind CSS styling to Rails views."
 ---
 
 # Tailwind Coder

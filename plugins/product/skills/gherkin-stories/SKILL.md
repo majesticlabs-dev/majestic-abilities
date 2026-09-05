@@ -1,6 +1,6 @@
 ---
 name: gherkin-stories
-description: Decompose product requirements and feature requests into atomic user stories with testable Gherkin acceptance scenarios, risk-relevant edge coverage, and traceability. Use when drafting ticket-ready stories from approved behavior or auditing and repairing existing stories for compound scope, vague outcomes, missing negative paths, unsupported rules, or broken requirement links.
+description: "Use when drafting or repairing ticket-ready user stories with Gherkin acceptance scenarios."
 ---
 
 # Gherkin Stories

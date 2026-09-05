@@ -1,6 +1,6 @@
 ---
 name: sort-hat
-description: Decide whether a proposed skill, imported SKILL.md, or capability belongs in Majestic Abilities, should extend an existing asset, or should be rejected. Use when triaging a new skill reference or unsure where capability guidance belongs.
+description: "Use when deciding whether a proposed skill belongs here, extends an existing skill, or should be rejected."
 ---
 
 # Sort Hat

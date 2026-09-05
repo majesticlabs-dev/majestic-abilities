@@ -1,6 +1,6 @@
 ---
 name: minimal-sufficient-work
-description: Apply the MSW deletion rule to keep plans, implementation, tests, remediation, reviews, artifacts, and process limited to work necessary to satisfy or prove the requested outcome. Use when the user invokes MSW or the deletion rule, when work risks expanding beyond scope, or before adding code, tests, files, abstractions, limits, review findings, or follow-up work.
+description: "Use when MSW is invoked or work risks expanding beyond the requested scope."
 ---
 
 # Minimal Sufficient Work (MSW)

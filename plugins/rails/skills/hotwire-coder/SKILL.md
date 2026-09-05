@@ -1,6 +1,6 @@
 ---
 name: hotwire-coder
-description: "Use when implementing Hotwire features with Turbo Drive, Turbo Frames, and Turbo Streams. Applies Rails 8 conventions, morphing, broadcasts, lazy loading, and real-time update patterns."
+description: "Use when implementing Hotwire features with Turbo Drive, Turbo Frames, and Turbo Streams."
 ---
 
 # Hotwire Coder

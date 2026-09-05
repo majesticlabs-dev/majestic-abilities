@@ -1,6 +1,6 @@
 ---
 name: seo-content
-description: "Create one search-led SEO/AEO content asset from keyword or opportunity selection through draft, audit, and ledger update. Use when search intent, keyword strategy, answer-engine optimization, or SEO tracking is central; use content-writer for general articles without a search workflow."
+description: "Use when search intent, keyword strategy, answer-engine optimization, or SEO tracking is central; use content-writer for general articles without a search workflow."
 ---
 
 # SEO Content Workflow

@@ -1,6 +1,6 @@
 ---
 name: content-repurposing
-description: Transform one verified long-form asset into channel-appropriate derivative content without losing context or inventing claims. Use when adapting an article, video, webinar, report, or interview into a distribution set. Not for drafting channel-native content from a pillar or idea with no source asset, and not for customer-proof assets that require quotation approval or publication permission.
+description: "Use when adapting one verified long-form asset into channel-specific content."
 ---
 
 # Content Repurposing
