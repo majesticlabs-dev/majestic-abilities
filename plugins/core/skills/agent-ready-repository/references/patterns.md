@@ -25,6 +25,12 @@ Include the supported path and verification command, not just a prohibition.
 | `bin/deploy staging` | Deploy staging | Yes, approval required |
 ```
 
+## Testing and Verification
+
+```markdown
+Do not add tests when a change is reversible and low impact, and the test would only mirror the implementation. Run checks appropriate to the change. After relevant checks pass, broaden or repeat them only when new changes, failures, or unresolved concerns require more verification.
+```
+
 ## Teaching Validation Error
 
 ```text
