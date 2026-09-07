@@ -1,6 +1,6 @@
 # Majestic Abilities
 
-Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 168 catalog skills, five cookbooks, and two repository-operating skills, and follows the [Agent Skills](https://agentskills.io/) format.
+Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 169 catalog skills, five cookbooks, and two repository-operating skills, and follows the [Agent Skills](https://agentskills.io/) format.
 
 You can install:
 
@@ -181,7 +181,7 @@ The CLI normally recommends symlinks so several agents can share one canonical i
 
 ## Browse the Catalog
 
-The catalog contains 168 skills plus five cookbooks. Two repository-operating skills bring the Skills CLI inventory to 175 abilities. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see the exact inventory.
+The catalog contains 169 skills plus five cookbooks. Two repository-operating skills bring the Skills CLI inventory to 176 abilities. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see the exact inventory.
 
 | Category | Plugin | Skills | Focus |
 | --- | --- | ---: | --- |
@@ -189,7 +189,7 @@ The catalog contains 168 skills plus five cookbooks. Two repository-operating sk
 | [Core](plugins/core/skills/) | `majestic-core` | 3 | Agent-ready repositories, nested guidance audits, and durable session handoffs |
 | [Data](plugins/data/skills/) | `majestic-data` | 8 | Pipelines, contracts, quality controls, source assessment, and dbt |
 | [DevOps](plugins/devops/skills/) | `majestic-devops` | 10 | OpenTofu, Ansible, cloud-init, Kamal, secrets, storage, and infrastructure review |
-| [Engineer](plugins/engineer/skills/) | `majestic-engineer` | 10 | Scoping, planning, task decomposition, code review, testing, complexity, logging, and code simplification |
+| [Engineer](plugins/engineer/skills/) | `majestic-engineer` | 11 | Scoping, planning, task decomposition, PR writing, code review, testing, complexity, logging, and code simplification |
 | [Founder](plugins/founder/skills/) | `majestic-founder` | 12 | Strategy, priorities, founder fit, finance, fundraising, go-to-market, and launch readiness |
 | [Frontend](plugins/frontend/skills/) | `majestic-frontend` | 5 | Visual direction, performance, accessibility, validation, and screenshots |
 | [Marketing](plugins/marketing/skills/) | `majestic-marketing` | 13 | Positioning, naming, research, content, campaigns, and growth experiments |
