@@ -383,8 +383,8 @@ for plugin_dir in plugin_dirs:
 standalone_count = len(plugin_skill_files) - len(plugin_cookbook_files)
 if standalone_count != 169:
     fail(f"expected 169 standalone plugin skills, found {standalone_count}")
-if len(plugin_cookbook_files) != 5:
-    fail(f"expected 5 plugin-hosted cookbooks, found {len(plugin_cookbook_files)}")
+if len(plugin_cookbook_files) != 6:
+    fail(f"expected 6 plugin-hosted cookbooks, found {len(plugin_cookbook_files)}")
 for obsolete_directory in (root / "cookbooks", root / "skills"):
     if obsolete_directory.exists():
         fail(f"{obsolete_directory.relative_to(root)}/ is obsolete; every cookbook must live in its primary domain plugin")

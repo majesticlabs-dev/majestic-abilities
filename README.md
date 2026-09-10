@@ -1,6 +1,6 @@
 # Majestic Abilities
 
-Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 169 catalog skills, five cookbooks, and two repository-operating skills, and follows the [Agent Skills](https://agentskills.io/) format.
+Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 169 catalog skills, six cookbooks, and two repository-operating skills, and follows the [Agent Skills](https://agentskills.io/) format.
 
 You can install:
 
@@ -181,7 +181,7 @@ The CLI normally recommends symlinks so several agents can share one canonical i
 
 ## Browse the Catalog
 
-The catalog contains 169 skills plus five cookbooks. Two repository-operating skills bring the Skills CLI inventory to 176 abilities. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see the exact inventory.
+The catalog contains 169 skills plus six cookbooks. Two repository-operating skills bring the Skills CLI inventory to 177 abilities. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see the exact inventory.
 
 | Category | Plugin | Skills | Focus |
 | --- | --- | ---: | --- |
@@ -219,6 +219,7 @@ Cookbooks are user-invoked workflows that sequence catalog skills by name. Catal
 | Cookbook | Location | Required categories | Purpose |
 | --- | --- | --- | --- |
 | [`ai-search-visibility-foundation`](plugins/seo/skills/ai-search-visibility-foundation/) | SEO plugin | `majestic-seo` | Establish SEO, entity, crawler, structured-data, and AEO measurement foundations |
+| [`seo-operator`](plugins/seo/skills/seo-operator/) | SEO plugin | `majestic-seo` | Select and verify one bounded, evidence-led SEO action |
 | [`founder-launch-decision`](plugins/founder/skills/founder-launch-decision/) | Founder plugin | `majestic-founder`, `majestic-sales` | Produce a founder-led launch decision |
 | [`founder-next-stage-decision`](plugins/founder/skills/founder-next-stage-decision/) | Founder plugin | `majestic-founder`, `majestic-product` | Decide a founder's next growth stage with a time-boxed evidence sprint |
 | [`product-engineering-handoff`](plugins/product/skills/product-engineering-handoff/) | Product plugin | `majestic-engineer`, `majestic-product` | Prepare an approved product direction for engineering |

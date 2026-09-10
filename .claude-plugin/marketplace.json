@@ -167,7 +167,7 @@
       "name": "majestic-seo",
       "source": "./plugins/seo",
       "description": "Technical SEO, content strategy, structured data, and Answer Engine Optimization for search engines and LLMs.",
-      "version": "0.1.1",
+      "version": "0.2.0",
       "category": "seo",
       "keywords": [
         "seo",
