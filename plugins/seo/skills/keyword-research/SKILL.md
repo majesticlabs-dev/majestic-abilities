@@ -230,9 +230,9 @@ site:reddit.com "[niche]" + "vs"
 
 | After This Skill | Use For |
 |------------------|---------|
-| `content-planner` | Detailed outlines for prioritized topics |
+| `seo-content` | Turning a prioritized keyword into a research brief, outline, and finished SEO asset |
 | `bofu-keywords` | Bottom-of-funnel conversion keywords |
-| `content-calendar` | Scheduling the content queue |
+| `editorial-planning` | Scheduling the content queue against production capacity |
 | `content-writer` | Writing the actual content |
 
 ## What This Skill Does NOT Do
