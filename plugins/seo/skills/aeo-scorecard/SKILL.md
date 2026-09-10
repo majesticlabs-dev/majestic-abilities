@@ -5,158 +5,114 @@ description: "Use when discussing AEO/GEO metrics or AI visibility performance."
 
 # AEO Scorecard: Measuring AI Visibility
 
-## The Four AEO Metrics
+Measure what an answer output, fetch log, analytics system, or survey actually shows. Do not turn one evidence class into another, and do not promise rankings, recommendations, citations, traffic, or conversions.
 
-Track these metrics to measure Answer Engine Optimization success:
+## Evidence Classes
 
-### 1. AI Visibility
+Keep these measures separate:
 
-**Definition:** Are you recommended for your priority queries?
+| Measure | Definition | Evidence source | Does not establish |
+| --- | --- | --- | --- |
+| Mentions | The brand, site, product, or page was named in a recorded answer | Saved response and transcript | Recommendation, citation, crawl, or click |
+| Recommendations | The recorded answer explicitly recommends or includes the entity for the stated task | Saved response, exact wording, and coding rule | Citation or causal influence |
+| Citations | The response attributes a claim to a URL or source and links or names that source | Saved response, source attribution, URL, and prompt | A crawl or future visibility |
+| Access | A crawler or fetcher requested a URL | Server/CDN logs with verification method | A mention, recommendation, citation, or indexing |
+| Click referrals | A user session arrived through a measurable AI referral | Analytics referral data with scope and attribution rules | All AI-influenced visits |
+| Self-reported discovery | A respondent says an AI product influenced discovery | Survey response with question, date, and sample | Verified referral or causal exposure |
 
-**How to Measure:**
-- Test priority queries in ChatGPT, Perplexity, Gemini, the agent
-- Document which queries return your brand
-- Track visibility over time (weekly/monthly)
+A crawl or fetch is not a citation. GA4 is not complete raw bot logging. Bot user-agent strings can be spoofed, so use provider verification methods and server/CDN evidence where bot identity matters.
 
-**Tools:**
-- HubSpot AEO Grader (free audit)
-- XFunnel (comprehensive tracking)
-- Manual testing with query lists
+## Sample Design
 
-**Target:** Appear in recommendations for 60%+ of priority queries.
+Before collecting observations, record a dated plan:
 
-### 2. AI Share of Voice
+| Field | Record |
+| --- | --- |
+| Platforms | Product and access mode, such as ChatGPT Search or Google AI feature |
+| Model/version | Visible model label or `unknown` |
+| Prompt set | Stable IDs, exact text, intent, and target entity |
+| Locale/device | Locale, country, language, device, and logged-in state |
+| Search mode | Search enabled, web mode, answer-only mode, or other exact mode |
+| Collection date/time | Time zone and run identifier |
+| Replicates | Number of independent runs per prompt and sampling reason |
+| Coding rules | What counts as a mention, recommendation, citation, and correct attribution |
+| Denominator | Eligible successful samples for each metric, not all planned samples |
+| Baseline/target | Site-specific baseline, target, owner, and review date |
 
-**Definition:** Of all recommendations for a query, how often is YOUR brand named vs. competitors?
+Repeat the same prompt IDs, platform/model, locale, search mode, coding rules, and sampling schedule closely enough to compare observations. If any of these change, mark the comparison as a method change.
 
-**Calculation:**
-```
-Share of Voice = (Your mentions / Total brand mentions) × 100
-```
+## Scorecard Measures
 
-**Why It Matters:**
-- Distinguishes platform changes (everyone drops) from brand failures (you drop, competitors stay)
-- Tracks competitive position in AI recommendations
+Calculate each measure from its own eligible denominator:
 
-**Example:**
-- Query: "Best CRM for small business"
-- Total recommendations across 10 AI sessions: 50 brand mentions
-- Your brand mentioned: 8 times
-- Share of Voice: 16%
+- **Mention rate:** responses containing a coded brand/site mention / eligible completed responses
+- **Recommendation rate:** responses meeting the recommendation rule / eligible completed responses
+- **Citation rate:** responses with an attributable target citation / eligible responses that made a source-attribution claim or the predeclared citation denominator
+- **Access rate:** verified fetches for the scoped URLs / relevant verified requests, if that denominator is meaningful
+- **Referral rate:** measurable AI referrals / sessions in the declared analytics scope
+- **Survey discovery rate:** respondents selecting an AI discovery option / valid survey responses
 
-**Target:** Match or exceed your traditional search market share.
+Report numerator, denominator, date range, query/prompt scope, and coding rule. A failed, blocked, malformed, or partial sample is `failed` or `partial`, not zero. Keep it in a coverage field and explain whether it is excluded from the eligible denominator.
 
-### 3. AI Citations
+## Bot and Access Controls
 
-**Definition:** How often is YOUR WEBSITE the source of the answer?
+Use current provider documentation before changing robots policies or interpreting logs:
 
-**Why It Matters:**
-- Being cited = more positive recommendation
-- Citation = authority signal for future queries
-- Direct traffic potential from "learn more" links
+- [Google common crawlers and fetchers](https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers)
+- [OpenAI bots](https://developers.openai.com/api/docs/bots)
 
-**How to Track:**
-- Monitor AI bot traffic in analytics (GPTBot, Anthropic-AI, etc.)
-- Use XFunnel to track citation sources
-- Test queries and note source attribution
+`Google-Extended` is a robots control token. It has no separate HTTP user-agent. It governs Google's training and grounding uses and does not control Google Search inclusion or ranking. Do not tell users to find `Google-Extended` in GA4.
 
-**Target:** Be cited (not just mentioned) in 30%+ of relevant queries.
+For OpenAI, keep roles distinct: `OAI-SearchBot` supports search, `GPTBot` concerns training, and `ChatGPT-User` is user-initiated retrieval. Search, training, and user-fetch permissions are separate. No bot-provider connection is required for this standalone scorecard. If logs are unavailable, record access as unavailable rather than inferring it from answer results.
 
-### 4. Referral Demand
+## Scorecard Template
 
-**Definition:** Traffic and conversions that originated in AI but didn't click through immediately.
+```markdown
+## AI Visibility Scorecard
 
-**The Problem:** AI users often:
-1. Get answer from AI
-2. Remember brand name
-3. Search directly or visit later
-4. No referral attribution
+**Period:** [dates and time zone]
+**Baseline:** [date, method, and site-specific baseline]
+**Target:** [owner-approved target and review date]
+**Coverage:** [completed / failed / partial / blocked samples]
 
-**How to Measure:**
-Implement post-purchase survey:
-- "How did you first hear about us?"
-- Options: "AI assistant (ChatGPT, Perplexity, etc.)"
+| Evidence class | Numerator | Eligible denominator | Rate or count | Source and limitation |
+|---|---:|---:|---:|---|
+| Mentions | [n] | [n] | [rate] | saved responses |
+| Recommendations | [n] | [n] | [rate] | saved responses and coding |
+| Citations | [n] | [n] | [rate] | saved source attributions |
+| Verified access | [n] | [n] | [count/rate] | server/CDN logs |
+| Click referrals | [n] | [n] | [rate/count] | analytics |
+| Survey discovery | [n] | [n] | [rate] | valid survey responses |
 
-**Survey Placement:**
-- Post-purchase confirmation
-- Onboarding flow
-- Trial signup
+### Prompt and sample notes
+[Platform/model, prompt IDs, locale, search mode, replicates, failures, coding changes]
 
-**Target:** Track trend over time; aim for growth in AI-attributed discovery.
+### Findings
+[Observed changes, repeated observations, site-specific comparison, and limitations]
 
-## AEO Scorecard Template
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                    AEO SCORECARD                        │
-│                    Month: [DATE]                        │
-├─────────────────────────────────────────────────────────┤
-│                                                         │
-│  AI VISIBILITY                          [X]% → Target: 60%
-│  ──────────────────────────────────────                 │
-│  Priority queries with brand presence: X/Y              │
-│                                                         │
-│  AI SHARE OF VOICE                      [X]% → Target: Match SEO
-│  ──────────────────────────────────────                 │
-│  Your mentions / Total brand mentions                   │
-│  Competitor A: X%  |  Competitor B: X%  |  You: X%      │
-│                                                         │
-│  AI CITATIONS                           [X]% → Target: 30%
-│  ──────────────────────────────────────                 │
-│  Queries where YOUR site is cited: X/Y                  │
-│                                                         │
-│  REFERRAL DEMAND                        [X]% → Trend: ↑↓
-│  ──────────────────────────────────────                 │
-│  Post-purchase survey: "Found via AI"                   │
-│                                                         │
-└─────────────────────────────────────────────────────────┘
+### Next collection
+[Exact repeat date, owner, and unchanged method]
 ```
 
-## Measurement Tools
+## Interpretation Rules
 
-| Tool | What It Measures | Cost |
-|------|------------------|------|
-| **HubSpot AEO Grader** | AI visibility audit | Free |
-| **XFunnel** | Full AEO tracking suite | Paid |
-| **Manual Testing** | Query-by-query visibility | Free (time) |
-| **Google Analytics** | AI bot traffic | Free |
-| **Post-Purchase Survey** | Referral demand | Free |
+- Compare the same evidence class and scope over time. Do not explain a response-rate change with bot access logs alone.
+- Use repeated observations and a site-specific baseline before calling a difference meaningful.
+- A citation can be recorded only when the response attributes the source. A page being fetched does not imply citation.
+- A click referral records an attributed session, not dark traffic or every AI-influenced visit.
+- A survey records a respondent's report, not verified exposure or complete attribution.
+- A platform-wide change is a hypothesis unless the same stable sample shows it across comparable entities.
+- Do not infer a universal diagnosis from a low rate, and do not trigger an all-page rewrite automatically.
+- Report no performance promise. A favorable observation does not prove that a change caused it.
 
-## Setting Up AI Bot Tracking
+## Review Cadence and Actions
 
-In Google Analytics 4, create a segment for AI crawler traffic:
+At each review:
 
-**User Agents to Track:**
-- `GPTBot` (OpenAI)
-- `Anthropic-AI` (the agent)
-- `Google-Extended` (Gemini)
-- `PerplexityBot`
-- `CCBot` (Common Crawl, used by many)
+1. Re-run the declared sample with the same method.
+2. Reconcile completed, failed, partial, and blocked samples.
+3. Compare each evidence class with its own baseline and denominator.
+4. Review source provenance, bot verification, analytics attribution, and survey bias.
+5. Select one bounded follow-up based on an observed gap and a verification method.
 
-## Interpreting Results
-
-**Scenario Analysis:**
-
-| Visibility | Share of Voice | Diagnosis |
-|------------|----------------|-----------|
-| ↓ Down | ↓ Down | Platform algorithm change (industry-wide) |
-| ↓ Down | → Stable | Your content quality declined |
-| → Stable | ↓ Down | Competitors improved |
-| ↑ Up | ↑ Up | Your AEO strategy is working |
-
-## Action Triggers
-
-| Metric | Threshold | Action |
-|--------|-----------|--------|
-| Visibility < 40% | Critical | Run `seo-content` on all priority content |
-| Share of Voice < competitor | Competitive gap | Run `brand-positioning` and `competitive-positioning` for authority and differentiation |
-| Citations < 20% | Authority gap | Add original data, improve fact-density |
-| Referral Demand flat | Attribution gap | Improve survey placement and options |
-
-## Monthly Review Cadence
-
-1. **Week 1:** Run visibility audit on priority queries
-2. **Week 2:** Calculate share of voice vs. top 3 competitors
-3. **Week 3:** Analyze citation sources and bot traffic
-4. **Week 4:** Review referral demand survey data
-5. **Monthly:** Update scorecard, prioritize improvements
+Potential follow-ups include clarifying visible factual content, checking a specific fetch policy, or improving measurement provenance. Record the smallest authorized action and its verification result. Do not use universal percentage thresholds as targets or action triggers.

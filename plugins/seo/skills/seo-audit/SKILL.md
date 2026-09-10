@@ -5,7 +5,7 @@ description: "Use when evaluating search performance or diagnosing ranking issue
 
 # SEO Audit Skill
 
-A comprehensive SEO audit methodology that evaluates content for both traditional search engine optimization and modern AI/LLM visibility (GEO). Informed by Google's multi-stage ranking pipeline.
+A scoped, evidence-led audit of technical search foundations, page content, authorship, AI readability, and measurement. It separates observed facts from hypotheses and unknowns.
 
 ## When to Use
 
@@ -16,142 +16,97 @@ A comprehensive SEO audit methodology that evaluates content for both traditiona
 - Evaluating E-E-A-T signals
 - Checking technical SEO elements
 - Diagnosing why content isn't ranking
-- Auditing new domains (sandbox considerations)
+- Reviewing a new domain or URL without assuming an age-based ranking restriction
 
-## Google's Ranking Pipeline
+## Evidence Rules
 
-Content passes through sequential evaluation gates. Understanding this pipeline informs what to audit and why.
+- Use the page, crawl, server, analytics, Search Console, and owner-approved content evidence that is actually available.
+- Record each material observation as `observed`, `partial`, `unknown`, `unavailable`, or `hypothesis`, with source and date.
+- Do not present leaked or external signal names, fixed ranking stages, authority caps, sandbox timelines, URL-history resets, machine-learning scores, or click behavior as established defects or repair gates.
+- A before/after association does not prove causation. For traffic changes, compare scoped Search Console and analytics data while considering technical changes, seasonality, demand, and search changes.
+- Never invent factual claims, authorship, ownership, performance, or a cause for missing clicks.
+- An intentional `robots.txt` rule, `noindex`, or canonical is an observation first. Check the owner's intent and the eligible URL scope before calling it a defect.
+- Audit-only requests produce findings and recommendations. They must not edit, publish, redirect, remove, or deploy anything.
 
-```
-Mustang → Topicality (T*) → NavBoost → Twiddlers
-   ↓           ↓              ↓           ↓
- Initial   Query-match    User clicks   Final
- scoring   relevance      (13 months)   adjustments
-```
+Use current primary guidance where applicable:
 
-**Key Implications:**
-- Content must pass Mustang's quality gate before relevance even matters
-- User behavior (NavBoost) accumulates over 13 months, patience required
-- Two foundational pillars: Q* (site quality) and P* (popularity via Chrome data)
-- Page potential is capped by domain's `siteAuthority` score
-
-See `assets/google-ranking-signals.yaml` for complete signal reference.
+- [Google Search Essentials](https://developers.google.com/search/docs/essentials)
+- [Creating helpful, reliable, people-first content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)
+- [Debugging drops in Google Search traffic](https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops)
+- [Title links](https://developers.google.com/search/docs/appearance/title-link)
+- [Snippets](https://developers.google.com/search/docs/appearance/snippet)
 
 ## Audit Framework
 
-### Phase 0: Domain & History Context
+### Phase 0: Scope and Evidence
 
-Before auditing content, assess domain-level factors that cap page potential:
+Record:
 
-**Domain Authority Check:**
-- [ ] Established domain (>6 months) or new domain sandbox?
-- [ ] Site-wide quality signals (clutterScore, ad density)
-- [ ] Homepage authority inheritance for new pages
-- [ ] Brand entity recognition (`queriesForWhichOfficial`)
+- audit date, site/property, URL or template scope, locale, device, and requested question
+- known URL inventory and its source, date, inclusion rules, and gaps
+- available crawl, HTTP, rendered-page, Search Console, analytics, server-log, content, and owner-approved fact evidence
+- permissions: audit only, prepared recommendation, or explicitly authorized local change
+- unavailable inputs and what they prevent you from concluding
 
-**URL History Assessment:**
-- [ ] Is this an established URL with history?
-- [ ] URL changes reset accumulated trust (Google tracks last 20 versions)
-- [ ] Evergreen URL structure (no dates unless news content)
-- [ ] URL permanence strategy in place
-
-**Sandbox Awareness (New Domains/Pages):**
-| Factor | Status | Impact |
-|--------|--------|--------|
-| hostAge | New (<6mo) / Established | Domain-level sandbox |
-| documentHistory | New URL / Has history | Page-level demotion |
-| Graduation signals | Social, backlinks, engagement | Exit sandbox |
-
-**If new domain:** Set realistic expectations. Dual sandbox (host + document) requires consistent quality publishing, backlinks, and positive engagement over months.
+Do not call a sample or partial inventory a whole-site audit.
 
 ### Phase 1: Technical SEO Check
 
-Evaluate foundational technical elements:
+Evaluate only the URLs and evidence in scope:
 
 **Page-Level Technical:**
-- [ ] URL structure (clean, descriptive, <60 chars, evergreen)
-- [ ] Title tag (50-60 chars, keyword in first 30) → affects `titlematchScore`
-- [ ] Meta description (150-160 chars, compelling CTA)
-- [ ] H1 tag (single, matches topic)
-- [ ] Header hierarchy (logical H1→H2→H3) → larger text weighted higher
-- [ ] Image alt text (descriptive, keyword-relevant)
+- [ ] HTTP status, redirect chain, and final canonical URL
+- [ ] Indexability controls: `robots.txt`, `noindex`, canonical, authentication, and rendered availability
+- [ ] Title and description accurately describe visible page content; no fixed length rule
+- [ ] H1 tag and meaningful page structure
+- [ ] Heading hierarchy
+- [ ] Image alt text where it conveys information
 - [ ] Internal links (contextual, relevant)
-- [ ] External links (authoritative sources)
+- [ ] External links and cited claims where evidence is needed
+- [ ] Structured data matches visible content and is valid for its intended consumer
 
 **Site-Level Technical:**
 - [ ] HTTPS enabled
-- [ ] Mobile-friendly
-- [ ] Page speed (<1.8s mobile)
-- [ ] Schema markup present
+- [ ] Mobile rendering and interaction
+- [ ] Performance evidence from the selected URLs and measurement method
 - [ ] XML sitemap inclusion
-- [ ] robots.txt accessibility
+- [ ] `robots.txt` accessibility and intended rules
+- [ ] Duplicate, redirect, canonical, and pagination patterns
 
-**Entity & Trust Signals:**
-- [ ] Verifiable ownership/authorship (disconnected entity problem)
-- [ ] Contact information accessible
-- [ ] Organization schema linking to Knowledge Graph
+**Intent checks before defects:**
+- [ ] Confirm a `noindex`, disallow, or canonical is unintended before recommending a change.
+- [ ] Confirm the requested URL is the intended representative URL before treating another canonical as an error.
+- [ ] Confirm redirects are unnecessary or harmful before proposing a URL change.
 
 ### Phase 2: Content Quality Assessment
 
-Evaluate content depth and value. Google's `contentEffort` signal measures ML-assessed effort invested.
+Assess whether the page helps its intended reader:
 
-**Content Completeness:**
-| Factor | Check | Score | Signal |
-|--------|-------|-------|--------|
-| Topic coverage | Comprehensive vs. shallow | /10 | contentEffort |
-| Unique value | Original insights vs. rehash | /10 | OriginalContentScore |
-| Accuracy | Factual, verifiable | /10 | Trust signals |
-| Freshness | Current data/sources | /10 | semanticDate |
-| Depth | Expert-level detail | /10 | contentEffort |
+- [ ] Search intent and audience are explicit or reasonably evidenced
+- [ ] The page answers the main need with useful, accurate, sufficiently complete information
+- [ ] Claims, dates, statistics, and product facts have attributable evidence where material
+- [ ] Original experience, examples, methods, or analysis are identified when present
+- [ ] Freshness reflects substantive updates, not a date-only change
+- [ ] The main answer is findable, with headings, lists, tables, or other structure that serves readers
+- [ ] Important content is not hidden behind avoidable interaction, boilerplate, or inaccessible media
+- [ ] Reading and comprehension issues are described concretely, without universal word-count or readability gates
 
-**Token Truncation Awareness:**
-Google uses token limits. Long documents may be truncated. Optimize for this:
-- [ ] Critical information in first 20% of content (inverted pyramid)
-- [ ] Key facts lead each section
-- [ ] Paragraphs <120 words
-- [ ] Front-load value, don't bury it
+Google does not publish a preferred word count. E-E-A-T is a useful quality assessment concept, not a numeric score or a standalone ranking factor.
 
-**Readability:**
-- Reading level (target: Grade 8-10)
-- Paragraph length (2-3 sentences ideal)
-- Sentence variety
-- Scannable formatting (bullets, headers)
-- Visual aids (images, tables, diagrams)
+### Phase 3: Keyword and Semantic Analysis
 
-**Freshness Audit:**
-Google evaluates freshness through three distinct methods:
-- [ ] Explicit byline date (visible, accurate)
-- [ ] URL date signals (avoid dates in evergreen URLs)
-- [ ] Semantic freshness (are facts/sources current, not just timestamp?)
+Assess intent and useful language, not density:
 
-⚠️ **Freshness spam detection:** Changing timestamps without updating substance is detected via `semanticDate` comparison.
-
-### Phase 3: Keyword & Semantic Analysis
-
-Assess keyword optimization. Affects Topicality (T*) stage scoring.
-
-**Primary Keyword:**
-- Present in title tag (first 30 chars ideal)
-- In H1 and early H2s
-- Natural density (0.5-1.5%)
-- In meta description
-- In first 100 words
-
-**Semantic Coverage:**
-- LSI keywords present
-- Related entities covered (`webrefEntities` signal)
-- Topic cluster alignment
-- Question variations addressed
-- Search intent match
-
-**Entity Optimization:**
-- [ ] Content associates with Knowledge Graph entities
-- [ ] Clear entity relationships established
-- [ ] Supports topical authority building
+- [ ] Target query or task is known and matches the page's purpose
+- [ ] Important concepts and entities are explained naturally where relevant
+- [ ] The page covers material subquestions without padding or stuffing
+- [ ] Terms in title, headings, links, and body are accurate and natural
+- [ ] Competing pages are used as context for missing useful coverage, not as a quota
+- [ ] Ambiguous entities, claims, and relationships are clarified with attributable sources
 
 ### Phase 4: E-E-A-T Evaluation
 
-Assess Experience, Expertise, Authority, Trust signals. These map directly to technical signals.
+Assess what a reader can verify:
 
 **Experience Signals:**
 - [ ] First-hand experience indicated
@@ -159,41 +114,39 @@ Assess Experience, Expertise, Authority, Trust signals. These map directly to te
 - [ ] Original data/research
 - [ ] Process documentation
 
-**Expertise Signals:** (→ `contentEffort`, `OriginalContentScore`)
+**Expertise Signals:**
 - [ ] Author credentials visible
 - [ ] Technical accuracy
 - [ ] Comprehensive coverage
 - [ ] Expert quotes/interviews
 
-**Authority Signals:** (→ `siteAuthority`, `author` attribute)
+**Authority Signals:**
 - [ ] Authoritative external citations
 - [ ] Industry recognition
 - [ ] Brand mentions
 - [ ] Published research
 
 **Trust Signals:**
-- [ ] Contact information (disconnected entity fix)
+- [ ] Contact information
 - [ ] Privacy policy
 - [ ] Editorial guidelines
 - [ ] Reviews/testimonials
 - [ ] Security indicators
 
-**Disconnected Entity Check:**
-Sites without verifiable ownership, author info, and contact transparency trigger algorithmic distrust, even with high content quality.
+Do not infer a universal demotion from missing fields. State which reader question remains unanswered and what evidence would resolve it.
 
-### Phase 5: AI/GEO Readiness
+### Phase 5: AI and Answer Readiness
 
-Assess content for LLM visibility:
+Assess extractability as an observed content property, not a citation promise:
 
 **Extractability:**
-- [ ] TL;DR or summary present (first 100 words)
-- [ ] Paragraphs <120 words (token limit friendly)
-- [ ] Clear topic sentences (lead with facts)
+- [ ] Summary or direct answer is easy to locate
+- [ ] Clear topic sentences lead with useful facts
 - [ ] Bullet lists for features
 - [ ] Tables for comparisons
-- [ ] FAQ section present
+- [ ] Question-and-answer sections where the audience needs them
 
-**Fact-Density:**
+**Fact Density:**
 - [ ] Statistics with sources
 - [ ] Specific numbers/dates
 - [ ] Verifiable data points
@@ -201,26 +154,37 @@ Assess content for LLM visibility:
 
 **Structure for AI:**
 - [ ] Question-based headers
-- [ ] Direct answers near top (inverted pyramid)
+- [ ] Direct answers near top when useful
 - [ ] Logical information hierarchy
-- [ ] Schema markup (FAQPage, HowTo)
+- [ ] Structured data only where it describes visible content and serves a documented use
 
-### Phase 6: User Behavior Signals
+### Phase 6: Measurement and Diagnosis
 
-Google's NavBoost uses 13 months of aggregated click behavior. Audit for "good clicks" potential.
+Use attributable observations:
 
-**Click Quality Indicators:**
-- [ ] Title/meta accurately represent content (no clickbait)
-- [ ] Content matches search intent (dwell time)
-- [ ] Clear value proposition visible above fold
-- [ ] Low bounce risk (content delivers on promise)
+- [ ] Title and description accurately represent content
+- [ ] Search Console impressions, clicks, CTR, position, and query/page scope are dated and comparable
+- [ ] Analytics conversions and referrals have documented attribution limits
+- [ ] Server or CDN logs, if used, distinguish verified fetches from response mentions or citations
+- [ ] Technical changes, seasonality, demand, and search changes are considered before a cause is proposed
+- [ ] Missing rows are `unknown` or `partial`, not zero
 
-**Engagement Factors:**
-| Signal | Status | Improvement |
-|--------|--------|-------------|
-| Expected dwell time | Low/Med/High | Match intent better |
-| Bounce risk | Low/Med/High | Clearer value prop |
-| Return visit potential | Low/Med/High | Brand building |
+## Finding Contract
+
+Every finding must include:
+
+| Field | Required content |
+| --- | --- |
+| Observation | What was seen, where, source, date, and evidence state |
+| Scope | URL, template, query, device, locale, or inventory boundary |
+| Severity | `critical`, `high`, `medium`, `low`, or `informational`, tied to user/search impact |
+| Confidence | `high`, `medium`, or `low`, with the reason and limits |
+| Interpretation | Defect, opportunity, intentional control, unknown, or falsifiable hypothesis |
+| Smallest fix | One bounded, authorized preparation or recommendation |
+| Verification | Exact local or target-environment check and expected observable result |
+| Limitation | Missing evidence, confounder, or unresolved owner decision |
+
+Do not produce an overall numeric health score or subtract points for site age. Prefer prioritized findings over an invented aggregate.
 
 ## Detailed Reference
 
