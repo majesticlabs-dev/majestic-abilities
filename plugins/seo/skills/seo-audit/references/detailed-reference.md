@@ -1,109 +1,84 @@
-# SEO Audit Skill Detailed Reference
+# SEO Audit Detailed Reference
 
 ## Output Format
-
-### SEO Audit Report
 
 ```markdown
 ## SEO Audit Report
 
-**Page:** [URL or filename]
-**Date:** [Audit date]
-**Overall Score:** X/100
-**Domain Status:** [Established/New (sandbox considerations)]
+**Scope:** [site, URL or template set, locale, device]
+**Date:** [audit date]
+**Permission:** [audit only | prepared recommendation | authorized local change]
+**Inventory coverage:** [complete, sampled, or partial, with source and gaps]
 
 ### Executive Summary
-[2-3 sentence overview including pipeline stage bottlenecks]
+[Evidence-backed summary. Do not claim a cause when evidence supports only a hypothesis.]
 
-### Scores by Category
+### Evidence Baseline
+| Source | Scope/date | State | What it can establish | Limitation |
+|---|---|---|---|---|
+| Crawl or HTTP fetch | [scope/date] | observed/partial | [fact] | [gap] |
+| Search Console | [property/window] | observed/partial | [metric] | [gap] |
+| Analytics or logs | [scope/window] | observed/partial | [metric] | [attribution limit] |
+| Owner-approved facts | [record/date] | observed/partial | [claim] | [gap] |
 
-| Category | Score | Status | Key Signal |
-|----------|-------|--------|------------|
-| Domain/History | X/10 | [Status] | siteAuthority |
-| Technical SEO | X/15 | [Status] | titlematchScore |
-| Content Quality | X/25 | [Status] | contentEffort |
-| Keyword Optimization | X/10 | [Status] | Topicality |
-| E-E-A-T Signals | X/20 | [Status] | Trust signals |
-| AI/GEO Readiness | X/10 | [Status] | Extractability |
-| User Behavior | X/10 | [Status] | NavBoost |
+### Priority Findings
+| ID | Observation and evidence | Severity | Confidence | Smallest fix | Verification |
+|---|---|---|---|---|---|
+| [ID] | [scoped observation] | [level] | [level/reason] | [bounded action] | [test/result] |
 
-### Pipeline Bottleneck Analysis
-[Which pipeline stage is the primary blocker? Mustang quality? Topicality match? NavBoost signals?]
+### Technical Findings
+[HTTP, indexability, canonicals, redirects, mobile, performance, sitemap, and structured data. Record intentional controls separately.]
 
-### Priority Issues (Fix First)
+### Content Findings
+[Intent, useful coverage, accuracy, originality, freshness, authorship, and reader comprehension.]
 
-1. **[Issue]** - [Impact] - [Fix] - [Signal affected]
-2. **[Issue]** - [Impact] - [Fix] - [Signal affected]
-3. **[Issue]** - [Impact] - [Fix] - [Signal affected]
+### AI and Answer Readiness
+[Extractability and attributable facts. Do not promise crawling, recommendations, or citations.]
 
-### Domain Context
-[Sandbox status, authority inheritance, URL history]
+### Measurement
+[Comparable query/page metrics, source dates, denominators, missing data, confounders, and next observation date.]
 
-### Technical SEO Findings
-[Detailed findings with specific recommendations]
-
-### Content Quality Findings
-[contentEffort indicators, token optimization, freshness]
-
-### Keyword Analysis
-[Primary keyword performance, semantic gaps, entity coverage]
-
-### E-E-A-T Assessment
-[Specific signals present/missing, disconnected entity risk]
-
-### AI Visibility Assessment
-[GEO readiness score and improvements]
-
-### User Behavior Optimization
-[Click quality, dwell time, engagement improvements]
-
-### Action Plan
-
-**Immediate (This Week):**
-- [ ] Action 1
-- [ ] Action 2
-
-**Short-term (This Month):**
-- [ ] Action 1
-- [ ] Action 2
-
-**Ongoing (Sandbox Graduation):**
-- [ ] Consistent quality publishing
-- [ ] Social signal building
-- [ ] Backlink acquisition
-- [ ] User engagement optimization
+### Unresolved Questions
+[Owner decisions, unavailable logs, disputed facts, and tests needed to falsify hypotheses.]
 ```
 
-## Scoring Guide
+## Severity and Confidence
 
-**90-100:** Excellent - Minor optimizations only
-**70-89:** Good - Some improvements needed
-**50-69:** Needs Work - Significant gaps to address
-**Below 50:** Critical - Major overhaul required
+Severity describes the plausible impact in the scoped context, not a ranking penalty:
 
-**New Domain Adjustment:** Subtract 10-15 points for sandbox limitations. Focus on graduation signals.
+- `critical`: a verified issue blocks the intended page or important user action
+- `high`: a verified issue materially prevents access, understanding, or measurement
+- `medium`: a supported issue with meaningful but non-blocking impact
+- `low`: a localized improvement with limited expected impact
+- `informational`: an observation or opportunity without a demonstrated defect
+
+Confidence describes evidence quality:
+
+- `high`: directly reproduced or established by current, attributable evidence
+- `medium`: supported by current evidence with a material limitation
+- `low`: plausible hypothesis needing a targeted test or missing source
 
 ## Quick Audit Option
 
-For faster audits, focus on:
+For a bounded audit, inspect:
 
-1. **Domain Context** - Established or sandbox? URL history?
-2. **Title & Meta** - Optimized for `titlematchScore`?
-3. **Content Quality** - `contentEffort` indicators present?
-4. **E-E-A-T** - Disconnected entity risk?
-5. **AI Ready** - Inverted pyramid, extractable format?
+1. HTTP status, redirects, canonical, robots, and noindex intent
+2. Title, description, headings, links, and visible content
+3. Intent, factual support, authorship, and freshness
+4. Answer extractability and structured-data fit
+5. Dated Search Console, analytics, or server evidence if diagnosis is requested
 
-Deliver top 5 issues with affected signals and fixes.
+Return the top findings with evidence state, severity, confidence, smallest fix, verification, and limitations. Do not score the page or treat missing data as zero.
 
-## Signal Reference
+## Falsifiable Diagnosis Pattern
 
-For detailed signal documentation, see:
-`assets/google-ranking-signals.yaml`
+Use this structure when the user asks why performance changed:
 
-Key signals to remember:
-- `titlematchScore` - Title relevance to query
-- `contentEffort` - ML-assessed content investment
-- `OriginalContentScore` - Uniqueness (0-512 scale)
-- `semanticDate` - Actual freshness of facts/sources
-- `siteAuthority` - Domain-level authority cap
-- `chromeInTotal` - Popularity via Chrome data
+1. **Observation:** [metric movement, exact scope, source, and dates]
+2. **Candidate explanation:** [technical, demand, content, or search-change hypothesis]
+3. **Evidence for:** [specific observations]
+4. **Evidence against or missing:** [specific gaps]
+5. **Test:** [smallest comparison, fetch, log check, or owner confirmation]
+6. **Decision rule:** [what result would support or reject the hypothesis]
+
+Do not label an age, authority, click, or machine-learning theory as the cause without attributable evidence. See [the bounded evidence vocabulary](../assets/google-ranking-signals.yaml) used by this skill.

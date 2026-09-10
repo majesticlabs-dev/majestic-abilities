@@ -1,112 +1,119 @@
-# Site Archetype → Page-to-Schema Mappings
-# Maps common page types per site archetype to recommended schemas and expected rich results.
+# Content-led starting points. Choose markup only when the visible page supports it.
+# Schema.org validity, Google eligibility, deployment, and appearance are separate states.
+# Google retired the sitelinks search box starting November 21, 2024.
+# Source: https://developers.google.com/search/blog/2024/10/sitelinks-search-box
 
 saas:
   pages:
     homepage:
       schemas: [Organization, WebSite]
-      rich_result: Sitelinks search box
+      google_feature: "Sitelinks search box is retired. Knowledge Panels and ordinary sitelinks are not guaranteed; describe identity and site relationships accurately."
     pricing:
       schemas: [Product, Offer]
-      rich_result: Price in search
-      notes: One Product per plan tier, each with its own Offer
+      google_feature: "No generic price-result guarantee; use only for visible, current product or plan facts."
+      notes: "One Product or Offer per real offering when the page visibly describes it."
     blog:
-      schemas: [Article, FAQPage]
-      rich_result: FAQ dropdowns
-      notes: Add FAQPage only when post contains Q&A sections
-    docs:
-      schemas: [HowTo]
-      rich_result: Step-by-step snippet
-      notes: Best for tutorial/guide pages with sequential steps
-    reviews:
-      schemas: [AggregateRating]
-      rich_result: Star ratings
-      notes: Must reflect genuine user reviews, not self-assessed
-    changelog:
       schemas: [Article]
-      rich_result: Article carousel
+      optional_schemas: [FAQPage]
+      google_feature: "Article eligibility depends on current feature requirements; FAQ rich results are not available."
+      notes: "Use FAQPage only when the page visibly contains genuine Q&A and it serves a non-Google consumer."
+    docs:
+      schemas: [Article, TechArticle]
+      optional_schemas: [HowTo]
+      google_feature: "How-to rich results are not available; use HowTo only for valid Schema.org representation for another consumer."
+    reviews:
+      schemas: [Review]
+      optional_schemas: [AggregateRating]
+      google_feature: "Review features require a supported reviewed type, genuine visible reviews, and current policy compliance."
+      notes: "Do not use self-controlled Organization or LocalBusiness ratings as eligible Google review markup."
     about:
       schemas: [Organization, Person]
-      rich_result: Knowledge panel
-      notes: Person schema for founders/team with sameAs links
+      google_feature: "No Knowledge Panel guarantee. Use approved identity, person, and sameAs facts only."
 
 ecommerce:
   pages:
     homepage:
       schemas: [Organization, WebSite]
-      rich_result: Sitelinks search box
+      google_feature: "Sitelinks search box is retired. Knowledge Panels and ordinary sitelinks are not guaranteed."
     product:
-      schemas: [Product, Offer, AggregateRating]
-      rich_result: Price + star ratings
+      schemas: [Product, Offer]
+      optional_schemas: [AggregateRating, Review]
+      google_feature: "Product eligibility depends on visible accurate product data; stars require separate review policy checks."
+      notes: "Use price, currency, availability, and ratings only when current, visible, and approved."
     category:
       schemas: [BreadcrumbList, ItemList]
-      rich_result: Breadcrumb trail
+      google_feature: "Breadcrumb eligibility is separate from ItemList validity and neither guarantees display."
     faq:
       schemas: [FAQPage]
-      rich_result: FAQ dropdowns
+      google_feature: "FAQ rich results no longer appear in Google Search as of May 7, 2026."
+      notes: "Retain only when the visible Q&A warrants Schema.org markup for another consumer."
     blog:
       schemas: [Article]
-      rich_result: Article carousel
+      google_feature: "Article eligibility depends on current documented requirements."
     reviews:
-      schemas: [AggregateRating]
-      rich_result: Star ratings
+      schemas: [Review]
+      optional_schemas: [AggregateRating]
+      google_feature: "Check reviewed type, genuine source, visible content, and current review policy; stars are not guaranteed."
 
 agency:
   pages:
     homepage:
       schemas: [Organization, WebSite]
-      rich_result: Sitelinks search box
+      google_feature: "Sitelinks search box is retired. Knowledge Panels and ordinary sitelinks are not guaranteed."
     services:
-      schemas: [Service, Offer]
-      rich_result: Price in search
-      notes: One Service per offering with associated Offer
+      schemas: [Service]
+      optional_schemas: [Offer]
+      google_feature: "Service and Offer do not guarantee a Google price result; prices must be visible and accurate."
     case_studies:
       schemas: [Article]
-      rich_result: Article carousel
+      google_feature: "Article eligibility depends on current documented requirements."
     blog:
-      schemas: [Article, FAQPage]
-      rich_result: FAQ dropdowns
+      schemas: [Article]
+      optional_schemas: [FAQPage]
+      google_feature: "FAQ rich results are not available; Article and Schema.org validity remain separate."
     about:
       schemas: [Organization, Person]
-      rich_result: Knowledge panel
+      google_feature: "No Knowledge Panel guarantee; use only approved company and person facts."
     contact:
-      schemas: [LocalBusiness]
-      rich_result: Map pack
-      notes: Only if physical location exists
+      schemas: [ContactPage]
+      optional_schemas: [LocalBusiness]
+      google_feature: "LocalBusiness is appropriate only for a real eligible local business; local appearance is not guaranteed."
 
 blog:
   pages:
     homepage:
-      schemas: [Organization, WebSite]
-      rich_result: Sitelinks search box
+      schemas: [WebSite]
+      google_feature: "Sitelinks search box is retired. Ordinary sitelinks are not guaranteed; describe the visible site accurately."
     post:
       schemas: [Article, Person]
-      rich_result: Article carousel
-      notes: Person schema for author with sameAs linking to social profiles
+      google_feature: "Article eligibility depends on current requirements; author fields require approved evidence."
     tutorial:
-      schemas: [HowTo]
-      rich_result: Step-by-step snippet
+      schemas: [Article]
+      optional_schemas: [HowTo]
+      google_feature: "How-to rich results are not available; HowTo remains optional Schema.org vocabulary for visible steps."
     listicle:
-      schemas: [ItemList]
-      rich_result: List snippet
+      schemas: [Article, ItemList]
+      google_feature: "Use ItemList only when the visible page is genuinely a list; no display guarantee."
     faq:
       schemas: [FAQPage]
-      rich_result: FAQ dropdowns
+      google_feature: "FAQ rich results no longer appear in Google Search as of May 7, 2026."
+      notes: "Use only for visible Q&A intended for a non-Google consumer."
 
 docs:
   pages:
     homepage:
       schemas: [WebSite]
-      rich_result: Sitelinks search box
+      google_feature: "Sitelinks search box is retired. Ordinary sitelinks are not guaranteed."
     guide:
-      schemas: [HowTo]
-      rich_result: Step-by-step snippet
+      schemas: [Article]
+      optional_schemas: [HowTo]
+      google_feature: "How-to rich results are not available; describe visible guide content accurately."
     reference:
-      schemas: [Article, BreadcrumbList]
-      rich_result: Breadcrumb trail
+      schemas: [TechArticle, BreadcrumbList]
+      google_feature: "Breadcrumb eligibility and Article-family validity are separate; neither guarantees display."
     faq:
       schemas: [FAQPage]
-      rich_result: FAQ dropdowns
+      google_feature: "FAQ rich results no longer appear in Google Search as of May 7, 2026."
     changelog:
       schemas: [Article]
-      rich_result: Article carousel
+      google_feature: "Use accurate visible dates and changes; no Article appearance guarantee."
