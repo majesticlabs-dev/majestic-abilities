@@ -1,7 +1,7 @@
 {
   "name": "majestic-misc",
-  "version": "0.1.2",
-  "description": "Portable capabilities for actionable communication, lessons learned, visual explanations, execution grading, and skill design.",
+  "version": "0.2.0",
+  "description": "Portable capabilities for actionable communication, clarification, lessons learned, visual explanations, execution grading, and skill design.",
   "author": {
     "name": "Majestic Labs"
   },
@@ -14,8 +14,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Majestic Misc",
-    "shortDescription": "Communication, lessons learned, and skill-design skills.",
-    "longDescription": "Portable capabilities for actionable communication, lessons learned, visual explanations, execution grading, and skill design.",
+    "shortDescription": "Communication, clarification, lessons, and skill design.",
+    "longDescription": "Portable capabilities for actionable communication, clarification, lessons learned, visual explanations, execution grading, and skill design.",
     "developerName": "Majestic Labs",
     "category": "Productivity",
     "capabilities": ["Skills"],
@@ -23,6 +23,7 @@
       "Extract lessons from this completed work.",
       "Improve this skill structure.",
       "Make this answer more actionable.",
+      "Re-explain the previous response with more context.",
       "Show this architecture as a diagram."
     ]
   }

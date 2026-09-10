@@ -107,8 +107,8 @@
     {
       "name": "majestic-misc",
       "source": "./plugins/misc",
-      "description": "Portable capabilities for actionable communication, lessons learned, visual explanations, execution grading, and skill design.",
-      "version": "0.1.2",
+      "description": "Portable capabilities for actionable communication, clarification, lessons learned, visual explanations, execution grading, and skill design.",
+      "version": "0.2.0",
       "category": "misc",
       "keywords": [
         "skills",
