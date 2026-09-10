@@ -10,6 +10,9 @@
   "pi": {
     "skills": [
       "./plugins/*/skills"
+    ],
+    "prompts": [
+      "./prompts"
     ]
   }
 }

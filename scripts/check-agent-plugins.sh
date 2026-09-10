@@ -277,8 +277,15 @@ if pi_package is not None:
         fail("package.json must include the pi-package keyword")
     pi_manifest = pi_package.get("pi")
     expected_pi_skills = ["./plugins/*/skills"]
+    expected_pi_prompts = ["./prompts"]
     if not isinstance(pi_manifest, dict) or pi_manifest.get("skills") != expected_pi_skills:
         fail(f"package.json pi.skills must equal {expected_pi_skills!r}")
+    if not isinstance(pi_manifest, dict) or pi_manifest.get("prompts") != expected_pi_prompts:
+        fail(f"package.json pi.prompts must equal {expected_pi_prompts!r}")
+
+prompt_files = sorted(path.name for path in (root / "prompts").glob("*.md"))
+if prompt_files != ["wtf.md"]:
+    fail(f"prompts/ must contain only wtf.md, found {prompt_files!r}")
 
 plugin_dirs = sorted(path for path in plugins_root.iterdir() if path.is_dir())
 if not plugin_dirs:
@@ -381,8 +388,8 @@ for plugin_dir in plugin_dirs:
                 fail(f"cannot resolve symlink {path}: {error}")
 
 standalone_count = len(plugin_skill_files) - len(plugin_cookbook_files)
-if standalone_count != 169:
-    fail(f"expected 169 standalone plugin skills, found {standalone_count}")
+if standalone_count != 170:
+    fail(f"expected 170 standalone plugin skills, found {standalone_count}")
 if len(plugin_cookbook_files) != 6:
     fail(f"expected 6 plugin-hosted cookbooks, found {len(plugin_cookbook_files)}")
 for obsolete_directory in (root / "cookbooks", root / "skills"):

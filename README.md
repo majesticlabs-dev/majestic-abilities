@@ -1,6 +1,6 @@
 # Majestic Abilities
 
-Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 169 catalog skills, six cookbooks, and two repository-operating skills, and follows the [Agent Skills](https://agentskills.io/) format.
+Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 170 catalog skills, six cookbooks, one prompt command, and two repository-operating skills, and follows the [Agent Skills](https://agentskills.io/) format.
 
 You can install:
 
@@ -13,6 +13,7 @@ You can install:
 - [Choose an installation route](#choose-an-installation-route)
 - [Install native category plugins](#install-native-category-plugins)
 - [Install the Pi package](#install-the-pi-package)
+- [Use the WTF command](#use-the-wtf-command)
 - [Install with the Skills CLI](#install-with-the-skills-cli)
 - [Browse the catalog](#browse-the-catalog)
 - [Cookbooks](#cookbooks)
@@ -92,7 +93,15 @@ pi install git:github.com/majesticlabs-dev/majestic-abilities
 pi install git:github.com/majesticlabs-dev/majestic-abilities -l
 ```
 
-Use `pi config` to enable or disable package skills.
+Use `pi config` to enable or disable package skills and prompt templates.
+
+## Use the WTF Command
+
+The `wtf` capability stops the current explanation and re-explains the previous response with enough context, simpler language, and established project terms.
+
+- Claude Code: install `majestic-misc`, then invoke `/wtf` (or `/majestic-misc:wtf` when the qualified name is needed).
+- Codex: install `majestic-misc`, then invoke `$wtf` or select it through `/skills`.
+- Pi: install the complete package, then invoke `/wtf`.
 
 ## Find and Install Relevant Skills
 
@@ -181,7 +190,7 @@ The CLI normally recommends symlinks so several agents can share one canonical i
 
 ## Browse the Catalog
 
-The catalog contains 169 skills plus six cookbooks. Two repository-operating skills bring the Skills CLI inventory to 177 abilities. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see the exact inventory.
+The catalog contains 170 skills plus six cookbooks. Two repository-operating skills bring the Skills CLI inventory to 178 abilities. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see the exact inventory.
 
 | Category | Plugin | Skills | Focus |
 | --- | --- | ---: | --- |
@@ -193,7 +202,7 @@ The catalog contains 169 skills plus six cookbooks. Two repository-operating ski
 | [Founder](plugins/founder/skills/) | `majestic-founder` | 12 | Strategy, priorities, founder fit, finance, fundraising, go-to-market, and launch readiness |
 | [Frontend](plugins/frontend/skills/) | `majestic-frontend` | 5 | Visual direction, performance, accessibility, validation, and screenshots |
 | [Marketing](plugins/marketing/skills/) | `majestic-marketing` | 13 | Positioning, naming, research, content, campaigns, and growth experiments |
-| [Misc](plugins/misc/skills/) | `majestic-misc` | 5 | Communication, lessons learned, visual explanations, skill grading, and skill structure |
+| [Misc](plugins/misc/skills/) | `majestic-misc` | 6 | Communication, clarification, lessons learned, visual explanations, skill grading, and skill structure |
 | [Product](plugins/product/skills/) | `majestic-product` | 15 | Discovery, workflow mapping, requirements, planning, pricing, and retention |
 | [Rails](plugins/rails/skills/) | `majestic-rails` | 36 | Rails and Ruby implementation, Hotwire, architecture, testing, and review |
 | [Reasoning](plugins/reasoning/skills/) | `majestic-reasoning` | 4 | Decision retrospectives, challenge, premortems, and reasoning verification |
