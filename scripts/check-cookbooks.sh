@@ -222,8 +222,8 @@ done
 if [ "$found_cookbook" -eq 0 ]; then
   fail "no cookbooks found under plugins/*/skills/"
 fi
-if [ "$hosted_cookbook_count" -ne 5 ]; then
-  fail "expected 5 plugin-hosted cookbooks, found $hosted_cookbook_count"
+if [ "$hosted_cookbook_count" -ne 6 ]; then
+  fail "expected 6 plugin-hosted cookbooks, found $hosted_cookbook_count"
 fi
 if [ -d skills ] || [ -d cookbooks ]; then
   fail "top-level skills/ and cookbooks/ are obsolete; every cookbook must live in its primary domain plugin"
