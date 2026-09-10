@@ -61,15 +61,17 @@ Apply these BOFU patterns to the product:
 - `[category] for enterprise`
 - `how to [solve problem] with [product]`
 
-### Step 2: Use Perplexity for Validation
+### Step 2: Validate with Available Research Tools
 
-Use Perplexity MCP to research:
+Use any available web search, browser, or SEO research tool to research:
 1. Which competitors are commonly compared
 2. What questions people ask before buying
 3. Common objections and concerns
 4. Popular use cases and niches
 
-Example Perplexity query:
+Do not require a specific provider or account. If no research tool is available, continue with the user-provided competitors and use cases, then mark assumptions that need validation.
+
+Example research query:
 ```
 What are the most common questions people ask before buying [product category] software? What comparisons do they search for?
 ```
