@@ -123,6 +123,8 @@ for cookbook in $cookbooks; do
     founder-launch-decision|founder-next-stage-decision) expected_plugin="founder" ;;
     product-engineering-handoff) expected_plugin="product" ;;
     rails-feature) expected_plugin="rails" ;;
+    first-customers) expected_plugin="sales" ;;
+    marketing-plan) expected_plugin="marketing" ;;
   esac
   if [ -n "$expected_plugin" ]; then
     expected_path="plugins/$expected_plugin/skills/$cookbook_name/SKILL.md"
@@ -222,8 +224,8 @@ done
 if [ "$found_cookbook" -eq 0 ]; then
   fail "no cookbooks found under plugins/*/skills/"
 fi
-if [ "$hosted_cookbook_count" -ne 6 ]; then
-  fail "expected 6 plugin-hosted cookbooks, found $hosted_cookbook_count"
+if [ "$hosted_cookbook_count" -ne 8 ]; then
+  fail "expected 8 plugin-hosted cookbooks, found $hosted_cookbook_count"
 fi
 if [ -d skills ] || [ -d cookbooks ]; then
   fail "top-level skills/ and cookbooks/ are obsolete; every cookbook must live in its primary domain plugin"

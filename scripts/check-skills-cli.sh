@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Verify the default Skills CLI discovery and a plugin-hosted cookbook install.
+# Verify Skills CLI discovery and installs for repository skills and cookbooks.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
@@ -19,14 +19,18 @@ list_file="$tmp_home/skills-list.txt"
 printf '%s\n' "$list_output" > "$list_file"
 printf '%s\n' "$list_output"
 
-if ! grep -Fq 'Found 177 skills' "$list_file"; then
-  echo "FAIL: Skills CLI must discover exactly 177 abilities" >&2
+if ! grep -Fq 'Found 181 skills' "$list_file"; then
+  echo "FAIL: Skills CLI must discover exactly 181 abilities" >&2
   exit 1
 fi
 
 for skill in \
   ai-search-visibility-foundation \
   seo-operator \
+  company-values \
+  manual-service-pilot \
+  first-customers \
+  marketing-plan \
   founder-launch-decision \
   founder-next-stage-decision \
   plugin-release \
@@ -61,6 +65,9 @@ done
   npx --yes "skills@${skills_cli_version}" add "$source_ref" \
     --skill rails-feature dhh-rails-style ruby-coder minitest-coder \
       rails-lint rails-code-review test-reviewer implementation-planning \
+      company-values manual-service-pilot first-customers marketing-plan \
+      icp-definition go-to-market-motion outbound-prospecting pricing-strategy \
+      editorial-planning social-content newsletter-editorial growth-experimentation \
     --agent codex \
     --copy \
     --yes
@@ -74,6 +81,18 @@ for skill in \
   rails-lint \
   rails-code-review \
   test-reviewer \
+  company-values \
+  manual-service-pilot \
+  first-customers \
+  marketing-plan \
+  icp-definition \
+  go-to-market-motion \
+  outbound-prospecting \
+  pricing-strategy \
+  editorial-planning \
+  social-content \
+  newsletter-editorial \
+  growth-experimentation \
   implementation-planning; do
   if [ ! -f "$tmp_project/.agents/skills/$skill/SKILL.md" ]; then
     echo "FAIL: Skills CLI did not install $skill for Codex" >&2
@@ -81,4 +100,4 @@ for skill in \
   fi
 done
 
-echo "OK: Skills CLI ${skills_cli_version} discovers 177 abilities and installs repository skills, session-handoff, and rails-feature dependencies"
+echo "OK: Skills CLI ${skills_cli_version} discovers 181 abilities and installs repository skills, founder skills, and rails-feature, first-customers, and marketing-plan dependencies"

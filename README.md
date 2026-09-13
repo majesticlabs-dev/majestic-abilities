@@ -1,6 +1,6 @@
 # Majestic Abilities
 
-Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 169 catalog skills, six cookbooks, and two repository-operating skills, and follows the [Agent Skills](https://agentskills.io/) format.
+Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 171 catalog skills, eight cookbooks, and two repository-operating skills, and follows the [Agent Skills](https://agentskills.io/) format.
 
 You can install:
 
@@ -181,7 +181,7 @@ The CLI normally recommends symlinks so several agents can share one canonical i
 
 ## Browse the Catalog
 
-The catalog contains 169 skills plus six cookbooks. Two repository-operating skills bring the Skills CLI inventory to 177 abilities. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see the exact inventory.
+The catalog contains 171 skills plus eight cookbooks. Two repository-operating skills bring the Skills CLI inventory to 181 abilities. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see the exact inventory.
 
 | Category | Plugin | Skills | Focus |
 | --- | --- | ---: | --- |
@@ -190,7 +190,7 @@ The catalog contains 169 skills plus six cookbooks. Two repository-operating ski
 | [Data](plugins/data/skills/) | `majestic-data` | 8 | Pipelines, contracts, quality controls, source assessment, and dbt |
 | [DevOps](plugins/devops/skills/) | `majestic-devops` | 10 | OpenTofu, Ansible, cloud-init, Kamal, secrets, storage, and infrastructure review |
 | [Engineer](plugins/engineer/skills/) | `majestic-engineer` | 11 | Scoping, planning, task decomposition, PR writing, code review, testing, complexity, logging, and code simplification |
-| [Founder](plugins/founder/skills/) | `majestic-founder` | 12 | Strategy, priorities, founder fit, finance, fundraising, go-to-market, and launch readiness |
+| [Founder](plugins/founder/skills/) | `majestic-founder` | 14 | Company values, manual service pilots, strategy, priorities, founder fit, finance, fundraising, go-to-market, and launch readiness |
 | [Frontend](plugins/frontend/skills/) | `majestic-frontend` | 5 | Visual direction, performance, accessibility, validation, and screenshots |
 | [Marketing](plugins/marketing/skills/) | `majestic-marketing` | 13 | Positioning, naming, research, content, campaigns, and growth experiments |
 | [Misc](plugins/misc/skills/) | `majestic-misc` | 5 | Communication, lessons learned, visual explanations, skill grading, and skill structure |
@@ -223,6 +223,8 @@ Cookbooks are user-invoked workflows that sequence catalog skills by name. Catal
 | [`founder-launch-decision`](plugins/founder/skills/founder-launch-decision/) | Founder plugin | `majestic-founder`, `majestic-sales` | Produce a founder-led launch decision |
 | [`founder-next-stage-decision`](plugins/founder/skills/founder-next-stage-decision/) | Founder plugin | `majestic-founder`, `majestic-product` | Decide a founder's next growth stage with a time-boxed evidence sprint |
 | [`product-engineering-handoff`](plugins/product/skills/product-engineering-handoff/) | Product plugin | `majestic-engineer`, `majestic-product` | Prepare an approved product direction for engineering |
+| [`first-customers`](plugins/sales/skills/first-customers/) | Sales plugin | `majestic-sales`, `majestic-founder`, `majestic-product` | Plan initial customer acquisition, offers, and evidence tracking |
+| [`marketing-plan`](plugins/marketing/skills/marketing-plan/) | Marketing plugin | `majestic-marketing` | Coordinate content channels, growth experiments, and spending decisions |
 | [`rails-feature`](plugins/rails/skills/rails-feature/) | Rails plugin | `majestic-engineer`, `majestic-rails` | Build and review a Rails feature end to end |
 
 Each cookbook lives in the plugin that owns its primary user trigger and output. Supporting skills can come from other plugins. Cookbook frontmatter declares dependencies in the repository-defined string-valued `metadata.requires` key. Each cookbook's installation command includes the same dependency set because installers do not resolve dependencies.
@@ -275,4 +277,4 @@ scripts/check-cookbooks.sh
 scripts/check-skills-cli.sh
 ```
 
-The checks validate plugin manifests, the exact public inventory, cookbook placement, referenced skill names, cookbook installation commands, default Skills CLI discovery, and a real `rails-feature` install. The Skills CLI smoke check requires Node.js and network access for its pinned CLI package; pass a public repository source as its first argument to test the published source after release.
+The checks validate plugin manifests, the exact public inventory, cookbook placement, referenced skill names, cookbook installation commands, default Skills CLI discovery, and installs of `rails-feature`, `first-customers`, `marketing-plan`, their dependencies, `company-values`, and `manual-service-pilot`. The Skills CLI smoke check requires Node.js and network access for its pinned CLI package; pass a public repository source as its first argument to test the published source after release.
