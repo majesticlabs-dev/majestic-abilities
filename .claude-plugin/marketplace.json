@@ -72,7 +72,7 @@
       "name": "majestic-founder",
       "source": "./plugins/founder",
       "description": "Founder decisions: company strategy, plan review, priorities, technology impact, bootstrapped finance, go-to-market, fundraising asks, and launch readiness.",
-      "version": "0.2.1",
+      "version": "0.3.0",
       "category": "founder",
       "keywords": [
         "founder",
@@ -96,7 +96,7 @@
       "name": "majestic-marketing",
       "source": "./plugins/marketing",
       "description": "Positioning, naming, content, campaigns, and growth experiments grounded in verified evidence.",
-      "version": "0.1.1",
+      "version": "0.2.0",
       "category": "marketing",
       "keywords": [
         "marketing",
@@ -155,7 +155,7 @@
       "name": "majestic-sales",
       "source": "./plugins/sales",
       "description": "B2B selling: ICP definition, outbound prospecting, pipeline analysis, enablement, proposals, and account expansion.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "category": "sales",
       "keywords": [
         "sales",

@@ -1,6 +1,6 @@
 ---
 name: community-participation
-description: Research and execute value-first participation in online communities without violating local rules or exploiting members. Use when building an ethical Reddit, Discord, forum, or group presence and deciding where, when, and whether to share relevant work.
+description: Find communities a founder can credibly serve and plan useful participation without violating local rules or exploiting members. Use when choosing a community to learn from, building a Reddit, Discord, forum, or group presence, or deciding where and whether to share relevant work.
 ---
 
 # Community Participation
@@ -15,6 +15,26 @@ Own participation strategy, not covert promotion or spam. Never assume a univers
 - Candidate communities and current published rules
 - Account history, available contributors, and time capacity
 - Desired learning or business outcome
+
+## Community Discovery
+
+When the user has not chosen a community, establish:
+
+- Existing participation, relationships, relevant experience, and reasons to serve its members
+- Repeated problems and current workarounds, with dated examples from permitted sources
+- Access to relevant conversations, not just membership totals or follower counts
+- Evidence of spending, costly workarounds, or purchase commitments when the goal is commercial
+- Time and interest available to contribute without immediate sales
+
+Compare candidates using those inputs. Separate observed evidence, reported experience,
+assumptions, and unknowns. Prior membership can support credibility but is not required;
+a newcomer can learn and contribute openly. Do not infer willingness to pay from
+complaints, likes, or community size.
+
+Return the best-supported candidates, rejected options with reasons, and the next
+observation or conversation needed to resolve a material unknown. If no candidate has
+enough evidence, recommend further discovery rather than inventing a fit. A community
+shortlist does not establish product demand or authorize outreach.
 
 ## Workflow
 
