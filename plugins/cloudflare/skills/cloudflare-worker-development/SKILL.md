@@ -5,7 +5,7 @@ description: "Build and review Cloudflare Workers."
 
 # Cloudflare Worker Development
 
-Keep this skill focused on application code and runtime semantics. Wrangler configuration, secrets, deployment versions, and rollback belong to `cloudflare-workers-deployment` when that skill is installed.
+Keep this skill focused on application code and runtime semantics. Use Wrangler guidance for configuration, secrets, deployment versions, and rollback.
 
 Cloudflare APIs, limits, and testing tools change quickly. Retrieve current Cloudflare documentation and inspect the installed Wrangler schema and package types before relying on signatures or limits.
 

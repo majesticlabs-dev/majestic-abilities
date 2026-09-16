@@ -1,5 +1,17 @@
 ## Deployment
 
+### Release Checks
+
+- Use the project's pinned Wrangler version and command runner; do not upgrade solely to deploy.
+- Verify the account, target environment, configuration schema, compatibility date, and bindings.
+- Run the project tests and deployment dry run. Exercise changed bindings locally where supported.
+- Check remote bindings before local validation to avoid unintended production writes.
+- Obtain deployment authorization before remote changes.
+- Capture the deployed version and inspect logs and affected application behavior.
+- If behavior regresses, inspect version history and use a known rollback target instead of redeploying unknown local state.
+
+Report the Wrangler version, environment, bindings changed, checks run, deployed version, and remaining risks.
+
 ### Deploy Worker
 
 ```bash
