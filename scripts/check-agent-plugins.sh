@@ -414,3 +414,4 @@ print(
 PY
 
 python3 scripts/check-skill-collisions.py
+python3 -m unittest discover -s scripts -p 'test_skill_collisions.py'

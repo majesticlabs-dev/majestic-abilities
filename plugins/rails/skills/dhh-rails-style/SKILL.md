@@ -1,6 +1,6 @@
 ---
 name: dhh-rails-style
-description: "Use when implementing, refactoring, or reviewing Rails code for Rails-native simplicity, or when the user mentions DHH, 37signals, Basecamp, HEY, Fizzy, or Campfire."
+description: "Apply DHH and 37signals Rails conventions to implementation, refactoring, or style review. Use when the task or project calls for this opinionated Rails style, not from a product-name mention or a general Rails correctness review alone."
 ---
 
 # DHH Rails Style

@@ -1,6 +1,6 @@
 ---
 name: bofu-keywords
-description: "Use when targeting buyers ready to convert, planning conversion-focused content, or building high-intent keyword lists."
+description: "Find and prioritize purchase-intent search terms for a product or service. Use when building transactional, comparison, alternative, or review keyword lists for buyers close to a decision, not when drafting conversion copy."
 ---
 
 # Bottom-of-Funnel Keyword Finder

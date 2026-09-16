@@ -1,6 +1,6 @@
 ---
 name: code-review
-description: Review a concrete change set for correctness, regressions, security, data risk, unnecessary complexity, and missing tests, then give evidence-backed findings or a release verdict. Use when reviewing a diff, pull request, patch, staged changes, or deciding whether code is ready to merge or ship.
+description: Review a concrete code change for correctness, regressions, security, data risk, and missing tests. Use for general diff or pull-request review; use rails-code-review for Rails applications and engines, and infrastructure-review for infrastructure changes.
 ---
 
 # Code Review

@@ -1,6 +1,6 @@
 ---
 name: mcp-oauth-setup
-description: "Use when building admin UIs that let users connect to third-party MCP servers using OAuth (Linear, Sentry, Granola), bearer tokens (Render, custom APIs), or API keys."
+description: "Build Rails admin interfaces for connections to third-party MCP servers. Use when implementing stored MCP connections with OAuth, bearer tokens, or API keys, not when building an MCP server."
 ---
 
 # MCP Server Authentication & OAuth Dynamic Client Registration

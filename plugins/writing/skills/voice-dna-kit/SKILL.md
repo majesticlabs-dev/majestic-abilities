@@ -1,6 +1,6 @@
 ---
 name: voice-dna-kit
-description: Capture an existing personal or organizational writing voice from real samples and package it as reusable guidance. Use when preserving an established voice in AI output, extracting writing rules and bans, or creating a portable voice profile.
+description: Capture an existing personal or organizational writing voice from real samples and package it as reusable guidance. Use when extracting writing rules and bans or creating a portable voice profile; use style-writer to apply a completed profile to a draft.
 ---
 
 # Voice DNA Kit

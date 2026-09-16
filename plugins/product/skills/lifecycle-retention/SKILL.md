@@ -1,6 +1,6 @@
 ---
 name: lifecycle-retention
-description: "Use when improving retention through lifecycle stages, health signals, and intervention playbooks."
+description: "Design retention systems across customer segments with lifecycle stages, health signals, cohort measures, and intervention playbooks. Use when improving lifecycle instrumentation or repeatable retention programs; use account-expansion for an individual customer's renewal, upsell, or win-back."
 ---
 
 # Lifecycle Retention

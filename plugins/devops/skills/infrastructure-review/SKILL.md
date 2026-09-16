@@ -1,6 +1,6 @@
 ---
 name: infrastructure-review
-description: "Review infrastructure changes for correctness, maintainability, simplicity, provider fit, and deployment risk. Use when reviewing or preparing to ship OpenTofu, Ansible, cloud-init, network, compute, storage, or platform configuration changes."
+description: "Review infrastructure changes for correctness, maintainability, provider fit, and deployment safety. Use for an overall infrastructure change review, coordinating infrastructure-security-review when state, secrets, identity, exposure, bootstrap, databases, or storage are affected."
 ---
 
 # Infrastructure Review

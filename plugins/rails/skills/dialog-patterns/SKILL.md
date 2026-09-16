@@ -1,6 +1,6 @@
 ---
 name: dialog-patterns
-description: "Use when building modals, confirmations, alerts, or any overlay UI."
+description: "Build Rails dialogs and alerts with native HTML dialog elements, Turbo Frames, and Stimulus. Use when implementing modal forms, confirmations, or accessible overlays in that stack."
 ---
 
 # Native Dialog Patterns for Rails

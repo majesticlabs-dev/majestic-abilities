@@ -17,9 +17,6 @@ except ModuleNotFoundError:
     sys.exit("FAIL: PyYAML is required; install requirements-dev.txt")
 
 
-TRIGGER_PATTERN = re.compile(
-    r"\bUse (?:proactively )?(?:only )?(?:when|before|after|for)\b"
-)
 TOKEN_PATTERN = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
 STOP_WORDS = {
     "a",
@@ -113,7 +110,7 @@ def classify(path: Path) -> Tuple[str, str, str]:
     if len(parts) == 4 and parts[:2] == (".agents", "skills"):
         return "repository", "repository", "combined-catalog"
     if len(parts) == 3 and parts[0] == "tools":
-        return "tool", f"tool:{parts[1]}", f"tool:{parts[1]}"
+        return "tool", f"tool:{parts[1]}", "combined-catalog"
     return "unclassified", "unclassified", "unclassified"
 
 
@@ -174,15 +171,6 @@ def load_skills(root: Path) -> Tuple[List[Skill], List[str]]:
             continue
 
         model_invoked = not disabled
-        if model_invoked and not TRIGGER_PATTERN.search(description):
-            errors.append(
-                f"{path}: model-invoked description needs an explicit Use when/before/after/for trigger"
-            )
-        if not model_invoked and TRIGGER_PATTERN.search(description):
-            errors.append(
-                f"{path}: user-invoked description must summarize behavior, not advertise a model trigger"
-            )
-
         skills.append(
             Skill(
                 path=path,
@@ -209,9 +197,8 @@ def collision_errors(skills: Sequence[Skill]) -> List[str]:
 
     for skill in skills:
         by_name[(skill.aggregate_scope, skill.name)].append(skill)
-        if skill.model_invoked:
-            key = (skill.aggregate_scope, normalized_description(skill.description))
-            by_description[key].append(skill)
+        key = (skill.aggregate_scope, normalized_description(skill.description))
+        by_description[key].append(skill)
 
     for (scope, name), matches in sorted(by_name.items()):
         if len(matches) > 1:
@@ -221,7 +208,7 @@ def collision_errors(skills: Sequence[Skill]) -> List[str]:
     for (scope, _description), matches in sorted(by_description.items()):
         if len(matches) > 1:
             paths = ", ".join(str(match.path) for match in matches)
-            errors.append(f"{scope}: duplicate model-facing description: {paths}")
+            errors.append(f"{scope}: duplicate description: {paths}")
 
     return errors
 
@@ -235,11 +222,10 @@ def description_tokens(description: str) -> Set[str]:
 
 
 def overlap_candidates(skills: Sequence[Skill]) -> Iterable[Tuple[float, Skill, Skill]]:
-    model_skills = [skill for skill in skills if skill.model_invoked]
     candidates: List[Tuple[float, Skill, Skill]] = []
-    for index, left in enumerate(model_skills):
+    for index, left in enumerate(skills):
         left_tokens = description_tokens(left.description)
-        for right in model_skills[index + 1 :]:
+        for right in skills[index + 1 :]:
             if left.aggregate_scope != right.aggregate_scope:
                 continue
             right_tokens = description_tokens(right.description)
@@ -292,8 +278,8 @@ def main() -> int:
         f"{kind}={count}" for kind, count in sorted(counts.items())
     )
     print(
-        f"OK: {len(skills)} skills have unique names, valid descriptions, and explicit "
-        f"invocation behavior ({count_summary})"
+        f"OK: {len(skills)} skills pass structural and exact-duplicate checks "
+        f"({count_summary}); semantic selection requires review"
     )
     print(
         "Scopes: "
@@ -302,7 +288,7 @@ def main() -> int:
         )
     )
     print(
-        "Invocation: "
+        "Declared invocation metadata (not runtime verification): "
         + ", ".join(
             f"{invocation}={count}"
             for invocation, count in sorted(invocation_counts.items())

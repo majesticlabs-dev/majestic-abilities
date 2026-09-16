@@ -1,6 +1,6 @@
 ---
 name: seo-content
-description: "Use when search intent, keyword strategy, answer-engine optimization, or SEO tracking is central; use content-writer for general articles without a search workflow."
+description: "Produce one publishable SEO or AEO article through opportunity selection, research, drafting, and audit. Use when creating or refreshing a search-led content asset; use keyword-research for keyword lists alone and content-writer for general articles."
 ---
 
 # SEO Content Workflow

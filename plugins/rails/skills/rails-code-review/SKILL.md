@@ -1,6 +1,6 @@
 ---
 name: rails-code-review
-description: "Use when reviewing Rails changes for correctness, safety, and missing tests."
+description: "Review Rails application or engine changes for correctness, safety, and missing tests against the installed Rails version and affected subsystems. Use as the primary review for Rails changes; use code-review for standalone Ruby programs or gems without Rails."
 ---
 
 # Rails Code Review

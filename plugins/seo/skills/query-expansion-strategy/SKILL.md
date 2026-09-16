@@ -1,6 +1,6 @@
 ---
 name: query-expansion-strategy
-description: "Use when planning content clusters, targeting LLM sub-questions, or expanding semantic keyword coverage to get cited by AI systems."
+description: "Map a target AI search question into related subquestions and an answer-coverage plan. Use when planning query fan-out coverage for an LLM answer, rather than auditing a site's overall topic coverage."
 ---
 
 # Query Expansion Strategy

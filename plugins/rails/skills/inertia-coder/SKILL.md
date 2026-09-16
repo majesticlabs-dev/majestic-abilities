@@ -1,6 +1,6 @@
 ---
 name: inertia-coder
-description: "Use when creating Inertia pages, handling forms with useForm, managing shared props, or implementing client-side routing."
+description: "Use when building Inertia.js pages with a Rails backend, including page props, useForm submissions, shared data, and navigation through Rails routes."
 ---
 
 # Inertia.js + Rails
