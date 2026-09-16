@@ -1,6 +1,6 @@
 ---
 name: product-requirements
-description: Write an evidence-grounded product requirements document with users, scope, requirements, acceptance checks, success measures, risks, and unresolved decisions. Use when an approved product direction needs a PRD for implementation, stakeholder review, or delivery handoff.
+description: "Write a product requirements document for an approved direction and implementation handoff."
 ---
 
 # Product Requirements

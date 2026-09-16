@@ -1,6 +1,6 @@
 ---
 name: onepassword-secrets
-description: "Load and inject development, infrastructure, and deployment secrets with the 1Password CLI. Use when configuring `op run`, secret references, service accounts, CI credentials, or multi-account automation."
+description: "Load and inject secrets with the 1Password CLI through `op run`, references, service accounts, CI, or multi-account automation."
 ---
 
 # 1Password Secrets

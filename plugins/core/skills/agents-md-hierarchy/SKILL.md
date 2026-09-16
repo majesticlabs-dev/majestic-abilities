@@ -1,6 +1,6 @@
 ---
 name: agents-md-hierarchy
-description: "Audit and refine scoped AGENTS.md guidance across a repository. Use only when a root AGENTS.md exists and a monorepo, multi-application project, package tree, or subsystem needs different local commands or rules."
+description: "Refine scoped AGENTS.md guidance where repository areas need different commands or rules. Requires a root AGENTS.md."
 ---
 
 # AGENTS.md Hierarchy

@@ -1,6 +1,6 @@
 ---
 name: rails-refactorer
-description: "Use when refactoring Rails code for conventional, maintainable Ruby."
+description: "Refactor Rails code into conventional, maintainable Ruby."
 ---
 
 # Rails Refactorer

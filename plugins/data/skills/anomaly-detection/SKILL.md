@@ -1,6 +1,6 @@
 ---
 name: anomaly-detection
-description: Design and evaluate anomaly detection for tabular, multivariate, or time-series data using context-appropriate statistical or model-based methods. Use when identifying unusual records, monitoring metric deviations, tuning alert thresholds, or investigating suspected outliers.
+description: Design and evaluate statistical or model-based anomaly detection for tabular, multivariate, or time-series data.
 ---
 
 # Anomaly Detection

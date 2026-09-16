@@ -1,6 +1,6 @@
 ---
 name: infrastructure-review
-description: "Review infrastructure changes for correctness, maintainability, provider fit, and deployment safety. Use for an overall infrastructure change review, coordinating infrastructure-security-review when state, secrets, identity, exposure, bootstrap, databases, or storage are affected."
+description: "Review infrastructure changes for correctness and deployment safety, coordinating a separate security review."
 ---
 
 # Infrastructure Review

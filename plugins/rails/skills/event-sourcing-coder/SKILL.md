@@ -1,6 +1,6 @@
 ---
 name: event-sourcing-coder
-description: "Use when recording durable Rails domain events and dispatching inbox handlers for audit, workflow, or external-sync side effects."
+description: "Record durable Rails domain events and dispatch inbox handlers for audit, workflows, or external sync."
 ---
 
 # Event Sourcing for Rails Monoliths

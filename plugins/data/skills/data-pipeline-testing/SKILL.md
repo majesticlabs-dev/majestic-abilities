@@ -1,6 +1,6 @@
 ---
 name: data-pipeline-testing
-description: Design tests and fixtures for data pipelines across transformation, contract, integration, incrementality, replay, and reconciliation behavior. Use when verifying ETL or ELT code, dbt models, schema changes, backfills, late data, idempotency, or failure recovery.
+description: Design tests and fixtures for ETL, ELT, or dbt pipeline transformation, contracts, incrementality, replay, reconciliation, and failure recovery.
 ---
 
 # Data Pipeline Testing

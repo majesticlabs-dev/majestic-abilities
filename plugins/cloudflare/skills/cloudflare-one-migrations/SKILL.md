@@ -1,6 +1,6 @@
 ---
 name: cloudflare-one-migrations
-description: "Use when migrating Zscaler, Palo Alto, VPN, SWG, or SASE deployments to Cloudflare One."
+description: "Migrate Zscaler, Palo Alto, VPN, SWG, or SASE deployments to Cloudflare One."
 ---
 
 # Cloudflare One Migrations

@@ -1,6 +1,6 @@
 ---
 name: marketing-plan
-description: "Use when the user invokes marketing-plan or requests an evidence-led organic marketing plan with a decision about paid spend."
+description: "Create an evidence-led organic marketing plan with a paid-spend decision. Use only when named or explicitly requested."
 metadata:
   requires: "editorial-planning,social-content,newsletter-editorial,growth-experimentation"
 ---

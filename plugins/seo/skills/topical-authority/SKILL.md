@@ -1,6 +1,6 @@
 ---
 name: topical-authority
-description: "Audit a site's topic coverage, content depth, and freshness against a domain and competitors, then plan pillar and supporting content. Use when closing gaps across a content portfolio, not expanding one AI search question."
+description: "Audit site and competitor topic coverage, depth, and freshness; plan pillar and supporting content."
 ---
 
 # Topical Authority

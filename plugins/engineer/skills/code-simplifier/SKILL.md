@@ -1,6 +1,6 @@
 ---
 name: code-simplifier
-description: Simplify or review settled, recently changed code for unnecessary complexity while preserving behavior. Use for explicit simplification requests, deletion-focused reviews, or questions such as "what can we delete?" and "is this over-engineered?" after implementation and before handoff.
+description: "Simplify settled code on request, preserving behavior; review unnecessary complexity and possible deletions after implementation."
 ---
 
 # Code Simplifier

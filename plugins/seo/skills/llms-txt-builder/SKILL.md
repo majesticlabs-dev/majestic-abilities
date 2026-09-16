@@ -1,6 +1,6 @@
 ---
 name: llms-txt-builder
-description: "Create or audit an llms.txt index of a site's authoritative pages. Use when generating or updating llms.txt, not for robots.txt, content negotiation, or crawler analytics."
+description: "Create or audit an llms.txt index of authoritative site pages."
 ---
 
 # llms.txt Builder

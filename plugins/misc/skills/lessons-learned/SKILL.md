@@ -1,6 +1,6 @@
 ---
 name: lessons-learned
-description: "Use after completed work has enough evidence to identify repeatable lessons."
+description: "Extract reusable practices from completed work with sufficient outcome evidence."
 ---
 
 # Lessons Learned

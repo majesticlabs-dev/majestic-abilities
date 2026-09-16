@@ -1,6 +1,6 @@
 ---
 name: style-forensics
-description: Measure and explain the writing style of one or more prose samples using quantitative metrics and cited examples. Use when analyzing sentence rhythm, punctuation, vocabulary, tone, rhetorical devices, or producing a detailed Style DNA report.
+description: Measure and explain the writing style of prose samples with quantitative metrics, cited examples, and a detailed Style DNA report.
 ---
 
 # Style Forensics

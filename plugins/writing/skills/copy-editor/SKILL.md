@@ -1,6 +1,6 @@
 ---
 name: copy-editor
-description: "Use when reviewing existing prose and delivering editorial findings rather than revisions."
+description: "Review prose and deliver editorial findings, not revisions."
 ---
 
 # Copy Editor

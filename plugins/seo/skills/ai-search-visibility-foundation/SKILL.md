@@ -1,6 +1,6 @@
 ---
 name: ai-search-visibility-foundation
-description: "Use when the user invokes ai-search-visibility-foundation by name or wants a site-level AI search visibility program with validated implementation evidence."
+description: "Build a site-level AI search visibility program with validated implementation evidence. Use only when named or explicitly requested."
 metadata:
   requires: "seo-audit,entity-triplets,llms-txt-builder,ai-crawler-readiness,schema-architect,aeo-scorecard"
 ---

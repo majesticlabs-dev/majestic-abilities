@@ -1,6 +1,6 @@
 ---
 name: session-handoff
-description: "Use when handing work to another session or resuming work from HANDOFF.md."
+description: "Hand work to another session or resume from HANDOFF.md."
 ---
 
 # Session Handoff

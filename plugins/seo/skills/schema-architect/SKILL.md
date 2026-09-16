@@ -1,6 +1,6 @@
 ---
 name: schema-architect
-description: "Use when adding or auditing Schema.org structured data."
+description: "Add or audit Schema.org structured data."
 ---
 
 # Schema Architect

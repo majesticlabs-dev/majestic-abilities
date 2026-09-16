@@ -1,6 +1,6 @@
 ---
 name: company-strategy
-description: Build a future-back company strategy with explicit horizons, prerequisites, resource gaps, milestones, bets, and revisit triggers. Use when a founder needs to connect a multi-quarter ambition to present commitments, balance the core with adjacent bets, or test whether market expansion belongs in the plan.
+description: "Plan company strategy from future goals back to current commitments, milestones, and resource needs."
 ---
 
 # Company Strategy

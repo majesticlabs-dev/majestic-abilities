@@ -1,6 +1,6 @@
 ---
 name: brand-positioning
-description: Define or sharpen brand positioning, competitive differentiation, value proposition, messaging angles, and taglines from evidence. Use when launching, rebranding, entering a crowded market, or fixing generic and inconsistent market-facing claims.
+description: Define evidence-based brand positioning, differentiation, value proposition, messaging angles, and taglines for a launch or rebrand.
 ---
 
 # Brand Positioning

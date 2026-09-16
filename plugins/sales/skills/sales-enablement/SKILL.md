@@ -1,6 +1,6 @@
 ---
 name: sales-enablement
-description: Build a B2B sales playbook for qualification, discovery, demos, objections, competitive positioning, follow-up, and closing. Use when preparing a team or representative for a sales motion or specific deal and creating reusable, evidence-backed talk tracks.
+description: Build an evidence-backed B2B sales playbook and reusable talk tracks for a team, representative, or deal.
 ---
 
 # Sales Enablement

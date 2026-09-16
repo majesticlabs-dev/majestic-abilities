@@ -1,6 +1,6 @@
 ---
 name: structure-architect
-description: "Use when optimizing page structure and internal linking for SEO."
+description: "Optimize page structure and internal linking for SEO."
 ---
 
 # Structure Architect

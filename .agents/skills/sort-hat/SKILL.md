@@ -1,6 +1,6 @@
 ---
 name: sort-hat
-description: "Use when deciding whether a proposed skill belongs here, extends an existing skill, or should be rejected."
+description: "Decide whether a proposed capability belongs in this catalog, extends a skill, or should be rejected."
 ---
 
 # Sort Hat

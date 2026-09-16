@@ -1,6 +1,6 @@
 ---
 name: founder-plan-review
-description: "Use when a founder asks to think bigger, rethink a plan, test whether it is ambitious enough, hold scope while increasing rigor, selectively consider expansion, or reduce an overbuilt plan. Not for authoring an implementation plan or checking engineering handoff readiness alone."
+description: "Review a founder's plan for ambition, rigor, scope, and unnecessary complexity. Not for implementation planning or engineering handoff review."
 ---
 
 # Founder Plan Review

@@ -1,6 +1,6 @@
 ---
 name: meta-optimizer
-description: "Use when optimizing page titles, meta descriptions, and URLs for search."
+description: "Optimize page titles, meta descriptions, and URLs for search."
 ---
 
 # Meta Optimizer

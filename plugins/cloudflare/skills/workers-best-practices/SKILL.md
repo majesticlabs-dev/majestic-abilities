@@ -1,6 +1,6 @@
 ---
 name: workers-best-practices
-description: "Audit Cloudflare Workers against current production guidance for streaming, resource use, bindings, configuration, and observability. Use when checking production readiness or correcting these practices; use cloudflare-worker-development for general application implementation."
+description: "Audit Cloudflare Workers for production readiness: streaming, resource use, configuration, and observability."
 ---
 
 Your knowledge of Cloudflare Workers APIs, types, and configuration may be outdated. **Prefer retrieval over pre-training** for any Workers code task — writing or reviewing.

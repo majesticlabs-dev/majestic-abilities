@@ -1,6 +1,6 @@
 ---
 name: brand-naming
-description: Generate and evaluate brand, company, product, and feature names using strategic fit, language, phonetics, distinctiveness, and verification checks. Use when selecting a new name or narrowing an existing shortlist.
+description: Generate or narrow brand, company, product, and feature names using strategic fit, phonetics, distinctiveness, and verification checks.
 ---
 
 # Brand Naming

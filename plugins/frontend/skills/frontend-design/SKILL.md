@@ -1,6 +1,6 @@
 ---
 name: frontend-design
-description: "Commit to a distinctive art direction and implement production-grade frontend interfaces with token-driven styling, complete interaction states, designed failure paths, and accessibility. Use when designing or restyling pages, components, landing pages, design systems, responsive layouts, or interaction states."
+description: "Design or restyle frontend interfaces, including visual direction, interaction states, and accessibility."
 ---
 
 # Frontend Design

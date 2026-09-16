@@ -1,6 +1,6 @@
 ---
 name: query-expansion-strategy
-description: "Map a target AI search question into related subquestions and an answer-coverage plan. Use when planning query fan-out coverage for an LLM answer, rather than auditing a site's overall topic coverage."
+description: "Expand one AI search question into subquestions and an answer-coverage plan."
 ---
 
 # Query Expansion Strategy

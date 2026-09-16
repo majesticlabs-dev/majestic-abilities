@@ -1,6 +1,6 @@
 ---
 name: cloudflare-one
-description: "Use when designing, configuring, troubleshooting, or reviewing Cloudflare One deployments."
+description: "Design, configure, troubleshoot, or review Cloudflare One deployments."
 ---
 
 # Cloudflare One

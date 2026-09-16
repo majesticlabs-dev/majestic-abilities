@@ -1,6 +1,6 @@
 ---
 name: digitalocean-infrastructure
-description: "Provision and review DigitalOcean infrastructure with OpenTofu. Use when managing Droplets, VPCs, managed databases, firewalls, reserved IPs, or cloud-init on DigitalOcean."
+description: "Provision and review DigitalOcean infrastructure with OpenTofu."
 ---
 
 # DigitalOcean Infrastructure

@@ -1,6 +1,6 @@
 ---
 name: market-research
-description: "Synthesize sourced market, audience, competitor, and customer-language evidence for a business decision. Use when a decision needs external market research; use product-discovery for customer interview design and icp-definition for targeting criteria."
+description: "Synthesize sourced market, audience, competitor, and customer-language evidence for a business decision. Not for interview design or targeting criteria alone."
 ---
 
 # Market Research

@@ -1,6 +1,6 @@
 ---
 name: style-writer
-description: Draft and revise prose against an existing voice or Style DNA profile while preserving facts and readability. Use when writing in an established personal or brand voice, applying a voice guide, or checking a draft against measured style constraints.
+description: Draft, revise, or check prose against an existing personal or brand voice profile while preserving facts and readability.
 ---
 
 # Style Writer

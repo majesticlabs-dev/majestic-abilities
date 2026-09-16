@@ -1,6 +1,6 @@
 ---
 name: store-model-coder
-description: "Use when wrapping JSON-backed Active Record attributes with StoreModel for typed nested data and validations."
+description: "Wrap JSON-backed Active Record attributes with StoreModel for typed nested data and validation."
 ---
 
 # StoreModel: JSON-Backed ActiveRecord Attributes

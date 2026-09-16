@@ -1,6 +1,6 @@
 ---
 name: youtube-packaging
-description: Analyze YouTube channels for normalized outliers, title and thumbnail patterns, and ownable content gaps. Use when selecting video topics, improving packaging, or testing whether a competitor pattern is repeatable rather than a one-off spike.
+description: Analyze YouTube channels for normalized outliers, repeatable title and thumbnail patterns, and ownable topic gaps.
 ---
 
 # YouTube Packaging

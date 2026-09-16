@@ -1,6 +1,6 @@
 ---
 name: dhh-rails-style
-description: "Apply DHH and 37signals Rails conventions to implementation, refactoring, or style review. Use when the task or project calls for this opinionated Rails style, not from a product-name mention or a general Rails correctness review alone."
+description: "Apply DHH and 37signals Rails conventions when the task or project requires that style."
 ---
 
 # DHH Rails Style

@@ -1,6 +1,6 @@
 ---
 name: product-planning
-description: Prioritize product opportunities and build an outcome-based Now, Next, Later roadmap with explicit evidence, tradeoffs, confidence, and a not-doing list. Use when ranking a backlog or communicating product direction without false precision or fixed-date theater.
+description: Prioritize product opportunities and build an evidence-based Now, Next, Later roadmap with tradeoffs, confidence, and a not-doing list.
 ---
 
 # Product Planning

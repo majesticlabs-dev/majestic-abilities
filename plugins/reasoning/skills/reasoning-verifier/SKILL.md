@@ -1,6 +1,6 @@
 ---
 name: reasoning-verifier
-description: Verify a completed analysis by tracing original requirements, evidence, and assumptions into its conclusion. Use when reviewing a consequential recommendation, diagnosis, comparison, or decision for omitted constraints, invented premises, or unsupported logical steps.
+description: "Check completed analyses for omitted requirements, unsupported assumptions, and faulty conclusions."
 ---
 
 # Reasoning Verifier

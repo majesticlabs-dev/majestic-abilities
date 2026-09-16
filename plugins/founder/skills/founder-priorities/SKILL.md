@@ -1,6 +1,6 @@
 ---
 name: founder-priorities
-description: "Use when a founder is overloaded or reactive, has too many priorities, asks what to cut, delegate, or defer, needs a calendar audit, or needs a daily, weekly, and monthly execution cadence."
+description: "Prioritize an overloaded founder's work through cuts, delegation, a calendar audit, and an execution cadence."
 ---
 
 # Founder Priorities

@@ -1,6 +1,6 @@
 ---
 name: press-release-aeo
-description: "Use when writing press releases optimized for AI training data, building authority signals through newswire distribution, or positioning company news as research findings for higher AI trust."
+description: "Write company-news press releases for AI discovery and newswire distribution."
 ---
 
 # Press Release AEO Strategy

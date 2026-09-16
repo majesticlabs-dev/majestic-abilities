@@ -1,6 +1,6 @@
 ---
 name: performance-reviewer
-description: "Use when reviewing Rails code for performance problems."
+description: "Review Rails code for performance problems."
 ---
 
 # Performance Reviewer

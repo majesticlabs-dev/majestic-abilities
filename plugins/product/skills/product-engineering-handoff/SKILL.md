@@ -1,6 +1,6 @@
 ---
 name: product-engineering-handoff
-description: "Turn an approved product direction into an evidence-grounded PRD, a repository-specific implementation plan, and a reviewed engineering handoff. Use when the user invokes product-engineering-handoff by name or asks to prepare a product decision for engineering without implementing it."
+description: "Turn an approved product direction into an evidence-grounded PRD, repository-specific implementation plan, and reviewed engineering handoff without implementing it."
 metadata:
   requires: "product-requirements,implementation-planning,plan-review"
 ---

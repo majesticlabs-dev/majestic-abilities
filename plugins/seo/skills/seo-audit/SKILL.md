@@ -1,6 +1,6 @@
 ---
 name: seo-audit
-description: "Use when evaluating search performance or diagnosing ranking issues."
+description: "Evaluate search performance and diagnose ranking issues."
 ---
 
 # SEO Audit Skill

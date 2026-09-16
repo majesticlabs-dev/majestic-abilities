@@ -1,6 +1,6 @@
 ---
 name: editorial-planning
-description: "Build an audience-led content backlog and production calendar from audience questions, business goals, evidence, and capacity. Use when balancing topics, channels, and publishing schedules; use keyword-research for search-demand topic selection."
+description: "Plan an audience-led content backlog and publishing calendar. Excludes standalone search-demand research."
 ---
 
 # Editorial Planning

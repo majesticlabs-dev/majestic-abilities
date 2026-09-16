@@ -1,6 +1,6 @@
 ---
 name: headline-generator
-description: Generate multiple fact-bound news headlines, press-release headlines, feature headlines, and pitch subject lines from supplied evidence, then recommend the strongest candidate. Use when a story, launch, data point, press pitch, or existing flat headline needs a deliberate candidate sprint, not a complete asset.
+description: Generate and rank fact-bound news, press-release, feature, or pitch headlines from supplied evidence. Not for writing a complete asset.
 ---
 
 # Headline Generator

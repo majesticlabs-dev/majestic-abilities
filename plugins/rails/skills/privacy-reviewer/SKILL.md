@@ -1,6 +1,6 @@
 ---
 name: privacy-reviewer
-description: "Use when reviewing PII handling and privacy compliance in Rails."
+description: "Review PII handling and privacy compliance in Rails."
 ---
 
 # Privacy Compliance Review

@@ -1,6 +1,6 @@
 ---
 name: analyst-positioning
-description: "Use when building thought leadership profiles, creating expert entity signals for E-E-A-T, or establishing personal brands that AI systems recognize and cite as authorities."
+description: "Build expert profiles, E-E-A-T entity signals, and personal brands recognized and cited by AI systems."
 ---
 
 # Analyst Positioning

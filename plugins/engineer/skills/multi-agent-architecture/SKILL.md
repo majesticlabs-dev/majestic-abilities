@@ -1,6 +1,6 @@
 ---
 name: multi-agent-architecture
-description: Design persistent multi-agent systems with explicit roles, ownership, handoffs, state, permissions, context budgets, and failure handling. Use when building an agent product or durable workflow whose work genuinely requires multiple specialized agents.
+description: "Design persistent multi-agent products and workflows: roles, ownership, handoffs, state, permissions, and failure handling."
 ---
 
 # Multi-Agent Architecture

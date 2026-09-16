@@ -1,6 +1,6 @@
 ---
 name: anyway-config-coder
-description: "Use when implementing typed Ruby or Rails configuration with the anyway_config gem, including configuration classes, environment mappings, and settings validation."
+description: "Implement typed Ruby or Rails configuration with anyway_config."
 ---
 
 # Anyway Config Coder

@@ -1,6 +1,6 @@
 ---
 name: minto-pyramid
-description: Restructure a draft or idea using the Minto Pyramid Principle into one governing answer, two to four supporting arguments, and matched evidence. Use when a memo, proposal, presentation, or complex explanation has a buried conclusion, overlapping sections, or weak support.
+description: Restructure a draft or idea with the Minto Pyramid Principle when its conclusion is buried or its support is weak or overlapping.
 ---
 
 # Minto Pyramid

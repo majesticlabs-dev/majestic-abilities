@@ -1,6 +1,6 @@
 ---
 name: bootstrapped-finance
-description: "Use when a founder asks how long cash will last, whether the business can afford a hire or tool, what to cut, whether growth economics are sustainable, or how base, upside, and downside scenarios affect survival."
+description: "Assess runway, spending choices, growth economics, and survival scenarios for a bootstrapped business."
 ---
 
 # Bootstrapped Finance

@@ -1,6 +1,6 @@
 ---
 name: implementation-planning
-description: Create an implementation plan grounded in the existing repository, with explicit scope, ordered changes, risks, and verification. Use when a feature, fix, migration, or refactor needs an executable technical plan before code changes begin.
+description: "Plan repository changes before implementation: scope, sequence, risks, and verification."
 ---
 
 # Implementation Planning

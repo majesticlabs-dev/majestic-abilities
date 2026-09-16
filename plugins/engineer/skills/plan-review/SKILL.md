@@ -1,6 +1,6 @@
 ---
 name: plan-review
-description: "Review implementation plans, PRDs, brainstorm handoffs, and feature specifications as whole delivery artifacts for implementation readiness. Use when flows, sequencing, dependencies, scope, operational risk, or verification should be challenged before handoff. Not for a dedicated requirement-statement or requirements-catalogue quality audit."
+description: "Review implementation plans, PRDs, and feature specifications for delivery readiness: flows, dependencies, scope, risks, and verification. Excludes requirement-statement quality audits."
 ---
 
 # Plan Review

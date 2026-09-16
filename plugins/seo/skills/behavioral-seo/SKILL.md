@@ -1,6 +1,6 @@
 ---
 name: behavioral-seo
-description: "Use when diagnosing low click-through rates, improving dwell time, optimizing for Bing behavioral factors, or improving user engagement signals that affect search rankings."
+description: "Diagnose and improve search click-through, dwell time, Bing behavioral factors, and ranking-related engagement signals."
 ---
 
 # Behavioral SEO

@@ -1,6 +1,6 @@
 ---
 name: active-job-coder
-description: "Use when creating or refactoring Active Job background jobs."
+description: "Create or refactor Active Job background jobs."
 ---
 
 # Active Job Coder

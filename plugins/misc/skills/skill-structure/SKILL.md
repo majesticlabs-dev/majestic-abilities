@@ -1,6 +1,6 @@
 ---
 name: skill-structure
-description: Decide whether reusable guidance should become an Agent Skill, reference, script, prompt, or deliberate omission, then design a compliant skill when justified. Use when creating, importing, splitting, or reviewing SKILL.md-based capabilities.
+description: "Create, import, split, or review Agent Skills; choose between a skill, reference, script, prompt, or omission."
 ---
 
 # Skill Structure

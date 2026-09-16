@@ -1,6 +1,6 @@
 ---
 name: ui-code-auditor
-description: "Review frontend source code for accessibility, UI-quality, and performance problems with file-and-line evidence. Use when statically auditing HTML, CSS, Tailwind, React, Vue, or component code without relying on screenshots."
+description: "Statically audit UI source code for accessibility, quality, and performance."
 ---
 
 # UI Code Auditor

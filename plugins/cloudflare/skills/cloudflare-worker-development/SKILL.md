@@ -1,6 +1,6 @@
 ---
 name: cloudflare-worker-development
-description: "Build and review TypeScript applications for the Cloudflare Workers runtime. Use when implementing Worker handlers, Hono routes, bindings, Durable Objects, Queues, or tests that execute in workerd."
+description: "Build and review TypeScript applications and tests for Cloudflare Workers."
 ---
 
 # Cloudflare Worker Development

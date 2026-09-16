@@ -1,6 +1,6 @@
 ---
 name: company-values
-description: Derive company values from supplied decisions and episodes, then turn them into observable behavior, hiring criteria, and anti-patterns. Use when a founder needs to codify how the company operates or what it selects for.
+description: Derive company values from real decisions and episodes, then express them as observable behavior, hiring criteria, and anti-patterns.
 ---
 
 # Company Values

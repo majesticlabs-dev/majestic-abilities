@@ -1,6 +1,6 @@
 ---
 name: cloudflare-workers-deployment
-description: "Configure, validate, and deploy Cloudflare Workers with Wrangler. Use when managing `wrangler.jsonc`, bindings, environments, secrets, local development, generated types, deployment versions, or production rollbacks."
+description: "Configure, validate, deploy, and roll back Cloudflare Workers with Wrangler."
 ---
 
 # Cloudflare Workers Deployment

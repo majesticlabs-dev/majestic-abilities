@@ -1,6 +1,6 @@
 ---
 name: paid-search
-description: Plan or diagnose paid-search campaigns with intent segmentation, current match behavior, bidding, creative, landing-page alignment, tracking, and test controls. Use when launching or restructuring search advertising and when spend must be tied to measurable acquisition outcomes.
+description: Plan or diagnose paid-search campaigns with intent, bidding, creative, landing-page, tracking, and test controls tied to acquisition outcomes.
 ---
 
 # Paid Search

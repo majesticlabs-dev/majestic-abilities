@@ -1,6 +1,6 @@
 ---
 name: action-mailer-coder
-description: "Use when creating or refactoring Action Mailer emails."
+description: "Create or refactor Action Mailer emails."
 ---
 
 # Action Mailer Coder

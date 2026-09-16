@@ -1,6 +1,6 @@
 ---
 name: launch-readiness
-description: "Run an operational preflight on an existing launch plan and return GO, NARROW, or DELAY. Use when ownership, fulfillment, support, sequencing, or legal escalation could block a defined launch."
+description: "Check an existing launch plan's ownership, fulfillment, support, sequencing, and legal escalation; return GO, NARROW, or DELAY."
 ---
 
 # Launch Readiness

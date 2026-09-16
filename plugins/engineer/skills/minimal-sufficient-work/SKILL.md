@@ -1,6 +1,6 @@
 ---
 name: minimal-sufficient-work
-description: "Use when MSW is invoked or work risks expanding beyond the requested scope."
+description: "Keep work within the requested scope when MSW is invoked or scope risks expanding."
 ---
 
 # Minimal Sufficient Work (MSW)

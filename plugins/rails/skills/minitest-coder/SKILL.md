@@ -1,6 +1,6 @@
 ---
 name: minitest-coder
-description: "Use when writing or refactoring Minitest tests in Ruby or Rails, including fixtures, assertions, and focused integration coverage."
+description: "Write or refactor Minitest tests in Ruby or Rails."
 ---
 
 # Minitest Coder

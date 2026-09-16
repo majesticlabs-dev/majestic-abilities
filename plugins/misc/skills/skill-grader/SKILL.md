@@ -1,6 +1,6 @@
 ---
 name: skill-grader
-description: Grade one skill execution or audit skill effectiveness across several agent conversations using transcript and output evidence, then identify unsupported claims and justified skill changes. Use when reviewing skill test runs, regression fixtures, generated artifacts, acceptance criteria, or whether installed skills improve real agent work.
+description: "Evaluate skill executions from transcripts and outputs; identify unsupported claims and evidence-backed skill changes."
 ---
 
 # Skill Grader

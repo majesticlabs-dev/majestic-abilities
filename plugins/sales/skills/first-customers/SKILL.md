@@ -1,6 +1,6 @@
 ---
 name: first-customers
-description: "Use when the user invokes first-customers or requests a first B2B customer plan grounded in ICP, route, offer, and pricing evidence."
+description: "Create an evidence-based first B2B customer plan covering ICP, route, offer, and pricing. Use only when named or explicitly requested."
 metadata:
   requires: "icp-definition,go-to-market-motion,outbound-prospecting,pricing-strategy"
 ---

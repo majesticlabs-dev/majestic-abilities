@@ -1,6 +1,6 @@
 ---
 name: test-reviewer
-description: "Review automated tests for behavioral coverage, assertion quality, isolation, and missing failure cases. Use when assessing whether a change is sufficiently tested or whether a test suite gives reliable shipping confidence."
+description: "Review test coverage, assertions, isolation, and failure cases to assess release confidence."
 ---
 
 # Test Reviewer

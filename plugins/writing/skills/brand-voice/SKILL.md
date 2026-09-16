@@ -1,6 +1,6 @@
 ---
 name: brand-voice
-description: Define an aspirational writing voice for an organization from its positioning, audience, and desired perception. Use when creating or repositioning a brand voice, setting cross-channel tone rules, or producing a brand voice guide.
+description: Define or reposition an organization's aspirational writing voice and cross-channel tone rules from its positioning, audience, and desired perception.
 ---
 
 # Brand Voice

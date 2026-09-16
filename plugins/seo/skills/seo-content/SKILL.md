@@ -1,6 +1,6 @@
 ---
 name: seo-content
-description: "Produce one publishable SEO or AEO article through opportunity selection, research, drafting, and audit. Use when creating or refreshing a search-led content asset; use keyword-research for keyword lists alone and content-writer for general articles."
+description: "Create or refresh one SEO or AEO article, from research through audited draft. Excludes standalone keyword research."
 ---
 
 # SEO Content Workflow

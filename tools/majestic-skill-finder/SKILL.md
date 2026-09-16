@@ -1,6 +1,6 @@
 ---
 name: majestic-skill-finder
-description: Analyze the current project, recommend relevant Majestic Abilities, and install the user-selected skills. Use when a user asks which Majestic Abilities fit a project or asks to run majestic-skill-finder.
+description: "Recommend Majestic Abilities for the current project and install the user's selections."
 ---
 
 # Majestic Skill Finder

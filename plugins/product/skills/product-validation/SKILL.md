@@ -1,6 +1,6 @@
 ---
 name: product-validation
-description: Pressure-test demand for a product or idea, diagnose an existing product’s growth ceiling, and define the smallest test for the riskiest assumption. Use when vetting an idea, interrogating weak demand, or choosing proceed, sharpen, or pause before building.
+description: Pressure-test product demand or a growth ceiling, define the smallest test for the riskiest assumption, and decide whether to proceed, sharpen, or pause.
 ---
 
 # Product Validation

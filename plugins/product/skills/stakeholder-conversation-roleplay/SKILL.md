@@ -1,6 +1,6 @@
 ---
 name: stakeholder-conversation-roleplay
-description: "Use when rehearsing and debriefing a difficult product stakeholder conversation."
+description: "Rehearse and debrief a difficult product stakeholder conversation."
 ---
 
 # Stakeholder Conversation Roleplay

@@ -1,6 +1,6 @@
 ---
 name: data-source-assessment
-description: Assess an unfamiliar data source by profiling its schema, grain, volume, change behavior, quality baseline, and extraction constraints. Use when evaluating a database, API, CSV, JSON, Parquet dataset, file drop, or event stream before pipeline integration.
+description: Assess an unfamiliar database, API, file, or event stream before pipeline integration by profiling its schema, grain, changes, quality, and extraction constraints.
 ---
 
 # Data Source Assessment

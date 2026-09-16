@@ -1,6 +1,6 @@
 ---
 name: writing-pr
-description: "Write or edit a pull request title and body from the final change set, while following the repository's PR template. Use when preparing or revising a PR description."
+description: "Write PR titles and descriptions from the final diff using the repository template."
 ---
 
 # Writing a Pull Request

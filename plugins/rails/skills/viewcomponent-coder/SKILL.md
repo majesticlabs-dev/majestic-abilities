@@ -1,6 +1,6 @@
 ---
 name: viewcomponent-coder
-description: "Use when building or refactoring Rails ViewComponent classes, slots, variants, previews, or component tests."
+description: "Build, refactor, or test Rails ViewComponents."
 ---
 
 # ViewComponent Patterns

@@ -1,6 +1,6 @@
 ---
 name: cloudflare-email-service
-description: "Use when sending or receiving email through Cloudflare Email Service."
+description: "Send or receive email through Cloudflare Email Service."
 ---
 
 # Cloudflare Email Service

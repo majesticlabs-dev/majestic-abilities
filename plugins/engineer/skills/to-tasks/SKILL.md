@@ -1,6 +1,6 @@
 ---
 name: to-tasks
-description: "Use when turning an approved plan into dependency-aware implementation tasks."
+description: "Convert an approved plan into implementation tasks with dependencies."
 ---
 
 # To Tasks

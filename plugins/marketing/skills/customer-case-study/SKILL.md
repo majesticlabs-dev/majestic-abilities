@@ -1,6 +1,6 @@
 ---
 name: customer-case-study
-description: Create an evidence-safe customer case study and reusable proof assets from verified outcomes, approved quotations, and publication permissions. Use when turning a customer success story into a full case study, one-page summary, sales proof, or social excerpt.
+description: Create an evidence-safe customer case study and reusable proof assets from verified outcomes, approved quotations, and publication permissions.
 ---
 
 # Customer Case Study

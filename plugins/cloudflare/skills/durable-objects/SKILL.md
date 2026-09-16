@@ -1,6 +1,6 @@
 ---
 name: durable-objects
-description: "Use when building or reviewing stateful Cloudflare Durable Objects."
+description: "Build or review stateful Cloudflare Durable Objects."
 ---
 
 # Durable Objects

@@ -1,6 +1,6 @@
 ---
 name: layered-rails
-description: "Analyze Rails code using presentation, application, domain, and infrastructure layers. Use when choosing responsibility boundaries or extraction points in a Rails application that needs layered architecture, not for general implementation planning."
+description: "Choose Rails responsibility boundaries and extraction points with presentation, application, domain, and infrastructure layers. Not for general implementation planning."
 ---
 
 # Layered Rails Architecture

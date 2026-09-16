@@ -1,6 +1,6 @@
 ---
 name: csv-wrangling
-description: Diagnose and recover messy delimited files without silently dropping or corrupting records. Use when CSV or TSV files have uncertain encoding, delimiters, headers, quoting, malformed rows, locale-specific values, schema drift, or excessive size.
+description: Recover messy CSV or TSV files without dropping or corrupting records, including uncertain encoding, structure, malformed rows, locale values, schema drift, or large files.
 ---
 
 # CSV Wrangling

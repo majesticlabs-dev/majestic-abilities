@@ -1,6 +1,6 @@
 ---
 name: agents-sdk
-description: "Use when building applications with the Cloudflare Agents SDK, including Agent classes, synchronized state, AgentWorkflow, chat agents, and SDK client hooks. Use durable-objects for stateful Workers that do not use this SDK."
+description: "Build Cloudflare Agents SDK applications."
 ---
 
 # Cloudflare Agents SDK

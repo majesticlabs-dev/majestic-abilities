@@ -1,6 +1,6 @@
 ---
 name: cloud-init-provisioning
-description: "Provision virtual machines with small, testable cloud-init configurations. Use when creating user data, bootstrapping users and packages, hardening SSH, or handing first-boot configuration to later automation."
+description: "Bootstrap virtual machines with cloud-init user data and first-boot configuration."
 ---
 
 # Cloud-Init Provisioning

@@ -1,6 +1,6 @@
 ---
 name: opentofu-iac
-description: "Build and maintain infrastructure as code with OpenTofu and HCL. Use when creating `.tf` files, configuring providers and remote state, reviewing plans, managing environments, or extracting justified reusable modules."
+description: "Build and maintain OpenTofu infrastructure, providers, state, plans, and modules."
 ---
 
 # OpenTofu Infrastructure as Code

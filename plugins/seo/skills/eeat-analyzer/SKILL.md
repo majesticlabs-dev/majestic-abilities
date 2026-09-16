@@ -1,6 +1,6 @@
 ---
 name: eeat-analyzer
-description: "Use when auditing content for Google quality signals, improving author credibility markers, or diagnosing why content lacks trust signals."
+description: "Audit content for Google quality signals, author credibility, and missing trust signals."
 ---
 
 # E-E-A-T Analyzer

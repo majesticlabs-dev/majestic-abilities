@@ -1,6 +1,6 @@
 ---
 name: growth-experimentation
-description: Run marketing experiments with explicit hypotheses, isolated variables, decision rules, guardrails, and a living evidence playbook. Use when campaigns or content variants need a keep, discard, or inconclusive decision instead of vanity reporting.
+description: Run controlled marketing experiments that produce keep, discard, or inconclusive decisions and a reusable evidence playbook.
 ---
 
 # Growth Experimentation

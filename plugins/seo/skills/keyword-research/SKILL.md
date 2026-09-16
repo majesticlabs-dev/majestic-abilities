@@ -1,6 +1,6 @@
 ---
 name: keyword-research
-description: "Use when search demand drives topic selection, deciding what to write about against real queries, or doing keyword research on a budget."
+description: "Research search queries to select topics and keywords."
 ---
 
 # Keyword Research Without Expensive Tools

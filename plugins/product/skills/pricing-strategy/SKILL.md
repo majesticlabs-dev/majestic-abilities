@@ -1,6 +1,6 @@
 ---
 name: pricing-strategy
-description: Design product pricing and packaging from a value metric, willingness-to-pay evidence, competitive context, costs, and expansion logic. Use when setting or revising prices, tiers, limits, or packaging without inventing precision the evidence cannot support.
+description: Design or revise product pricing, tiers, limits, and packaging from value, willingness-to-pay evidence, competition, costs, and expansion logic.
 ---
 
 # Pricing Strategy

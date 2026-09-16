@@ -1,6 +1,6 @@
 ---
 name: snippet-hunter
-description: "Use when formatting content for featured snippets or SERP features."
+description: "Format content for featured snippets and other SERP features."
 ---
 
 # Snippet Hunter

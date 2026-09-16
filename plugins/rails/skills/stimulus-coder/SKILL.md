@@ -1,6 +1,6 @@
 ---
 name: stimulus-coder
-description: "Use when creating or refactoring Stimulus controllers."
+description: "Create or refactor Stimulus controllers."
 ---
 
 # Stimulus Coder
