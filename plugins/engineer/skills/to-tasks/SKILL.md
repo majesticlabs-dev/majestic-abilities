@@ -1,5 +1,6 @@
 ---
 name: to-tasks
+disable-model-invocation: true
 description: "Convert an approved plan into implementation tasks with dependencies."
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: actionable-communication
+disable-model-invocation: true
 description: "Give direct answers, bounded actions, progress, and a concrete next step."
 ---
 

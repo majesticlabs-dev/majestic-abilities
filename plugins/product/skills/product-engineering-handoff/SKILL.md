@@ -1,5 +1,6 @@
 ---
 name: product-engineering-handoff
+disable-model-invocation: true
 description: "Turn an approved product direction into an evidence-grounded PRD, repository-specific implementation plan, and reviewed engineering handoff without implementing it."
 metadata:
   requires: "product-requirements,implementation-planning,plan-review"

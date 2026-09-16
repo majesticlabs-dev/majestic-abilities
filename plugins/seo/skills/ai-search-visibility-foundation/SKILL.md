@@ -1,5 +1,6 @@
 ---
 name: ai-search-visibility-foundation
+disable-model-invocation: true
 description: "Build a site-level AI search visibility program with implementation evidence."
 metadata:
   requires: "seo-audit,entity-triplets,llms-txt-builder,ai-crawler-readiness,schema-architect,aeo-scorecard"

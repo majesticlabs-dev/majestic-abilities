@@ -1,5 +1,6 @@
 ---
 name: launch-decision
+disable-model-invocation: true
 description: "Assess launch audience, route to market, legal unknowns, and operational readiness; recommend GO, NARROW, or DELAY."
 metadata:
   requires: "icp-definition,go-to-market-motion,launch-legal-checklist,launch-readiness"

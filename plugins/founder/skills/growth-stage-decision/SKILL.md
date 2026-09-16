@@ -1,5 +1,6 @@
 ---
 name: growth-stage-decision
+disable-model-invocation: true
 description: "Diagnose growth limits and test the next stage for products with revenue, customer, or churn evidence."
 metadata:
   requires: "brainstorm-product,operating-priorities,strategic-plan-review"

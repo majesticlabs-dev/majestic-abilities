@@ -56,8 +56,9 @@ ALLOWED_SKILL_FIELDS = {
     "compatibility",
     "metadata",
     "allowed-tools",
+    "disable-model-invocation",
 }
-REPOSITORY_SKILL_FIELDS = ALLOWED_SKILL_FIELDS | {"disable-model-invocation"}
+REPOSITORY_SKILL_FIELDS = ALLOWED_SKILL_FIELDS
 
 
 class UniqueKeyLoader(yaml.SafeLoader):

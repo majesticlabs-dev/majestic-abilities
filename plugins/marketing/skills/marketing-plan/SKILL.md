@@ -1,5 +1,6 @@
 ---
 name: marketing-plan
+disable-model-invocation: true
 description: "Create an organic marketing plan and assess paid-spend readiness."
 metadata:
   requires: "editorial-planning,social-content,newsletter-editorial,growth-experimentation"

@@ -1,5 +1,6 @@
 ---
 name: first-customers
+disable-model-invocation: true
 description: "Plan first B2B customer acquisition through audience, channel, offer, and pricing decisions."
 metadata:
   requires: "icp-definition,go-to-market-motion,outbound-prospecting,pricing-strategy"

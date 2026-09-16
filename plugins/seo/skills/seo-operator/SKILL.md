@@ -1,5 +1,6 @@
 ---
 name: seo-operator
+disable-model-invocation: true
 description: "Select and verify one evidence-led SEO action across an existing site."
 metadata:
   requires: "seo-audit,meta-optimizer,seo-content,keyword-strategist,structure-architect,keyword-research,schema-architect,ai-crawler-readiness,aeo-scorecard,geo-content-optimizer"

@@ -79,7 +79,11 @@ name the action that distinguishes the workflow, such as audit, plan, or review.
 Omit audience roles unless they change the method. Set invocation policy through
 runtime metadata rather than description wording.
 
-The specification also defines optional `license`, `compatibility`, `metadata`, and experimental `allowed-tools` fields. Add optional fields only when required and supported by intended clients. Metadata values must be strings. This repository uses `metadata.requires` as a comma-separated cookbook dependency convention. Clients are not required to resolve it. Keep runtime-specific routing out of portable frontmatter.
+The specification also defines optional `license`, `compatibility`, `metadata`, and experimental `allowed-tools` fields. Add optional fields only when required and supported by intended clients. Metadata values must be strings. This repository uses `metadata.requires` as a comma-separated cookbook dependency convention. Clients are not required to resolve it.
+
+For explicit-only skills, set `disable-model-invocation: true` in frontmatter for
+Claude Code and Pi, and `policy.allow_implicit_invocation: false` in
+`agents/openai.yaml` for Codex.
 
 ## Naming
 
