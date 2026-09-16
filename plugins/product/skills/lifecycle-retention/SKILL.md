@@ -1,6 +1,6 @@
 ---
 name: lifecycle-retention
-description: "Design segmented retention systems with lifecycle stages, health signals, cohort measures, and intervention playbooks. Not for one customer's renewal, upsell, or win-back."
+description: "Design segmented retention systems with lifecycle stages, health signals, cohort measures, and intervention playbooks."
 ---
 
 # Lifecycle Retention

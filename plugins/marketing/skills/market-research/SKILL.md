@@ -1,6 +1,6 @@
 ---
 name: market-research
-description: "Synthesize sourced market, audience, competitor, and customer-language evidence for a business decision. Not for interview design or targeting criteria alone."
+description: "Synthesize sourced market, audience, competitor, and customer-language evidence for a business decision."
 ---
 
 # Market Research

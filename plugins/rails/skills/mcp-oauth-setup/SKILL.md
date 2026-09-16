@@ -1,6 +1,6 @@
 ---
 name: mcp-oauth-setup
-description: "Build Rails admin interfaces for stored MCP server connections with OAuth, bearer tokens, or API keys. Not for building an MCP server."
+description: "Build Rails admin interfaces for stored MCP server connections with OAuth, bearer tokens, or API keys."
 ---
 
 # MCP Server Authentication & OAuth Dynamic Client Registration

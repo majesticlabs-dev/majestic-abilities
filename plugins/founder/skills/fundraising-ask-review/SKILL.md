@@ -1,6 +1,6 @@
 ---
 name: fundraising-ask-review
-description: "Review fundraising materials before investor outreach or meetings. Not for choosing an instrument, valuation, or legal terms."
+description: "Review fundraising pitch and ask materials before investor outreach or meetings."
 ---
 
 # Fundraising Ask Review

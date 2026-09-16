@@ -1,6 +1,6 @@
 ---
 name: voice-dna-kit
-description: "Extract a reusable voice profile from existing writing samples; excludes applying profiles to drafts."
+description: "Extract a reusable voice profile from existing writing samples."
 ---
 
 # Voice DNA Kit

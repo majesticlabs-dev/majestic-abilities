@@ -1,6 +1,6 @@
 ---
 name: seo-content
-description: "Create or refresh one SEO or AEO article, from research through audited draft. Excludes standalone keyword research."
+description: "Create or refresh one SEO or AEO article, from research through audited draft."
 ---
 
 # SEO Content Workflow

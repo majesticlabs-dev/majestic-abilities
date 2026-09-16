@@ -1,6 +1,6 @@
 ---
 name: code-review
-description: "Review code changes for correctness, regressions, security, data risk, and missing tests. Excludes Rails and infrastructure changes."
+description: "Review code changes for correctness, regressions, security, data risks, and missing tests."
 ---
 
 # Code Review

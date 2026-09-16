@@ -1,6 +1,6 @@
 ---
 name: editorial-planning
-description: "Plan an audience-led content backlog and publishing calendar. Excludes standalone search-demand research."
+description: "Plan an audience-led content backlog and publishing calendar."
 ---
 
 # Editorial Planning

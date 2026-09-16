@@ -1,6 +1,6 @@
 ---
 name: founder-plan-review
-description: "Review a founder's plan for ambition, rigor, scope, and unnecessary complexity. Not for implementation planning or engineering handoff review."
+description: "Review a founder's plan for ambition, rigor, scope, and unnecessary complexity."
 ---
 
 # Founder Plan Review

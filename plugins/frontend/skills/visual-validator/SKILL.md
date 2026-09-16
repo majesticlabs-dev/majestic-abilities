@@ -1,6 +1,6 @@
 ---
 name: visual-validator
-description: "Validate rendered UI from screenshots for responsive behavior, regressions, and design-system compliance."
+description: "Validate rendered UI for responsive behavior, visual accessibility, regressions, and design-system compliance."
 ---
 
 # Visual Validator

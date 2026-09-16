@@ -1,6 +1,6 @@
 ---
 name: brainstorm-product
-description: "Guide a one-question-at-a-time product or builder-project brainstorm to a written artifact. Not for a standalone demand-validation verdict."
+description: "Guide a one-question-at-a-time product or builder-project brainstorm to a written artifact."
 ---
 
 # Brainstorm Product

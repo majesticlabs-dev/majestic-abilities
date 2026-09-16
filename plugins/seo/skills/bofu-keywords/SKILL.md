@@ -1,6 +1,6 @@
 ---
 name: bofu-keywords
-description: "Find and prioritize transactional, comparison, alternative, and review keywords for buyers near a decision. Not for drafting conversion copy."
+description: "Find and prioritize transactional, comparison, alternative, and review keywords for buyers near a decision."
 ---
 
 # Bottom-of-Funnel Keyword Finder

@@ -1,6 +1,6 @@
 ---
 name: technology-impact-assessment
-description: "Assess the business implications of a technology announcement. Not for market research, implementation planning, or trend summaries."
+description: "Assess the business implications of a technology announcement."
 ---
 
 # Technology Impact Assessment

@@ -1,6 +1,6 @@
 ---
 name: plan-review
-description: "Review implementation plans, PRDs, and feature specifications for delivery readiness: flows, dependencies, scope, risks, and verification. Excludes requirement-statement quality audits."
+description: "Review implementation plans, PRDs, and feature specifications for delivery readiness: flows, dependencies, scope, risks, and verification."
 ---
 
 # Plan Review

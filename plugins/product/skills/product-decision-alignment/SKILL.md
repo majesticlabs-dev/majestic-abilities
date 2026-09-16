@@ -1,6 +1,6 @@
 ---
 name: product-decision-alignment
-description: Diagnose and repair a stuck, reopened, or inconsistently executed cross-functional product decision. Not for interpersonal therapy, performance evaluation, or choosing product strategy.
+description: "Diagnose product decision deadlocks and execution failures across teams; recommend process repairs."
 ---
 
 # Product Decision Alignment

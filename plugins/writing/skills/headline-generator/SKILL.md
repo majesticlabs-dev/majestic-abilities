@@ -1,6 +1,6 @@
 ---
 name: headline-generator
-description: Generate and rank fact-bound news, press-release, feature, or pitch headlines from supplied evidence. Not for writing a complete asset.
+description: "Generate and rank fact-bound news, press-release, feature, or pitch headlines from supplied evidence."
 ---
 
 # Headline Generator

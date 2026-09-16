@@ -1,6 +1,6 @@
 ---
 name: newsletter-editorial
-description: Define a recurring newsletter's editorial format and draft an evidence-grounded edition with a repeatable structure and feedback loop. Not for one-off conversion email or subject-line generation.
+description: "Define a recurring newsletter's editorial format and draft an evidence-grounded edition with a repeatable structure and feedback loop."
 ---
 
 # Newsletter Editorial

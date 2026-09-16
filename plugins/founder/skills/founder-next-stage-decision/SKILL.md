@@ -1,6 +1,6 @@
 ---
 name: founder-next-stage-decision
-description: "Guide an existing product through growth-ceiling diagnosis, one discovery sprint, founder commitments, and a next-stage decision. Not for a standalone demand test or priority review."
+description: "Guide an existing product through growth-ceiling diagnosis, one discovery sprint, founder commitments, and a next-stage decision."
 metadata:
   requires: "brainstorm-product,founder-priorities,founder-plan-review"
 ---
