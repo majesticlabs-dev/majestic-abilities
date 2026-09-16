@@ -412,3 +412,5 @@ print(
     "the Pi package, skill trees, and package paths all validate"
 )
 PY
+
+python3 scripts/check-skill-collisions.py

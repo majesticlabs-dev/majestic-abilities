@@ -1,6 +1,6 @@
 ---
 name: anycable-coder
-description: "Use when implementing real-time features requiring reliability, especially LLM streaming."
+description: "Use when implementing AnyCable-backed real-time Rails features that need reliable or resumable WebSocket delivery, especially LLM streaming."
 ---
 
 # AnyCable Coder

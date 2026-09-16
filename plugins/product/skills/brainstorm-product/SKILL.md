@@ -1,6 +1,6 @@
 ---
 name: brainstorm-product
-description: "Use when brainstorming, vetting, or diagnosing a product, SaaS, or builder-project idea."
+description: "Guide an interactive, one-question-at-a-time product or builder-project brainstorm to a written artifact. Use when shaping ideas or comparing directions, not for a standalone demand-validation verdict."
 ---
 
 # Brainstorm Product

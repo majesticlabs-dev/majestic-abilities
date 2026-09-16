@@ -1,6 +1,6 @@
 ---
 name: plugin-release
-description: "Use when approved plugin changes need validation, versioning, release, and publication."
+description: "Validate, version, and publish an explicitly authorized category-plugin release."
 disable-model-invocation: true
 ---
 
