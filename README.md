@@ -16,6 +16,7 @@ You can install:
 - [Install with the Skills CLI](#install-with-the-skills-cli)
 - [Browse the catalog](#browse-the-catalog)
 - [Cookbooks](#cookbooks)
+- [Explicit Invocation](#explicit-invocation)
 - [Repository model](#repository-model)
 - [Development](#development)
 
@@ -228,6 +229,22 @@ Cookbooks are user-invoked workflows that sequence catalog skills by name. Catal
 | [`rails-feature`](plugins/rails/skills/rails-feature/) | Rails plugin | `majestic-engineer`, `majestic-rails` | Build and review a Rails feature end to end |
 
 Each cookbook lives in the plugin that owns its primary user trigger and output. Supporting skills can come from other plugins. Cookbook frontmatter declares dependencies in the repository-defined string-valued `metadata.requires` key. Each cookbook's installation command includes the same dependency set because installers do not resolve dependencies.
+
+## Explicit Invocation
+
+These 11 skills require explicit invocation. Each sets `disable-model-invocation: true` for Claude Code and Pi, and `allow_implicit_invocation: false` in `agents/openai.yaml` for Codex.
+
+- [actionable-communication](plugins/misc/skills/actionable-communication/SKILL.md)
+- [ai-search-visibility-foundation](plugins/seo/skills/ai-search-visibility-foundation/SKILL.md)
+- [first-customers](plugins/sales/skills/first-customers/SKILL.md)
+- [growth-stage-decision](plugins/founder/skills/growth-stage-decision/SKILL.md)
+- [launch-decision](plugins/founder/skills/launch-decision/SKILL.md)
+- [marketing-plan](plugins/marketing/skills/marketing-plan/SKILL.md)
+- [plugin-release](.agents/skills/plugin-release/SKILL.md), repository only
+- [product-engineering-handoff](plugins/product/skills/product-engineering-handoff/SKILL.md)
+- [rails-feature](plugins/rails/skills/rails-feature/SKILL.md)
+- [seo-operator](plugins/seo/skills/seo-operator/SKILL.md)
+- [to-tasks](plugins/engineer/skills/to-tasks/SKILL.md)
 
 ## Repository Model
 
