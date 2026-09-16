@@ -1,6 +1,6 @@
 # Majestic Abilities
 
-Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 171 catalog skills, eight cookbooks, and two repository-operating skills, and follows the [Agent Skills](https://agentskills.io/) format.
+Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 170 catalog skills, eight cookbooks, and two repository-operating skills, and follows the [Agent Skills](https://agentskills.io/) format.
 
 You can install:
 
@@ -181,11 +181,11 @@ The CLI normally recommends symlinks so several agents can share one canonical i
 
 ## Browse the Catalog
 
-The catalog contains 171 skills plus eight cookbooks. Two repository-operating skills bring the Skills CLI inventory to 181 abilities. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see the exact inventory.
+The catalog contains 170 skills plus eight cookbooks. Two repository-operating skills bring the Skills CLI inventory to 180 abilities. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see the exact inventory.
 
 | Category | Plugin | Skills | Focus |
 | --- | --- | ---: | --- |
-| [Cloudflare](plugins/cloudflare/skills/) | `majestic-cloudflare` | 13 | Cloudflare platform, Workers, Agents SDK, Durable Objects, security, infrastructure, and deployment |
+| [Cloudflare](plugins/cloudflare/skills/) | `majestic-cloudflare` | 12 | Cloudflare platform, Workers, Agents SDK, Durable Objects, security, infrastructure, and deployment |
 | [Core](plugins/core/skills/) | `majestic-core` | 3 | Agent-ready repositories, nested guidance audits, and durable session handoffs |
 | [Data](plugins/data/skills/) | `majestic-data` | 8 | Pipelines, contracts, quality controls, source assessment, and dbt |
 | [DevOps](plugins/devops/skills/) | `majestic-devops` | 10 | OpenTofu, Ansible, cloud-init, Kamal, secrets, storage, and infrastructure review |

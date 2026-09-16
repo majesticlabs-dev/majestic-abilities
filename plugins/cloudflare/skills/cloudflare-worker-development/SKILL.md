@@ -1,6 +1,6 @@
 ---
 name: cloudflare-worker-development
-description: "Build and review TypeScript applications and tests for Cloudflare Workers."
+description: "Build and review Cloudflare Workers."
 ---
 
 # Cloudflare Worker Development
