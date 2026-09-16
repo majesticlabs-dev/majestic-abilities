@@ -1,6 +1,6 @@
 ---
 name: gem-builder
-description: "Create and structure Ruby gems, including configuration, tests, and publishing preparation."
+description: "Ruby gem architecture, configuration, tests, and publishing preparation."
 ---
 
 # Gem Builder

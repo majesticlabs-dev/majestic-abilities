@@ -1,6 +1,6 @@
 ---
 name: marketing-plan
-description: "Create an evidence-led organic marketing plan with a paid-spend decision. Use only when named or explicitly requested."
+description: "Create an organic marketing plan and assess paid-spend readiness."
 metadata:
   requires: "editorial-planning,social-content,newsletter-editorial,growth-experimentation"
 ---

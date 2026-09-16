@@ -1,6 +1,6 @@
 ---
 name: to-tasks
-description: "Convert an approved plan into implementation tasks with dependencies. Only on explicit invocation."
+description: "Convert an approved plan into implementation tasks with dependencies."
 ---
 
 # To Tasks

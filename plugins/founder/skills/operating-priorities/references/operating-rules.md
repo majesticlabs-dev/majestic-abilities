@@ -1,10 +1,10 @@
-# Founder Operating Rules
+# Operating Priority Rules
 
-Use this reference when auditing founder time, focus, and recurring execution traps.
+Use this reference when auditing a company leader's time, focus, and recurring execution traps.
 
 ## Operating Principles
 
-- The founder's calendar should reflect the real bottleneck.
+- The leader's calendar should reflect the real company bottleneck.
 - Protect decision time and deep work.
 - Choose fewer priorities and finish them.
 - Use simple operating cadences that survive bad weeks.
@@ -14,7 +14,7 @@ Use this reference when auditing founder time, focus, and recurring execution tr
 
 Before prescribing a new operating plan, gather:
 
-- stage and current founder job
+- company stage and the leader's current job
 - bottleneck hypothesis
 - representative calendar or time sample
 - active commitments and hard constraints
@@ -45,7 +45,7 @@ Classify one representative week by purpose and intended outcome, not by meeting
 | Deep work | uninterrupted creation or analysis |
 | Learning / reflection | deliberate research or synthesis with a decision attached |
 
-Customer discovery, sales, recruiting, and product reviews may be the founder's stage-specific job. Do not auto-classify them as low-value "management."
+Customer discovery, sales, recruiting, and product reviews may be the leader's stage-specific job. Do not auto-classify them as low-value "management."
 
 Then:
 
@@ -69,11 +69,11 @@ For each major activity, estimate the time, cash, or attention it consumes and t
 
 Challenge the decision, not the person. Directness does not justify fabricated motives, false certainty, or a hostile tone.
 
-## Founder Proximity
+## Leadership Proximity
 
-When quality, culture, or customer understanding is deteriorating, check whether the founder is too far from the work. Useful interventions include direct customer conversations, reviewing the actual product or service, and skip-level listening to restore signal.
+When quality, culture, or customer understanding is deteriorating, check whether leadership is too far from the work. Useful interventions include direct customer conversations, reviewing the actual product or service, and skip-level listening to restore signal.
 
-Do not recommend removing a management layer as a generic intervention. Define the bottleneck, the proximity action, and an exit condition. Do not turn founder involvement into blanket micromanagement.
+Do not recommend removing a management layer as a generic intervention. Define the bottleneck, the proximity action, and an exit condition. Do not turn leadership involvement into blanket micromanagement.
 
 ## Cutting Work Safely
 

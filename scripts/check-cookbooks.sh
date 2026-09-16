@@ -120,7 +120,7 @@ for cookbook in $cookbooks; do
   expected_plugin=""
   case "$cookbook_name" in
     ai-search-visibility-foundation) expected_plugin="seo" ;;
-    founder-launch-decision|founder-next-stage-decision) expected_plugin="founder" ;;
+    launch-decision|growth-stage-decision) expected_plugin="founder" ;;
     product-engineering-handoff) expected_plugin="product" ;;
     rails-feature) expected_plugin="rails" ;;
     first-customers) expected_plugin="sales" ;;

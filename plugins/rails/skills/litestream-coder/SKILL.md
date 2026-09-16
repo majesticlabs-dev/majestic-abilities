@@ -1,6 +1,6 @@
 ---
 name: litestream-coder
-description: "Back up production SQLite databases with Litestream."
+description: "Litestream backups for production SQLite databases."
 ---
 
 # Litestream Coder

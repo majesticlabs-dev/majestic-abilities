@@ -1,0 +1,5 @@
+interface:
+  display_name: "Plugin Release"
+  short_description: "Validate and publish category plugins"
+policy:
+  allow_implicit_invocation: false

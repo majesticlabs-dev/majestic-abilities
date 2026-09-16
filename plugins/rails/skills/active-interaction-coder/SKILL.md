@@ -1,6 +1,6 @@
 ---
 name: active-interaction-coder
-description: "Implement typed Rails operations with ActiveInteraction."
+description: "Typed Rails operations with ActiveInteraction."
 ---
 
 # ActiveInteraction Coder

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Product Engineering Handoff"
+  short_description: "Prepare product requirements for engineering"
+policy:
+  allow_implicit_invocation: false

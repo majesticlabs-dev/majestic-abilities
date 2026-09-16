@@ -1,6 +1,6 @@
 ---
 name: minitest-coder
-description: "Write or refactor Minitest tests in Ruby or Rails."
+description: "Minitest tests for Ruby and Rails."
 ---
 
 # Minitest Coder

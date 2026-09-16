@@ -1,0 +1,5 @@
+interface:
+  display_name: "First Customers"
+  short_description: "Plan first B2B customer acquisition"
+policy:
+  allow_implicit_invocation: false

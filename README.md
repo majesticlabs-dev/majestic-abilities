@@ -220,8 +220,8 @@ Cookbooks are user-invoked workflows that sequence catalog skills by name. Catal
 | --- | --- | --- | --- |
 | [`ai-search-visibility-foundation`](plugins/seo/skills/ai-search-visibility-foundation/) | SEO plugin | `majestic-seo` | Establish SEO, entity, crawler, structured-data, and AEO measurement foundations |
 | [`seo-operator`](plugins/seo/skills/seo-operator/) | SEO plugin | `majestic-seo` | Select and verify one bounded, evidence-led SEO action |
-| [`founder-launch-decision`](plugins/founder/skills/founder-launch-decision/) | Founder plugin | `majestic-founder`, `majestic-sales` | Produce a founder-led launch decision |
-| [`founder-next-stage-decision`](plugins/founder/skills/founder-next-stage-decision/) | Founder plugin | `majestic-founder`, `majestic-product` | Decide a founder's next growth stage with a time-boxed evidence sprint |
+| [`launch-decision`](plugins/founder/skills/launch-decision/) | Founder plugin | `majestic-founder`, `majestic-sales` | Assess launch audience, route to market, legal unknowns, and readiness |
+| [`growth-stage-decision`](plugins/founder/skills/growth-stage-decision/) | Founder plugin | `majestic-founder`, `majestic-product` | Decide the next growth stage through an evidence sprint |
 | [`product-engineering-handoff`](plugins/product/skills/product-engineering-handoff/) | Product plugin | `majestic-engineer`, `majestic-product` | Prepare an approved product direction for engineering |
 | [`first-customers`](plugins/sales/skills/first-customers/) | Sales plugin | `majestic-sales`, `majestic-founder`, `majestic-product` | Plan initial customer acquisition, offers, and evidence tracking |
 | [`marketing-plan`](plugins/marketing/skills/marketing-plan/) | Marketing plugin | `majestic-marketing` | Coordinate content channels, growth experiments, and spending decisions |

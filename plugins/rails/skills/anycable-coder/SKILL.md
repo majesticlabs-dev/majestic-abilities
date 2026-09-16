@@ -1,6 +1,6 @@
 ---
 name: anycable-coder
-description: "Implement AnyCable-backed Rails features that need reliable or resumable WebSocket delivery, especially LLM streaming."
+description: "Reliable or resumable AnyCable WebSocket delivery for Rails, especially LLM streaming."
 ---
 
 # AnyCable Coder

@@ -1,6 +1,6 @@
 ---
 name: active-job-coder
-description: "Create or refactor Active Job background jobs."
+description: "Active Job background jobs for Rails."
 ---
 
 # Active Job Coder

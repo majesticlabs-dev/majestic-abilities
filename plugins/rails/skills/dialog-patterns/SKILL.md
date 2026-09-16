@@ -1,6 +1,6 @@
 ---
 name: dialog-patterns
-description: "Build Rails modal forms, confirmations, alerts, and accessible overlays with native HTML dialogs, Turbo Frames, and Stimulus."
+description: "Rails modal forms, confirmations, alerts, and accessible overlays with native HTML dialogs, Turbo Frames, and Stimulus."
 ---
 
 # Native Dialog Patterns for Rails

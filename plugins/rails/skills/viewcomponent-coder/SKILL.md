@@ -1,6 +1,6 @@
 ---
 name: viewcomponent-coder
-description: "Build, refactor, or test Rails ViewComponents."
+description: "Rails ViewComponents."
 ---
 
 # ViewComponent Patterns

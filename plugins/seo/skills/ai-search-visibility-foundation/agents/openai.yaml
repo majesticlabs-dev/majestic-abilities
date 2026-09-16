@@ -1,0 +1,5 @@
+interface:
+  display_name: "AI Search Visibility Foundation"
+  short_description: "Build a site-level AI search visibility program"
+policy:
+  allow_implicit_invocation: false

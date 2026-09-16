@@ -1,6 +1,6 @@
 ---
 name: event-sourcing-coder
-description: "Record durable Rails domain events and dispatch inbox handlers for audit, workflows, or external sync."
+description: "Durable Rails domain events and inbox handlers for audit, workflows, and external sync."
 ---
 
 # Event Sourcing for Rails Monoliths

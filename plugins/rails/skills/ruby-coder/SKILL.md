@@ -1,6 +1,6 @@
 ---
 name: ruby-coder
-description: "Write or refactor Ruby code."
+description: "Clear, maintainable Ruby code."
 ---
 
 # Ruby Coder

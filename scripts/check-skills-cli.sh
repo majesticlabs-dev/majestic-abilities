@@ -31,8 +31,8 @@ for skill in \
   manual-service-pilot \
   first-customers \
   marketing-plan \
-  founder-launch-decision \
-  founder-next-stage-decision \
+  launch-decision \
+  growth-stage-decision \
   plugin-release \
   product-engineering-handoff \
   rails-feature \

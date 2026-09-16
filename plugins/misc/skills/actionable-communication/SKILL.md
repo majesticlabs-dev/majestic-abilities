@@ -1,6 +1,6 @@
 ---
 name: actionable-communication
-description: "Give direct answers, bounded actions, progress, and a next step. Only when this response mode or ongoing actionable communication is explicitly requested."
+description: "Give direct answers, bounded actions, progress, and a concrete next step."
 ---
 
 # Clear Communication

@@ -1,6 +1,6 @@
 ---
 name: rails-lint
-description: "Run or fix Rails code-quality checks."
+description: "Audit and fix Rails code-quality issues."
 ---
 
 # Rails Lint

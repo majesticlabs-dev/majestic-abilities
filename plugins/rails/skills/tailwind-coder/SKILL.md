@@ -1,6 +1,6 @@
 ---
 name: tailwind-coder
-description: "Apply Tailwind CSS styling to Rails views."
+description: "Tailwind CSS styling for Rails views."
 ---
 
 # Tailwind Coder

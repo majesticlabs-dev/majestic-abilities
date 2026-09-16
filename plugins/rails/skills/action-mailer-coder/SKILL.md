@@ -1,6 +1,6 @@
 ---
 name: action-mailer-coder
-description: "Create or refactor Action Mailer emails."
+description: "Action Mailer emails for Rails."
 ---
 
 # Action Mailer Coder

@@ -1,11 +1,11 @@
 ---
-name: founder-plan-review
-description: "Review a founder's plan for ambition, rigor, scope, and unnecessary complexity."
+name: strategic-plan-review
+description: "Review business or product plans for premise, scope, value, and execution risk."
 ---
 
-# Founder Plan Review
+# Strategic Plan Review
 
-Review an existing plan as a consequential founder decision. Challenge both underreach and excess. Do not treat more scope as better by default.
+Review an existing plan as a consequential business or product decision. Challenge both underreach and excess. Do not treat more scope as better by default.
 
 ## Boundary
 
@@ -132,7 +132,7 @@ Return:
 
 ## Standards
 
-- Review the plan, not the founder's personality.
+- Review the plan, not the decision owner's personality.
 - More ambition must produce more value through a credible mechanism.
 - Focus can require expansion, reduction, or no scope change.
 - Every material finding needs evidence, consequence, and a correction or decision.

@@ -1,6 +1,6 @@
 ---
 name: anyway-config-coder
-description: "Implement typed Ruby or Rails configuration with anyway_config."
+description: "Typed Ruby and Rails configuration with anyway_config."
 ---
 
 # Anyway Config Coder

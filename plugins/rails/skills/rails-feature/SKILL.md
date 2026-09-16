@@ -1,6 +1,6 @@
 ---
 name: rails-feature
-description: "Run the full Rails feature workflow when requested."
+description: "Plan, implement, and verify Rails features."
 metadata:
   requires: "implementation-planning,dhh-rails-style,ruby-coder,minitest-coder,rails-lint,rails-code-review,test-reviewer"
 ---

@@ -1,11 +1,11 @@
 ---
-name: founder-next-stage-decision
-description: "Guide an existing product through growth-ceiling diagnosis, one discovery sprint, founder commitments, and a next-stage decision."
+name: growth-stage-decision
+description: "Diagnose growth limits and test the next stage for products with revenue, customer, or churn evidence."
 metadata:
-  requires: "brainstorm-product,founder-priorities,founder-plan-review"
+  requires: "brainstorm-product,operating-priorities,strategic-plan-review"
 ---
 
-# Founder Next Stage Decision
+# Growth Stage Decision
 
 Run this workflow only for an existing product with revenue, customers, or churn data. For a pre-product commercial idea, invoke `brainstorm-product` directly in Mode B.
 
@@ -31,17 +31,17 @@ Pick the single most promising uncertain option from Phase 1. Invoke `brainstorm
 - concrete discovery actions: integrations, marketing passes, paid traffic to conversations, structured customer interviews
 - the named comfort work to refuse during the sprint
 
-Then invoke the `founder-priorities` skill to protect the sprint:
+Then invoke the `operating-priorities` skill to protect the sprint:
 
 - cut, defer, or delegate everything that competes with it
 - set the weekly execution cadence and the sprint-end revisit criteria
-- state which tradeoffs the founder accepts for the sprint month
+- state which tradeoffs the decision owner accepts for the sprint month
 
 The sprint does not end with a product. It ends with evidence.
 
 ## Phase 3: Decide With Evidence
 
-After the sprint deadline, invoke `brainstorm-product` step A11 for the closure audit, then invoke the `founder-plan-review` skill on the evidence and the resulting next-stage plan.
+After the sprint deadline, invoke `brainstorm-product` step A11 for the closure audit, then invoke the `strategic-plan-review` skill on the evidence and the resulting next-stage plan.
 
 Return exactly one verdict:
 
@@ -57,7 +57,7 @@ Return:
 2. the option chosen for the sprint and the rejected alternatives
 3. the sprint question, evidence collected, and the pass or fail result
 4. verdict: `PURSUE`, `RESHAPE`, or `DISCARD`
-5. the next-stage plan and the founder commitments that hold beyond the sprint
+5. the next-stage plan and the operating commitments that hold beyond the sprint
 6. the next decision checkpoint
 
 Do not produce a campaign, a full business plan, or a multi-year forecast.
@@ -67,8 +67,8 @@ Do not produce a campaign, a full business plan, or a multi-year forecast.
 Install the cookbook and its dependencies:
 
 ```sh
-npx skills add majesticlabs-dev/majestic-abilities --skill founder-next-stage-decision \
-  brainstorm-product founder-priorities founder-plan-review
+npx skills add majesticlabs-dev/majestic-abilities --skill growth-stage-decision \
+  brainstorm-product operating-priorities strategic-plan-review
 ```
 
 ## Hard Gates

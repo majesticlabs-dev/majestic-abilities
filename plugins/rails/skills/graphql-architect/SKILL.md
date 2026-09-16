@@ -1,6 +1,6 @@
 ---
 name: graphql-architect
-description: "Design or optimize GraphQL APIs with graphql-ruby."
+description: "GraphQL API design and optimization with graphql-ruby."
 ---
 
 # GraphQL Architect for Rails

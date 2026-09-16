@@ -1,6 +1,6 @@
 ---
 name: solid-cache-coder
-description: "Configure and use Solid Cache for database-backed caching."
+description: "Solid Cache database-backed caching."
 ---
 
 # Solid Cache Coder

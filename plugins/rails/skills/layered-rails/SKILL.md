@@ -1,6 +1,6 @@
 ---
 name: layered-rails
-description: "Choose Rails responsibility boundaries and extraction points with presentation, application, domain, and infrastructure layers."
+description: "Rails responsibility boundaries and extraction points across presentation, application, domain, and infrastructure layers."
 ---
 
 # Layered Rails Architecture

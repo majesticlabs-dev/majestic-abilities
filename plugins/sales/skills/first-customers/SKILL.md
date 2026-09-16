@@ -1,6 +1,6 @@
 ---
 name: first-customers
-description: "Create an evidence-based first B2B customer plan covering ICP, route, offer, and pricing. Use only when named or explicitly requested."
+description: "Plan first B2B customer acquisition through audience, channel, offer, and pricing decisions."
 metadata:
   requires: "icp-definition,go-to-market-motion,outbound-prospecting,pricing-strategy"
 ---

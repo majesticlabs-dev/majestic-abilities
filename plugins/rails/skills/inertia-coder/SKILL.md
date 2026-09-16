@@ -1,6 +1,6 @@
 ---
 name: inertia-coder
-description: "Build Inertia.js pages, forms, and navigation with a Rails backend."
+description: "Inertia.js pages, forms, and navigation with a Rails backend."
 ---
 
 # Inertia.js + Rails

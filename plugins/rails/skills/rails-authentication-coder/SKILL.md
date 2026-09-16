@@ -1,6 +1,6 @@
 ---
 name: rails-authentication-coder
-description: "Implement Rails 8 authentication, sessions, admin sign-in, password resets, and controller protection without Devise."
+description: "Rails 8 authentication, sessions, password resets, and controller protection without Devise."
 ---
 
 # Rails Authentication Coder

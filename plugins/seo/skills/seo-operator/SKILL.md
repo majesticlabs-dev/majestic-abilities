@@ -1,6 +1,6 @@
 ---
 name: seo-operator
-description: "Select and verify one bounded, evidence-led SEO action across an existing site. Use only when named."
+description: "Select and verify one evidence-led SEO action across an existing site."
 metadata:
   requires: "seo-audit,meta-optimizer,seo-content,keyword-strategist,structure-architect,keyword-research,schema-architect,ai-crawler-readiness,aeo-scorecard,geo-content-optimizer"
 ---

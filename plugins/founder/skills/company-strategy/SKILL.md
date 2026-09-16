@@ -42,4 +42,4 @@ Own medium- and long-horizon company direction. Do not replace weekly operating 
 - Vivid future language never substitutes for dated commitments.
 - Market expansion follows evidence of problem intensity, buying motion, and value fit.
 - Resource gaps and dependencies are visible rather than assumed away.
-- Weekly execution is optionally handed to `founder-priorities` after the strategy is set.
+- Weekly execution is optionally handed to `operating-priorities` after the strategy is set.

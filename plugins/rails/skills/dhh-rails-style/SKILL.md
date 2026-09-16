@@ -1,6 +1,6 @@
 ---
 name: dhh-rails-style
-description: "Apply DHH and 37signals Rails conventions when the task or project requires that style."
+description: "DHH and 37signals Rails conventions."
 ---
 
 # DHH Rails Style

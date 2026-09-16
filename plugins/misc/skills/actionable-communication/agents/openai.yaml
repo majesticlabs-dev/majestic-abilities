@@ -1,0 +1,5 @@
+interface:
+  display_name: "Actionable Communication"
+  short_description: "Give direct answers and bounded actions"
+policy:
+  allow_implicit_invocation: false
