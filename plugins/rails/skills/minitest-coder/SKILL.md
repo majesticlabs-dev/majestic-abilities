@@ -1,6 +1,6 @@
 ---
 name: minitest-coder
-description: "Use when creating test files, writing test cases, or testing new features."
+description: "Minitest tests for Ruby and Rails."
 ---
 
 # Minitest Coder

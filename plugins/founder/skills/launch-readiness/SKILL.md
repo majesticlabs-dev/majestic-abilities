@@ -1,6 +1,6 @@
 ---
 name: launch-readiness
-description: "Use when deciding whether to ship a waitlist, beta, paid release, or public campaign, especially when owners, follow-up, support capacity, sequencing, or legal and compliance exposure are unclear."
+description: "Check an existing launch plan's ownership, fulfillment, support, sequencing, and legal escalation; return GO, NARROW, or DELAY."
 ---
 
 # Launch Readiness

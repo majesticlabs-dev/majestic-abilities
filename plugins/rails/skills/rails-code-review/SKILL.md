@@ -1,6 +1,6 @@
 ---
 name: rails-code-review
-description: "Use when reviewing Rails changes for correctness, safety, and missing tests."
+description: "Review Rails code changes for correctness, safety, and missing tests."
 ---
 
 # Rails Code Review

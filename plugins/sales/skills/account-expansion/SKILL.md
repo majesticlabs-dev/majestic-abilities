@@ -1,6 +1,6 @@
 ---
 name: account-expansion
-description: Grow and retain existing customer revenue through health evidence, value reviews, expansion triggers, respectful win-back, and in-relationship referral asks. Use when preparing QBRs, evaluating an upsell, responding to churn risk, or re-engaging a former customer.
+description: Grow and retain customer revenue through health evidence, value reviews, expansion triggers, win-back, and in-relationship referrals.
 ---
 
 # Account Expansion

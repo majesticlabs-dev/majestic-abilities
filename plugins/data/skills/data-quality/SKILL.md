@@ -1,6 +1,6 @@
 ---
 name: data-quality
-description: Define and operate data quality controls, service levels, scorecards, drift monitoring, and incident response for a data product. Use when establishing trust requirements, freshness or volume alerts, quality gates, ownership, or ongoing monitoring across pipelines and datasets.
+description: Define and operate ongoing data quality controls, service levels, alerts, scorecards, drift monitoring, ownership, and incident response.
 ---
 
 # Data Quality

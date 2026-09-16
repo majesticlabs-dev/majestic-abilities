@@ -1,6 +1,6 @@
 ---
 name: content-repurposing
-description: "Use when adapting one verified long-form asset into channel-specific content."
+description: "Adapt one verified long-form asset into channel-specific content."
 ---
 
 # Content Repurposing

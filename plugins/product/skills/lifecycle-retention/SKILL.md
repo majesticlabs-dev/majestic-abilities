@@ -1,6 +1,6 @@
 ---
 name: lifecycle-retention
-description: "Use when improving retention through lifecycle stages, health signals, and intervention playbooks."
+description: "Design segmented retention systems with lifecycle stages, health signals, cohort measures, and intervention playbooks."
 ---
 
 # Lifecycle Retention

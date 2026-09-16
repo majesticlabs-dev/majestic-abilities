@@ -1,6 +1,6 @@
 ---
 name: sales-proposal
-description: Write an end-to-end sales proposal from qualified deal intake through executive summary, scope, pricing options, evidence-based value, delivery, and next steps. Use when a buyer needs a written commercial proposal or response after discovery.
+description: Write an evidence-based sales proposal or commercial response for a qualified deal after discovery.
 ---
 
 # Sales Proposal

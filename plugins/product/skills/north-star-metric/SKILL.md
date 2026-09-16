@@ -1,6 +1,6 @@
 ---
 name: north-star-metric
-description: Choose and operate one stage-fit product health metric with driver inputs, guardrails, ownership, and a review cadence. Use when teams track too many disconnected metrics, need a growth focus, or must distinguish a useful leading signal from vanity metrics.
+description: Choose and operate one stage-fit product health metric with drivers, guardrails, ownership, and a review cadence.
 ---
 
 # North Star Metric

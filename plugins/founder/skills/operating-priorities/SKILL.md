@@ -1,32 +1,32 @@
 ---
-name: founder-priorities
-description: "Use when a founder is overloaded or reactive, has too many priorities, asks what to cut, delegate, or defer, needs a calendar audit, or needs a daily, weekly, and monthly execution cadence."
+name: operating-priorities
+description: "Set company operating priorities through bottleneck analysis, calendar review, and delegation."
 ---
 
-# Founder Priorities
+# Operating Priorities
 
-Use this skill when the founder is overloaded, scattered, or stuck reacting to noise instead of running the company deliberately.
+Use this skill when a company leader is overloaded, scattered, or reacting to noise instead of running the business deliberately. Do not use it for personal task management or arbitrary engineering-plan prioritization.
 
 ## References
 
-Load [founder-operating-rules.md](references/founder-operating-rules.md) before auditing the calendar or diagnosing recurring execution traps.
+Load [operating-rules.md](references/operating-rules.md) before auditing the calendar or diagnosing recurring execution traps.
 
 ## Required Inputs
 
 Collect before prescribing. Label estimates when evidence is incomplete.
 
-- Company stage and the founder's current primary job
+- Company stage and the leader's current primary job
 - Current bottleneck (customers, product, delivery, hiring, cash, distribution, or other)
 - Representative calendar or time log for a recent week
 - Active commitments and constraints (people, contracts, health, fundraising process)
 - Available outcome evidence for major activities
-- What the founder believes must happen this week and this month
+- What the leader believes must happen this week and this month
 
 Hand off runway, unit economics, and hiring ROI analysis to `bootstrapped-finance`; longer-horizon company direction to `company-strategy`; pricing and packaging to `pricing-strategy`; demand validation to `product-validation`; growth-metric definition to `north-star-metric`; and launch shipping decisions to `launch-readiness`. Do not invent motives or fabricate opportunity costs.
 
 ## Workflow
 
-1. Clarify company stage and the founder's main job right now.
+1. Clarify company stage and the leader's main job right now.
 2. List the highest-leverage outcomes for:
    - today
    - this week
@@ -39,8 +39,8 @@ Hand off runway, unit economics, and hiring ROI analysis to `bootstrapped-financ
 
 ## Standards
 
-- A founder calendar is strategy in disguise.
-- If everything is priority one, the founder is not deciding.
+- A leader's calendar should reflect company strategy.
+- If everything is priority one, the leader is not deciding.
 - Use explicit tradeoffs, not motivational slogans.
 - Challenge the decision, not the person; tie pushback to visible evidence.
 - Systems should reduce chaos, not add ceremony.

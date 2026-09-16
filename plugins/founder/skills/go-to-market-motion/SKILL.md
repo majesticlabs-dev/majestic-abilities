@@ -1,6 +1,6 @@
 ---
 name: go-to-market-motion
-description: Choose a go-to-market motion and channel portfolio that fits the product, deal economics, stage, and ICP, then phase it from validation to scale. Use when deciding between product-led, inbound, outbound, partner, or enterprise motions or reallocating channel effort.
+description: Choose and phase a go-to-market motion and channel portfolio that fits the product, ICP, stage, and deal economics.
 ---
 
 # Go-to-Market Motion

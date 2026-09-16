@@ -1,6 +1,6 @@
 ---
 name: gherkin-stories
-description: "Use when drafting or repairing ticket-ready user stories with Gherkin acceptance scenarios."
+description: "Draft or repair ticket-ready user stories with Gherkin acceptance scenarios."
 ---
 
 # Gherkin Stories

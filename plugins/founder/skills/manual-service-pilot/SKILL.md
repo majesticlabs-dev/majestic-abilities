@@ -1,6 +1,6 @@
 ---
 name: manual-service-pilot
-description: Turn a product or service idea into an operator-ready manual pilot with defined inputs, steps, tools, timing, exceptions, delivery, evidence, and criteria for automating proven work. Use before building software.
+description: Turn an idea into a manual pilot offer and operator runbook that tests a customer outcome before automation.
 ---
 
 # Manual Service Pilot

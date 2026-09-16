@@ -1,6 +1,6 @@
 ---
 name: requirements-quality
-description: "Use when auditing or repairing requirements for ambiguity, consistency, traceability, or testability."
+description: "Audit or repair requirements for ambiguity, consistency, traceability, and testability."
 ---
 
 # Requirements Quality

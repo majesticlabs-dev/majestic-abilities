@@ -1,6 +1,6 @@
 ---
 name: skill-structure
-description: Decide whether reusable guidance should become an Agent Skill, reference, script, prompt, or deliberate omission, then design a compliant skill when justified. Use when creating, importing, splitting, or reviewing SKILL.md-based capabilities.
+description: "Create, import, split, or review Agent Skills; choose between a skill, reference, script, prompt, or omission."
 ---
 
 # Skill Structure
@@ -59,7 +59,7 @@ Use minimal YAML frontmatter by default:
 ```yaml
 ---
 name: skill-name
-description: What the skill does. Use when concrete trigger situations occur.
+description: Capability, output, and necessary scope.
 ---
 ```
 
@@ -70,9 +70,20 @@ Validate:
 - the name does not start or end with a hyphen
 - the name matches the parent directory
 - `description` is non-empty and no longer than 1024 characters
-- the description explains both capability and activation triggers
+- the description states the capability and includes only scope needed for selection
 
-The specification also defines optional `license`, `compatibility`, `metadata`, and experimental `allowed-tools` fields. Add optional fields only when required and supported by intended clients. Metadata values must be strings. This repository uses `metadata.requires` as a comma-separated cookbook dependency convention. Clients are not required to resolve it. Keep runtime-specific routing out of portable frontmatter.
+For `-coder` skills, use a technology-and-capability noun phrase, such as
+`Minitest tests for Ruby and Rails.` The suffix already identifies implementation
+work; do not repeat build, refactor, test, or maintain lists. For other skills,
+name the action that distinguishes the workflow, such as audit, plan, or review.
+Omit audience roles unless they change the method. Set invocation policy through
+runtime metadata rather than description wording.
+
+The specification also defines optional `license`, `compatibility`, `metadata`, and experimental `allowed-tools` fields. Add optional fields only when required and supported by intended clients. Metadata values must be strings. This repository uses `metadata.requires` as a comma-separated cookbook dependency convention. Clients are not required to resolve it.
+
+For explicit-only skills, set `disable-model-invocation: true` in frontmatter for
+Claude Code and Pi, and `policy.allow_implicit_invocation: false` in
+`agents/openai.yaml` for Codex.
 
 ## Naming
 

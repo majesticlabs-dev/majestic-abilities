@@ -1,6 +1,6 @@
 ---
 name: complexity-reviewer
-description: "Review code for algorithmic complexity and performance hotspots without changing behavior. Use when auditing inefficient loops, repeated scans, rendering work, N+1 queries, or proposed performance optimizations."
+description: "Review algorithmic complexity, repeated scans, costly rendering, and N+1 queries; preserve behavior in requested optimizations."
 ---
 
 # Complexity Reviewer

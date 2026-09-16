@@ -1,0 +1,5 @@
+interface:
+  display_name: "SEO Operator"
+  short_description: "Select and verify one SEO action"
+policy:
+  allow_implicit_invocation: false

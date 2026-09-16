@@ -1,6 +1,6 @@
 ---
 name: outbound-prospecting
-description: Design and diagnose evidence-safe cold outreach sequences across email, phone, and professional social channels. Use when building a prospecting sequence, fixing low reply or meeting rates, choosing personalization depth, or testing channel and message changes.
+description: Design or diagnose evidence-safe cold outreach across email, phone, and professional social channels, including personalization and response-rate tests.
 ---
 
 # Outbound Prospecting

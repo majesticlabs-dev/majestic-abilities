@@ -1,6 +1,6 @@
 ---
 name: ansible-server-configuration
-description: "Configure and maintain servers with focused Ansible playbooks. Use when hardening hosts, installing packages, managing services, or automating repeatable post-provisioning work."
+description: "Configure and maintain servers with Ansible after provisioning."
 ---
 
 # Ansible Server Configuration

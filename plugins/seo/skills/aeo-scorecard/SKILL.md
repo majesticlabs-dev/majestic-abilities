@@ -1,6 +1,6 @@
 ---
 name: aeo-scorecard
-description: "Use when discussing AEO/GEO metrics or AI visibility performance."
+description: "Measure AI visibility with answer samples and separate mention, citation, access, and referral metrics."
 ---
 
 # AEO Scorecard: Measuring AI Visibility

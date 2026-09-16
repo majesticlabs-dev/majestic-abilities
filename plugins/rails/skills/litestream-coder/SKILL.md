@@ -1,6 +1,6 @@
 ---
 name: litestream-coder
-description: "Use when setting up production backups for SQLite databases (Solid Queue, Solid Cache, Solid Cable)."
+description: "Litestream backups for production SQLite databases."
 ---
 
 # Litestream Coder

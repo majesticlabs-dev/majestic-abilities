@@ -1,6 +1,6 @@
 ---
 name: agent-ready-repository
-description: "Make repositories easier and safer for coding agents to navigate and modify. Use when agents repeatedly choose wrong commands, miss local guidance, cross architectural boundaries, or produce changes that pass tests but violate repository rules."
+description: "Fix repository guidance, commands, and boundaries when coding agents repeatedly misuse them."
 ---
 
 # Agent-Ready Repository

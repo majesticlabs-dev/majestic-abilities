@@ -1,6 +1,6 @@
 ---
 name: decision-retrospective
-description: "Use after a consequential decision has enough evidence to improve future decision rules."
+description: "Review a past decision against its original evidence and observed outcomes to improve decision rules."
 ---
 
 # Decision Retrospective

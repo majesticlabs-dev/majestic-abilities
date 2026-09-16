@@ -1,6 +1,6 @@
 ---
 name: editorial-planning
-description: "Use when prioritizing and scheduling evidence-backed content ideas."
+description: "Plan an audience-led content backlog and publishing calendar."
 ---
 
 # Editorial Planning

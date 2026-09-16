@@ -1,6 +1,6 @@
 ---
 name: hotwire-coder
-description: "Use when implementing Hotwire features with Turbo Drive, Turbo Frames, and Turbo Streams."
+description: "Hotwire features with Turbo Drive, Turbo Frames, and Turbo Streams."
 ---
 
 # Hotwire Coder

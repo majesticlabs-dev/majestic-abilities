@@ -1,6 +1,7 @@
 ---
 name: marketing-plan
-description: "Use when the user invokes marketing-plan or requests an evidence-led organic marketing plan with a decision about paid spend."
+disable-model-invocation: true
+description: "Create an organic marketing plan and assess paid-spend readiness."
 metadata:
   requires: "editorial-planning,social-content,newsletter-editorial,growth-experimentation"
 ---

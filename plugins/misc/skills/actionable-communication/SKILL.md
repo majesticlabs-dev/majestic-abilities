@@ -1,6 +1,7 @@
 ---
 name: actionable-communication
-description: Shape agent responses into direct answers, bounded actions, visible progress, and one concrete next step. Use only when the user invokes this response mode or explicitly asks for ongoing actionable, low-friction communication.
+disable-model-invocation: true
+description: "Give direct answers, bounded actions, progress, and a concrete next step."
 ---
 
 # Clear Communication

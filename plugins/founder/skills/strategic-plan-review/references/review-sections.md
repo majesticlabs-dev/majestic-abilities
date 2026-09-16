@@ -1,4 +1,4 @@
-# Founder Plan Review Sections
+# Strategic Plan Review Sections
 
 Use these sections after the plan premise, alternatives, review posture, and proposed scope are clear.
 

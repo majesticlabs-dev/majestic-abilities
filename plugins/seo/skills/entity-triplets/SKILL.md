@@ -1,6 +1,6 @@
 ---
 name: entity-triplets
-description: "Use when establishing brand identity in AI knowledge bases, creating structured entity relationships, or improving how AI systems associate your brand with your category."
+description: "Build structured entity relationships that help AI systems associate a brand with its category."
 ---
 
 # Entity Triplets

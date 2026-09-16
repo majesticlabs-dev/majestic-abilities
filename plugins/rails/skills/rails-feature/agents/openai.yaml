@@ -1,0 +1,5 @@
+interface:
+  display_name: "Rails Feature"
+  short_description: "Complete a Rails feature workflow"
+policy:
+  allow_implicit_invocation: false

@@ -1,6 +1,6 @@
 ---
 name: frontend-performance
-description: "Prevent, audit, and diagnose frontend performance regressions affecting Core Web Vitals. Use when modifying layouts, fonts, images, scripts, shared assets, loading behavior, or page responsiveness measured by LCP, CLS, or INP."
+description: "Prevent, audit, and diagnose frontend performance regressions affecting LCP, CLS, or INP across layouts, assets, loading, and responsiveness."
 ---
 
 # Frontend Performance

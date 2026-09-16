@@ -1,9 +1,9 @@
 ---
-name: mcp-oauth-setup
-description: "Use when building admin UIs that let users connect to third-party MCP servers using OAuth (Linear, Sentry, Granola), bearer tokens (Render, custom APIs), or API keys."
+name: mcp-client-setup
+description: "Rails MCP client connections with OAuth, bearer tokens, or API keys."
 ---
 
-# MCP Server Authentication & OAuth Dynamic Client Registration
+# Rails MCP Client Connection Setup
 
 Implement flexible authentication for MCP (Model Context Protocol) server connections.
 For OAuth providers, auto-discover endpoints and dynamically register as a client:

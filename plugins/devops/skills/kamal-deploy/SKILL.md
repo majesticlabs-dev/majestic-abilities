@@ -1,6 +1,6 @@
 ---
 name: kamal-deploy
-description: "Deploy and operate Rails applications with Kamal 2. Use when configuring deploy.yml, kamal-proxy, registries, secrets, accessories, server preparation, or container deployment troubleshooting."
+description: "Deploy and operate Rails applications with Kamal 2; troubleshoot deployment infrastructure."
 ---
 
 # Kamal Deploy

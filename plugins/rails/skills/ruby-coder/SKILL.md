@@ -1,6 +1,6 @@
 ---
 name: ruby-coder
-description: "Use when creating new Ruby files, writing Ruby methods, or refactoring Ruby code to ensure adherence to clarity, simplicity, and maintainability standards."
+description: "Clear, maintainable Ruby code."
 ---
 
 # Ruby Coder

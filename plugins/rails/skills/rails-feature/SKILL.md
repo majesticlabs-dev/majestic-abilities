@@ -1,6 +1,7 @@
 ---
 name: rails-feature
-description: "Use when the user invokes rails-feature by name or asks for a full feature workflow in a Rails project."
+disable-model-invocation: true
+description: "Plan, implement, and verify Rails features."
 metadata:
   requires: "implementation-planning,dhh-rails-style,ruby-coder,minitest-coder,rails-lint,rails-code-review,test-reviewer"
 ---

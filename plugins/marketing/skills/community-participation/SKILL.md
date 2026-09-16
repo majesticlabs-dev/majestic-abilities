@@ -1,6 +1,6 @@
 ---
 name: community-participation
-description: Find communities a founder can credibly serve and plan useful participation without violating local rules or exploiting members. Use when choosing a community to learn from, building a Reddit, Discord, forum, or group presence, or deciding where and whether to share relevant work.
+description: Find communities a founder can credibly serve and plan useful participation that respects local rules and members.
 ---
 
 # Community Participation

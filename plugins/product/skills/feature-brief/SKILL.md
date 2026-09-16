@@ -1,6 +1,6 @@
 ---
 name: feature-brief
-description: Write a lightweight feature brief or product decision document that records problem, evidence, options, scope, success measures, risks, and recommendation. Use when early exploration or a product decision needs a compact artifact before a full specification or implementation plan.
+description: Write a compact feature brief or product decision document before a full specification or implementation plan.
 ---
 
 # Feature Brief

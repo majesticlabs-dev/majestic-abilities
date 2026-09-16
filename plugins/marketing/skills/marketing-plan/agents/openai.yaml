@@ -1,0 +1,5 @@
+interface:
+  display_name: "Marketing Plan"
+  short_description: "Plan organic marketing and paid readiness"
+policy:
+  allow_implicit_invocation: false

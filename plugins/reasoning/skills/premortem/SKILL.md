@@ -1,6 +1,6 @@
 ---
 name: premortem
-description: Run a prospective-hindsight premortem on a concrete plan or costly decision and convert plausible failure stories into safeguards. Use before launches, hires, partnerships, product bets, migrations, or other commitments with meaningful downside.
+description: "Identify plausible failures and safeguards before committing to a concrete plan or costly decision."
 ---
 
 # Premortem

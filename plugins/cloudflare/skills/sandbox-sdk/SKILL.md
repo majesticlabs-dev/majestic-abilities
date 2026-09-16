@@ -1,6 +1,6 @@
 ---
 name: sandbox-sdk
-description: "Use when building secure code execution with the Cloudflare Sandbox SDK."
+description: "Build secure code execution with the Cloudflare Sandbox SDK."
 ---
 
 # Cloudflare Sandbox SDK

@@ -1,6 +1,6 @@
 ---
 name: event-sourcing-coder
-description: "Use when building activity logs, syncing external services, or decoupling event creation from processing."
+description: "Durable Rails domain events and inbox handlers for audit, workflows, and external sync."
 ---
 
 # Event Sourcing for Rails Monoliths

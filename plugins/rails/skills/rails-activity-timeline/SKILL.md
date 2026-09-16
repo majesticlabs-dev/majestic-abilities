@@ -1,6 +1,6 @@
 ---
 name: rails-activity-timeline
-description: "Use when adding polymorphic activity timelines with live Turbo Stream updates to any Rails model."
+description: "Activity timelines with live Turbo Stream updates for Rails models."
 ---
 
 # Rails Activity Timeline

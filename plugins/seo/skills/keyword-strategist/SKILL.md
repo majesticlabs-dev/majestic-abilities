@@ -1,6 +1,6 @@
 ---
 name: keyword-strategist
-description: "Use when optimizing existing content's keyword use and semantic coverage."
+description: "Optimize existing content's keyword use and semantic coverage."
 ---
 
 # Keyword Strategist

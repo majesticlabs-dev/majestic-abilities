@@ -1,6 +1,6 @@
 ---
 name: cloudflare
-description: "Use for Cloudflare platform work not covered by a more specific Cloudflare skill."
+description: "Select Cloudflare services and implementation patterns for application and infrastructure requirements."
 ---
 
 # Cloudflare Platform Skill

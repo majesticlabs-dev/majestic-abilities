@@ -1,6 +1,6 @@
 ---
 name: founder-fit
-description: "Use when a founder needs to identify personal strengths, constraints, and strategic edge."
+description: "Identify a founder's strengths, constraints, and strategic edge."
 ---
 
 # Founder Fit

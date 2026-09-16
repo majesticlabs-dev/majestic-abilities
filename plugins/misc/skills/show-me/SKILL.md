@@ -1,6 +1,6 @@
 ---
 name: show-me
-description: Explain the current topic with the smallest accurate visual. Use when the user asks to show, sketch, diagram, map, or visualize an algorithm, code path, architecture, file layout, state change, or comparison.
+description: "Explain with a minimal visual when asked to show, sketch, diagram, map, or visualize a topic."
 ---
 
 # Visual Explanations

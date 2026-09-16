@@ -1,6 +1,6 @@
 ---
 name: action-policy-coder
-description: "Use when implementing ActionPolicy authorization in Rails."
+description: "ActionPolicy authorization for Rails."
 ---
 
 # ActionPolicy Coder

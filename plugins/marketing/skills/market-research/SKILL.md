@@ -1,6 +1,6 @@
 ---
 name: market-research
-description: "Use when researching a market, audience, competitors, or customer language for a decision."
+description: "Synthesize sourced market, audience, competitor, and customer-language evidence for a business decision."
 ---
 
 # Market Research

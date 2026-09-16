@@ -1,6 +1,7 @@
 ---
 name: seo-operator
-description: "Use when the user invokes seo-operator by name and wants one bounded, evidence-led SEO action selected and verified across an existing site."
+disable-model-invocation: true
+description: "Select and verify one evidence-led SEO action across an existing site."
 metadata:
   requires: "seo-audit,meta-optimizer,seo-content,keyword-strategist,structure-architect,keyword-research,schema-architect,ai-crawler-readiness,aeo-scorecard,geo-content-optimizer"
 ---

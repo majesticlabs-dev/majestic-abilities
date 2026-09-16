@@ -1,6 +1,6 @@
 ---
 name: store-model-coder
-description: "Use when creating configuration objects, managing nested JSON attributes, or adding validations to JSON data."
+description: "StoreModel-backed Active Record JSON attributes and validation."
 ---
 
 # StoreModel: JSON-Backed ActiveRecord Attributes

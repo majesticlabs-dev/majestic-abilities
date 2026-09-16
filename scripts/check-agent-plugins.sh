@@ -56,8 +56,9 @@ ALLOWED_SKILL_FIELDS = {
     "compatibility",
     "metadata",
     "allowed-tools",
+    "disable-model-invocation",
 }
-REPOSITORY_SKILL_FIELDS = ALLOWED_SKILL_FIELDS | {"disable-model-invocation"}
+REPOSITORY_SKILL_FIELDS = ALLOWED_SKILL_FIELDS
 
 
 class UniqueKeyLoader(yaml.SafeLoader):
@@ -381,8 +382,8 @@ for plugin_dir in plugin_dirs:
                 fail(f"cannot resolve symlink {path}: {error}")
 
 standalone_count = len(plugin_skill_files) - len(plugin_cookbook_files)
-if standalone_count != 171:
-    fail(f"expected 171 standalone plugin skills, found {standalone_count}")
+if standalone_count != 169:
+    fail(f"expected 169 standalone plugin skills, found {standalone_count}")
 if len(plugin_cookbook_files) != 8:
     fail(f"expected 8 plugin-hosted cookbooks, found {len(plugin_cookbook_files)}")
 for obsolete_directory in (root / "cookbooks", root / "skills"):
@@ -412,3 +413,6 @@ print(
     "the Pi package, skill trees, and package paths all validate"
 )
 PY
+
+python3 scripts/check-skill-collisions.py
+python3 -m unittest discover -s scripts -p 'test_skill_collisions.py'

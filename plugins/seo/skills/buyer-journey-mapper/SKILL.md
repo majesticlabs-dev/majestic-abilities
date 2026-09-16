@@ -1,6 +1,6 @@
 ---
 name: buyer-journey-mapper
-description: "Use when mapping content to buyer stages, planning question-based content for AI citations, or building a content matrix that covers all personas across awareness, consideration, and decision stages."
+description: "Map content and personas across buyer stages, including question-led content for AI citations."
 ---
 
 # Buyer Journey Mapper

@@ -1,6 +1,6 @@
 ---
 name: technology-impact-assessment
-description: "Use when a founder asks what a technology announcement means for the business. Not for general market research, implementation planning, or trend summaries without a decision context."
+description: "Assess the business implications of a technology announcement."
 ---
 
 # Technology Impact Assessment

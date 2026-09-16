@@ -1,6 +1,6 @@
 ---
 name: devils-advocate
-description: Pressure-test a preferred approach by exposing hidden assumptions, opportunity costs, confidence gaps, and conditions that favor alternatives. Use when choosing an architecture, tool, strategy, or costly commitment before the decision is locked in, or when the user asks to be grilled about a decision.
+description: "Challenge a preferred approach before commitment: assumptions, opportunity costs, uncertainty, and alternatives."
 ---
 
 # Devil's Advocate

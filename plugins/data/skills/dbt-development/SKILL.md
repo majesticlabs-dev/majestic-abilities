@@ -1,6 +1,6 @@
 ---
 name: dbt-development
-description: Build and review dbt projects with clear model layers, explicit grain, sources, materializations, incremental behavior, tests, documentation, and scoped verification. Use when creating or changing dbt models, snapshots, macros, sources, data tests, unit tests, or project structure.
+description: Build and review dbt models, snapshots, macros, sources, tests, and project structure with explicit grain, layering, materialization, and incremental behavior.
 ---
 
 # dbt Development

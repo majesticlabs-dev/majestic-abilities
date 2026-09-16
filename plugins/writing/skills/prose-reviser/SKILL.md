@@ -1,6 +1,6 @@
 ---
 name: prose-reviser
-description: "Use when rewriting existing prose for clarity while preserving facts and author fidelity."
+description: "Rewrite prose for clarity while preserving facts and the author's voice."
 ---
 
 # Prose Reviser

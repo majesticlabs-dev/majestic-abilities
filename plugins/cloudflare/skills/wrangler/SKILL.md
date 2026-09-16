@@ -1,6 +1,6 @@
 ---
 name: wrangler
-description: "Use before running Wrangler commands for Cloudflare Workers or platform resources."
+description: "Configure, deploy, and manage Cloudflare Workers and platform resources with Wrangler."
 ---
 
 # Wrangler CLI

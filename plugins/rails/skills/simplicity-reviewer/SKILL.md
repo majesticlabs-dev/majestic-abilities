@@ -1,6 +1,6 @@
 ---
 name: simplicity-reviewer
-description: "Use when reviewing Rails code for unnecessary complexity."
+description: "Review Rails code for unnecessary complexity."
 ---
 
 # Code Simplicity Review

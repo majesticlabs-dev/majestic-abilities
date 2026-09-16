@@ -1,6 +1,6 @@
 ---
 name: agents-sdk
-description: "Use when building stateful Cloudflare Workers agents, workflows, or real-time agent applications."
+description: "Build Cloudflare Agents SDK applications."
 ---
 
 # Cloudflare Agents SDK

@@ -1,6 +1,6 @@
 ---
 name: llms-txt-builder
-description: "Use when setting up AI visibility for a website, improving LLM citation rates, or want AI crawlers to discover your key content."
+description: "Create or audit an llms.txt index of authoritative site pages."
 ---
 
 # llms.txt Builder

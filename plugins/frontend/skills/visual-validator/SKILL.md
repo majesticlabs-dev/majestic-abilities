@@ -1,6 +1,6 @@
 ---
 name: visual-validator
-description: "Validate rendered UI changes against their intended goals using skeptical visual evidence. Use when reviewing screenshots for responsive behavior, accessibility, visual regressions, or design-system compliance after implementation."
+description: "Validate rendered UI for responsive behavior, visual accessibility, regressions, and design-system compliance."
 ---
 
 # Visual Validator

@@ -1,6 +1,6 @@
 ---
 name: structured-logging
-description: "Design structured application logging for observability and incident debugging. Use when adding JSON logs, correlation or trace identifiers, context propagation, log-level policy, redaction, or production debugging signals."
+description: "Design structured application logs, trace correlation, context propagation, levels, and redaction for observability and debugging."
 ---
 
 # Structured Logging

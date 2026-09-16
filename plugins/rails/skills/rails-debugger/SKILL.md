@@ -1,6 +1,6 @@
 ---
 name: rails-debugger
-description: "Use when diagnosing Rails errors, failing tests, or unexpected behavior."
+description: "Diagnose Rails errors, failing tests, and unexpected behavior."
 ---
 
 # Rails Debugger

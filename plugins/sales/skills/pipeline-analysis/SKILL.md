@@ -1,6 +1,6 @@
 ---
 name: pipeline-analysis
-description: Diagnose B2B pipeline health, challenge a forecast, and run recurring pipeline reviews using coverage, conversion, velocity, deal age, and stage evidence. Use when assessing quota risk, slipped deals, forecast confidence, or pipeline bottlenecks.
+description: Diagnose B2B pipeline health, quota risk, forecast confidence, slipped deals, and bottlenecks from stage evidence.
 ---
 
 # Pipeline Analysis

@@ -1,6 +1,6 @@
 ---
 name: review-management
-description: "Use when building review presence across platforms, improving review response rates, or leveraging reviews for AI recommendation signals."
+description: "Build cross-platform review presence, improve response rates, and strengthen AI recommendation signals."
 ---
 
 # Review Management

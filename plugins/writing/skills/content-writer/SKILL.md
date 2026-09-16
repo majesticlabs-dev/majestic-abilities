@@ -1,6 +1,6 @@
 ---
 name: content-writer
-description: "Use when drafting source-grounded general articles, blog posts, how-tos, or guides."
+description: "Draft source-grounded general articles, blog posts, and guides."
 ---
 
 # Content Writer

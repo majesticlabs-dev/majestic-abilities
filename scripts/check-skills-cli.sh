@@ -19,8 +19,8 @@ list_file="$tmp_home/skills-list.txt"
 printf '%s\n' "$list_output" > "$list_file"
 printf '%s\n' "$list_output"
 
-if ! grep -Fq 'Found 181 skills' "$list_file"; then
-  echo "FAIL: Skills CLI must discover exactly 181 abilities" >&2
+if ! grep -Fq 'Found 179 skills' "$list_file"; then
+  echo "FAIL: Skills CLI must discover exactly 179 abilities" >&2
   exit 1
 fi
 
@@ -31,8 +31,8 @@ for skill in \
   manual-service-pilot \
   first-customers \
   marketing-plan \
-  founder-launch-decision \
-  founder-next-stage-decision \
+  launch-decision \
+  growth-stage-decision \
   plugin-release \
   product-engineering-handoff \
   rails-feature \
@@ -100,4 +100,4 @@ for skill in \
   fi
 done
 
-echo "OK: Skills CLI ${skills_cli_version} discovers 181 abilities and installs repository skills, founder skills, and rails-feature, first-customers, and marketing-plan dependencies"
+echo "OK: Skills CLI ${skills_cli_version} discovers 179 abilities and installs repository skills, founder skills, and rails-feature, first-customers, and marketing-plan dependencies"

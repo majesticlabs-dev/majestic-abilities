@@ -1,6 +1,6 @@
 ---
 name: backblaze-b2-storage
-description: "Configure and operate Backblaze B2 storage with the B2 CLI, OpenTofu, and S3-compatible clients. Use when managing buckets, application keys, lifecycle rules, uploads, backups, or restricted storage access."
+description: "Configure and operate Backblaze B2 storage with its CLI, OpenTofu, or S3 clients."
 ---
 
 # Backblaze B2 Storage

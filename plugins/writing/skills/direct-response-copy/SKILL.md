@@ -1,6 +1,6 @@
 ---
 name: direct-response-copy
-description: "Use when writing or strategically rewriting a conversion-focused commercial asset."
+description: "Write or rewrite conversion-focused commercial copy."
 ---
 
 # Direct Response Copy

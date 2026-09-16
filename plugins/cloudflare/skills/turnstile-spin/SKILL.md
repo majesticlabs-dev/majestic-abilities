@@ -1,6 +1,6 @@
 ---
 name: turnstile-spin
-description: "Use when adding, configuring, or fixing Cloudflare Turnstile bot protection."
+description: "Add, configure, or fix Cloudflare Turnstile bot protection."
 ---
 
 # Turnstile Spin skill

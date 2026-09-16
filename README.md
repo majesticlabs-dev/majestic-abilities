@@ -1,6 +1,6 @@
 # Majestic Abilities
 
-Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 171 catalog skills, eight cookbooks, and two repository-operating skills, and follows the [Agent Skills](https://agentskills.io/) format.
+Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 169 catalog skills, eight cookbooks, and two repository-operating skills, and follows the [Agent Skills](https://agentskills.io/) format.
 
 You can install:
 
@@ -16,6 +16,7 @@ You can install:
 - [Install with the Skills CLI](#install-with-the-skills-cli)
 - [Browse the catalog](#browse-the-catalog)
 - [Cookbooks](#cookbooks)
+- [Explicit Invocation](#explicit-invocation)
 - [Repository model](#repository-model)
 - [Development](#development)
 
@@ -181,11 +182,11 @@ The CLI normally recommends symlinks so several agents can share one canonical i
 
 ## Browse the Catalog
 
-The catalog contains 171 skills plus eight cookbooks. Two repository-operating skills bring the Skills CLI inventory to 181 abilities. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see the exact inventory.
+The catalog contains 169 skills plus eight cookbooks. Two repository-operating skills bring the Skills CLI inventory to 179 abilities. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see the exact inventory.
 
 | Category | Plugin | Skills | Focus |
 | --- | --- | ---: | --- |
-| [Cloudflare](plugins/cloudflare/skills/) | `majestic-cloudflare` | 13 | Cloudflare platform, Workers, Agents SDK, Durable Objects, security, infrastructure, and deployment |
+| [Cloudflare](plugins/cloudflare/skills/) | `majestic-cloudflare` | 11 | Cloudflare platform, Workers, Agents SDK, Durable Objects, security, infrastructure, and deployment |
 | [Core](plugins/core/skills/) | `majestic-core` | 3 | Agent-ready repositories, nested guidance audits, and durable session handoffs |
 | [Data](plugins/data/skills/) | `majestic-data` | 8 | Pipelines, contracts, quality controls, source assessment, and dbt |
 | [DevOps](plugins/devops/skills/) | `majestic-devops` | 10 | OpenTofu, Ansible, cloud-init, Kamal, secrets, storage, and infrastructure review |
@@ -220,14 +221,30 @@ Cookbooks are user-invoked workflows that sequence catalog skills by name. Catal
 | --- | --- | --- | --- |
 | [`ai-search-visibility-foundation`](plugins/seo/skills/ai-search-visibility-foundation/) | SEO plugin | `majestic-seo` | Establish SEO, entity, crawler, structured-data, and AEO measurement foundations |
 | [`seo-operator`](plugins/seo/skills/seo-operator/) | SEO plugin | `majestic-seo` | Select and verify one bounded, evidence-led SEO action |
-| [`founder-launch-decision`](plugins/founder/skills/founder-launch-decision/) | Founder plugin | `majestic-founder`, `majestic-sales` | Produce a founder-led launch decision |
-| [`founder-next-stage-decision`](plugins/founder/skills/founder-next-stage-decision/) | Founder plugin | `majestic-founder`, `majestic-product` | Decide a founder's next growth stage with a time-boxed evidence sprint |
+| [`launch-decision`](plugins/founder/skills/launch-decision/) | Founder plugin | `majestic-founder`, `majestic-sales` | Assess launch audience, route to market, legal unknowns, and readiness |
+| [`growth-stage-decision`](plugins/founder/skills/growth-stage-decision/) | Founder plugin | `majestic-founder`, `majestic-product` | Decide the next growth stage through an evidence sprint |
 | [`product-engineering-handoff`](plugins/product/skills/product-engineering-handoff/) | Product plugin | `majestic-engineer`, `majestic-product` | Prepare an approved product direction for engineering |
 | [`first-customers`](plugins/sales/skills/first-customers/) | Sales plugin | `majestic-sales`, `majestic-founder`, `majestic-product` | Plan initial customer acquisition, offers, and evidence tracking |
 | [`marketing-plan`](plugins/marketing/skills/marketing-plan/) | Marketing plugin | `majestic-marketing` | Coordinate content channels, growth experiments, and spending decisions |
 | [`rails-feature`](plugins/rails/skills/rails-feature/) | Rails plugin | `majestic-engineer`, `majestic-rails` | Build and review a Rails feature end to end |
 
 Each cookbook lives in the plugin that owns its primary user trigger and output. Supporting skills can come from other plugins. Cookbook frontmatter declares dependencies in the repository-defined string-valued `metadata.requires` key. Each cookbook's installation command includes the same dependency set because installers do not resolve dependencies.
+
+## Explicit Invocation
+
+These 11 skills require explicit invocation. Each sets `disable-model-invocation: true` for Claude Code and Pi, and `allow_implicit_invocation: false` in `agents/openai.yaml` for Codex.
+
+- [actionable-communication](plugins/misc/skills/actionable-communication/SKILL.md)
+- [ai-search-visibility-foundation](plugins/seo/skills/ai-search-visibility-foundation/SKILL.md)
+- [first-customers](plugins/sales/skills/first-customers/SKILL.md)
+- [growth-stage-decision](plugins/founder/skills/growth-stage-decision/SKILL.md)
+- [launch-decision](plugins/founder/skills/launch-decision/SKILL.md)
+- [marketing-plan](plugins/marketing/skills/marketing-plan/SKILL.md)
+- [plugin-release](.agents/skills/plugin-release/SKILL.md), repository only
+- [product-engineering-handoff](plugins/product/skills/product-engineering-handoff/SKILL.md)
+- [rails-feature](plugins/rails/skills/rails-feature/SKILL.md)
+- [seo-operator](plugins/seo/skills/seo-operator/SKILL.md)
+- [to-tasks](plugins/engineer/skills/to-tasks/SKILL.md)
 
 ## Repository Model
 

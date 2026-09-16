@@ -1,6 +1,6 @@
 ---
 name: company-strategy
-description: Build a future-back company strategy with explicit horizons, prerequisites, resource gaps, milestones, bets, and revisit triggers. Use when a founder needs to connect a multi-quarter ambition to present commitments, balance the core with adjacent bets, or test whether market expansion belongs in the plan.
+description: "Plan company strategy from future goals back to current commitments, milestones, and resource needs."
 ---
 
 # Company Strategy
@@ -42,4 +42,4 @@ Own medium- and long-horizon company direction. Do not replace weekly operating 
 - Vivid future language never substitutes for dated commitments.
 - Market expansion follows evidence of problem intensity, buying motion, and value fit.
 - Resource gaps and dependencies are visible rather than assumed away.
-- Weekly execution is optionally handed to `founder-priorities` after the strategy is set.
+- Weekly execution is optionally handed to `operating-priorities` after the strategy is set.

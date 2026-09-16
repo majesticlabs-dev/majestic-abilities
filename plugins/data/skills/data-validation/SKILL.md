@@ -1,6 +1,6 @@
 ---
 name: data-validation
-description: Design executable data contracts and validation behavior across records, DataFrames, warehouse models, and pipeline boundaries. Use when enforcing schemas, nullability, uniqueness, ranges, relationships, business rules, schema evolution, quarantine, or validation failure policy.
+description: Design executable data contracts across records, DataFrames, warehouse models, and pipeline boundaries, including schema evolution, quarantine, and failure policy.
 ---
 
 # Data Validation

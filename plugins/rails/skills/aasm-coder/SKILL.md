@@ -1,6 +1,6 @@
 ---
 name: aasm-coder
-description: "Use when implementing AASM state machines in Rails."
+description: "AASM state machines for Rails."
 ---
 
 # AASM Coder

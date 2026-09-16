@@ -1,6 +1,6 @@
 ---
 name: fundraising-ask-review
-description: "Use when a founder shares a pitch deck, fundraising memo, investor email, meeting narrative, round summary, or use-of-funds plan before investor outreach or meetings. Not for choosing an instrument, valuation, or legal terms."
+description: "Review fundraising pitch and ask materials before investor outreach or meetings."
 ---
 
 # Fundraising Ask Review

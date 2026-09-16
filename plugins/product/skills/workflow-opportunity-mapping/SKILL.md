@@ -1,6 +1,6 @@
 ---
 name: workflow-opportunity-mapping
-description: "Use when turning observed workflow evidence into a model and software or AI opportunities."
+description: "Turn observed workflow evidence into a model and software or AI opportunities."
 ---
 
 # Workflow Opportunity Mapping

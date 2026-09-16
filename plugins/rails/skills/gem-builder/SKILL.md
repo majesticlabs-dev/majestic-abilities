@@ -1,6 +1,6 @@
 ---
 name: gem-builder
-description: "Use when creating new gems, structuring gem architecture, implementing configuration patterns, setting up testing, or preparing for publishing."
+description: "Ruby gem architecture, configuration, tests, and publishing preparation."
 ---
 
 # Gem Builder

@@ -1,6 +1,6 @@
 ---
 name: data-pipeline-design
-description: Design reliable batch or incremental data pipelines with explicit grain, load strategy, idempotency, checkpoints, late-data handling, backfills, storage layout, and reconciliation. Use when planning ETL, ELT, CDC, file-based, or PostgreSQL-backed data movement before implementation.
+description: Design reliable batch or incremental ETL, ELT, or CDC pipelines before implementation, with explicit grain, idempotency, recovery, and reconciliation.
 ---
 
 # Data Pipeline Design

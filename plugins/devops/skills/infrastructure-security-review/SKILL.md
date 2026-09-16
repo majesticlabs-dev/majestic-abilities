@@ -1,6 +1,6 @@
 ---
 name: infrastructure-security-review
-description: "Review infrastructure as code for exploitable security failures and unsafe operational defaults. Use when auditing state, secrets, identity, network exposure, compute bootstrap, storage, databases, or supply-chain controls before deployment."
+description: "Audit infrastructure as code for exploitable security failures and unsafe defaults."
 ---
 
 # Infrastructure Security Review

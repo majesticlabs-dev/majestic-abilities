@@ -1,6 +1,6 @@
 ---
 name: geo-content-optimizer
-description: "Use when preparing content for GEO (Generative Engine Optimization), improving AI extractability, or increasing chances of being cited in LLM responses."
+description: "Optimize content for GEO, AI extractability, and citation in LLM responses."
 ---
 
 # GEO Content Optimizer

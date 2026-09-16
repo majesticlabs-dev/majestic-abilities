@@ -1,13 +1,13 @@
 ---
 name: cloudflare-infrastructure
-description: "Provision and review Cloudflare infrastructure with OpenTofu. Use when managing zones, DNS records, TLS settings, cache rules, WAF rulesets, load balancers, or scoped infrastructure API tokens."
+description: "Provision and review Cloudflare infrastructure with OpenTofu."
 ---
 
 # Cloudflare Infrastructure
 
 Treat Cloudflare provider schemas as fast-moving. Retrieve the current Cloudflare Terraform documentation and inspect the installed provider schema before writing resources. Do not reuse provider v4 resource examples in provider v5 configurations.
 
-Use `cloudflare-workers-deployment` for Wrangler configuration, Worker bindings, and Worker deployment.
+Use Wrangler guidance for Worker configuration, bindings, and deployment.
 
 ## Workflow
 

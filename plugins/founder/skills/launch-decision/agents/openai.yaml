@@ -1,0 +1,5 @@
+interface:
+  display_name: "Launch Decision"
+  short_description: "Assess launch readiness and scope"
+policy:
+  allow_implicit_invocation: false

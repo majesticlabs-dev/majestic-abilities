@@ -1,6 +1,6 @@
 ---
 name: product-discovery
-description: Plan and synthesize customer interviews, map desirability, viability, and feasibility assumptions, and frame Jobs-to-be-Done. Use when understanding adoption, switching, churn, or prioritizing what remains unknown before defining a solution or validation test.
+description: Plan and synthesize customer interviews, map product assumptions, and frame Jobs-to-be-Done before defining a solution or validation test.
 ---
 
 # Product Discovery

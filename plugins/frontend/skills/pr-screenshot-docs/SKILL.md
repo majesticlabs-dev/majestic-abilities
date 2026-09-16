@@ -1,6 +1,6 @@
 ---
 name: pr-screenshot-docs
-description: "Capture, verify, and attach before/after screenshots or video for pull requests with visual changes. Use when creating or updating a PR that changes rendered UI or interaction behavior."
+description: "Capture, verify, and attach before-and-after screenshots or video to pull requests that change rendered UI or interactions."
 ---
 
 # PR Screenshot Documentation

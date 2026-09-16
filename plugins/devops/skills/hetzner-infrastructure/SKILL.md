@@ -1,6 +1,6 @@
 ---
 name: hetzner-infrastructure
-description: "Provision and review Hetzner Cloud infrastructure with OpenTofu. Use when managing servers, private networks, firewalls, load balancers, volumes, object storage, or Storage Boxes."
+description: "Provision and review Hetzner Cloud infrastructure with OpenTofu."
 ---
 
 # Hetzner Infrastructure

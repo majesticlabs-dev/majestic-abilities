@@ -1,6 +1,6 @@
 ---
 name: topical-authority
-description: "Use when planning content clusters, measuring topic coverage gaps, analyzing competitor content depth, or building a content moat around your core subject areas."
+description: "Audit site and competitor topic coverage, depth, and freshness; plan pillar and supporting content."
 ---
 
 # Topical Authority

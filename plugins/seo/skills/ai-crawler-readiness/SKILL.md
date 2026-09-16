@@ -1,6 +1,6 @@
 ---
 name: ai-crawler-readiness
-description: "Use when improving a site's AI-crawler access, Markdown delivery, or AI-fetch analytics."
+description: "Improve a site's AI-crawler access, Markdown delivery, and AI-fetch analytics."
 ---
 
 # AI Crawler Readiness

@@ -1,6 +1,6 @@
 ---
 name: layered-rails
-description: "Use when analyzing codebases for architecture violations, planning feature implementations, deciding where code belongs, or extracting abstractions from fat models/controllers."
+description: "Rails responsibility boundaries and extraction points across presentation, application, domain, and infrastructure layers."
 ---
 
 # Layered Rails Architecture

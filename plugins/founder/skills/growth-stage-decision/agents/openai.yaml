@@ -1,0 +1,5 @@
+interface:
+  display_name: "Growth Stage Decision"
+  short_description: "Choose the next growth stage from evidence"
+policy:
+  allow_implicit_invocation: false

@@ -1,6 +1,6 @@
 ---
 name: icp-definition
-description: Define and validate an Ideal Customer Profile with fit criteria, buyer roles, disqualifiers, account scoring, and a validation plan. Use when deciding who to target, correcting low-quality pipeline, or aligning sales and marketing on a defensible customer segment.
+description: Define and validate an Ideal Customer Profile with fit criteria, buyer roles, disqualifiers, account scoring, and a validation plan.
 ---
 
 # ICP Definition

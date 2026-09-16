@@ -1,6 +1,6 @@
 ---
 name: launch-legal-checklist
-description: Return a minimum viable legal and compliance launch checklist with general-information items, counsel-required questions, and a sequenced next-action list. Use when a founder needs to identify launch legal unknowns and escalation points, not a legal review or legal drafting.
+description: Identify launch legal and compliance unknowns, counsel-required questions, escalation points, and next actions. Not for legal review or drafting.
 ---
 
 # Launch Legal Checklist

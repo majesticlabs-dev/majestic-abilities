@@ -1,6 +1,6 @@
 ---
 name: solid-queue-coder
-description: "Use when configuring or working with Solid Queue for background jobs."
+description: "Solid Queue background jobs."
 ---
 
 # Solid Queue Coder

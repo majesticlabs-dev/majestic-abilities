@@ -1,6 +1,6 @@
 ---
 name: offer-design
-description: "Use when packaging a product, service, bundle, guarantee, or lead magnet before writing copy."
+description: "Package a product, service, bundle, guarantee, or lead magnet before writing copy."
 ---
 
 # Offer Design

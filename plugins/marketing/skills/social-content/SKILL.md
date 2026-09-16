@@ -1,6 +1,6 @@
 ---
 name: social-content
-description: Plan and draft professional social posts and X threads using platform-aware formats and verified current constraints. Use when building a LinkedIn or X content cadence, adapting an idea into posts, or structuring a multi-post thread.
+description: Plan and draft professional LinkedIn posts and X threads using platform-aware formats and verified current constraints.
 ---
 
 # Social Content
