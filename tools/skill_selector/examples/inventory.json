@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "skills": [
+    {
+      "id": "engineer:code-review",
+      "name": "majestic-engineer:code-review",
+      "path": "../../../plugins/engineer/skills/code-review/SKILL.md",
+      "agent_invocable": true
+    },
+    {
+      "id": "engineer:plan-review",
+      "name": "majestic-engineer:plan-review",
+      "path": "../../../plugins/engineer/skills/plan-review/SKILL.md",
+      "agent_invocable": true
+    },
+    {
+      "id": "writing:direct-response-copy",
+      "name": "majestic-writing:direct-response-copy",
+      "path": "../../../plugins/writing/skills/direct-response-copy/SKILL.md",
+      "agent_invocable": true
+    }
+  ]
+}

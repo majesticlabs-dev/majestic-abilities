@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "label_provenance": {
+    "kind": "synthetic",
+    "assessor": "fixture-author",
+    "source": "Hand-authored examples based on catalog boundaries. Not independent real-session judgments or model evidence."
+  },
+  "cases": [
+    {
+      "id": "diff-review",
+      "family": "code-correctness",
+      "split": "development",
+      "context": {
+        "schema_version": 1,
+        "session_id": "example-diff-review",
+        "request": "Review code changes for correctness and regressions."
+      },
+      "acceptable_ids": ["engineer:code-review"],
+      "forbidden_ids": ["engineer:plan-review"]
+    },
+    {
+      "id": "plan-handoff",
+      "family": "delivery-readiness",
+      "split": "holdout",
+      "context": {
+        "schema_version": 1,
+        "session_id": "example-plan-handoff",
+        "request": "Review the implementation plan for delivery readiness, dependencies, and risks."
+      },
+      "acceptable_ids": ["engineer:plan-review"],
+      "forbidden_ids": ["engineer:code-review"]
+    },
+    {
+      "id": "arithmetic",
+      "family": "simple-arithmetic",
+      "split": "holdout",
+      "context": {
+        "schema_version": 1,
+        "session_id": "example-arithmetic",
+        "request": "What is 2 plus 2?"
+      },
+      "acceptable_ids": []
+    },
+    {
+      "id": "explicit-copy",
+      "family": "explicit-control",
+      "split": "holdout",
+      "context": {
+        "schema_version": 1,
+        "session_id": "example-explicit-copy",
+        "request": "Use the direct response copy skill.",
+        "required": ["writing:direct-response-copy"]
+      },
+      "acceptable_ids": ["writing:direct-response-copy"]
+    },
+    {
+      "id": "near-miss-excluded",
+      "family": "excluded-plan-review",
+      "split": "holdout",
+      "context": {
+        "schema_version": 1,
+        "session_id": "example-excluded-plan",
+        "request": "Review this plan for delivery risks.",
+        "excluded": ["engineer:plan-review"]
+      },
+      "acceptable_ids": [],
+      "forbidden_ids": ["engineer:plan-review"]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "session_id": "example-review-session",
+  "request": "Review code changes for correctness and regressions.",
+  "task": "Fix retry handling without changing the public API.",
+  "facts": "Python application with unit tests.",
+  "recent_state": "The regression test fails after a timeout.",
+  "required": [],
+  "excluded": []
+}

@@ -18,6 +18,7 @@ You can install:
 - [Cookbooks](#cookbooks)
 - [Explicit Invocation](#explicit-invocation)
 - [Repository model](#repository-model)
+- [Local skill selector](#local-skill-selector)
 - [Development](#development)
 
 ## Choose an Installation Route
@@ -275,6 +276,12 @@ scripts/
 
 The category root `plugin.json` is authoritative for metadata shared by the portable, Claude Code, and Codex manifests. Category versions are independent. When a category version changes, update its root and native manifests together, plus each marketplace entry that carries the version.
 
+## Local Skill Selector
+
+The [local selector](tools/skill_selector/README.md) selects instructions for the next action from an explicit runtime inventory. It prepares bounded input for the active model, applies local eligibility and no-match checks, and returns advisory decisions with a deterministic trace. It also provides a lexical baseline and an offline evaluator for independently supplied labels.
+
+It does not install or load skills, contact a provider, or run automatically in a harness. See its [host contract and examples](tools/skill_selector/README.md#host-contract) before using real session input. The included synthetic evaluation is not evidence of improved selection.
+
 ## Development
 
 Create an isolated Python environment and install the source-controlled validation dependencies:
@@ -292,6 +299,7 @@ scripts/check-agent-plugins.sh
 scripts/check-codex-plugins.sh
 scripts/check-cookbooks.sh
 scripts/check-skills-cli.sh
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s scripts -p 'test_*.py'
 ```
 
 The checks validate plugin manifests, the exact public inventory, cookbook placement, referenced skill names, cookbook installation commands, default Skills CLI discovery, and installs of `rails-feature`, `first-customers`, `marketing-plan`, their dependencies, `company-values`, and `manual-service-pilot`. The Skills CLI smoke check requires Node.js and network access for its pinned CLI package; pass a public repository source as its first argument to test the published source after release.
