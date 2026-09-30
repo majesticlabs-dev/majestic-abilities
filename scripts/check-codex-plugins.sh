@@ -122,6 +122,10 @@ else
   done
 fi
 
+if ! python3 -m unittest discover -s scripts -p 'test_codex_plugin_validator.py'; then
+  status=1
+fi
+
 if [ "$status" -eq 0 ]; then
   echo "OK: Codex manifests, marketplace entries, and skill trees all resolve"
 fi

@@ -7,7 +7,7 @@ description: "Review test coverage, assertions, isolation, and failure cases to 
 
 **Audience:** Developers reviewing test suites for quality and completeness.
 
-**Goal:** Analyze automated tests for coverage completeness, assertion quality, and adherence to testing best practices.
+**Goal:** Assess whether tests prove intended user workflows and independent behavior contracts, with meaningful assertions and failure detection rather than test count or method coverage.
 
 ## Review Steps
 
@@ -17,15 +17,18 @@ description: "Review test coverage, assertions, isolation, and failure cases to 
 - Locate test files related to the changed behavior
 - Identify the testing framework and repository conventions
 
-### 2. Map Implementation to Tests
+### 2. Map Behavior Contracts to Tests
 
-- Read the implementation files being tested
-- Identify all public methods, endpoints, and behaviors that should have test coverage
-- Create a coverage matrix mapping implementation features to test cases
+- Start from user workflows, acceptance criteria, documented contracts, and known failure traces, not the implementation's assumptions
+- State the expected outcomes independently of the code; mark missing or ambiguous expectations as evidence gaps
+- Read the implementation and relevant callers to trace how each behavior is exercised
+- Create a coverage matrix mapping user workflows and behavior contracts to test cases, including the failure each case would detect
+- Prefer end-to-end checks that prove a user can complete the workflow. Keep focused unit and integration tests when they detect additional real failures or isolate a failure that a broader check would miss
+- Do not require a separate unit test for every public method or enforce a testing pyramid by habit
 
 ### 3. Analyze Test Coverage
 
-For each implementation feature, check if tests exist for:
+For each user workflow or behavior contract, check if tests exist for:
 - **Happy Path**: Normal successful execution flows
 - **Sad Path**: Error conditions, validation failures, edge cases
 - **Boundary Conditions**: Empty values, nil/null, maximum limits
@@ -37,7 +40,9 @@ For each implementation feature, check if tests exist for:
 
 - **Assertion Quality**:
   - Are assertions specific and meaningful?
-  - Do tests verify behavior, not implementation?
+  - Do tests verify behavior against an independent expectation, not mirror implementation details?
+  - Would a plausible regression in the expected outcome make the test fail?
+  - Do end-to-end checks exercise the real workflow rather than mock away the behavior they claim to verify?
   - Are error messages helpful for debugging?
 - **Test Isolation**:
   - Do tests depend on execution order?
@@ -88,6 +93,9 @@ Look for common gaps:
 - Mocking too much (testing mocks, not real behavior)
 - No error case coverage
 - Tests tightly coupled to implementation details
+- Agent-written tests that copy the implementation's assumptions without an independent contract
+- Many passing unit tests with no check that the user can complete the workflow
+- Redundant tests that add maintenance work without detecting additional failures
 - Missing database state verification
 - **Frozen fixture assertions**: Exact collection comparisons (`assert_equal [a, b], scope` or `expect(scope).to eq([a, b])`) that break when unrelated fixtures are added. Recommend `assert_includes`/`expect(...).to include(...)` instead.
 
@@ -102,9 +110,11 @@ Provide your findings in this structure:
 - **Quality Issues Found**: [count]
 
 ### Coverage Matrix
-| Feature/Method | Happy Path | Sad Path | Edge Cases | Status |
-|----------------|------------|----------|------------|--------|
-| [method_name]  | pass/fail  | pass/fail| pass/fail  | [Complete/Gaps] |
+| Workflow/Contract | Expected Outcome Source | Test Level | Failure Detected | Coverage Gaps |
+|-------------------|-------------------------|------------|------------------|---------------|
+| [workflow] | [specification or failure trace] | [e2e/integration/unit] | [regression] | [missing or unverified behavior] |
+
+Record coverage as present, missing, or unknown. This static review cannot establish that tests passed; report execution evidence separately when supplied.
 
 ### Critical Coverage Gaps
 [List features/methods with missing test coverage, prioritized by risk]

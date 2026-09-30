@@ -454,13 +454,19 @@ def validate_skill_manifest(skill_root: Path, errors: list[str]) -> None:
         errors.append(
             f"skill `{skill_root.name}` frontmatter field `description` must be non-empty"
         )
-    disable_model_invocation = frontmatter.get("disable-model-invocation")
-    if disable_model_invocation is None:
-        disable_model_invocation = frontmatter.get("disable_model_invocation")
-    if disable_model_invocation not in (None, False):
-        errors.append(
-            f"skill `{skill_root.name}` frontmatter field `disable-model-invocation` must be false"
-        )
+    invocation_keys = ("disable-model-invocation", "disable_model_invocation")
+    for key in invocation_keys:
+        if key in frontmatter and not isinstance(frontmatter[key], bool):
+            errors.append(
+                f"skill `{skill_root.name}` frontmatter field `{key}` must be a boolean"
+            )
+    if all(key in frontmatter for key in invocation_keys) and (
+        frontmatter[invocation_keys[0]] != frontmatter[invocation_keys[1]]
+    ):
+        errors.append(f"skill `{skill_root.name}` has conflicting invocation flags")
+    require_explicit_invocation = any(
+        frontmatter.get(key) is True for key in invocation_keys
+    )
     agent_yaml_path = skill_root / "agents" / "openai.yaml"
     if agent_yaml_path.is_file():
         validate_skill_agent_manifest(
@@ -468,6 +474,12 @@ def validate_skill_manifest(skill_root: Path, errors: list[str]) -> None:
             skill_root=skill_root,
             agent_yaml_path=agent_yaml_path,
             errors=errors,
+            require_explicit_invocation=require_explicit_invocation,
+        )
+    elif require_explicit_invocation:
+        errors.append(
+            f"skill `{skill_root.name}` requires `agents/openai.yaml` with "
+            "`policy.allow_implicit_invocation: false`"
         )
 
 
@@ -477,6 +489,7 @@ def validate_skill_agent_manifest(
     skill_root: Path,
     agent_yaml_path: Path,
     errors: list[str],
+    require_explicit_invocation: bool,
 ) -> None:
     try:
         payload = yaml.safe_load(agent_yaml_path.read_text(encoding="utf-8"))
@@ -565,6 +578,14 @@ def validate_skill_agent_manifest(
                     f"skill `{skill_root.name}` agent field "
                     "`policy.allow_implicit_invocation` must be a boolean"
                 )
+
+    if require_explicit_invocation and (
+        not isinstance(policy, dict) or policy.get("allow_implicit_invocation") is not False
+    ):
+        errors.append(
+            f"skill `{skill_root.name}` requires "
+            "`policy.allow_implicit_invocation: false` for explicit-only invocation"
+        )
 
     dependencies = payload.get("dependencies")
     if dependencies is not None:

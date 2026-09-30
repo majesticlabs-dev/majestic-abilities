@@ -6,8 +6,8 @@ cd "$(dirname "$0")/.."
 
 skills_cli_version="${SKILLS_CLI_VERSION:-1.5.23}"
 source_ref="${1:-$(pwd)}"
-tmp_home=$(mktemp -d -t majestic-abilities-skills-home)
-tmp_project=$(mktemp -d -t majestic-abilities-skills-project)
+tmp_home=$(mktemp -d "${TMPDIR:-/tmp}/majestic-abilities-skills-home.XXXXXX")
+tmp_project=$(mktemp -d "${TMPDIR:-/tmp}/majestic-abilities-skills-project.XXXXXX")
 trap 'rm -rf "$tmp_home" "$tmp_project"' EXIT
 
 export HOME="$tmp_home"

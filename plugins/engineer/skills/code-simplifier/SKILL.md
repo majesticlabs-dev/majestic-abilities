@@ -5,13 +5,13 @@ description: "Simplify settled code on request, preserving behavior; review unne
 
 # Code Simplifier
 
-Refine settled, recently changed code. Reduce accidental complexity and duplication while keeping the same observable behavior. Read the complete target scope and its relevant callers before forming findings.
+Refine settled, recently changed code. Reduce accidental complexity while keeping the same observable behavior. Optimize for bounded context, explicit behavior, searchable names, isolated edits, and fast verification, not fewer lines or human readability alone. Read the complete target scope and its relevant callers before forming findings.
 
 ## Scope and gate
 
 Use a scope named by the user as the authoritative boundary. Otherwise use the current branch diff. If that is unavailable, use relevant files edited earlier in the conversation. Do not guess an empty scope. Ask the user what to simplify when no non-empty scope can be resolved.
 
-Before detailed review, skip a scope that contains only documentation, generated files, vendored code, dependency or lockfiles, or purely mechanical changes. For a mixed scope, retain substantive human-authored code. This is a kind gate, not a size gate. An explicitly named small code scope still runs.
+Before detailed review, skip a scope that contains only documentation, generated build artifacts, vendored code, dependency or lockfiles, or purely mechanical changes. For a mixed scope, retain substantive application code whether written by humans or agents. Agent-authored source is not a generated build artifact. This is a kind gate, not a size gate. An explicitly named small code scope still runs.
 
 ## Review mode
 
@@ -29,11 +29,11 @@ Apply each lens as a distinct pass. Run the passes inline or in separate context
 
 ### Reuse
 
-Search the repository for behavior-equivalent helpers and established abstractions before adding or keeping duplicate logic. Consider standard-library or runtime primitives, and verified platform, framework, or downstream guarantees, only when they preserve every relevant input and output. For version-sensitive runtime, framework, or platform replacements, check supported versions before relying on portability guarantees. If support is unknown, keep the existing code. Do not change locale behavior, sort stability, serialization, error behavior, side effects, or ordering without proof.
+Search the repository for behavior-equivalent helpers and established abstractions to understand the options, not to require consolidation. Prefer local duplication when a shared application abstraction would expand context, couple unrelated changes, or force independent agent edits through one file. Check duplicated rules for consistency. Consolidate only when a current shared contract or demonstrated correctness benefit justifies the coordination cost. Keep useful standard-library, runtime, and framework primitives when they preserve every relevant input and output. For version-sensitive runtime, framework, or platform replacements, check supported versions before relying on portability guarantees. If support is unknown, keep the existing code. Do not change locale behavior, sort stability, serialization, error behavior, side effects, or ordering without proof.
 
 ### Quality
 
-Find redundant state, copy-paste variation, parameter sprawl, leaky boundaries, raw strings where established types exist, deeply nested conditionals, comments that only restate code, and dead or unused code. Keep named concepts and abstractions when they improve comprehension, testability, or extension. Verify project-wide non-use before removing code, including re-exports, dynamic imports, framework exports, and external consumers.
+Find redundant state, unintended drift between duplicated rules, parameter sprawl, leaky boundaries, raw strings where established types exist, deeply nested conditionals, comments that only restate code, and dead or unused code. Keep named concepts and abstractions when they improve bounded context, explicit contracts, isolation, or verification. Repetition alone is not a defect. Verify project-wide non-use before removing code, including re-exports, dynamic imports, framework exports, and external consumers.
 
 Remove pre-release compatibility scaffolding only after verifying that it has no deployed, persisted, public, external, dependent-branch, or in-repository consumer. If any consumer or guarantee is uncertain, keep it.
 
