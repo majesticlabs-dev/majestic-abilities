@@ -1,6 +1,6 @@
 # Majestic Abilities
 
-Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 174 catalog skills, eight cookbooks, and two repository-operating skills, and follows the [Agent Skills](https://agentskills.io/) format.
+Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 174 catalog skills, nine cookbooks, and two repository-operating skills, and follows the [Agent Skills](https://agentskills.io/) format.
 
 You can install:
 
@@ -16,6 +16,7 @@ You can install:
 - [Install with the Skills CLI](#install-with-the-skills-cli)
 - [Browse the catalog](#browse-the-catalog)
 - [Cookbooks](#cookbooks)
+- [Engineering workflow guide](#engineering-workflow-guide)
 - [Explicit Invocation](#explicit-invocation)
 - [Repository model](#repository-model)
 - [Development](#development)
@@ -182,7 +183,7 @@ The CLI normally recommends symlinks so several agents can share one canonical i
 
 ## Browse the Catalog
 
-The catalog contains 174 skills plus eight cookbooks. Two repository-operating skills bring the Skills CLI inventory to 184 abilities. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see the exact inventory.
+The catalog contains 174 skills plus nine cookbooks. Two repository-operating skills bring the Skills CLI inventory to 185 abilities. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see the exact inventory.
 
 | Category | Plugin | Skills | Focus |
 | --- | --- | ---: | --- |
@@ -227,15 +228,21 @@ Cookbooks are user-invoked workflows that sequence catalog skills by name. Catal
 | [`first-customers`](plugins/sales/skills/first-customers/) | Sales plugin | `majestic-sales`, `majestic-founder`, `majestic-product` | Plan initial customer acquisition, offers, and evidence tracking |
 | [`marketing-plan`](plugins/marketing/skills/marketing-plan/) | Marketing plugin | `majestic-marketing` | Coordinate content channels, growth experiments, and spending decisions |
 | [`rails-feature`](plugins/rails/skills/rails-feature/) | Rails plugin | `majestic-engineer`, `majestic-rails` | Build and review a Rails feature end to end |
+| [`engineering-workflow`](plugins/engineer/skills/engineering-workflow/) | Engineer plugin | `majestic-engineer`, `majestic-writing` | Coordinate scoped engineering work from investigation through implementation, review, verification, and handoff |
 
 Each cookbook lives in the plugin that owns its primary user trigger and output. Supporting skills can come from other plugins. Cookbook frontmatter declares dependencies in the repository-defined string-valued `metadata.requires` key. Each cookbook's installation command includes the same dependency set because installers do not resolve dependencies.
 
+## Engineering workflow guide
+
+Read the [engineering workflow guide](docs/engineering-workflow.md) for one-time project verification, per-task prompts, named skill routes, read-only and plan-only use, and local versus published installation.
+
 ## Explicit Invocation
 
-These 11 skills require explicit invocation. Each sets `disable-model-invocation: true` for Claude Code and Pi, and `allow_implicit_invocation: false` in `agents/openai.yaml` for Codex.
+These 12 skills require explicit invocation. Each sets `disable-model-invocation: true` for Claude Code and Pi, and `allow_implicit_invocation: false` in `agents/openai.yaml` for Codex.
 
 - [actionable-communication](plugins/misc/skills/actionable-communication/SKILL.md)
 - [ai-search-visibility-foundation](plugins/seo/skills/ai-search-visibility-foundation/SKILL.md)
+- [engineering-workflow](plugins/engineer/skills/engineering-workflow/SKILL.md)
 - [first-customers](plugins/sales/skills/first-customers/SKILL.md)
 - [growth-stage-decision](plugins/founder/skills/growth-stage-decision/SKILL.md)
 - [launch-decision](plugins/founder/skills/launch-decision/SKILL.md)
@@ -294,4 +301,4 @@ scripts/check-cookbooks.sh
 scripts/check-skills-cli.sh
 ```
 
-The checks validate plugin manifests, the exact public inventory, cookbook placement, referenced skill names, cookbook installation commands, default Skills CLI discovery, and installs of `rails-feature`, `first-customers`, `marketing-plan`, their dependencies, `company-values`, and `manual-service-pilot`. The Skills CLI smoke check requires Node.js and network access for its pinned CLI package; pass a public repository source as its first argument to test the published source after release.
+The checks validate plugin manifests, the exact public inventory, cookbook placement, referenced skill names, cookbook installation commands, default Skills CLI discovery, and installs of `rails-feature`, `first-customers`, `marketing-plan`, and `engineering-workflow` with their declared dependencies, plus `company-values` and `manual-service-pilot`. The Skills CLI smoke check requires Node.js and network access for its pinned CLI package; pass a public repository source as its first argument to test the published source after release.

@@ -19,12 +19,13 @@ list_file="$tmp_home/skills-list.txt"
 printf '%s\n' "$list_output" > "$list_file"
 printf '%s\n' "$list_output"
 
-if ! grep -Fq 'Found 184 skills' "$list_file"; then
-  echo "FAIL: Skills CLI must discover exactly 184 abilities" >&2
+if ! grep -Fq 'Found 185 skills' "$list_file"; then
+  echo "FAIL: Skills CLI must discover exactly 185 abilities" >&2
   exit 1
 fi
 
 for skill in \
+  engineering-workflow \
   create-verification-skill \
   maintain-verification-skill \
   codebase-investigation \
@@ -53,6 +54,7 @@ done
   cd "$tmp_project"
   npx --yes "skills@${skills_cli_version}" add "$source_ref" \
     --skill plugin-release session-handoff sort-hat \
+      engineering-workflow code-review implementation-planning test-reviewer writing-pr \
       create-verification-skill maintain-verification-skill \
       codebase-investigation technical-writing session-recall \
     --agent codex \
@@ -61,6 +63,7 @@ done
 )
 
 for skill in plugin-release session-handoff sort-hat \
+  engineering-workflow code-review implementation-planning test-reviewer writing-pr \
   create-verification-skill maintain-verification-skill \
   codebase-investigation technical-writing session-recall; do
   if [ ! -f "$tmp_project/.agents/skills/$skill/SKILL.md" ]; then
@@ -68,6 +71,11 @@ for skill in plugin-release session-handoff sort-hat \
     exit 1
   fi
 done
+
+if [ ! -f "$tmp_project/.agents/skills/engineering-workflow/agents/openai.yaml" ]; then
+  echo "FAIL: Skills CLI did not copy the engineering-workflow invocation policy" >&2
+  exit 1
+fi
 
 (
   cd "$tmp_project"
@@ -109,4 +117,4 @@ for skill in \
   fi
 done
 
-echo "OK: Skills CLI ${skills_cli_version} discovers 184 abilities and installs verification, investigation, writing, recall, repository, and founder skills, plus rails-feature, first-customers, and marketing-plan dependencies"
+echo "OK: Skills CLI ${skills_cli_version} discovers 185 abilities and installs verification, investigation, writing, recall, repository, and founder skills, plus engineering-workflow, rails-feature, first-customers, and marketing-plan dependencies"

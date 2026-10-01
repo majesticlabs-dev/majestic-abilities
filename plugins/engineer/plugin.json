@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "majestic-engineer",
   "version": "0.3.0",
-  "description": "Create and maintain project verification skills, investigate codebases, and scope, plan, review, simplify, and harden software changes.",
+  "description": "Coordinate engineering workflows, create and maintain project verification skills, and investigate, plan, review, simplify, and harden software changes.",
   "author": {
     "name": "Majestic Labs"
   },
