@@ -19,12 +19,17 @@ list_file="$tmp_home/skills-list.txt"
 printf '%s\n' "$list_output" > "$list_file"
 printf '%s\n' "$list_output"
 
-if ! grep -Fq 'Found 179 skills' "$list_file"; then
-  echo "FAIL: Skills CLI must discover exactly 179 abilities" >&2
+if ! grep -Fq 'Found 184 skills' "$list_file"; then
+  echo "FAIL: Skills CLI must discover exactly 184 abilities" >&2
   exit 1
 fi
 
 for skill in \
+  create-verification-skill \
+  maintain-verification-skill \
+  codebase-investigation \
+  technical-writing \
+  session-recall \
   ai-search-visibility-foundation \
   seo-operator \
   company-values \
@@ -48,14 +53,18 @@ done
   cd "$tmp_project"
   npx --yes "skills@${skills_cli_version}" add "$source_ref" \
     --skill plugin-release session-handoff sort-hat \
+      create-verification-skill maintain-verification-skill \
+      codebase-investigation technical-writing session-recall \
     --agent codex \
     --copy \
     --yes >/dev/null
 )
 
-for skill in plugin-release session-handoff sort-hat; do
+for skill in plugin-release session-handoff sort-hat \
+  create-verification-skill maintain-verification-skill \
+  codebase-investigation technical-writing session-recall; do
   if [ ! -f "$tmp_project/.agents/skills/$skill/SKILL.md" ]; then
-    echo "FAIL: Skills CLI did not install repository skill $skill for Codex" >&2
+    echo "FAIL: Skills CLI did not install $skill for Codex" >&2
     exit 1
   fi
 done
@@ -100,4 +109,4 @@ for skill in \
   fi
 done
 
-echo "OK: Skills CLI ${skills_cli_version} discovers 179 abilities and installs repository skills, founder skills, and rails-feature, first-customers, and marketing-plan dependencies"
+echo "OK: Skills CLI ${skills_cli_version} discovers 184 abilities and installs verification, investigation, writing, recall, repository, and founder skills, plus rails-feature, first-customers, and marketing-plan dependencies"

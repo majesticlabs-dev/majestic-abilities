@@ -39,6 +39,14 @@ If the scope is empty or ambiguous, say so instead of reviewing an assumed chang
 8. Run the narrowest relevant repository checks when execution is available. Distinguish checks actually run from checks merely recommended.
 9. Keep only findings supported by a concrete code path and user-visible or operational consequence.
 
+## Check Critical Assumptions
+
+Identify assumptions that materially affect a review conclusion, such as a dependency guarantee, input constraint, or execution order. State the condition that must hold and the failure that would occur if it does not.
+
+Check the condition with the smallest relevant test, real command, or disposable experiment when safe execution is available. Exercise the affected behavior rather than reproducing an internal helper in a separate script. Reuse existing checks when they already cover the condition.
+
+Record the result and the checked revision. Separate conditions proved by execution from those supported only by source or documentation. Mark an untested condition as unverified. A missing check is an evidence gap, not a confirmed defect. Do not add unrelated checks or modify product code during review.
+
 ## Finding Standard
 
 Each finding must include:
