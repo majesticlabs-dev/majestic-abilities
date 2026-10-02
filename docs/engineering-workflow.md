@@ -1,5 +1,20 @@
 # Engineering Workflow
 
+## Installation
+
+Run this command from your project's root. It installs the workflow and its eight required skills:
+
+```sh
+npx skills add majesticlabs-dev/majestic-abilities --skill engineering-workflow \
+  codebase-investigation implementation-planning code-review test-reviewer \
+  writing-pr create-verification-skill maintain-verification-skill technical-writing \
+  --yes
+```
+
+List all required skills because the installer does not resolve cookbook dependencies.
+
+## Start a task
+
 Use `engineering-workflow` for one scoped engineering request. Give it the outcome, repository, constraints, authority, and evidence that must prove completion. It chooses the smallest route and keeps the main agent responsible for scope, changes, delegated work, and the final report.
 
 The cookbook is explicit-only. Use your harness's normal skill invocation with this agent-neutral request:
@@ -24,6 +39,8 @@ checkout, and report verified, failed, blocked, and unrun paths.
 ```
 
 The workflow invokes `create-verification-skill` only when a new project verifier is needed. It does not create one for ordinary product work. If the verifier later becomes stale, use `maintain-verification-skill` to audit and update its owned instructions or helpers. Keep the product expectation when the product fails. Report a product regression separately from stale verification instructions, a broken driver, an environment block, or an unrun path.
+
+`create-verification-skill` uses the requested workflows to define its scope. It reads their entrypoints, tests, scripts, fixtures, documentation, and existing project skills. For each workflow, it records the starting state, actions, supported commands, expected results, evidence, and cleanup. It marks unsupported commands or expectations as `unknown`. It does not search the Majestic catalog or download additional skills.
 
 ## Use it for each engineering task
 
@@ -97,26 +114,3 @@ product code or publish the result.
 ## Evidence and completion
 
 The final report must distinguish checks that ran from checks that were recommended or unrun. Keep product failures, stale verification, driver failures, environment blocks, and missing evidence separate. Record the evidence path outside the checkout when a verifier produces runtime proof. Report commit, push, pull request, merge, deployment, and live-state status as separate claims. A commit does not prove a push, and a merge does not prove a deployment.
-
-## Installation
-
-Run installation commands from your target product project. For branch testing, set abilities_checkout to the path of an Abilities checkout that contains the cookbook:
-
-```sh
-abilities_checkout="/path/to/majestic-abilities"
-npx skills add "$abilities_checkout" --skill engineering-workflow \
-  codebase-investigation implementation-planning code-review test-reviewer \
-  writing-pr create-verification-skill maintain-verification-skill technical-writing \
-  --yes
-```
-
-When the published repository source contains `engineering-workflow`, use it instead:
-
-```sh
-npx skills add majesticlabs-dev/majestic-abilities --skill engineering-workflow \
-  codebase-investigation implementation-planning code-review test-reviewer \
-  writing-pr create-verification-skill maintain-verification-skill technical-writing \
-  --yes
-```
-
-The installer does not resolve cookbook dependencies, so keep the cookbook name and all eight dependency names in the command. Omit harness-specific agent flags from these canonical commands. Installed category plugins may expose the same cookbook, but it remains explicit-only.
