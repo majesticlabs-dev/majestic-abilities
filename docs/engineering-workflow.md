@@ -1,116 +1,132 @@
 # Engineering Workflow
 
-## Installation
+## Install it first
 
-Run this command from your project's root. It installs the workflow and its eight required skills:
+Run this from the root of the project that will use the workflow. The command installs the workflow, its seven permanent dependencies, and the temporary setup skill used to create the project verifier:
 
 ```sh
-npx skills add majesticlabs-dev/majestic-abilities --skill engineering-workflow \
-  codebase-investigation implementation-planning code-review test-reviewer \
-  writing-pr create-verification-skill maintain-verification-skill technical-writing \
-  --yes
+npx skills add majesticlabs-dev/majestic-abilities \
+  --skill engineering-workflow codebase-investigation implementation-planning \
+  code-review test-reviewer writing-pr maintain-verification-skill \
+  technical-writing create-verification-skill \
+  --copy --yes
 ```
 
-List all required skills because the installer does not resolve cookbook dependencies.
+`create-verification-skill` is a setup tool. Remove it after the project verifier is built and its first execution is validated. Keep `engineering-workflow`, the generated project verifier, and every approved skill that the verifier calls.
 
-## Start a task
-
-Use `engineering-workflow` for one scoped engineering request. Give it the outcome, repository, constraints, authority, and evidence that must prove completion. It chooses the smallest route and keeps the main agent responsible for scope, changes, delegated work, and the final report.
-
-The cookbook is explicit-only. Use your harness's normal skill invocation with this agent-neutral request:
+The workflow is explicitly invoked. Use the invocation syntax supported by your agent:
 
 ```text
-Use engineering-workflow to <describe the outcome, repository, constraints, and completion evidence>.
+Use engineering-workflow to <describe the outcome, project, constraints, and required evidence>.
 ```
 
-Do not assume that `/engineering-workflow` or another short slash command exists in every harness.
+## Create project verification
 
-## One-time project verification
-
-Create a project-specific verifier only when the requested user path needs repeatable proof and the project does not already have one. First ask the workflow to reuse an existing verifier when it covers the path:
+Run this once for a project, or again when the existing verifier no longer covers the requested scope:
 
 ```text
-Use engineering-workflow to establish verification for CSV export in <project-root>.
-Reuse an existing project verifier if it covers normal export and retry behavior.
-If no verifier covers those paths, use create-verification-skill to create one from
-the repository's commands, fixtures, and supported drivers. Run the documented
-paths with disposable data, record build identity and evidence outside the
-checkout, and report verified, failed, blocked, and unrun paths.
+Use create-verification-skill to analyze checkout for CSV export and retry behavior.
+Inspect the project, its installed skills, and the Majestic Abilities catalog at
+https://github.com/majesticlabs-dev/majestic-abilities. Use a read-only catalog
+snapshot when no local checkout is available. Return a proposal with stable IDs for
+verification checks. Do not install skills or change the project yet.
 ```
 
-The workflow invokes `create-verification-skill` only when a new project verifier is needed. It does not create one for ordinary product work. If the verifier later becomes stale, use `maintain-verification-skill` to audit and update its owned instructions or helpers. Keep the product expectation when the product fails. Report a product regression separately from stale verification instructions, a broken driver, an environment block, or an unrun path.
+The creator performs these phases:
 
-`create-verification-skill` uses the requested workflows to define its scope. It reads their entrypoints, tests, scripts, fixtures, documentation, and existing project skills. For each workflow, it records the starting state, actions, supported commands, expected results, evidence, and cleanup. It marks unsupported commands or expectations as `unknown`. It does not search the Majestic catalog or download additional skills.
+1. It reads the target project's guidance, entrypoints, commands, tests, fixtures, runtime setup, and installed skills. It limits analysis to the requested workflows and their direct prerequisites.
+2. It reads relevant Majestic skill descriptions and instructions from a local checkout or a fetched read-only catalog snapshot. It records the catalog source and revision used for the proposal.
+3. It proposes verification checks. Each check has an ID, workflow, expected result, source of that expectation, reason, implementation type, required skills, commands or drivers, evidence, cleanup, and side effects.
 
-## Use it for each engineering task
+The implementation type must be one of:
 
-Start each task with the user-visible result and the proof required. The workflow chooses among these routes:
+- an existing project skill;
+- a Majestic skill to install;
+- a custom check in the generated project verifier.
 
-| Request | Named route | Result |
-| --- | --- | --- |
-| Explain behavior or investigate a cause | `codebase-investigation` | Read-only findings with traced paths, evidence, rationale, and unknowns |
-| Plan a change or resolve a material design question | `implementation-planning` | A bounded plan that stops before implementation |
-| Implement a bug fix or feature | `implementation-planning` when needed, then the workflow's implementation stage | A scoped change with checks and user-path proof |
-| Review a change | `code-review`, and `test-reviewer` when test quality needs a separate review | Findings and checks, without edits unless fixes are requested |
-| Write or update technical documentation | `technical-writing` | Source-grounded documentation with checked commands, symbols, examples, and results |
-| Prepare a pull request description | `writing-pr` | A title and description based on the final diff and actual evidence |
+Technology matches only suggest candidates. The proposal must explain why each selected skill or custom check proves a requested behavior. It must disclose supporting skills, dependencies, credentials, processes, files, data, network access, and other target-project side effects.
 
-Delegation is conditional. When the user authorizes it and the host supports it, give each delegate named files, success criteria, raw evidence, and allowed side effects. Require an actual result before treating the delegated work as complete. When delegation is unavailable or not authorized, run the permitted checks in the main session and report that independent review did not occur.
+The creator pauses after the proposal. It does not install a skill, create a verifier, edit project files, or run target-project mutations until the user approves the proposal.
 
-## Bug-fix example
+## Review and approve the proposal
 
-This request authorizes a feature-branch push and draft pull request. It stops before merge and deployment:
+Review the IDs and approve or reject them explicitly. For example:
 
 ```text
-Use engineering-workflow to fix duplicate CSV rows after an export retry in <project-root>.
-Reproduce the failure with disposable data before editing. Trace the cause, add a
-regression check for the duplicate-row behavior, and use the existing project
-verifier for the real CLI if it covers this path. Maintain the verifier only if
-its instructions are stale. Review the code and test, run the relevant checks,
-commit the scoped change, push a feature branch, and open a draft pull request.
-Report the reproduced failure, observed fix, checks and evidence, remaining gaps,
-and separate commit, push, pull request, merge, and deployment status.
+Approve V1 and V3, their listed dependencies, and the disclosed creator cleanup.
+Reject V2. Build and validate only the approved plan, then remove the temporary
+creator after its execution is validated.
 ```
 
-The likely named route is `codebase-investigation`, then `implementation-planning` when a material choice remains, the workflow's implementation stage, `code-review`, `test-reviewer` when needed, the project verifier, and `writing-pr` for the authorized draft pull request. The route can omit any step that the request does not need. Rerun the original trigger with equivalent starting state, including output left by the failure when that state is in scope. A health check or passing unit test alone does not prove the real CLI path. Verify the account, repository, branch, and remote before the authorized push or pull request write.
+The proposal must disclose all required dependencies before approval. A new dependency discovered afterward requires a revised proposal and approval before installation. Rejected items stay out of the verifier, and any resulting coverage gaps remain explicit.
 
-## Read-only investigation
+After approval, the creator installs only approved skills, creates only approved verifier files, and records the exact source revisions. It then builds the project verifier with:
 
-Use an explicit read-only boundary when the user wants an explanation:
+- the approved skill calls and their call order;
+- project commands, drivers, prerequisites, and scope;
+- custom checks that have a concrete observable result;
+- evidence paths and report format;
+- failure classification and cleanup for resources created by the run.
+
+The generated verifier calls the approved skills during verification. It does not require `create-verification-skill` to remain installed.
+
+## Example
+
+For a CSV export retry workflow, a proposal could contain:
+
+| ID | Implementation | Check | Expected result source |
+| --- | --- | --- | --- |
+| V1 | Existing `export-check` skill | Run normal export and retry with the same input. | The project's export contract |
+| V2 | Majestic `data-pipeline-testing` to install | Apply stateful replay and duplicate-key testing rules within the verifier. | The project's documented retry requirement |
+| V3 | Custom verifier check | Seed existing output, retry the export, and inspect one row per ID. | The project's documented idempotency requirement |
+
+The user can approve V1 and V3 and reject V2. The generated `verify-export` coordinator calls `export-check` and runs the approved existing-state check. It does not install or call `data-pipeline-testing`, and it records any coverage lost by rejecting that check.
+
+## Validate and finish setup
+
+The creator validates the assembled verifier against the intended build with isolated data. It checks build identity, runs the approved workflows through their supported user paths, captures evidence outside the checkout, and confirms cleanup.
+
+Report verifier readiness separately from product results. Each approved workflow is `verified`, `failed`, `blocked`, or `unrun`, with its expected result, observed result, evidence, and failure cause. A product defect can produce a `failed` check while the verifier is valid. A broken call, helper, missing expectation, or unsafe environment leaves the verifier invalid or blocked.
+
+After this validation succeeds, remove only the project-local `create-verification-skill` files and the installation records that it owns. Do not remove the generated verifier, its approved runtime dependencies, or their installation records. If validation is incomplete, keep the setup skill so the project can resume the build.
+
+## Use the finished verifier
+
+Ask the verifier to prove a product change directly:
 
 ```text
-Use engineering-workflow to explain why retries can duplicate CSV rows in <project-root>.
-Use codebase-investigation to trace the current path and relevant history. Read
-only. Return direct evidence, supported inferences, hypotheses, unknowns, and
-the smallest next decision. Do not edit files or write to external systems.
+Use verify-export to prove the CSV export retry behavior after this change.
+Report verifier readiness, build identity, commands, evidence paths, cleanup,
+and any failed, blocked, or unrun checks with their causes.
 ```
 
-The workflow stops with findings. It does not turn a discovered defect into an implementation task.
-
-## Plan-only request
-
-Use a plan-only boundary when implementation is not authorized:
+Then use the engineering workflow for implementation work. The creator is no longer needed:
 
 ```text
-Use engineering-workflow to plan idempotent export retries in <project-root>.
-Inspect callers and existing contracts. Use implementation-planning to define
-scope, risks, steps, and verification. Use a disposable local experiment only
-if current source and tests do not resolve a material design question. Return the
-plan and stop before editing product files.
+Use engineering-workflow to fix duplicate CSV rows after an export retry.
+Use verify-export for the user-path proof. Investigate the cause, plan the
+smallest authorized change, implement it, review the change, run the verifier,
+and report the evidence. Do not create or install another verifier.
 ```
 
-## Documentation-only request
+The workflow chooses only the routes needed by the request. It can use `codebase-investigation` for read-only findings, `implementation-planning` for a plan or unresolved design question, `code-review` and `test-reviewer` for review, `maintain-verification-skill` when the verifier is stale, `technical-writing` for documentation, and `writing-pr` when a pull request description is authorized.
 
-Keep documentation work separate from product changes:
+## Boundaries
+
+The proposal and approval process does not promise whole-project coverage. It covers the workflows and evidence scope that the user approves. It does not force delegation, a browser, a model, a package manager, a production connection, a deployment, a merge, or a full repository audit. If a required command, oracle, driver, or safe data boundary is unknown, the creator reports the gap instead of inventing one.
+
+For an explanation or investigation, keep the boundary read-only:
 
 ```text
-Use engineering-workflow to update the CSV export task guide in <project-root>.
-Use technical-writing. Verify commands, symbols, supported versions, examples,
-and expected results against current sources. Use a disposable or read-only
-environment for runnable examples. Change documentation only; do not change
-product code or publish the result.
+Use engineering-workflow to explain why retries duplicate CSV rows in checkout.
+Use codebase-investigation for the trace. Do not edit files or write to external
+systems. Return evidence, supported inferences, unknowns, and the next decision.
 ```
 
-## Evidence and completion
+For a plan-only request, stop before implementation:
 
-The final report must distinguish checks that ran from checks that were recommended or unrun. Keep product failures, stale verification, driver failures, environment blocks, and missing evidence separate. Record the evidence path outside the checkout when a verifier produces runtime proof. Report commit, push, pull request, merge, deployment, and live-state status as separate claims. A commit does not prove a push, and a merge does not prove a deployment.
+```text
+Use engineering-workflow to plan idempotent export retries in checkout.
+Use implementation-planning and return the plan with its verification route.
+Do not edit product files.
+```

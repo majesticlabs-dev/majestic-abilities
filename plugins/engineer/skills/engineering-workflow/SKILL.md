@@ -3,7 +3,7 @@ name: engineering-workflow
 disable-model-invocation: true
 description: "Coordinate scoped engineering work from investigation through implementation, review, verification, and handoff."
 metadata:
-  requires: "codebase-investigation,implementation-planning,code-review,test-reviewer,writing-pr,create-verification-skill,maintain-verification-skill,technical-writing"
+  requires: "codebase-investigation,implementation-planning,code-review,test-reviewer,writing-pr,maintain-verification-skill,technical-writing"
 ---
 
 # Engineering Workflow
@@ -74,7 +74,11 @@ Invoke `technical-writing` when technical documentation is part of the requested
 
 ### Project-specific verification
 
-Use an existing project verification skill when it covers the requested user path. Invoke `maintain-verification-skill` only when that skill is stale or its owned driver needs maintenance. Invoke `create-verification-skill` only when a project-specific verifier is needed and its creation is within the user's authorized scope. Creation is conditional and is never a prerequisite for ordinary product work or a reason to expand product scope.
+Use the approved project verification skill when it covers the requested user path. Load it and apply its approved skill calls and custom checks within the current task's scope. Check that its runtime dependencies are available before execution. Require actual results and evidence from called skills; loading instructions or receiving a delegate's acknowledgment does not prove that a check ran.
+
+Invoke `maintain-verification-skill` only when the verifier or its approved call contracts are stale or an owned driver needs maintenance. Missing approved skills are dependency blockers, not permission to install replacements. New checks, skill calls, or dependencies need user approval.
+
+Verifier creation is a separate one-time setup operation. The setup tool can be removed after that operation; this workflow must run without it. When no verifier covers the requested path, use sufficient existing project checks. Propose separate verifier setup only when the required proof needs it and the user authorizes that scope. Do not reinstall removed setup tools or expand product scope automatically.
 
 Preserve the verifier's expected product behavior when the product fails. Report a product regression separately from stale verification instructions, a broken driver, an environment block, or an unrun path.
 
@@ -109,7 +113,7 @@ Invoke `writing-pr` when a pull request title or description is requested or aut
 - Bug fixes have reproduction or a clear reason reproduction was unavailable, plus a traced cause or an explicit unknown.
 - Every material status claim has current evidence or is labeled unknown or unverified.
 - Product failures are not hidden by changing expected verification results.
-- Project verifiers are created or maintained only when needed and authorized.
+- Project verification uses approved checks and skill calls. Maintenance or separate setup occurs only when needed and authorized.
 - A delegated review is complete only when its actual result is available.
 - The workflow stops at the requested scope instead of expanding into unrelated cleanup, whole-repository review, or future work.
 
@@ -120,5 +124,5 @@ Install the cookbook and its dependencies:
 ```sh
 npx skills add majesticlabs-dev/majestic-abilities --skill engineering-workflow \
   codebase-investigation implementation-planning code-review test-reviewer \
-  writing-pr create-verification-skill maintain-verification-skill technical-writing
+  writing-pr maintain-verification-skill technical-writing
 ```

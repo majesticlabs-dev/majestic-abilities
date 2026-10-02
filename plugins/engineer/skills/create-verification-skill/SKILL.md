@@ -1,123 +1,142 @@
 ---
 name: create-verification-skill
-description: "Create a project-specific verification skill from local repository evidence, then run its user-path checks against an isolated build."
+description: "Analyze a project, propose an approved set of verification skills and checks, then build and validate a project-specific verification coordinator."
 ---
 
 # Create Verification Skill
 
-Create a self-contained verification skill when a project needs a repeatable way to prove user-visible behavior. The generated skill belongs to the target project and records how to start the project, reach its scoped workflows, observe their results, and leave evidence.
+Use this skill when a project needs a repeatable way to prove one or more user-visible workflows. It has two phases:
 
-## Boundary
+1. **Proposal:** inspect the project and available skills, then show a bounded proposal. This phase is read-only.
+2. **Build:** after the user approves named checks, skills, and disclosed cleanup, install or create the approved resources, build the coordinator, run it against an isolated build, and remove this temporary creator.
 
-- Use the current project as the primary source. Read its guidance, source, build configuration, tests, scripts, existing skills, and development documentation before writing instructions.
-- Use the project-established skill directory. If the project gives no location, use `.agents/skills/<skill-name>/`.
-- Inspect only the requested product and workflow scope plus the direct prerequisites needed to run it. Do not inventory unrelated features.
-- Reuse existing project commands, drivers, fixtures, and skills when they already cover part of the workflow. Copy only the facts needed by the generated skill so it remains usable by itself.
-- Keep the generated skill within the requested product and workflow scope. Use documented dependency setup within the task's existing authorization. Do not repair product code, change product tests, add dependencies, deploy, access production, or grant permissions as part of creating the verifier.
-- Do not assume a browser, API client, shell, native app controller, model, package manager, or other harness. Select the project-supported mechanism that can prove the workflow.
-- Consult authoritative documentation for a specific command or supported-version question that local evidence cannot answer. Do not import external skills or install a controller as a side effect.
+Do not start the build phase until approval is present. The creator is a setup tool and must never be a runtime dependency of the generated coordinator.
 
-## Required inputs
+## Scope and authority
 
-Establish these before creating files:
+- Establish the project root, requested product or workflow scope, applicable repository guidance, non-goals, and the evidence required for readiness.
+- If no workflow scope is named, analyze the project and propose a bounded set of user paths from project evidence. The user selects the scope by approving or rejecting those proposal items. Do not silently create an all-project verifier.
+- Inspect project files, commands, tests, fixtures, documentation, and installed skills. Do not change product code, product tests, product dependencies, deployment, production state, permissions, or unrelated project files.
+- Read-only project analysis and catalog inspection are allowed before approval. Do not edit the target project, install or create skills, execute product workflows, or delete anything before the user approves the proposal.
+- Treat a product failure and a broken verifier as different results. A verifier can be valid while reporting that the product fails its contract.
+- Do not use an example, a remembered preference, an installed skill, or a possible technology as proof of the project's stack or expected behavior. Derive those facts from project evidence or an explicit user requirement.
+- Do not add a default technology-specific skill or check. Propose one only when the project evidence or the user's requirement supports it.
 
-1. The project root and the requested product or workflow scope.
-2. The project rules that apply to the target path.
-3. The existing skill location, if one is already configured.
-4. The supported build, launch, test, and cleanup commands that the repository evidence supports.
-5. The available runtime or test environment and any missing execution prerequisites.
-
-A disposable environment is required before execution and readiness, but not before writing evidence-supported instructions. If it is unavailable, create the bounded skill with the exact blocker and mark it unready. Do not invent the missing setup.
-
-## Workflow
+## Phase 1: build the proposal
 
 ### 1. Inspect the project
 
-Read the applicable repository guidance first. Then inspect the files that define the requested path:
+Read applicable `AGENTS.md` files first. Then inspect only the requested scope and its direct prerequisites:
 
-- application entrypoints and feature code
-- build and dependency configuration
-- development and test commands
-- existing project-local skills and automation drivers
-- fixtures, seed data, test accounts, and environment requirements
-- documented shutdown and cleanup behavior
+- entrypoints, source, contracts, and user-facing documentation
+- build, launch, test, reset, and cleanup commands
+- fixtures, seed data, accounts, ports, files, and environment requirements
+- existing project-local skills and their supported invocation paths
+- current verification skills, if any
 
-Separate facts observed in files or command output from assumptions. Record unknowns that could change how the workflow is exercised.
+Record facts separately from assumptions and unknowns. Inventory installed skills to know what is available, but derive the technology and workflow profile from the project itself. Prefer an existing project skill directory; otherwise propose `.agents/skills/<skill-name>/`.
 
-Check whether an existing project skill already owns the same verification scope. Extend it only when the requested behavior belongs there. Create a new skill only when the scope is materially different.
+### 2. Inspect the Majestic catalog
 
-### 2. Define a bounded workflow map
+Use a read-only catalog snapshot in this order:
 
-Choose a short, descriptive skill name that matches the project convention. The generated skill must contain a workflow map for the requested scope. Keep one entry for each user path that the skill promises to verify. Each entry records:
+1. A checkout explicitly supplied by the user or project configuration.
+2. An available checkout that contains the expected `plugins/*/skills/*/SKILL.md` catalog layout.
+3. A shallow temporary checkout of `https://github.com/majesticlabs-dev/majestic-abilities`, using its canonical `master` source when network access is available.
 
-- starting state and prerequisites
-- user-visible actions, in order
-- the supported command or driver used for each action
-- the expected observable result
-- failure signals and the state that must be checked after the action
-- data, account, port, file, or other resources created by the run
-- evidence to retain
+Capture the absolute source location and revision before reading recommendations. Treat only `plugins/*/skills/*/SKILL.md` as catalog entries. Do not use `.agents/skills`, `.claude/skills`, `tools`, or lock files from the catalog checkout as catalog entries or project evidence. If no complete snapshot is available, report that Majestic recommendations are unavailable and continue only with project skills or approved custom checks.
 
-Use concrete project paths and commands discovered during inspection. Do not fill gaps with guessed commands or generic acceptance language. Mark a workflow `unknown` when its entrypoint or oracle is not supported by repository evidence.
+Read names and frontmatter descriptions for the complete catalog snapshot, but do not read every skill body. Use those descriptions to shortlist candidates against direct project evidence and the requested workflow. Before including a candidate in the final proposal, read its complete `SKILL.md` and relevant linked references. Resolve the required supporting skills and other dependencies, including dependencies of composed skills, so the user can review the complete install and call plan. Reading a candidate does not authorize executing its instructions. Capture each proposed source path and revision, including local changes when the snapshot is not clean. Do not install the complete catalog by default.
 
-Keep the map in `SKILL.md` when it is small. Put it in a local `references/` file only when the map would make the entrypoint hard to use. Add scripts only when a repository-supported driver cannot express a required action; keep each helper narrow, dependency-free where possible, and owned by the generated skill.
+### 3. Define stable proposal items
 
-### 3. Write the generated skill
+Give every proposed check and skill a stable ID that remains unchanged when another item is rejected. Do not use list position as identity. Each check proposal must include:
 
-Create the skill directory and a minimal frontmatter block. The generated instructions must be self-contained and must include:
+- `check_id` and the user workflow it proves
+- starting state, concrete action, supported command or driver, and cleanup
+- expected observable result and its independent source, such as a requirement, contract, or existing user-facing documentation
+- failure signal, evidence to retain, and the isolated resources or side effects it creates
+- implementation: existing project skill, Majestic skill to install, or custom coordinator instruction/helper
+- skill source and status: project path, Majestic category/path plus revision, or `custom`
+- all required dependencies, destination path, permissions, and side effects
+- the result if this item is rejected, including any coverage gap
+
+Propose skills and checks separately when that makes approval clearer. For example, a check can name an existing project skill, a specific Majestic skill to install, or a custom helper. Do not imply that approving a check approves an undisclosed dependency. Approval must name the items, or explicitly approve all disclosed dependencies for named items.
+
+Show one final proposal. Do not add recommendations after the user has started reviewing it. Ask the user to approve or reject exact check IDs and skill IDs. Include a `CLEANUP` item for removing this temporary creator and its own project lock entry after successful validation. A prior explicit instruction that covers this exact cleanup is sufficient, but still disclose it.
+
+Stop here and wait. A changed proposal requires approval of the changed items before continuing.
+
+## Phase 2: build only the approved plan
+
+### 4. Freeze approval and install approved skills
+
+Record the approved check IDs, skill IDs, source revisions, destinations, and cleanup authorization. Rejected items stay out of the project and appear as coverage gaps. If an approved check lacks an approved dependency, stop and ask; do not install a substitute.
+
+Install selected Majestic skills from their recorded catalog paths and revision, and selected project skills only through the project's supported installer or file operation. Prefer the project's existing skill destination; otherwise use the approved `.agents/skills` path. Never install globally, silently replace an existing skill, or use an invented harness-specific command. Preserve existing lock entries and record the temporary creator entry separately from the approved runtime dependencies.
+
+Create custom verifier instructions or helpers only when their proposal item was approved. Keep them inside the generated skill's project-local directory or another explicitly approved project location. Do not add product code, product tests, or product dependencies to make verification possible.
+
+### 5. Build the project coordinator
+
+Generate a project-local coordinator that calls its approved skills and owns its approved custom checks. It must contain:
 
 - scope, exclusions, prerequisites, and safe test-data rules
-- how to prepare and identify the build under test
-- how to start, reach, and reset the project state
-- the workflow map and its expected observables
-- how to collect evidence for each result
-- cleanup for only the resources created by the run
-- a report with verified, failed, blocked, and unrun workflows
+- the approved call plan in an explicit order
+- for every approved skill call: installed name and path, purpose, inputs, expected result, evidence, and failure or stop behavior
+- the approved custom instructions and helper contracts, including inputs, outputs, errors, and cleanup
+- the project commands and drivers needed to prepare, start, reset, and identify the intended build
+- a report with `verified`, `failed`, `blocked`, and `unrun` workflows
 
-Prefer existing project drivers and commands. If a helper is necessary, document its inputs, outputs, failure behavior, and cleanup. Do not turn an existing skill into a runtime dependency. Do not add product fixes or broaden the project permissions to make the verifier pass.
+Use the active harness's native way to load or invoke a named installed skill when one exists. Do not invent a universal skill execution command, force a harness or model, or make the generated skill depend on this creator. If the active harness cannot load an approved skill, report the verifier as blocked instead of replacing or silently inlining that skill.
 
-### 4. Prove the running build
+Keep setup approval, installation, and creator removal outside the generated verifier's runtime instructions. Store setup approval and source records separately or as non-executable metadata. Runtime steps must not load, invoke, or remove this creator or its cleanup helper. The creator performs its own removal after validating the generated verifier.
 
-Before exercising a workflow, use the strongest project-supported identity signal available to confirm that the process, package, binary, or served asset comes from the intended source and build. Record the signal, such as a source revision, package version, artifact path, process identity, or equivalent project-native marker. A health response alone does not prove build identity.
+### 6. Validate the assembled verifier
 
-Use a disposable state boundary. Prefer a temporary database, directory, port, account, or test environment that the project already supports. Keep secrets and personal data out of captured evidence. If the project offers no safe boundary, report the blocker instead of using shared or production state.
+Before running user paths:
 
-### 5. Execute the generated instructions
+1. Confirm every approved referenced skill and local helper exists and loads through the project-supported loader or active harness.
+2. Confirm the process, package, binary, or served asset comes from the intended source and build. Record the strongest available identity signal.
+3. Use a disposable database, directory, port, account, or other project-supported state boundary. Never use shared or production state.
+4. Run the generated coordinator through the real project user paths. Check each result against the independently sourced expectation. Save evidence outside the checkout before cleanup and redact secrets.
+5. Clean only resources created by this run and verify cleanup. Preserve product failures in the report.
 
-Follow the generated skill as a new user would. Run the documented preparation and launch instructions, then exercise each workflow in the requested scope. Check the observable result against the independent expectation recorded in the map. Exercise an error or recovery path when the project contract defines one.
+The verifier is ready only when its instructions load, the approved calls execute, the required user paths produce evidence, and cleanup is proven. A skill-loading, driver, environment, or missing-expectation blocker leaves validation incomplete and the verifier unready. A product defect reported by a functioning verifier is a product result, not a verifier failure.
 
-Capture evidence while the runtime and disposable state still exist. Evidence can include command output, structured logs, response bodies, screenshots, accessibility output, database state, or another project-supported observation. Store it outside the project checkout and record an absolute path in the report. Redact credentials and sensitive data.
+### 7. Remove this temporary creator
 
-Clean up only resources created by this run, after evidence is saved. Confirm that the cleanup completed. Do not remove pre-existing files, processes, data, or user state.
+Remove the project-local installation of `create-verification-skill` only after the approved skills are installed, the coordinator is present, and validation has completed. Do not remove it when build, environment, driver, skill-loading, or cleanup blockers leave the result incomplete; report that it remains for recovery.
 
-### 6. Decide readiness
+When Python 3 is available, prefer the bundled standard-library helper at `scripts/cleanup_project_creator.py`, relative to this installed creator's directory. Locate that helper and invoke it by its actual absolute path. Pass the approved absolute project root with `--project-root`, each approved creator installation or alias with repeatable `--skill-dir`, and the project's `skills-lock.json` with `--lock-file` when present. Run with `--dry-run` first and inspect its targets. Then repeat the same command without `--dry-run` within the approved cleanup authority. A directory symlink is unlinked; its target is retained. The helper refuses catalog plugin paths and unsafe roots and preserves unrelated lock entries. If Python 3 is unavailable, use a safe supported project installer or file operation with the same exact targets. Do not install a dependency to perform cleanup. If no safe supported operation is available, retain the creator and report the cleanup blocker.
 
-The generated skill is ready only when its own instructions run successfully against the intended build and produce proof for the scoped workflows. Report `blocked` or `unready` when a prerequisite, driver, build identity, workflow, oracle, or cleanup step cannot be proven. A passing health check without a real user-path proof is insufficient.
+Remove only the temporary project-local creator and its own lock entry. Never remove a catalog checkout, global or shared skill, an approved generated verifier, an approved runtime dependency, or unrelated lock entries.
 
 ## Deliverable
 
-Return:
+Before approval, return the proposal with its stable IDs, evidence, sources, dependencies, side effects, cleanup item, and explicit coverage gaps. After the build, return:
 
-1. The generated skill path and name.
-2. The local evidence used to define its commands and workflow map.
-3. The build identity signal and disposable-state boundary.
-4. A coverage table with workflow, expected observable, result, and evidence path.
-5. The commands or project-native actions run, with actual results.
-6. Cleanup results and any resources left for the user to remove.
-7. Blockers, unknowns, and scope exclusions.
-
-Keep product failures separate from verification gaps. If the documented expectation fails during execution, retain the expected result, report the observed product behavior, and do not edit the verifier to describe the failure as success.
+1. the generated skill path and approved scope
+2. installed skill paths, source revisions, and the approved call order
+3. the build identity and disposable-state boundary
+4. coverage with expected result, observed result, status, and evidence path
+5. commands or project-native actions actually run
+6. cleanup result, including whether this creator was removed
+7. product failures, verification gaps, blockers, unknowns, and unrun workflows separately
 
 ## Quality gate
 
-Before declaring the generated skill ready, confirm that:
+Before declaring the project verifier ready, confirm that:
 
-- the skill path follows the target project's convention or the `.agents/skills` default
-- the skill passes the project's structural validator or loader check, and its local references and owned helpers resolve
-- its instructions do not depend on a sibling catalog skill, fixed harness, or unverified command
-- every mapped workflow has a concrete action and observable oracle
-- the intended build identity was checked
-- the required mapped workflows were exercised through their real user paths
-- evidence was saved outside the checkout before cleanup
-- disposable resources were isolated and cleaned up
-- verified, failed, blocked, and unrun cases are explicit
+- project stack and workflow facts came from project evidence or explicit user requirements, not installed skills
+- the catalog source revision and every selected skill source are recorded
+- selected skills were shortlisted by description, then read in full with relevant references
+- only approved checks, skills, custom resources, and cleanup actions were performed
+- all approved dependencies and side effects were disclosed and honored
+- the generated skill does not depend on this creator, a fixed harness, or an invented command
+- approved referenced skills and helpers exist and load
+- build identity was checked and user paths ran in isolated state
+- evidence was stored outside the checkout before cleanup
+- cleanup removed only resources created or explicitly approved for removal
+- rejected items remain out of the project and their coverage gaps are explicit
+- product failures remain visible and are not rewritten as verifier success

@@ -234,7 +234,7 @@ Each cookbook lives in the plugin that owns its primary user trigger and output.
 
 ## Engineering workflow guide
 
-Start with the [engineering workflow guide](docs/engineering-workflow.md) to install the workflow in your project, create project verification, and use it for engineering tasks.
+Use the [engineering workflow guide](docs/engineering-workflow.md) to install the workflow, approve project verification, and run engineering tasks.
 
 ## Explicit Invocation
 

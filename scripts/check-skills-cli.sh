@@ -79,6 +79,29 @@ fi
 
 (
   cd "$tmp_project"
+  cleanup_helper="$tmp_project/.agents/skills/create-verification-skill/scripts/cleanup_project_creator.py"
+  python3 "$cleanup_helper" --project-root "$tmp_project" \
+    --skill-dir "$tmp_project/.agents/skills/create-verification-skill" --dry-run
+  python3 "$cleanup_helper" --project-root "$tmp_project" \
+    --skill-dir "$tmp_project/.agents/skills/create-verification-skill"
+  npx --yes "skills@${skills_cli_version}" list --agent codex > "$tmp_home/installed-after-cleanup.txt"
+)
+
+if grep -Fq './.agents/skills/create-verification-skill' "$tmp_home/installed-after-cleanup.txt"; then
+  echo "FAIL: Skills CLI still discovers the removed project creator"
+  cat "$tmp_home/installed-after-cleanup.txt"
+  exit 1
+fi
+for skill in engineering-workflow codebase-investigation implementation-planning \
+  code-review test-reviewer writing-pr maintain-verification-skill technical-writing; do
+  if ! grep -Fq "./.agents/skills/$skill" "$tmp_home/installed-after-cleanup.txt"; then
+    echo "FAIL: Skills CLI lost runtime skill $skill after creator cleanup"
+    exit 1
+  fi
+done
+
+(
+  cd "$tmp_project"
   npx --yes "skills@${skills_cli_version}" add "$source_ref" \
     --skill rails-feature dhh-rails-style ruby-coder minitest-coder \
       rails-lint rails-code-review test-reviewer implementation-planning \
@@ -117,4 +140,4 @@ for skill in \
   fi
 done
 
-echo "OK: Skills CLI ${skills_cli_version} discovers 185 abilities and installs verification, investigation, writing, recall, repository, and founder skills, plus engineering-workflow, rails-feature, first-customers, and marketing-plan dependencies"
+echo "OK: Skills CLI ${skills_cli_version} discovers 185 abilities, installs cookbook dependencies, and retains engineering-workflow runtime skills after creator cleanup"
