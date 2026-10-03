@@ -64,6 +64,7 @@ Give every proposed check and skill a stable ID that remains unchanged when anot
 - `check_id` and the user workflow it proves
 - starting state, concrete action, supported command or driver, and cleanup
 - expected observable result and its independent source, such as a requirement, contract, or existing user-facing documentation
+- open questions: any conflict or gap in the expected result's sources, and the user decision or source change that resolves it
 - failure signal, evidence to retain, and the isolated resources or side effects it creates
 - execution layer: existing project skill, Majestic skill to install, or custom coordinator instruction/helper
 - assessment layers: the proposed assessment item IDs that apply to this workflow, if any
@@ -93,7 +94,7 @@ Create custom verifier instructions or helpers only when their proposal item was
 
 ### 5. Build the project coordinator
 
-Generate a project-local coordinator that calls its approved skills and owns its approved custom checks. It must contain:
+Generate a project-local coordinator that calls its approved skills and owns its approved custom checks. The coordinator is the record of what was approved. Do not create a separate approval, setup, or source record file. It must contain:
 
 - scope, exclusions, prerequisites, and safe test-data rules
 - the approved call plan in an explicit order: the execution layer first, then the approved assessment skills with the execution evidence they need
@@ -116,7 +117,7 @@ Before running user paths:
 4. Run the generated coordinator through the real project user paths. Check each result against the independently sourced expectation. Save evidence outside the checkout before cleanup and redact secrets.
 5. Clean only resources created by this run and verify cleanup. Preserve product failures in the report.
 
-The verifier is ready only when its instructions load, the approved calls execute, the required user paths produce evidence, and cleanup is proven. A skill-loading, driver, environment, or missing-expectation blocker leaves validation incomplete and the verifier unready. A product defect reported by a functioning verifier is a product result, not a verifier failure.
+The verifier is ready only when its instructions load, the approved calls execute, the required user paths produce evidence, and cleanup is proven. A skill-loading, driver, environment, or missing-expectation blocker leaves validation incomplete and the verifier unready. An unresolved expectation keeps each affected check `blocked`, even when its drivers pass. Do not rewrite, narrow, or defer an approved expectation to exclude an open question. Only a user decision or an updated independent source resolves it. A product defect reported by a functioning verifier is a product result, not a verifier failure.
 
 ### 7. Remove this temporary creator
 

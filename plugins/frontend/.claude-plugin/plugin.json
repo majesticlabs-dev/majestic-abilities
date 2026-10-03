@@ -1,7 +1,7 @@
 {
   "name": "majestic-frontend",
   "displayName": "Majestic Frontend",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Design, audit, and validate user interfaces: visual direction, Core Web Vitals, accessibility, and screenshot documentation.",
   "author": {
     "name": "Majestic Labs"

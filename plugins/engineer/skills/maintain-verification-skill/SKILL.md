@@ -10,7 +10,7 @@ Use this skill when a project-specific verification coordinator may be stale aft
 ## Boundary and approval
 
 - Establish the project root, existing coordinator path, requested audit scope, applicable repository guidance, disposable environment, and evidence location outside the checkout.
-- Read the complete coordinator, its approval record or generated call plan, all owned references and helpers, and the project evidence that supports the audited workflows.
+- Read the complete coordinator, its call plan, all owned references and helpers, and the project evidence that supports the audited workflows.
 - Keep changes inside the coordinator directory and its owned references or helpers. Do not edit product code, product tests, shared drivers, deployment configuration, permissions, or unrelated documentation.
 - Do not silently install, replace, upgrade, remove, or re-resolve a referenced skill. Do not add a required workflow, skill call, dependency, permission, or custom artifact during maintenance.
 - If an added or replaced call, dependency, expectation, or custom artifact is needed, show a proposal with its reason, source, scope, side effects, and coverage impact, then wait for explicit approval before editing or installing it.
@@ -22,12 +22,12 @@ Use this skill when a project-specific verification coordinator may be stale aft
 Locate the coordinator through the project's configured skill directory, or inspect `.agents/skills` for the requested skill. Read its full contents and record:
 
 - approved scope, workflow IDs, prerequisites, and exclusions
-- the exact approved skill names, local paths, source categories, revisions, and lock entries
+- the exact approved skill names and local paths
 - each call's inputs, order, expected result, evidence, failure behavior, and cleanup
 - approved custom instructions and helper contracts
 - build identity signal, disposable-state boundary, and evidence location
 
-If the coordinator has no approval record or call plan, treat its current declared calls as the existing baseline. Do not infer permission for new calls from a missing record. If the skill cannot be found, stop and report the blocker. Do not create a replacement during maintenance.
+If the coordinator has no explicit call plan, treat its current declared calls as the existing baseline. Do not infer permission for new calls from a missing plan. If the skill cannot be found, stop and report the blocker. Do not create a replacement during maintenance.
 
 ## 2. Compare current project and dependencies
 
@@ -35,7 +35,7 @@ Trace every applicable workflow and call in the requested scope to current proje
 
 - entrypoints, commands, flags, ports, environment variables, fixtures, and reset actions
 - expected results and failure signals against explicit contracts or established user-facing requirements
-- exact installed skill paths and source revisions against the approved dependency resolution and project lock state
+- whether each approved skill is still installed at its declared path
 - whether each referenced skill still loads through the project's supported loader or active harness
 - custom helper inputs, outputs, errors, ownership, and cleanup
 - build identity checks and cleanup boundaries for shared or pre-existing state
@@ -76,7 +76,7 @@ Keep the expected result and observed result together for every product regressi
 
 After approval for any scope expansion, or immediately for a correction inside the existing baseline, update only the coordinator and its owned references or helpers. Preserve:
 
-- approved skill names, paths, source revisions, and call order unless the change was approved
+- approved skill names, paths, and call order unless the change was approved
 - inputs, expected results, evidence rules, failure behavior, and cleanup contracts
 - product failures and unsupported or unknown cases
 
@@ -97,7 +97,7 @@ Return a table with one row per mapped workflow in scope:
 Also report:
 
 1. the coordinator and owned resources changed
-2. the exact approved dependencies and whether their paths, revisions, lock entries, and call contracts still resolve
+2. the exact approved dependencies and whether their paths and call contracts still resolve
 3. any proposed additions or replacements awaiting approval
 4. product regressions separately from verification-stale and driver-failure findings
 5. evidence and cleanup results
@@ -107,7 +107,7 @@ Also report:
 
 Before declaring maintenance complete, confirm that:
 
-- the coordinator, approval record or baseline call plan, and all owned resources were read in full
+- the coordinator, its call plan, and all owned resources were read in full
 - every applicable workflow was traced to current project evidence
 - exact approved dependencies and call contracts were checked without silent installs or replacements
 - any new or replaced call or custom artifact received explicit approval

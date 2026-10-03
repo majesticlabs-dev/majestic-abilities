@@ -60,7 +60,7 @@
       "name": "majestic-engineer",
       "source": "./plugins/engineer",
       "description": "Coordinate engineering workflows, create and maintain project verification skills, and investigate, plan, review, simplify, and harden software changes.",
-      "version": "0.3.1",
+      "version": "0.3.2",
       "category": "engineer",
       "keywords": [
         "engineering",
@@ -84,7 +84,7 @@
       "name": "majestic-frontend",
       "source": "./plugins/frontend",
       "description": "Design, audit, and validate user interfaces: visual direction, Core Web Vitals, accessibility, and screenshot documentation.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "category": "frontend",
       "keywords": [
         "frontend",

@@ -60,7 +60,7 @@ creator after its execution is validated.
 
 The proposal must disclose all required dependencies before approval. A new dependency discovered afterward requires a revised proposal and approval before installation. Rejected items stay out of the verifier, and any resulting coverage gaps remain explicit.
 
-After approval, the creator installs only approved skills, creates only approved verifier files, and records the exact source revisions. It then builds the project verifier with:
+After approval, the creator installs only approved skills and creates only approved verifier files. The generated verifier is the record of what was approved; no separate setup record is created. It then builds the project verifier with:
 
 - the approved skill calls and their call order: the execution layer first, then the approved assessment skills;
 - project commands, drivers, prerequisites, and scope;

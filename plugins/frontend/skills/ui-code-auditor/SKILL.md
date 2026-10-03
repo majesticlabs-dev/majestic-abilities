@@ -11,7 +11,7 @@ Static code analysis for UI quality and accessibility. Use `visual-validator` se
 
 ```yaml
 path: string           # File or directory to audit (default: src/ or app/)
-tech_stack: string[]   # From config, e.g., ["react", "vue", "generic"]
+tech_stack: string[]   # From config, e.g., ["react", "hotwire", "generic"]
 focus: string          # Optional: "accessibility", "performance", "all"
 ```
 
@@ -23,13 +23,17 @@ Inspect project manifests, file extensions, framework configuration, and existin
 
 ### 2. Load Rules
 
-Always load [resources/generic-rules.md](resources/generic-rules.md). Also load [resources/react-rules.md](resources/react-rules.md) when React or JSX is in scope.
+Always load [resources/generic-rules.md](resources/generic-rules.md). Also load [resources/react-rules.md](resources/react-rules.md) when React or JSX is in scope, and [resources/hotwire-rules.md](resources/hotwire-rules.md) when Rails ERB views, Turbo, or Stimulus are in scope.
 
 ### 3. Find UI Files
 
 ```bash
 # React/JS projects
 find . -type f \( -name "*.tsx" -o -name "*.jsx" \) | head -100
+
+# Rails/Hotwire
+find app/views -type f -name "*.erb" | head -100
+find app/javascript -type f -name "*_controller.js" | head -50
 
 # CSS
 find . -type f \( -name "*.css" -o -name "*.scss" \) | head -50
