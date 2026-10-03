@@ -58,7 +58,7 @@ Do not install or replace anything while waiting for approval. Rejected addition
 
 Use the documented preparation and launch path in a disposable environment. Before workflows, confirm the running process, package, binary, or served asset with the strongest supported build identity signal and record it.
 
-Run each applicable approved workflow in the audit scope. Load the exact approved skills through the active harness's native mechanism when needed. Do not invent a universal skill execution command or force a harness, provider, model, or panel. If an approved dependency cannot load, report `blocked` or `verification-stale`; do not silently inline or replace it.
+Run each applicable approved workflow in the audit scope, then the approved assessment-layer skill calls in their recorded order. Report assessment findings by item ID, separate from workflow status. Load the exact approved skills through the active harness's native mechanism when needed. Do not invent a universal skill execution command or force a harness, provider, model, or panel. If an approved dependency cannot load, report `blocked` or `verification-stale`; do not silently inline or replace it.
 
 Save command output, logs, response data, screenshots, or other project-supported evidence outside the checkout before cleanup. Use no shared or production state. Clean only resources created by the run and verify cleanup.
 

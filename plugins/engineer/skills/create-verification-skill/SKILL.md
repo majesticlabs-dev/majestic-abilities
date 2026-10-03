@@ -20,7 +20,16 @@ Do not start the build phase until approval is present. The creator is a setup t
 - Read-only project analysis and catalog inspection are allowed before approval. Do not edit the target project, install or create skills, execute product workflows, or delete anything before the user approves the proposal.
 - Treat a product failure and a broken verifier as different results. A verifier can be valid while reporting that the product fails its contract.
 - Do not use an example, a remembered preference, an installed skill, or a possible technology as proof of the project's stack or expected behavior. Derive those facts from project evidence or an explicit user requirement.
-- Do not add a default technology-specific skill or check. Propose one only when the project evidence or the user's requirement supports it.
+- Do not add a default technology-specific skill or check. Propose one only when the project evidence or the user's requirement supports it. A stack match plus a risk in the requested scope is sufficient evidence for an assessment skill; it does not need to prove a workflow by itself.
+
+## Verification layers
+
+A verifier has two kinds of layers. Model them separately:
+
+- **Execution layer:** project commands, existing drivers, project skills, or custom helpers that run the user paths and produce `verified`, `failed`, `blocked`, or `unrun` for each workflow.
+- **Assessment layers:** catalog or project skills that inspect the change, its tests, or the running result for one named risk, such as correctness and security, test quality, data integrity, privacy, performance, or rendered UI and accessibility. They produce findings. They do not run or replace the execution layer.
+
+A catalog skill does not compete with a project test run. Evaluate each assessment candidate by the risk it covers in the requested scope, not by whether it adds execution proof.
 
 ## Phase 1: build the proposal
 
@@ -46,7 +55,7 @@ Use a read-only catalog snapshot in this order:
 
 Capture the absolute source location and revision before reading recommendations. Treat only `plugins/*/skills/*/SKILL.md` as catalog entries. Do not use `.agents/skills`, `.claude/skills`, `tools`, or lock files from the catalog checkout as catalog entries or project evidence. If no complete snapshot is available, report that Majestic recommendations are unavailable and continue only with project skills or approved custom checks.
 
-Read names and frontmatter descriptions for the complete catalog snapshot, but do not read every skill body. Use those descriptions to shortlist candidates against direct project evidence and the requested workflow. Before including a candidate in the final proposal, read its complete `SKILL.md` and relevant linked references. Resolve the required supporting skills and other dependencies, including dependencies of composed skills, so the user can review the complete install and call plan. Reading a candidate does not authorize executing its instructions. Capture each proposed source path and revision, including local changes when the snapshot is not clean. Do not install the complete catalog by default.
+Read names and frontmatter descriptions for the complete catalog snapshot, but do not read every skill body. Use those descriptions to shortlist candidates for each assessment layer against direct project evidence, such as the stack, data handled, user interface, and integrations, and the requested workflows. Include project skills that are already installed. Before including a candidate in the final proposal, read its complete `SKILL.md` and relevant linked references. Resolve the required supporting skills and other dependencies, including dependencies of composed skills, so the user can review the complete install and call plan. Reading a candidate does not authorize executing its instructions. Capture each proposed source path and revision, including local changes when the snapshot is not clean. Do not install the complete catalog by default.
 
 ### 3. Define stable proposal items
 
@@ -56,10 +65,15 @@ Give every proposed check and skill a stable ID that remains unchanged when anot
 - starting state, concrete action, supported command or driver, and cleanup
 - expected observable result and its independent source, such as a requirement, contract, or existing user-facing documentation
 - failure signal, evidence to retain, and the isolated resources or side effects it creates
-- implementation: existing project skill, Majestic skill to install, or custom coordinator instruction/helper
+- execution layer: existing project skill, Majestic skill to install, or custom coordinator instruction/helper
+- assessment layers: the proposed assessment item IDs that apply to this workflow, if any
 - skill source and status: project path, Majestic category/path plus revision, or `custom`
 - all required dependencies, destination path, permissions, and side effects
 - the result if this item is rejected, including any coverage gap
+
+Give each assessment skill its own stable ID. Each assessment item must include the risk it covers, project evidence for that risk, the workflows it applies to, its inputs (change set, tests, running build, or evidence from the execution layer), its findings format, its install status, and its dependencies.
+
+Include a catalog coverage table. For each assessment layer relevant to the project, list every shortlisted candidate, whether it is proposed or rejected, and the evidence or reason. Propose every candidate that has project evidence as a separate item the user can reject. Do not omit a supported candidate to keep the proposal small: approval is the scope filter, and an omitted candidate is a hidden decision.
 
 Propose skills and checks separately when that makes approval clearer. For example, a check can name an existing project skill, a specific Majestic skill to install, or a custom helper. Do not imply that approving a check approves an undisclosed dependency. Approval must name the items, or explicitly approve all disclosed dependencies for named items.
 
@@ -82,11 +96,11 @@ Create custom verifier instructions or helpers only when their proposal item was
 Generate a project-local coordinator that calls its approved skills and owns its approved custom checks. It must contain:
 
 - scope, exclusions, prerequisites, and safe test-data rules
-- the approved call plan in an explicit order
-- for every approved skill call: installed name and path, purpose, inputs, expected result, evidence, and failure or stop behavior
+- the approved call plan in an explicit order: the execution layer first, then the approved assessment skills with the execution evidence they need
+- for every approved skill call: installed name and path, layer, purpose, inputs, expected result, evidence, and failure or stop behavior
 - the approved custom instructions and helper contracts, including inputs, outputs, errors, and cleanup
 - the project commands and drivers needed to prepare, start, reset, and identify the intended build
-- a report with `verified`, `failed`, `blocked`, and `unrun` workflows
+- a report with `verified`, `failed`, `blocked`, and `unrun` workflows, and a separate section for assessment findings by item ID; an assessment skill that did not run is `unrun`, not clean
 
 Use the active harness's native way to load or invoke a named installed skill when one exists. Do not invent a universal skill execution command, force a harness or model, or make the generated skill depend on this creator. If the active harness cannot load an approved skill, report the verifier as blocked instead of replacing or silently inlining that skill.
 
@@ -114,7 +128,7 @@ Remove only the temporary project-local creator and its own lock entry. Never re
 
 ## Deliverable
 
-Before approval, return the proposal with its stable IDs, evidence, sources, dependencies, side effects, cleanup item, and explicit coverage gaps. After the build, return:
+Before approval, return the proposal with its stable IDs, execution and assessment layers, catalog coverage table, evidence, sources, dependencies, side effects, cleanup item, and explicit coverage gaps. After the build, return:
 
 1. the generated skill path and approved scope
 2. installed skill paths, source revisions, and the approved call order
@@ -131,6 +145,7 @@ Before declaring the project verifier ready, confirm that:
 - project stack and workflow facts came from project evidence or explicit user requirements, not installed skills
 - the catalog source revision and every selected skill source are recorded
 - selected skills were shortlisted by description, then read in full with relevant references
+- the proposal showed a catalog coverage table per assessment layer, and every supported candidate was offered as a rejectable item
 - only approved checks, skills, custom resources, and cleanup actions were performed
 - all approved dependencies and side effects were disclosed and honored
 - the generated skill does not depend on this creator, a fixed harness, or an invented command

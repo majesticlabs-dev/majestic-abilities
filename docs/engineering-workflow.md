@@ -35,15 +35,16 @@ The creator performs these phases:
 
 1. It reads the target project's guidance, entrypoints, commands, tests, fixtures, runtime setup, and installed skills. It limits analysis to the requested workflows and their direct prerequisites.
 2. It reads relevant Majestic skill descriptions and instructions from a local checkout or a fetched read-only catalog snapshot. It records the catalog source and revision used for the proposal.
-3. It proposes verification checks. Each check has an ID, workflow, expected result, source of that expectation, reason, implementation type, required skills, commands or drivers, evidence, cleanup, and side effects.
+3. It proposes verification checks and assessment skills, each with a stable ID.
 
-The implementation type must be one of:
+A verifier has two kinds of layers:
 
-- an existing project skill;
-- a Majestic skill to install;
-- a custom check in the generated project verifier.
+- **Execution layer:** runs the user paths and gives each workflow `verified`, `failed`, `blocked`, or `unrun`. It uses an existing project skill, a Majestic skill to install, or a custom check in the generated verifier.
+- **Assessment layers:** catalog or project skills that inspect the change, its tests, or the running result for one named risk, such as correctness and security, test quality, data integrity, privacy, performance, or rendered UI. They produce findings. They do not run or replace the project tests.
 
-Technology matches only suggest candidates. The proposal must explain why each selected skill or custom check proves a requested behavior. It must disclose supporting skills, dependencies, credentials, processes, files, data, network access, and other target-project side effects.
+Each check has an ID, workflow, expected result, source of that expectation, execution layer, applicable assessment items, commands or drivers, evidence, cleanup, and side effects. Each assessment item has an ID, the risk it covers, the project evidence for that risk, its inputs, and its install status.
+
+The proposal includes a catalog coverage table: for each relevant assessment layer, every shortlisted skill with its proposed or rejected status and the reason. Every candidate with project evidence is offered as a separate item. You reduce the scope at approval. The proposal must disclose supporting skills, dependencies, credentials, processes, files, data, network access, and other target-project side effects.
 
 The creator pauses after the proposal. It does not install a skill, create a verifier, edit project files, or run target-project mutations until the user approves the proposal.
 
@@ -52,8 +53,8 @@ The creator pauses after the proposal. It does not install a skill, create a ver
 Review the IDs and approve or reject them explicitly. For example:
 
 ```text
-Approve V1 and V3, their listed dependencies, and the disclosed creator cleanup.
-Reject V2. Build and validate only the approved plan, then remove the temporary
+Approve V1, V2, A2, their listed dependencies, and the disclosed creator cleanup.
+Reject A1. Build and validate only the approved plan, then remove the temporary
 creator after its execution is validated.
 ```
 
@@ -61,7 +62,7 @@ The proposal must disclose all required dependencies before approval. A new depe
 
 After approval, the creator installs only approved skills, creates only approved verifier files, and records the exact source revisions. It then builds the project verifier with:
 
-- the approved skill calls and their call order;
+- the approved skill calls and their call order: the execution layer first, then the approved assessment skills;
 - project commands, drivers, prerequisites, and scope;
 - custom checks that have a concrete observable result;
 - evidence paths and report format;
@@ -73,19 +74,20 @@ The generated verifier calls the approved skills during verification. It does no
 
 For a CSV export retry workflow, a proposal could contain:
 
-| ID | Implementation | Check | Expected result source |
-| --- | --- | --- | --- |
-| V1 | Existing `export-check` skill | Run normal export and retry with the same input. | The project's export contract |
-| V2 | Majestic `data-pipeline-testing` to install | Apply stateful replay and duplicate-key testing rules within the verifier. | The project's documented retry requirement |
-| V3 | Custom verifier check | Seed existing output, retry the export, and inspect one row per ID. | The project's documented idempotency requirement |
+| ID | Layer | Implementation | Check or risk | Source |
+| --- | --- | --- | --- | --- |
+| V1 | Execution | Existing `export-check` skill | Run normal export and retry with the same input. | The project's export contract |
+| V2 | Execution | Custom verifier check | Seed existing output, retry the export, and inspect one row per ID. | The project's documented idempotency requirement |
+| A1 | Assessment | Majestic `data-pipeline-testing` to install | Review replay and duplicate-key test coverage for the retry path. | The project's documented retry requirement |
+| A2 | Assessment | Installed `test-reviewer` | Review whether the export tests detect duplicate rows. | The project's export tests |
 
-The user can approve V1 and V3 and reject V2. The generated `verify-export` coordinator calls `export-check` and runs the approved existing-state check. It does not install or call `data-pipeline-testing`, and it records any coverage lost by rejecting that check.
+The user can approve V1, V2, and A2 and reject A1. The generated `verify-export` coordinator calls `export-check`, runs the existing-state check, then calls `test-reviewer` and reports its findings separately from workflow status. It does not install or call `data-pipeline-testing`, and it records the coverage lost by rejecting A1.
 
 ## Validate and finish setup
 
 The creator validates the assembled verifier against the intended build with isolated data. It checks build identity, runs the approved workflows through their supported user paths, captures evidence outside the checkout, and confirms cleanup.
 
-Report verifier readiness separately from product results. Each approved workflow is `verified`, `failed`, `blocked`, or `unrun`, with its expected result, observed result, evidence, and failure cause. A product defect can produce a `failed` check while the verifier is valid. A broken call, helper, missing expectation, or unsafe environment leaves the verifier invalid or blocked.
+Report verifier readiness separately from product results. Each approved workflow is `verified`, `failed`, `blocked`, or `unrun`, with its expected result, observed result, evidence, and failure cause. Assessment findings are reported by item ID in a separate section. A product defect can produce a `failed` check while the verifier is valid. A broken call, helper, missing expectation, or unsafe environment leaves the verifier invalid or blocked.
 
 After this validation succeeds, remove only the project-local `create-verification-skill` files and the installation records that it owns. Do not remove the generated verifier, its approved runtime dependencies, or their installation records. If validation is incomplete, keep the setup skill so the project can resume the build.
 

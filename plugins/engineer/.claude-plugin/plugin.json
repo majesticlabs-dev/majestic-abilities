@@ -1,7 +1,7 @@
 {
   "name": "majestic-engineer",
   "displayName": "Majestic Engineer",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Coordinate engineering workflows, create and maintain project verification skills, and investigate, plan, review, simplify, and harden software changes.",
   "author": {
     "name": "Majestic Labs"
