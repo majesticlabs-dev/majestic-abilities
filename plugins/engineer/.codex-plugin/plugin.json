@@ -1,7 +1,7 @@
 {
   "name": "majestic-engineer",
-  "version": "0.2.1",
-  "description": "Scope, plan, review, simplify, and harden software changes: minimal sufficient work, implementation planning, code and test review, code simplification, complexity, logging, and multi-agent architecture.",
+  "version": "0.3.0",
+  "description": "Coordinate engineering workflows, create and maintain project verification skills, and investigate, plan, review, simplify, and harden software changes.",
   "author": {
     "name": "Majestic Labs"
   },
@@ -14,8 +14,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Majestic Engineer",
-    "shortDescription": "Software planning, review, testing, architecture, and code simplification skills.",
-    "longDescription": "Scope, plan, review, simplify, and harden software changes: minimal sufficient work, implementation planning, code and test review, code simplification, complexity, logging, and multi-agent architecture.",
+    "shortDescription": "Engineering workflows, project verification, planning, and review.",
+    "longDescription": "Coordinate engineering workflows, create and maintain project verification skills, and investigate, plan, review, simplify, and harden software changes.",
     "developerName": "Majestic Labs",
     "category": "Developer Tools",
     "capabilities": ["Skills"],

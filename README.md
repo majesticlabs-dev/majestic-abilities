@@ -1,6 +1,6 @@
 # Majestic Abilities
 
-Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 169 catalog skills, eight cookbooks, and two repository-operating skills, and follows the [Agent Skills](https://agentskills.io/) format.
+Majestic Abilities is a portable catalog of agent skills organized into 15 capability categories. It contains 174 catalog skills, nine cookbooks, and two repository-operating skills, and follows the [Agent Skills](https://agentskills.io/) format.
 
 You can install:
 
@@ -16,6 +16,7 @@ You can install:
 - [Install with the Skills CLI](#install-with-the-skills-cli)
 - [Browse the catalog](#browse-the-catalog)
 - [Cookbooks](#cookbooks)
+- [Engineering workflow guide](#engineering-workflow-guide)
 - [Explicit Invocation](#explicit-invocation)
 - [Repository model](#repository-model)
 - [Development](#development)
@@ -182,15 +183,15 @@ The CLI normally recommends symlinks so several agents can share one canonical i
 
 ## Browse the Catalog
 
-The catalog contains 169 skills plus eight cookbooks. Two repository-operating skills bring the Skills CLI inventory to 179 abilities. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see the exact inventory.
+The catalog contains 174 skills plus nine cookbooks. Two repository-operating skills bring the Skills CLI inventory to 185 abilities. Follow a category link to browse its skill directories, or run `npx skills add majesticlabs-dev/majestic-abilities --list` to see the exact inventory.
 
 | Category | Plugin | Skills | Focus |
 | --- | --- | ---: | --- |
 | [Cloudflare](plugins/cloudflare/skills/) | `majestic-cloudflare` | 11 | Cloudflare platform, Workers, Agents SDK, Durable Objects, security, infrastructure, and deployment |
-| [Core](plugins/core/skills/) | `majestic-core` | 3 | Agent-ready repositories, nested guidance audits, and durable session handoffs |
+| [Core](plugins/core/skills/) | `majestic-core` | 4 | Agent-ready repositories, nested guidance audits, context recovery, and durable session handoffs |
 | [Data](plugins/data/skills/) | `majestic-data` | 8 | Pipelines, contracts, quality controls, source assessment, and dbt |
 | [DevOps](plugins/devops/skills/) | `majestic-devops` | 10 | OpenTofu, Ansible, cloud-init, Kamal, secrets, storage, and infrastructure review |
-| [Engineer](plugins/engineer/skills/) | `majestic-engineer` | 11 | Scoping, planning, task decomposition, PR writing, code review, testing, complexity, logging, and code simplification |
+| [Engineer](plugins/engineer/skills/) | `majestic-engineer` | 14 | Verification skill creation and upkeep, codebase investigation, planning, review, testing, complexity, logging, and code simplification |
 | [Founder](plugins/founder/skills/) | `majestic-founder` | 14 | Company values, manual service pilots, strategy, priorities, founder fit, finance, fundraising, go-to-market, and launch readiness |
 | [Frontend](plugins/frontend/skills/) | `majestic-frontend` | 5 | Visual direction, performance, accessibility, validation, and screenshots |
 | [Marketing](plugins/marketing/skills/) | `majestic-marketing` | 13 | Positioning, naming, research, content, campaigns, and growth experiments |
@@ -200,7 +201,7 @@ The catalog contains 169 skills plus eight cookbooks. Two repository-operating s
 | [Reasoning](plugins/reasoning/skills/) | `majestic-reasoning` | 4 | Decision retrospectives, challenge, premortems, and reasoning verification |
 | [Sales](plugins/sales/skills/) | `majestic-sales` | 6 | ICP, outbound, pipeline, enablement, proposals, and account expansion |
 | [SEO](plugins/seo/skills/) | `majestic-seo` | 22 | Technical SEO, content strategy, schema, AEO, and AI search visibility |
-| [Writing](plugins/writing/skills/) | `majestic-writing` | 10 | Voice capture, brand voice, drafting, editing, copy, and structure |
+| [Writing](plugins/writing/skills/) | `majestic-writing` | 11 | Technical documentation, voice capture, brand voice, drafting, editing, copy, and structure |
 
 Core contains foundational repository and agent-session capabilities. Other categories do not depend on it. Misc is a temporary home for useful portable skills whose long-term category is not settled.
 
@@ -227,15 +228,21 @@ Cookbooks are user-invoked workflows that sequence catalog skills by name. Catal
 | [`first-customers`](plugins/sales/skills/first-customers/) | Sales plugin | `majestic-sales`, `majestic-founder`, `majestic-product` | Plan initial customer acquisition, offers, and evidence tracking |
 | [`marketing-plan`](plugins/marketing/skills/marketing-plan/) | Marketing plugin | `majestic-marketing` | Coordinate content channels, growth experiments, and spending decisions |
 | [`rails-feature`](plugins/rails/skills/rails-feature/) | Rails plugin | `majestic-engineer`, `majestic-rails` | Build and review a Rails feature end to end |
+| [`engineering-workflow`](plugins/engineer/skills/engineering-workflow/) | Engineer plugin | `majestic-engineer`, `majestic-writing` | Coordinate scoped engineering work from investigation through implementation, review, verification, and handoff |
 
 Each cookbook lives in the plugin that owns its primary user trigger and output. Supporting skills can come from other plugins. Cookbook frontmatter declares dependencies in the repository-defined string-valued `metadata.requires` key. Each cookbook's installation command includes the same dependency set because installers do not resolve dependencies.
 
+## Engineering workflow guide
+
+Use the [engineering workflow guide](docs/engineering-workflow.md) to install the workflow, approve project verification, and run engineering tasks.
+
 ## Explicit Invocation
 
-These 11 skills require explicit invocation. Each sets `disable-model-invocation: true` for Claude Code and Pi, and `allow_implicit_invocation: false` in `agents/openai.yaml` for Codex.
+These 12 skills require explicit invocation. Each sets `disable-model-invocation: true` for Claude Code and Pi, and `allow_implicit_invocation: false` in `agents/openai.yaml` for Codex.
 
 - [actionable-communication](plugins/misc/skills/actionable-communication/SKILL.md)
 - [ai-search-visibility-foundation](plugins/seo/skills/ai-search-visibility-foundation/SKILL.md)
+- [engineering-workflow](plugins/engineer/skills/engineering-workflow/SKILL.md)
 - [first-customers](plugins/sales/skills/first-customers/SKILL.md)
 - [growth-stage-decision](plugins/founder/skills/growth-stage-decision/SKILL.md)
 - [launch-decision](plugins/founder/skills/launch-decision/SKILL.md)
@@ -294,4 +301,4 @@ scripts/check-cookbooks.sh
 scripts/check-skills-cli.sh
 ```
 
-The checks validate plugin manifests, the exact public inventory, cookbook placement, referenced skill names, cookbook installation commands, default Skills CLI discovery, and installs of `rails-feature`, `first-customers`, `marketing-plan`, their dependencies, `company-values`, and `manual-service-pilot`. The Skills CLI smoke check requires Node.js and network access for its pinned CLI package; pass a public repository source as its first argument to test the published source after release.
+The checks validate plugin manifests, the exact public inventory, cookbook placement, referenced skill names, cookbook installation commands, default Skills CLI discovery, and installs of `rails-feature`, `first-customers`, `marketing-plan`, and `engineering-workflow` with their declared dependencies, plus `company-values` and `manual-service-pilot`. The Skills CLI smoke check requires Node.js and network access for its pinned CLI package; pass a public repository source as its first argument to test the published source after release.

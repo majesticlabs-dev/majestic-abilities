@@ -382,10 +382,10 @@ for plugin_dir in plugin_dirs:
                 fail(f"cannot resolve symlink {path}: {error}")
 
 standalone_count = len(plugin_skill_files) - len(plugin_cookbook_files)
-if standalone_count != 169:
-    fail(f"expected 169 standalone plugin skills, found {standalone_count}")
-if len(plugin_cookbook_files) != 8:
-    fail(f"expected 8 plugin-hosted cookbooks, found {len(plugin_cookbook_files)}")
+if standalone_count != 174:
+    fail(f"expected 174 standalone plugin skills, found {standalone_count}")
+if len(plugin_cookbook_files) != 9:
+    fail(f"expected 9 plugin-hosted cookbooks, found {len(plugin_cookbook_files)}")
 for obsolete_directory in (root / "cookbooks", root / "skills"):
     if obsolete_directory.exists():
         fail(f"{obsolete_directory.relative_to(root)}/ is obsolete; every cookbook must live in its primary domain plugin")
@@ -416,3 +416,4 @@ PY
 
 python3 scripts/check-skill-collisions.py
 python3 -m unittest discover -s scripts -p 'test_skill_collisions.py'
+python3 -m unittest discover -s scripts -p 'test_verification_creator_cleanup.py'

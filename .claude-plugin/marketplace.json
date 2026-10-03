@@ -23,8 +23,8 @@
     {
       "name": "majestic-core",
       "source": "./plugins/core",
-      "description": "Foundational agent capabilities for repository readiness, scoped guidance, and durable session handoffs.",
-      "version": "0.2.1",
+      "description": "Foundational agent capabilities for repository readiness, scoped guidance, working-context recovery, and durable session handoffs.",
+      "version": "0.3.0",
       "category": "core",
       "keywords": [
         "repository",
@@ -59,8 +59,8 @@
     {
       "name": "majestic-engineer",
       "source": "./plugins/engineer",
-      "description": "Scope, plan, review, simplify, and harden software changes: minimal sufficient work, implementation planning, code and test review, code simplification, complexity, logging, and multi-agent architecture.",
-      "version": "0.2.1",
+      "description": "Coordinate engineering workflows, create and maintain project verification skills, and investigate, plan, review, simplify, and harden software changes.",
+      "version": "0.3.0",
       "category": "engineer",
       "keywords": [
         "engineering",
@@ -178,8 +178,8 @@
     {
       "name": "majestic-writing",
       "source": "./plugins/writing",
-      "description": "Draft, revise, and audit prose: voice capture, brand voice, copy editing, direct response, and Minto structure.",
-      "version": "0.1.1",
+      "description": "Draft, revise, and audit prose and technical documentation: voice capture, brand voice, copy editing, direct response, and Minto structure.",
+      "version": "0.2.0",
       "category": "writing",
       "keywords": [
         "writing",

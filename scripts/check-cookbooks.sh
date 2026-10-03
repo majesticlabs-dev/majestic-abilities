@@ -122,6 +122,7 @@ for cookbook in $cookbooks; do
     ai-search-visibility-foundation) expected_plugin="seo" ;;
     launch-decision|growth-stage-decision) expected_plugin="founder" ;;
     product-engineering-handoff) expected_plugin="product" ;;
+    engineering-workflow) expected_plugin="engineer" ;;
     rails-feature) expected_plugin="rails" ;;
     first-customers) expected_plugin="sales" ;;
     marketing-plan) expected_plugin="marketing" ;;
@@ -224,8 +225,8 @@ done
 if [ "$found_cookbook" -eq 0 ]; then
   fail "no cookbooks found under plugins/*/skills/"
 fi
-if [ "$hosted_cookbook_count" -ne 8 ]; then
-  fail "expected 8 plugin-hosted cookbooks, found $hosted_cookbook_count"
+if [ "$hosted_cookbook_count" -ne 9 ]; then
+  fail "expected 9 plugin-hosted cookbooks, found $hosted_cookbook_count"
 fi
 if [ -d skills ] || [ -d cookbooks ]; then
   fail "top-level skills/ and cookbooks/ are obsolete; every cookbook must live in its primary domain plugin"

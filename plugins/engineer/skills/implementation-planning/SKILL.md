@@ -40,6 +40,14 @@ Ask only questions whose answers would materially change the plan. Record lesser
 
 Keep the plan proportional to the change. Reuse current inspection evidence and omit sections that do not affect execution. Define the completion endpoint, including how to exercise the behavior, fix failures caused by the change, and report blockers. Distinguish local verification from any separately authorized deployment.
 
+## Resolve Interface and Design Questions
+
+When a change creates or alters a shared interface, start with a realistic consumer example. Show the inputs, returned values, errors, and side effects that the caller needs. Derive the proposed signatures, data types, and ownership boundaries from that example. Check existing consumers and supported contracts before choosing the shape. Use the project's compiler or type checker when available.
+
+Use an isolated, disposable experiment only when existing source, tests, and supported contracts do not resolve a material design choice that depends on observable behavior. State the question, relevant conditions, and result that would select an approach before running it. Compare alternatives only when the choice remains unresolved. Record the command and observed result, then connect that evidence to the plan's decision. Identify any part the experiment did not establish.
+
+Experiments stay outside product source and use permitted local resources. If the required environment or authority is unavailable, state the unresolved question and the check needed to resolve it. A prototype does not authorize implementation, establish production readiness, or replace required regression coverage.
+
 ## Step Standard
 
 Every implementation step should state:
