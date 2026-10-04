@@ -9,7 +9,7 @@ Create nested guidance only where project boundaries justify it.
 
 ## Preconditions
 
-- Confirm that root repository guidance already exists. If it does not, stop. Run the target harness's initialization workflow when available, or create root guidance before designing a hierarchy.
+- Confirm that root repository guidance already exists. If it does not, stop and create root guidance with the `agent-ready-repository` Create Root Guidance route before designing a hierarchy.
 - Identify the target agent runtimes and verify how each runtime discovers, scopes, and prioritizes instruction files.
 - If a target runtime does not support nested `AGENTS.md` files, keep path-specific guidance in the root or another supported instruction mechanism.
 

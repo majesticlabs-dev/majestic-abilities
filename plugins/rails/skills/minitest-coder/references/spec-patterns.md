@@ -180,7 +180,7 @@ end
 
 ### Mock Objects for Verification
 
-Use mocks when you need to verify method calls:
+Use mocks for external boundaries, or when the outgoing call is the unit's contract:
 
 ```ruby
 test "calls payment gateway with correct parameters" do
@@ -196,9 +196,12 @@ test "calls payment gateway with correct parameters" do
 end
 ```
 
+If `PaymentGateway` is your own adapter, this test proves that the processor sends `order.total` to the adapter. It does not prove that the adapter sends the right request to the provider. Test the adapter against a stubbed HTTP boundary (WebMock or VCR).
+
 **Mocking best practices**:
 - Mock external services (APIs, payment gateways)
 - Avoid mocking objects under test
 - Use `stub` for simple return values
-- Use `mock` when verifying calls
+- Use `mock` when the outgoing call is an external boundary or the unit's contract
+- Do not mock your own collaborators to supply the result the test claims to verify
 - Reset mocks in `teardown` if needed

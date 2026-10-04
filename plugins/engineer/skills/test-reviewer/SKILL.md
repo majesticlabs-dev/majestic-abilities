@@ -25,6 +25,9 @@ description: "Review test coverage, assertions, isolation, and failure cases to 
 - Create a coverage matrix mapping user workflows and behavior contracts to test cases, including the failure each case would detect
 - Prefer end-to-end checks that prove a user can complete the workflow. Keep focused unit and integration tests when they detect additional real failures or isolate a failure that a broader check would miss
 - Do not require a separate unit test for every public method or enforce a testing pyramid by habit
+- Check that each required behavior is proven at its acceptance boundary: system or end-to-end tests through the real interface for user-facing flows, request or integration tests through the public boundary for APIs and non-UI workflows, and unit tests only for pure calculations, parsers, algorithms, and business rules
+- Use the smallest boundary that proves the claim. If correctness depends on the database, service wiring, or browser interaction, a unit test with those parts mocked is not acceptance evidence
+- Require each new unit test to state a concrete benefit: specific boundary cases or combinations that are costly at acceptance level, materially faster feedback for logic under active development, or more deterministic reproduction of a known defect. "Better coverage" is not a benefit
 
 ### 3. Analyze Test Coverage
 
@@ -43,6 +46,8 @@ For each user workflow or behavior contract, check if tests exist for:
   - Do tests verify behavior against an independent expectation, not mirror implementation details?
   - Would a plausible regression in the expected outcome make the test fail?
   - Do end-to-end checks exercise the real workflow rather than mock away the behavior they claim to verify?
+  - Do acceptance tests assert the promised final outcome and contractual effects (for example, the amount charged), not only an intermediate display, status, or screen?
+  - Where a test substitutes an external system, does it state what remains unproven, and does the substitute avoid supplying the business result the test claims to verify?
   - Are error messages helpful for debugging?
 - **Test Isolation**:
   - Do tests depend on execution order?
@@ -68,6 +73,8 @@ For each user workflow or behavior contract, check if tests exist for:
   - Is test data handled consistently (fixtures vs factories)?
 
 ### 6. Identify Missing Scenarios
+
+Recommend a missing test only when it would detect a failure that existing tests miss. State the test level and that failure for each recommendation. Prefer extending an acceptance test over adding a unit test that duplicates cases the acceptance tests already exercise reliably and cheaply.
 
 Look for common gaps:
 - **Nil/Empty Handling**: What happens with nil, empty strings, empty arrays?
@@ -96,6 +103,9 @@ Look for common gaps:
 - Agent-written tests that copy the implementation's assumptions without an independent contract
 - Many passing unit tests with no check that the user can complete the workflow
 - Redundant tests that add maintenance work without detecting additional failures
+- Mocks of the project's own forms, parameters, controllers, jobs, or services where their connections determine correctness
+- Acceptance expectations changed during a refactor or rewrite to match the new implementation without an independently established requirement change. Locator and setup changes are acceptable when the behavioral assertions stay the same
+- Implementation-coupled or temporary tests kept as protected assets. Recommend rewriting or removing them when acceptance or regression protection at the right level remains
 - Missing database state verification
 - **Frozen fixture assertions**: Exact collection comparisons (`assert_equal [a, b], scope` or `expect(scope).to eq([a, b])`) that break when unrelated fixtures are added. Recommend `assert_includes`/`expect(...).to include(...)` instead.
 
@@ -141,7 +151,7 @@ Record coverage as present, missing, or unknown. This static review cannot estab
 ### Missing Edge Cases
 [List specific edge case scenarios that should be tested]
 
-1. [Scenario]: [why it matters] → [file to add test]
+1. [Scenario]: [failure it would detect] → [test level] → [file to add test]
 
 ### Pattern Violations
 [Tests that don't follow project conventions or best practices]

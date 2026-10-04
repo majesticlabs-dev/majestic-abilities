@@ -188,7 +188,7 @@ The catalog contains 174 skills plus nine cookbooks. Two repository-operating sk
 | Category | Plugin | Skills | Focus |
 | --- | --- | ---: | --- |
 | [Cloudflare](plugins/cloudflare/skills/) | `majestic-cloudflare` | 11 | Cloudflare platform, Workers, Agents SDK, Durable Objects, security, infrastructure, and deployment |
-| [Core](plugins/core/skills/) | `majestic-core` | 4 | Agent-ready repositories, nested guidance audits, context recovery, and durable session handoffs |
+| [Core](plugins/core/skills/) | `majestic-core` | 4 | Root AGENTS.md creation, agent-ready repositories, nested guidance audits, context recovery, and durable session handoffs |
 | [Data](plugins/data/skills/) | `majestic-data` | 8 | Pipelines, contracts, quality controls, source assessment, and dbt |
 | [DevOps](plugins/devops/skills/) | `majestic-devops` | 10 | OpenTofu, Ansible, cloud-init, Kamal, secrets, storage, and infrastructure review |
 | [Engineer](plugins/engineer/skills/) | `majestic-engineer` | 14 | Verification skill creation and upkeep, codebase investigation, planning, review, testing, complexity, logging, and code simplification |

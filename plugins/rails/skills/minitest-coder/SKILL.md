@@ -134,14 +134,15 @@ Stub external boundaries such as network calls, time, payment providers, object 
 | Method | Purpose |
 |--------|---------|
 | `Object.stub :method, value` | Stub return value |
-| `Minitest::Mock.new` | Verify method calls |
+| `Minitest::Mock.new` | Verify a call to an external boundary, or a call that is the unit's contract |
 
 ```ruby
 test "processes payment" do
   PaymentGateway.stub :charge, true do
-    processor = OrderProcessor.new(order)
-    assert processor.process
+    OrderProcessor.new(order).process
   end
+
+  assert_equal "completed", order.reload.status
 end
 ```
 

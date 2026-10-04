@@ -1,11 +1,13 @@
 ---
 name: agent-ready-repository
-description: "Fix repository guidance, commands, and boundaries when coding agents repeatedly misuse them."
+description: "Create root AGENTS.md guidance for a project, or fix guidance, commands, and boundaries when coding agents repeatedly misuse them."
 ---
 
 # Agent-Ready Repository
 
 Treat repeated agent failures as repository feedback. Fix missing context and deterministic enforcement before adding more generic instructions.
+
+Use the **Create Root Guidance** route when the repository has no root `AGENTS.md`. Use the **Repair Workflow** when agents repeatedly misuse existing guidance, commands, or boundaries.
 
 ## Principles
 
@@ -15,7 +17,23 @@ Treat repeated agent failures as repository feedback. Fix missing context and de
 4. **Teaching failures:** Validation errors should identify the violation, consequence, and correct path.
 5. **Small maintenance loops:** Remove stale guidance and dead automation before they become trusted misinformation.
 
-## Workflow
+## Create Root Guidance
+
+1. **Check runtime discovery.** Identify the target agent runtimes and how each discovers instruction files. If a runtime reads a different file, such as `CLAUDE.md`, link or import `AGENTS.md` from it instead of duplicating content.
+2. **Collect repository facts.** Read the README, dependency manifests, task runners, CI configuration, and existing docs. Record only facts the repository supports:
+   - purpose and main entry points
+   - setup, test, lint, build, and run commands
+   - which commands mutate data, shared resources, or external systems
+   - module and dependency boundaries, generated files, and migrations
+   - approval gates for destructive actions, external writes, and deployment
+3. **Verify commands.** Run safe local commands where practical. Mark detected but unrun commands as unverified.
+4. **Record the testing policy.** Map each kind of behavior to the project's test command at its acceptance boundary. Add a testing policy, such as the acceptance-first template in [patterns.md](references/patterns.md), only when the user or team adopts it. Do not install a policy by default.
+5. **Write the smallest root file.** Include repository-wide commands, invariants, and gates. Link long rationale and runbooks instead of copying them. Do not add generic coding advice, framework tutorials, or rules for problems the repository does not have.
+6. **Plan nested guidance separately.** Use `agents-md-hierarchy` when areas need different commands or rules.
+
+Report the facts used, verified and unverified commands, adopted policies, and open questions.
+
+## Repair Workflow
 
 ### 1. Collect Failure Evidence
 
@@ -100,7 +118,7 @@ Keep completion criteria: implement the requested behavior, exercise it where pr
 
 Automated cleanup may propose changes, but destructive cleanup still requires normal review and validation.
 
-Load [patterns.md](references/patterns.md) when creating a guidance template or structural check.
+Load [patterns.md](references/patterns.md) when creating root guidance, a guidance template, or a structural check.
 
 ## Completion Report
 
