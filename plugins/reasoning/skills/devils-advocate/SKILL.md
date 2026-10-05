@@ -19,7 +19,7 @@ Use this skill when multiple approaches remain possible and choosing poorly has 
 
 Identify:
 
-1. The decision being made.
+1. The decision being made and the outcome it must achieve, stated apart from the proposed method.
 2. The currently preferred option and why it is attractive.
 3. Credible alternatives.
 4. Constraints, evidence, and irreversible costs.
@@ -65,7 +65,19 @@ Build the strongest case against the preferred option. Examine:
 
 Include at least one non-obvious failure mode. Do not invent remote objections merely to lengthen the list.
 
-### 3. Separate evidence from uncertainty
+### 3. Audit constraints
+
+Classify each material constraint:
+
+- **Limit:** physical, technical, or verified fact that no option can avoid
+- **Binding:** user requirement, preference, legal duty, approval boundary, budget, or deadline. Keep it even when it is not a physical law.
+- **Convention:** habit, analogy, or inherited practice with no evidence that it applies here
+
+For each convention, ask what supports it and what would disprove it. Stop when another level of questioning would not change the decision. An analogy can suggest options but does not prove that an option works here.
+
+When cost or effort drives the choice, compare the current cost with the floor set by its inputs. Count integration, reliability, maintenance, and switching costs; component savings do not prove finished-system savings.
+
+### 4. Separate evidence from uncertainty
 
 Classify each objection as:
 
@@ -75,7 +87,7 @@ Classify each objection as:
 
 State what evidence would confirm or refute every material plausible objection.
 
-### 4. Resolve the objections
+### 5. Resolve the objections
 
 For each verified or material plausible objection:
 
@@ -86,7 +98,7 @@ For each verified or material plausible objection:
 
 Every mitigation must map to a specific objection.
 
-### 5. Reassess the choice
+### 6. Reassess the choice
 
 Compare the revised preferred option with credible alternatives using the original constraints. Do not preserve the initial recommendation merely for consistency.
 
@@ -133,6 +145,8 @@ High | Medium | Low: [reason]
 
 - The critique attacks the strongest version of the option.
 - Material objections are evidence-labeled.
+- Material constraints are classified as limit, binding, or convention.
+- Cost claims include integration and operating costs, not only component costs.
 - Opportunity cost and reversibility are explicit.
 - Mitigations map to objections.
 - The final recommendation is allowed to change.
