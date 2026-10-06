@@ -54,6 +54,15 @@ A Yellow draft is not ready for transfer. Refresh it after later decisions, file
 
 Use a temporary file in the destination directory for atomic replacement. Keep large tool output in its existing durable file and link to it instead of copying it into the handoff.
 
+## Unattended Prepare
+
+A host can invoke Prepare while the user is away, for example on a lifecycle event or a cost-pressure signal. In that mode:
+
+- Ask no questions and wait for no confirmation. Write the artifact from current session state and repository evidence.
+- Run no command that can raise a permission prompt. Skip optional evidence that needs an unapproved tool instead of blocking the handoff.
+- Keep investigation minimal. Collect Git state in one command where possible and avoid rereading large files, because each extra tool call adds context and cost.
+- When the session holds no work worth resuming, say so in one sentence and write nothing.
+
 ## Resume Workflow
 
 1. Read the requested `HANDOFF.md`, or locate the latest one only within the confirmed project.

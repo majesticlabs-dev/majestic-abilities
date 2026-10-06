@@ -117,8 +117,8 @@ dirty: <boolean or null>
 
 - Keep the artifact sufficient but bounded. Link to durable logs, diffs, plans, or test reports when they already exist.
 - Record what changed and why. Do not copy the full conversation.
-- Keep exact user requirements when paraphrasing could change meaning.
-- Include only decisions that constrain later work. Mark proposals and hypotheses as unsettled.
+- Keep exact user requirements when paraphrasing could change meaning. Record standing instructions about how to work under User Requirements, because the next session has not heard them.
+- Include only decisions that constrain later work. Mark proposals and hypotheses as unsettled. Record options the user ruled out with status `rejected` and the rejection reason, so the next session does not propose them again.
 - State partial code, failing tests, background processes, temporary files, and uncommitted migrations explicitly.
 - Use repository-relative paths in the body and the absolute path only in frontmatter.
 - Do not use line numbers as the only pointer because edits make them stale.
