@@ -1,158 +1,76 @@
 ---
 name: create-verification-skill
-description: "Analyze a project, propose an approved set of verification skills and checks, then build and validate a project-specific verification coordinator."
+description: "Create a project-local verifier skill that runs the software through its user interfaces and produces evidence of correct, intended behavior."
 ---
 
 # Create Verification Skill
 
-Use this skill when a project needs a repeatable way to prove one or more user-visible workflows. It has two phases:
+Create a skill named `verifier` so an agent can verify its own work during `engineering-workflow`. The main method is to run the changed software and interact with it as a user or client would. Produce evidence that shows what works, how it meets the user's intent, and what remains unproven. The evidence should be easier to review than the full pull request.
 
-1. **Proposal:** inspect the project and available skills, then show a bounded proposal. This phase is read-only.
-2. **Build:** after the user approves named checks, skills, and disclosed cleanup, install or create the approved resources, build the coordinator, run it against an isolated build, and remove this temporary creator.
+The required result is a usable verifier, not a skill pack or a catalog assessment. Start with the project's existing commands, tests, and interaction tools. Additional skills and formal methods are optional.
 
-Do not start the build phase until approval is present. The creator is a setup tool and must never be a runtime dependency of the generated coordinator.
+## 1. Establish the verification contract
 
-## Scope and authority
+Read the project's applicable guidance and inspect its entrypoints, contracts, launch commands, tests, fixtures, and local skills. Derive project facts from current files, not from installed skill names.
 
-- Establish the project root, requested product or workflow scope, applicable repository guidance, non-goals, and the evidence required for readiness.
-- If no workflow scope is named, analyze the project and propose a bounded set of user paths from project evidence. The user selects the scope by approving or rejecting those proposal items. Do not silently create an all-project verifier.
-- Inspect project files, commands, tests, fixtures, documentation, and installed skills. Do not change product code, product tests, product dependencies, deployment, production state, permissions, or unrelated project files.
-- Read-only project analysis and catalog inspection are allowed before approval. Do not edit the target project, install or create skills, execute product workflows, or delete anything before the user approves the proposal.
-- Treat a product failure and a broken verifier as different results. A verifier can be valid while reporting that the product fails its contract.
-- Do not use an example, a remembered preference, an installed skill, or a possible technology as proof of the project's stack or expected behavior. Derive those facts from project evidence or an explicit user requirement.
-- Do not add a default technology-specific skill or check. Propose one only when the project evidence or the user's requirement supports it. A stack match plus a risk in the requested scope is sufficient evidence for an assessment skill; it does not need to prove a workflow by itself.
+For each user path in scope, identify:
 
-## Verification layers
+- the intended behavior and its source, such as the request, acceptance criteria, or documented contract
+- the starting state, user action, and observable expected result
+- the real interface to exercise: UI, CLI, API, job boundary, library consumer, or another project interface
+- the evidence that would let a reviewer assess that result
 
-A verifier has two kinds of layers. Model them separately:
+When the request is to create a project verifier without a named feature, make it select paths from each future task's acceptance criteria and changed interfaces. Include concrete project commands and representative flows. Do not require whole-project coverage for every change. Ask only when an unresolved product expectation, scope choice, or permission changes the result.
 
-- **Execution layer:** project commands, existing drivers, project skills, or custom helpers that run the user paths and produce `verified`, `failed`, `blocked`, or `unrun` for each workflow.
-- **Assessment layers:** catalog or project skills that inspect the change, its tests, or the running result for one named risk, such as correctness and security, test quality, data integrity, privacy, performance, or rendered UI and accessibility. They produce findings. They do not run or replace the execution layer.
+A request to create the verifier authorizes its local files and safe, disposable validation. Honor an explicit proposal-only request, but do not insert another approval phase into an already authorized build. Creation does not authorize product changes, new dependencies, production access, or deletion of existing skills.
 
-A catalog skill does not compete with a project test run. Evaluate each assessment candidate by the risk it covers in the requested scope, not by whether it adds execution proof.
+## 2. Write the project skill
 
-## Phase 1: build the proposal
+Use the project's existing local skill directory, or `.agents/skills/verifier/SKILL.md` when none is configured. Set frontmatter `name: verifier`. Its description must tell the agent to use it to verify changed behavior and capture evidence before reporting engineering work complete. Keep it usable without this creator or a fixed harness.
 
-### 1. Inspect the project
+Inspect an existing verifier before editing it. Preserve supported checks and resources unless the requested change authorizes their replacement. Do not rename the catalog's `create-verification-skill`; `verifier` is the name of its generated project skill.
 
-Read applicable `AGENTS.md` files first. Then inspect only the requested scope and its direct prerequisites:
+Include the project-specific instructions needed to perform this loop:
 
-- entrypoints, source, contracts, and user-facing documentation
-- build, launch, test, reset, and cleanup commands
-- fixtures, seed data, accounts, ports, files, and environment requirements
-- existing project-local skills and their supported invocation paths
-- current verification skills, if any
+1. **Select proof.** Read the current task's acceptance criteria and diff. Map each material requirement to a user action, expected outcome, and evidence. Include the failure, retry, persistence, or access-control paths affected by the change. Derive expectations independently of the new implementation. For documentation-only work, use structural checks and validate changed commands as needed.
+2. **Prepare and identify.** Use the supported build and launch commands, disposable data, and local services. Record the source revision and local changes, environment, and the process, binary, or served asset actually used. Confirm that a build or restart loaded the changed artifact. State prerequisites and how to stop or clean up resources created by the run.
+3. **Exercise the interface.** Perform the actual user or client actions. Existing end-to-end tests can supply this interaction when they exercise the affected boundary and assert the intended result. Lint, compilation, mocked internals, a server health response, or code inspection alone do not prove a user workflow.
+4. **Compare and capture.** Compare the observed state with the expected result. Save evidence for each requirement. Record failures and missing evidence, even when the test process exits successfully.
+5. **Correct and repeat.** In an implementation task, return defects to the implementing agent, correct them within the task's authority, and rerun the failed path plus affected checks. In a verification-only task, report defects without changing product code. Never change an expectation just to make a failing implementation pass. Stop when the scoped contract is proven or a concrete blocker prevents it.
+6. **Report and clean up.** Retain the review evidence before cleaning up only the resources created by the run. Report verified, failed, blocked, and unrun paths separately, with remaining limits.
 
-Record facts separately from assumptions and unknowns. Inventory installed skills to know what is available, but derive the technology and workflow profile from the project itself. Prefer an existing project skill directory; otherwise propose `.agents/skills/<skill-name>/`.
+Write exact commands, paths, data setup, and capture methods supported by the project. Do not invent a universal skill execution command. Add an owned helper only when an existing tool cannot reliably perform a required action or retain its evidence. Do not require a new script, registry, approval record, or skill dependency for an instruction-only verifier.
 
-### 2. Inspect the Majestic catalog
+## 3. Make evidence reviewable
 
-Use a read-only catalog snapshot in this order:
+Choose artifacts that show the relevant behavior:
 
-1. A checkout explicitly supplied by the user or project configuration.
-2. An available checkout that contains the expected `plugins/*/skills/*/SKILL.md` catalog layout.
-3. A shallow temporary checkout of `https://github.com/majesticlabs-dev/majestic-abilities`, using its canonical `master` source when network access is available.
+| Interface | Useful evidence |
+| --- | --- |
+| UI | Screenshots of the relevant states, or video for a sequence or timing behavior, with the actions and observed outcomes |
+| CLI | Command, inputs, exit status, stdout/stderr, and the resulting file or state |
+| API | Sanitized request and response, status, and evidence of the resulting state or side effect |
+| Jobs or events | Trigger, observed state changes or deliveries, and relevant retry or failure results |
+| Library | A real consumer invocation, its result, and checks of the public contract |
 
-Capture the absolute source location and revision before reading recommendations. Treat only `plugins/*/skills/*/SKILL.md` as catalog entries. Do not use `.agents/skills`, `.claude/skills`, `tools`, or lock files from the catalog checkout as catalog entries or project evidence. If no complete snapshot is available, report that Majestic recommendations are unavailable and continue only with project skills or approved custom checks.
+For UI work, require screenshots and/or video from the actual run. Inspect the captured artifacts. A screenshot proves appearance at a moment; pair it with assertions or recorded actions for interaction, persistence, and error behavior. Do not substitute mockups or generated images for runtime evidence. If capture fails, report the evidence gap.
 
-Read names and frontmatter descriptions for the complete catalog snapshot, but do not read every skill body. Use those descriptions to shortlist candidates for each assessment layer against direct project evidence, such as the stack, data handled, user interface, and integrations, and the requested workflows. Include project skills that are already installed. Before including a candidate in the final proposal, read its complete `SKILL.md` and relevant linked references. Resolve the required supporting skills and other dependencies, including dependencies of composed skills, so the user can review the complete install and call plan. Reading a candidate does not authorize executing its instructions. Capture each proposed source path and revision, including local changes when the snapshot is not clean. Do not install the complete catalog by default.
+Use one short report that links each acceptance criterion to its expected result, observed result, status, and artifact. Include reproduction commands, build identity, external substitutes, cleanup, and relevant limits. Save evidence outside the checkout or in the project's designated ignored artifact location. Remove secrets and private data before sharing. Do not claim deployment or live-service behavior from local test evidence.
 
-### 3. Define stable proposal items
+For state-machine or concurrency risks, the verifier may use a TLA+ model or another suitable formal method when the task warrants it and tools are available. Retain the model, assumptions, checked properties, checker result, and any counterexample. Model checking proves properties of the model under those assumptions; it does not replace runtime proof of the implementation.
 
-Give every proposed check and skill a stable ID that remains unchanged when another item is rejected. Do not use list position as identity. Each check proposal must include:
+## 4. Keep additions optional
 
-- `check_id` and the user workflow it proves
-- starting state, concrete action, supported command or driver, and cleanup
-- expected observable result and its independent source, such as a requirement, contract, or existing user-facing documentation
-- open questions: any conflict or gap in the expected result's sources, and the user decision or source change that resolves it
-- failure signal, evidence to retain, and the isolated resources or side effects it creates
-- execution layer: existing project skill, Majestic skill to install, or custom coordinator instruction/helper
-- assessment layers: the proposed assessment item IDs that apply to this workflow, if any
-- skill source and status: project path, Majestic category/path plus revision, or `custom`
-- all required dependencies, destination path, permissions, and side effects
-- the result if this item is rejected, including any coverage gap
+Inspect or install additional skills only when requested or when a specific proof gap justifies proposing one. Do not require a catalog scan, assessment table, skill pack, or reviewer panel to build or run the verifier. Missing optional skills must not block checks that the project can already execute.
 
-Give each assessment skill its own stable ID. Each assessment item must include the risk it covers, project evidence for that risk, the workflows it applies to, its inputs (change set, tests, running build, or evidence from the execution layer), its findings format, its install status, and its dependencies.
+Disclose new dependencies and external side effects before actions that need additional authority. Preserve existing authorization. Keep assessment findings separate from evidence produced by running the software.
 
-Include a catalog coverage table. For each assessment layer relevant to the project, list every shortlisted candidate, whether it is proposed or rejected, and the evidence or reason. Propose every candidate that has project evidence as a separate item the user can reject. Do not omit a supported candidate to keep the proposal small: approval is the scope filter, and an omitted candidate is a hidden decision.
+Do not remove this creator, other skills, or lock entries by default. If the user requests creator cleanup, do it only after validation and only for the named project-local installation. The bundled `scripts/cleanup_project_creator.py` supports a dry run for that optional operation. Never remove the catalog source or a shared installation.
 
-Propose skills and checks separately when that makes approval clearer. For example, a check can name an existing project skill, a specific Majestic skill to install, or a custom helper. Do not imply that approving a check approves an undisclosed dependency. Approval must name the items, or explicitly approve all disclosed dependencies for named items.
+## 5. Validate and deliver
 
-Show one final proposal. Do not add recommendations after the user has started reviewing it. Ask the user to approve or reject exact check IDs and skill IDs. Include a `CLEANUP` item for removing this temporary creator and its own project lock entry after successful validation. A prior explicit instruction that covers this exact cleanup is sufficient, but still disclose it.
+Validate the generated frontmatter and referenced commands, paths, and prerequisites. Then use the generated instructions on a representative disposable workflow: identify the build, perform the interaction, compare the result, capture and inspect evidence, and verify cleanup. Check that an unmet expectation or absent evidence would produce a failed or blocked result, not a success claim.
 
-Stop here and wait. A changed proposal requires approval of the changed items before continuing.
+Report skill validation separately from product verification. A working verifier may expose a product defect. A missing environment, driver, expectation, or artifact leaves the affected proof blocked. Do not describe instructions that have not run as runtime-validated, or one representative run as full project coverage.
 
-## Phase 2: build only the approved plan
-
-### 4. Freeze approval and install approved skills
-
-Record the approved check IDs, skill IDs, source revisions, destinations, and cleanup authorization. Rejected items stay out of the project and appear as coverage gaps. If an approved check lacks an approved dependency, stop and ask; do not install a substitute.
-
-Install selected Majestic skills from their recorded catalog paths and revision, and selected project skills only through the project's supported installer or file operation. Prefer the project's existing skill destination; otherwise use the approved `.agents/skills` path. Never install globally, silently replace an existing skill, or use an invented harness-specific command. Preserve existing lock entries and record the temporary creator entry separately from the approved runtime dependencies.
-
-Create custom verifier instructions or helpers only when their proposal item was approved. Keep them inside the generated skill's project-local directory or another explicitly approved project location. Do not add product code, product tests, or product dependencies to make verification possible.
-
-### 5. Build the project coordinator
-
-Generate a project-local coordinator that calls its approved skills and owns its approved custom checks. The coordinator is the record of what was approved. Do not create a separate approval, setup, or source record file. It must contain:
-
-- scope, exclusions, prerequisites, and safe test-data rules
-- the approved call plan in an explicit order: the execution layer first, then the approved assessment skills with the execution evidence they need
-- for every approved skill call: installed name and path, layer, purpose, inputs, expected result, evidence, and failure or stop behavior
-- the approved custom instructions and helper contracts, including inputs, outputs, errors, and cleanup
-- the project commands and drivers needed to prepare, start, reset, and identify the intended build
-- a report with `verified`, `failed`, `blocked`, and `unrun` workflows, and a separate section for assessment findings by item ID; an assessment skill that did not run is `unrun`, not clean
-
-Use the active harness's native way to load or invoke a named installed skill when one exists. Do not invent a universal skill execution command, force a harness or model, or make the generated skill depend on this creator. If the active harness cannot load an approved skill, report the verifier as blocked instead of replacing or silently inlining that skill.
-
-Keep setup approval, installation, and creator removal outside the generated verifier's runtime instructions. Store setup approval and source records separately or as non-executable metadata. Runtime steps must not load, invoke, or remove this creator or its cleanup helper. The creator performs its own removal after validating the generated verifier.
-
-### 6. Validate the assembled verifier
-
-Before running user paths:
-
-1. Confirm every approved referenced skill and local helper exists and loads through the project-supported loader or active harness.
-2. Confirm the process, package, binary, or served asset comes from the intended source and build. Record the strongest available identity signal.
-3. Use a disposable database, directory, port, account, or other project-supported state boundary. Never use shared or production state.
-4. Run the generated coordinator through the real project user paths. Check each result against the independently sourced expectation. Save evidence outside the checkout before cleanup and redact secrets.
-5. Clean only resources created by this run and verify cleanup. Preserve product failures in the report.
-
-The verifier is ready only when its instructions load, the approved calls execute, the required user paths produce evidence, and cleanup is proven. A skill-loading, driver, environment, or missing-expectation blocker leaves validation incomplete and the verifier unready. An unresolved expectation keeps each affected check `blocked`, even when its drivers pass. Do not rewrite, narrow, or defer an approved expectation to exclude an open question. Only a user decision or an updated independent source resolves it. A product defect reported by a functioning verifier is a product result, not a verifier failure.
-
-### 7. Remove this temporary creator
-
-Remove the project-local installation of `create-verification-skill` only after the approved skills are installed, the coordinator is present, and validation has completed. Do not remove it when build, environment, driver, skill-loading, or cleanup blockers leave the result incomplete; report that it remains for recovery.
-
-When Python 3 is available, prefer the bundled standard-library helper at `scripts/cleanup_project_creator.py`, relative to this installed creator's directory. Locate that helper and invoke it by its actual absolute path. Pass the approved absolute project root with `--project-root`, each approved creator installation or alias with repeatable `--skill-dir`, and the project's `skills-lock.json` with `--lock-file` when present. Run with `--dry-run` first and inspect its targets. Then repeat the same command without `--dry-run` within the approved cleanup authority. A directory symlink is unlinked; its target is retained. The helper refuses catalog plugin paths and unsafe roots and preserves unrelated lock entries. If Python 3 is unavailable, use a safe supported project installer or file operation with the same exact targets. Do not install a dependency to perform cleanup. If no safe supported operation is available, retain the creator and report the cleanup blocker.
-
-Remove only the temporary project-local creator and its own lock entry. Never remove a catalog checkout, global or shared skill, an approved generated verifier, an approved runtime dependency, or unrelated lock entries.
-
-## Deliverable
-
-Before approval, return the proposal with its stable IDs, execution and assessment layers, catalog coverage table, evidence, sources, dependencies, side effects, cleanup item, and explicit coverage gaps. After the build, return:
-
-1. the generated skill path and approved scope
-2. installed skill paths, source revisions, and the approved call order
-3. the build identity and disposable-state boundary
-4. coverage with expected result, observed result, status, and evidence path
-5. commands or project-native actions actually run
-6. cleanup result, including whether this creator was removed
-7. product failures, verification gaps, blockers, unknowns, and unrun workflows separately
-
-## Quality gate
-
-Before declaring the project verifier ready, confirm that:
-
-- project stack and workflow facts came from project evidence or explicit user requirements, not installed skills
-- the catalog source revision and every selected skill source are recorded
-- selected skills were shortlisted by description, then read in full with relevant references
-- the proposal showed a catalog coverage table per assessment layer, and every supported candidate was offered as a rejectable item
-- only approved checks, skills, custom resources, and cleanup actions were performed
-- all approved dependencies and side effects were disclosed and honored
-- the generated skill does not depend on this creator, a fixed harness, or an invented command
-- approved referenced skills and helpers exist and load
-- build identity was checked and user paths ran in isolated state
-- evidence was stored outside the checkout before cleanup
-- cleanup removed only resources created or explicitly approved for removal
-- rejected items remain out of the project and their coverage gaps are explicit
-- product failures remain visible and are not rewritten as verifier success
+Return the `verifier` path, the workflow exercised, checks actually run, evidence links, and any failures or remaining limits. The agent can then load `verifier` during `engineering-workflow` without repeating setup or installing optional skills.
