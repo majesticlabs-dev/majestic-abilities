@@ -74,17 +74,19 @@ Invoke `technical-writing` when technical documentation is part of the requested
 
 ### Project-specific verification
 
-Use the approved project verification skill when it covers the requested user path. Load it and apply its approved skill calls and custom checks within the current task's scope. Check that its runtime dependencies are available before execution. Require actual results and evidence from called skills; loading instructions or receiving a delegate's acknowledgment does not prove that a check ran.
+Load `verifier/SKILL.md` from the project's local skill directory when present. Select checks from the current task's acceptance criteria and changed interfaces. Run the actual UI, CLI, API, or other user path against the intended build in disposable state. Existing end-to-end tests can provide this interaction when they exercise the affected boundary. Require actual results, not just loaded instructions or a delegate's acknowledgment.
 
-Invoke `maintain-verification-skill` only when the verifier or its approved call contracts are stale or an owned driver needs maintenance. Missing approved skills are dependency blockers, not permission to install replacements. New checks, skill calls, or dependencies need user approval.
+Link each material acceptance criterion to its expected result, observed result, and reviewable artifact. For UI work, capture and inspect screenshots and/or video of the relevant states and interactions. For other interfaces, retain commands, responses, exit status, and resulting state as appropriate. A green build or health response alone does not prove the user path.
 
-Verifier creation is a separate one-time setup operation. The setup tool can be removed after that operation; this workflow must run without it. When no verifier covers the requested path, use sufficient existing project checks. Propose separate verifier setup only when the required proof needs it and the user authorizes that scope. Do not reinstall removed setup tools or expand product scope automatically.
+Correct failures within the implementation task's authority, then rerun the failed path and affected checks. Preserve the intended behavior when the product fails. Report product failures, stale verification instructions, broken drivers, environment blockers, and unrun paths separately. Never weaken an expectation to make the result pass.
 
-Preserve the verifier's expected product behavior when the product fails. Report a product regression separately from stale verification instructions, a broken driver, an environment block, or an unrun path.
+Invoke `maintain-verification-skill` only when existing verifier instructions or owned drivers need correction. Verifier setup is a separate task: when no verifier is present, use sufficient existing project checks and report missing proof. Create one when the user requests that scope. Optional skills, skill packs, and formal methods are not prerequisites for executing available checks, and missing optional tools must not block them.
+
+Confirm that the process, binary, or served asset used for proof includes the change. Preserve evidence before cleaning up resources created by the run. Do not use shared or production state for local proof. The workflow and generated verifier must run without the creator remaining installed.
 
 ## 4. Review and verify
 
-Run the narrowest existing project checks that prove the requested behavior. Use disposable data and an isolated or proven read-only environment. Confirm the running process uses the intended build when the request includes a build, install, or runtime check. Do not use shared or production state for local proof.
+Run the narrowest existing project checks that prove the requested behavior, plus checks required by repository policy. Use disposable data and an isolated or proven read-only environment.
 
 Invoke `code-review` when the user asks for a code review or the change has concrete risk that warrants a separate review. Invoke `test-reviewer` when test coverage, assertions, isolation, or failure cases need a separate review. Keep each review within the requested files and behavior.
 
@@ -113,7 +115,7 @@ Invoke `writing-pr` when a pull request title or description is requested or aut
 - Bug fixes have reproduction or a clear reason reproduction was unavailable, plus a traced cause or an explicit unknown.
 - Every material status claim has current evidence or is labeled unknown or unverified.
 - Product failures are not hidden by changing expected verification results.
-- Project verification uses approved checks and skill calls. Maintenance or separate setup occurs only when needed and authorized.
+- Project verification exercises the changed user paths and links the intended behavior to observed results and artifacts. Maintenance or separate setup stays within the task's authority.
 - A delegated review is complete only when its actual result is available.
 - The workflow stops at the requested scope instead of expanding into unrelated cleanup, whole-repository review, or future work.
 
