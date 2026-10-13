@@ -179,7 +179,7 @@
       "name": "majestic-writing",
       "source": "./plugins/writing",
       "description": "Draft, revise, and audit prose and technical documentation: voice capture, brand voice, copy editing, direct response, and Minto structure.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "category": "writing",
       "keywords": [
         "writing",
