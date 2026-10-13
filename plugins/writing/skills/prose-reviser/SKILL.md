@@ -141,6 +141,7 @@ Compare the revision with the locked anchors:
 - No action, deadline, warning, or exception disappeared.
 - No new experience, endorsement, source, or claim appeared.
 - Tone and directness fit the reader and genre.
+- The intended reader has enough context to understand the point, and unfamiliar terms are briefly defined. Use only supplied material for added context and definitions; do not invent missing information.
 - The ending stops when the work is complete.
 
 ## Output
