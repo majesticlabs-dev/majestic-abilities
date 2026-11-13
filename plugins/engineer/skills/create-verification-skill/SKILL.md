@@ -57,7 +57,7 @@ For UI work, require screenshots and/or video from the actual run. Inspect the c
 
 Use one short report that links each acceptance criterion to its expected result, observed result, status, and artifact. Include reproduction commands, build identity, external substitutes, cleanup, and relevant limits. Save evidence outside the checkout or in the project's designated ignored artifact location. Remove secrets and private data before sharing. Do not claim deployment or live-service behavior from local test evidence.
 
-For state-machine or concurrency risks, the verifier may use a TLA+ model or another suitable formal method when the task warrants it and tools are available. Retain the model, assumptions, checked properties, checker result, and any counterexample. Model checking proves properties of the model under those assumptions; it does not replace runtime proof of the implementation.
+For state-machine or concurrency risks, use the optional [formal-verification guidance](references/formal-verification.md) when a concrete proof gap warrants it. Select a method supported by the project; a finite-state Python model can explore bounded transitions without additional packages. Record code-to-model correspondence, assumptions, checked properties, checker results, and counterexamples, and demonstrate that the check can fail. Separate subsystem checks only when their contracts are independent. Model checking establishes properties of the model within its stated scope; it does not replace runtime proof of the implementation.
 
 ## 4. Keep additions optional
 

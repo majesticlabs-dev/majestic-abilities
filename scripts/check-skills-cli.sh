@@ -19,8 +19,8 @@ list_file="$tmp_home/skills-list.txt"
 printf '%s\n' "$list_output" > "$list_file"
 printf '%s\n' "$list_output"
 
-if ! grep -Fq 'Found 185 skills' "$list_file"; then
-  echo "FAIL: Skills CLI must discover exactly 185 abilities" >&2
+if ! grep -Fq 'Found 186 skills' "$list_file"; then
+  echo "FAIL: Skills CLI must discover exactly 186 abilities" >&2
   exit 1
 fi
 
@@ -28,6 +28,7 @@ for skill in \
   engineering-workflow \
   create-verification-skill \
   maintain-verification-skill \
+  statechart \
   codebase-investigation \
   technical-writing \
   session-recall \
@@ -55,7 +56,7 @@ done
   npx --yes "skills@${skills_cli_version}" add "$source_ref" \
     --skill plugin-release session-handoff sort-hat \
       engineering-workflow code-review implementation-planning test-reviewer writing-pr \
-      create-verification-skill maintain-verification-skill \
+      create-verification-skill maintain-verification-skill statechart \
       codebase-investigation technical-writing session-recall \
     --agent codex \
     --copy \
@@ -64,13 +65,44 @@ done
 
 for skill in plugin-release session-handoff sort-hat \
   engineering-workflow code-review implementation-planning test-reviewer writing-pr \
-  create-verification-skill maintain-verification-skill \
+  create-verification-skill maintain-verification-skill statechart \
   codebase-investigation technical-writing session-recall; do
   if [ ! -f "$tmp_project/.agents/skills/$skill/SKILL.md" ]; then
     echo "FAIL: Skills CLI did not install $skill for Codex" >&2
     exit 1
   fi
 done
+
+# Exercise the installed example, including its expected violation signal.
+python3 - "$tmp_project" <<'PY'
+import json
+from pathlib import Path
+import subprocess
+import sys
+
+skills = Path(sys.argv[1]) / ".agents/skills"
+assert (skills / "create-verification-skill/references/formal-verification.md").is_file()
+example = skills / "statechart/references/finite-state-example.py"
+for args, expected_exit, states, transitions in [
+    ([], 0, 4, 3),
+    (["--broken"], 1, 5, 4),
+    ([], 0, 4, 3),
+]:
+    run = subprocess.run([sys.executable, str(example), *args], capture_output=True, text=True)
+    assert run.returncode == expected_exit, (run.returncode, run.stderr)
+    result = json.loads(run.stdout)
+    assert result["complete"] is True
+    assert (result["states"], result["transitions"]) == (states, transitions)
+    assert result["status"] == ("violated" if args else "passed")
+    if args:
+        trace = result["shortest_safety_traces"]["PaymentRequiresApproval"]
+        assert [step["action"] for step in trace] == ["Start", "Pay request"]
+        assert trace[-1]["state"] == {"phase": "paid", "approved": False}
+        assert "Violates: PaymentRequiresApproval" in result["mermaid"]
+    else:
+        assert result["shortest_safety_traces"] == {}
+print("OK: installed formal reference and statechart example, including expected violation")
+PY
 
 if [ ! -f "$tmp_project/.agents/skills/engineering-workflow/agents/openai.yaml" ]; then
   echo "FAIL: Skills CLI did not copy the engineering-workflow invocation policy" >&2
@@ -140,4 +172,4 @@ for skill in \
   fi
 done
 
-echo "OK: Skills CLI ${skills_cli_version} discovers 185 abilities, installs cookbook dependencies, and retains engineering-workflow runtime skills after creator cleanup"
+echo "OK: Skills CLI ${skills_cli_version} discovers 186 abilities, installs cookbook dependencies, and retains engineering-workflow runtime skills after creator cleanup"

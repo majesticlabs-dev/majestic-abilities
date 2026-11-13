@@ -382,8 +382,8 @@ for plugin_dir in plugin_dirs:
                 fail(f"cannot resolve symlink {path}: {error}")
 
 standalone_count = len(plugin_skill_files) - len(plugin_cookbook_files)
-if standalone_count != 174:
-    fail(f"expected 174 standalone plugin skills, found {standalone_count}")
+if standalone_count != 175:
+    fail(f"expected 175 standalone plugin skills, found {standalone_count}")
 if len(plugin_cookbook_files) != 9:
     fail(f"expected 9 plugin-hosted cookbooks, found {len(plugin_cookbook_files)}")
 for obsolete_directory in (root / "cookbooks", root / "skills"):
