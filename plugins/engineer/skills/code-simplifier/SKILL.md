@@ -37,6 +37,17 @@ Find redundant state, unintended drift between duplicated rules, parameter spraw
 
 Remove pre-release compatibility scaffolding only after verifying that it has no deployed, persisted, public, external, dependent-branch, or in-repository consumer. If any consumer or guarantee is uncertain, keep it.
 
+#### Change-together analysis
+
+Ask whether the current boundaries match what must change together:
+
+- **Hidden coupling:** a shared rule, implicit call order, or cross-module state requires coordinated changes that the contracts do not expose.
+- **Needless coupling:** consumers depend on implementation details, or a shared abstraction forces unrelated workflows to change together.
+
+Trace actual callers, state flow, and contracts before reporting a problem. Use focused Git history when it can establish recurring co-changes; co-change alone does not prove a shared responsibility. Treat retries, exceptions, and caller-specific branches as leads to investigate, not defects to remove.
+
+Group symptoms with a demonstrated common cause under the smallest in-scope corrective change. Record the affected paths, coupling evidence, and behavior checks needed before and after the change. Prefer explicit contracts or local duplication over consolidation when they better isolate independent changes. Do not turn this analysis into a repository-wide redesign or measure success by the number of special cases removed.
+
 ### Efficiency
 
 Find clearly redundant computation or I/O, repeated calls, recurring no-op updates, and overly broad reads or loads when simplification can remove them without changing behavior. Leave broader performance concerns, such as N+1 work, concurrency, hot-path blocking, existence-check races, leaks, and unbounded structures, outside this simplification pass. Change only work that is proven unnecessary and behavior-equivalent.
