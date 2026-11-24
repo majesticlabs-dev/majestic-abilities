@@ -17,6 +17,12 @@ Work from the supplied requirements and current source. Keep temporary runs outs
 
 Select the named flow, or prioritize a user-important path using supplied goals and evidence of risk. Identify the initial conditions, actors, user-visible states, events, guards, and terminal outcomes. Include rejection, cancellation, retries, persistence, and concurrent actions only where relevant evidence supports them.
 
+When recovering a lifecycle from existing code, inventory the relevant state before choosing model variables:
+
+- Look past the status field to flags, timestamps, queued work, and external systems that hold their own view of the entity. Trace what observes expiry and what can still act after deletion.
+- Trace each path that changes or reinterprets that state. Record its trigger, actual guard, writes or side effects, transaction or lock boundary, and source location. Include handlers, workers, callbacks, and scheduled jobs where they affect the flow.
+- Account for environment behavior supported by the integration, such as duplicate or out-of-order delivery, crashes between writes, or a retry after a timeout when the original operation may have succeeded.
+
 Write each safety rule in plain language, with its requirement source, before encoding its predicate. Distinguish intended behavior from observed implementation behavior and unresolved expectations. Ask only when an unknown expectation changes the result.
 
 Map each variable and action to its requirement or source symbol. State what is atomic and why. Model independently interleavable operations as separate steps, and represent relevant environment outcomes as alternative transitions. Specify finite domains and initial states. A screen-only model cannot check a rule about stored data it does not represent.
@@ -24,6 +30,8 @@ Map each variable and action to its requirement or source symbol. State what is 
 ## 2. Execute a finite-state check
 
 Use a project-supported checker when available; otherwise a small explicit Python model can enumerate reachable states using the standard library. The runnable [finite-state example](references/finite-state-example.py) demonstrates this approach, not a universal runner or a model of the user's system. Adapt states, actions, and properties to actual evidence rather than treating the example's contract as a requirement.
+
+When the project uses TLC or the user requests TLA+, read the [TLA+ and TLC reference](references/tla-tlc.md).
 
 From this skill's directory, the example can be exercised with:
 
